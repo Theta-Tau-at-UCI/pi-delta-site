@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./App.scss";
 import About from "./Pages/About/About";
 import Brothers from "./Pages/Brothers/Brothers";
 import Landing from "./Pages/Landing/Landing";
