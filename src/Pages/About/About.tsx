@@ -1,6 +1,6 @@
 /*import { Button, Modal } from "react-bootstrap"; */
 import React, { Fragment } from "react";
-import "./About.scss"
+import "./About.css"
 
 
 export default class About extends React.Component<{}, { selected: string }> {
