@@ -11,3 +11,18 @@
 .footer-text{
     text-align: center;
 }
+
+.credits{
+    margin-top: 20px;
+    text-align: right;
+    font-size: 10px;
+}
+
+.logo{
+    height: 100%;
+    width: 50%;
+}
+
+a {
+    color: #212529;
+}
