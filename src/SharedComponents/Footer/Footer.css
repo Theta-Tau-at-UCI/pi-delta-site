@@ -1,6 +1,6 @@
 .footer {
-    margin-top: 1rem;
-    padding: 1rem;
+
+    padding-top: 1rem;
     background-color: #808080;
     position: fixed;
     bottom: 0;
@@ -10,4 +10,28 @@
 
 .footer-text{
     text-align: center;
+}
+
+.credits{
+    margin-top: 20px;
+    text-align: right;
+    font-size: 10px;
+}
+
+.logo{
+    width: 66%;
+    height: auto;
+    padding-bottom: 10px;
+    display:block;
+    margin:auto;
+}
+
+
+a {
+    color: #212529;
+}
+p{
+    color: white;
+    text-align: center;
+    font-size: 1.0rem;
 }
