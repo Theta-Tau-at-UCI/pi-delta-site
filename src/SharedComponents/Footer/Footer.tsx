@@ -11,8 +11,9 @@ export default class Footer extends React.Component<{}, { selected: string }> {
             <Fragment>
                 <section className= "footer">
                     <div className="row">
-                        <div className="col sm-3 md-3 first-column">
+                        <div className="col sm-3 md-3 logo-column">
                             <img className = "logo" src = {tt_logo_placeholder}/>
+                            <p> <strong>Engineering Leaders</strong> <i> for Service, Professionalism, and Brotherhood. </i></p>
                         </div>
                         <div className="col sm-3 md-3 about-column">
                             <div className="sm-3 md-3"><strong> About</strong></div>

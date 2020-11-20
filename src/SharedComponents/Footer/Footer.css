@@ -1,6 +1,6 @@
 .footer {
-    margin-top: 1rem;
-    padding: 1rem;
+
+    padding-top: 1rem;
     background-color: #808080;
     position: fixed;
     bottom: 0;
@@ -19,10 +19,19 @@
 }
 
 .logo{
-    width: 100%;
+    width: 66%;
     height: auto;
+    padding-bottom: 10px;
+    display:block;
+    margin:auto;
 }
+
 
 a {
     color: #212529;
+}
+p{
+    color: white;
+    text-align: center;
+    font-size: 1.0rem;
 }
