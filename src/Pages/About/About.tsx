@@ -5,7 +5,7 @@ import Pillar from "./Pillar";
 import tt_logo_placeholder from "../../Media/tt-wordmark-uci.png";
 
 
-export default class About extends React.Component<{}, { selected: string }> {
+export default class About extends React.Component<{}, { }> {
     constructor(props: {}) {
         super(props);
     }
@@ -13,7 +13,7 @@ export default class About extends React.Component<{}, { selected: string }> {
     render() {
         return (
             <Fragment>
-                <div id="chaper-info">
+                <div id="chapter-info">
                     <h1>Our Chapter</h1>
                     <p>Founded in 1904 at the University of Minnesota in Minneapolis, Theta Tau
                         is the oldest, largest, and foremost Fraternity for Engineers. Today,
