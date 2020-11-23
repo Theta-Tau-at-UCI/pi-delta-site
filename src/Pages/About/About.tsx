@@ -5,7 +5,11 @@ import Pillar from "./Pillar";
 import tt_logo from "../../Media/tt-logo.png";
 
 
-export default class About extends React.Component<{}, { selected: string }> {
+export default class About extends React.Component<{}, { }> {
+    constructor(props: {}) {
+        super(props);
+    }
+    
     render() {
         return (
             <Fragment>
