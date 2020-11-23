@@ -1,12 +1,14 @@
 import React from "react";
 import './Pillar.css'
 
-export default function Pillar(props:string) {
+export default function Pillar(props:any) {
   return (
-    <div className="pillar-wrapper">
+    <div className="row">
         <img src={props.img} alt="Picture of Pillar"></img>
-        <h2>{props.value}</h2>
-        <div className="description">{props.description}</div>
+        <div className="col">
+            <h2>{props.value}</h2>
+            <div className="description">{props.description}</div>
+        </div>
     </div>
   );
 }

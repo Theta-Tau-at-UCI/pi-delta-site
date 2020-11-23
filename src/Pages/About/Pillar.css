@@ -1,0 +1,7 @@
+.row {
+    flex-wrap: nowrap;
+}
+
+h2 {
+    text-transform: uppercase;
+}
