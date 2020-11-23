@@ -10,13 +10,13 @@ export default class Brothers extends React.Component {
     render() {
         return (
             <Fragment>
-               <div><SelectPage/> </div>
+               <div><SelectClass/><ActiveOrAlumniButton/> </div>
             </Fragment>
         );
     }
 }
 
-class SelectPage extends React.Component {
+class SelectClass extends React.Component {
     classes = ["Founding", "Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda",
                 "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Tau"]
 
@@ -25,6 +25,19 @@ class SelectPage extends React.Component {
             <DropdownButton id="button" title="Class">
                 {this.classes.reverse().map((class_name) =>  <Dropdown.Item href="#/action-1">{class_name}</Dropdown.Item>)}
             </DropdownButton>
+        );
+    }
+}
+
+class ActiveOrAlumniButton extends React.Component {
+    render() {
+        return (
+            <div>
+                <div>
+                    <button type="button" id = "button" className="btn">Actives</button>
+                    <button type="button" id = "button" className="btn">Alumni</button>
+                </div>
+            </div>
         );
     }
 }

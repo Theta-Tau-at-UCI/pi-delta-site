@@ -1,4 +1,9 @@
 #button{
     float: right;
     background-color: #8b0000;
+    color:white;
+}
+
+.btn-toolbar{
+    float:right;
 }
