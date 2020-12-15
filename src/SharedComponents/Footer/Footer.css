@@ -7,17 +7,22 @@
     width: 100%;
 }
 
-.footer-text{
+.footer-text {
     text-align: center;
 }
 
+<<<<<<< HEAD
 .credits{
     margin-top: 0px;
+=======
+.credits {
+    margin-top: 20px;
+>>>>>>> 30433315f6351ec1b493823aa4ac4c90280dc590
     text-align: right;
     font-size: 10px;
 }
 
-.logo{
+.logo {
     width: 66%;
     height: auto;
     padding-bottom: 10px;
@@ -25,11 +30,11 @@
     margin:auto;
 }
 
-a{
+a {
     color: #212529;
 }
 
-p{
+p {
     color: white;
     text-align: center;
     font-size: 1.0rem;
