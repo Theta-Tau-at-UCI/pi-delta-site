@@ -7,3 +7,12 @@
 .btn-toolbar{
     float:right;
 }
+
+p {
+    color: black;
+}
+
+img{
+    width:33%;
+    height:20%
+}

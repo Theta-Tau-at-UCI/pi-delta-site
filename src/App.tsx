@@ -20,7 +20,7 @@ function App() {
           <Route path="/about"  component={About} />
           <Route path="/brothers"  component={Brothers}/>
           <Route path="/recruitment"  component={Recruitment}/>
-          <Footer/>
+          {/*<Footer/>*/}
         </Fragment>
       </Router>
 
