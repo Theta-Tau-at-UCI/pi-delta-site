@@ -8,11 +8,47 @@
     float:right;
 }
 
-p {
+.brother-text {
+    size: 10px;
     color: black;
 }
 
-img{
-    width:33%;
-    height:20%
+body{
+    background-color: white;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    background-color: white;
+    padding: 5px;
+}
+.grid-item {
+    background-color: white;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.headshot {
+    border: 2px solid #8b0000;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    box-shadow: 5px 5px 5px #999;
+}
+
+.alumni{
+    font-size: 1rem;
+}
+
+.buttonBar{
+    width: 100%;
+    margin: 0;
+}
+
+.names{
+    color:black;
 }

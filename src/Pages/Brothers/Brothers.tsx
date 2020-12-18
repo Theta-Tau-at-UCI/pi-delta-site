@@ -1,15 +1,8 @@
 import { Button, Modal, Dropdown, DropdownButton, Container } from "react-bootstrap";
-import React, { Fragment } from "react";
+import React, {Fragment, ReactEventHandler} from "react";
 import "./Brothers.css"
 import {brotherInfo} from "./brother_info.js"
 
-// import GridList from '@material-ui/core/GridList';
-// import GridListTile from '@material-ui/core/GridListTile';
-// import GridListTileBar from '@material-ui/core/GridListTileBar';
-// import ListSubheader from '@material-ui/core/ListSubheader';
-// import IconButton from '@material-ui/core/IconButton';
-// import InfoIcon from '@material-ui/icons/Info';
-// import tileData from './tileData';
 
 
 export default class Brothers extends React.Component<{}, {selected: string}> {
@@ -20,50 +13,66 @@ export default class Brothers extends React.Component<{}, {selected: string}> {
         }
     }
 
+    toggle_actives = () => {
+        this.setState({selected: "Actives"});
+    };
+    toggle_alumni = () => {
+        this.setState({selected: "Alumni"});
+    };
+    toggle_class = (class_name: string) => {
+        this.setState({selected: class_name})
+    }
 
     render() {
         if (this.state.selected === "Actives") {
             return (
                 <Fragment>
-                    <div><SelectClass/><ActiveOrAlumniButton/></div>
+                    <div className = "buttonBar"><SelectClass toggle_class = {this.toggle_class}/><ActiveOrAlumniButton toggle_actives={this.toggle_actives} toggle_alumni={this.toggle_alumni}/></div>
                     <h1> Cabinet and Exec Board</h1>
-                    {brotherInfo.filter(brother => (brother.active_status === "Y" && brother.cabby_exec_status === "Y")).map(brother =>(
-                            <BrotherCard id= {brother.id} name = {brother.name} class = {brother.class}  linkedin_url = {brother.linkedin_url} major = {brother.major} cabby_exec_status = {brother.cabby_exec_status} profile_url = {brother.profile_url} />
-                    ))}
+
+                    <div className="grid-container">
+                        {brotherInfo.filter(brother => (brother.active_status === "Y" && brother.cabby_exec_status === "Y")).map(brother =>(
+                            <div className="grid-item"> <BrotherCard id= {brother.id} name = {brother.name} class = {brother.class}  linkedin_url = {brother.linkedin_url} major = {brother.major} cabby_exec_status = {brother.cabby_exec_status} profile_url = {brother.profile_url} />
+                            <p className = "names"> {brother.name}</p>
+                            </div>
+                        ))}
+                    </div>
 
                     <h1> Actives</h1>
-                    {brotherInfo.filter(brother => (brother.active_status === "Y" && brother.cabby_exec_status === "N")).map(brother =>(
-                        <li>
-                            <BrotherCard id= {brother.id} name = {brother.name} class = {brother.class}  linkedin_url = {brother.linkedin_url} major = {brother.major} cabby_exec_status = {brother.cabby_exec_status} profile_url = {brother.profile_url} />
+                    <div className="grid-container">
+                        {brotherInfo.filter(brother => (brother.active_status === "Y" && brother.cabby_exec_status === "N")).map(brother =>(
+                            <div className="grid-item"> <BrotherCard id= {brother.id} name = {brother.name} class = {brother.class}  linkedin_url = {brother.linkedin_url} major = {brother.major} cabby_exec_status = {brother.cabby_exec_status} profile_url = {brother.profile_url} />
+                            <p className = "names"> {brother.name}</p>
+                            </div>
+                        ))}
+                    </div>
 
-                        </li>
-                    ))}
                 </Fragment>
             );
         }
         else if (this.state.selected === "Alumni"){
             return(
                 <Fragment>
-                    <div><SelectClass/><ActiveOrAlumniButton/></div>
+                    <div className = "buttonBar"><SelectClass toggle_class = {this.toggle_class}/><ActiveOrAlumniButton  toggle_actives={this.toggle_actives} toggle_alumni={this.toggle_alumni}/></div>
+                    <div className="grid-container">
                     {brotherInfo.filter(brother => (brother.active_status === "N")).map(brother =>(
-                        <li>
-                            <BrotherCard id= {brother.id} name = {brother.name} class = {brother.class}  linkedin_url = {brother.linkedin_url} major = {brother.major} cabby_exec_status = {brother.cabby_exec_status} profile_url = {brother.profile_url} />
-
-                        </li>
+                            <div className="grid-item"> <AlumniCard id= {brother.id} name = {brother.name} class = {brother.class}  linkedin_url = {brother.linkedin_url} major = {brother.major} cabby_exec_status = {brother.cabby_exec_status} profile_url = {brother.profile_url} />
+                            </div>
                     ))}
+                    </div>
                 </Fragment>
             );
         }
         else{
             return(
                 <Fragment>
-                    <div><SelectClass/><ActiveOrAlumniButton/></div>
-                    <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        {brotherInfo.filter(brother => (brother.class === this.state.selected)).map(brother =>(
-                            <li>
-                                <BrotherCard id= {brother.id} name = {brother.name} class = {brother.class}  linkedin_url = {brother.linkedin_url} major = {brother.major} cabby_exec_status = {brother.cabby_exec_status} profile_url = {brother.profile_url} />
-
-                            </li>
+                    <div className = "buttonBar"><SelectClass toggle_class = {this.toggle_class}/><ActiveOrAlumniButton  toggle_actives={this.toggle_actives} toggle_alumni={this.toggle_alumni}/></div>
+                    <div><h1> {this.state.selected} Class </h1></div>
+                    <div className="grid-container">
+                        {brotherInfo.filter(brother => (brother.class == this.state.selected)).map(brother =>(
+                            <div className="grid-item"> <BrotherCard id= {brother.id} name = {brother.name} class = {brother.class}  linkedin_url = {brother.linkedin_url} major = {brother.major} cabby_exec_status = {brother.cabby_exec_status} profile_url = {brother.profile_url} />
+                            <p className = "names"> {brother.name}</p>
+                            </div>
                         ))}
                     </div>
 
@@ -74,27 +83,26 @@ export default class Brothers extends React.Component<{}, {selected: string}> {
     }
 }
 
-class SelectClass extends React.Component {
+class SelectClass extends React.Component<{toggle_class: any}, {}> {
     render() {
-        let classes = new Set()
-        for (const brother of brotherInfo){
-            classes.add(brother.class)
-        }
+
+        let classes = ["Founding", "Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta",
+        "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Tau"]
         return (
-            <DropdownButton id="button" title="Class">
-                {/*{Array.from(classes).map((class_name) =>  <Dropdown.Item href="#/action-1">{class_name}</Dropdown.Item>)}*/}
+            <DropdownButton id="button" title="Class"  >
+                {classes.map((class_name) =>  <Dropdown.Item  onClick = {() => this.props.toggle_class(class_name)}>{class_name}</Dropdown.Item>)}
             </DropdownButton>
         );
     }
 }
 
-class ActiveOrAlumniButton extends React.Component {
+class ActiveOrAlumniButton extends React.Component <{toggle_actives: ReactEventHandler, toggle_alumni: ReactEventHandler}, {}>{
     render() {
         return (
             <div>
                 <div>
-                    <button type="button" id = "button" className="btn">Actives</button>
-                    <button type="button" id = "button" className="btn">Alumni</button>
+                    <button type="button" id = "button" className="btn" onClick = {this.props.toggle_actives}>Actives</button>
+                    <button type="button" id = "button" className="btn" onClick = {this.props.toggle_alumni}>Alumni</button>
                 </div>
             </div>
         );
@@ -108,7 +116,21 @@ class BrotherCard extends React.Component<{id: number, name: string, class: stri
     render() {
         return (
             <div>
-                <img src={this.props.profile_url}  />
+                <img className = "headshot" src={this.props.profile_url}  />
+                <p> {this.props.name}</p>
+            </div>
+        );
+    }
+}
+
+class AlumniCard extends React.Component<{id: number, name: string, class: string, linkedin_url: string, major: string, cabby_exec_status: string, profile_url:string}, {}> {
+    constructor(props: any) {
+        super(props);
+    }
+    render() {
+        return (
+            <div>
+                <a href={this.props.profile_url}> <p className = "brother-text"> {this.props.name}</p> </a>
             </div>
         );
     }

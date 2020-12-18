@@ -2,7 +2,7 @@ export const brotherInfo = [
     {
         "id": 1.0,
         "name": "Richard Staebler",
-        "class": "Founder",
+        "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Aerospace Engineering",
@@ -12,7 +12,7 @@ export const brotherInfo = [
     {
         "id": 2.0,
         "name": "Jonathan Wong",
-        "class": "Founder",
+        "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
@@ -22,7 +22,7 @@ export const brotherInfo = [
     {
         "id": 3.0,
         "name": "Sarah Leung",
-        "class": "Founder",
+        "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Civil Engineering",
@@ -32,7 +32,7 @@ export const brotherInfo = [
     {
         "id": 4.0,
         "name": "Jacqueline Kim",
-        "class": "Founder",
+        "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Civil Engineering",
@@ -42,7 +42,7 @@ export const brotherInfo = [
     {
         "id": 5.0,
         "name": "Terence Leung",
-        "class": "Founder",
+        "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
@@ -52,7 +52,7 @@ export const brotherInfo = [
     {
         "id": 6.0,
         "name": "Jonathan Turcios",
-        "class": "Founder",
+        "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Electrical Engineering",
@@ -62,7 +62,7 @@ export const brotherInfo = [
     {
         "id": 7.0,
         "name": "Amy Nguyen",
-        "class": "Founder",
+        "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Earth System Science",
@@ -72,7 +72,7 @@ export const brotherInfo = [
     {
         "id": 8.0,
         "name": "Jeffrey Go",
-        "class": "Founder",
+        "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Biomedical Engineering",
@@ -82,7 +82,7 @@ export const brotherInfo = [
     {
         "id": 9.0,
         "name": "Christopher Louie",
-        "class": "Founder",
+        "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
