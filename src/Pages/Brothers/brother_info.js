@@ -1262,7 +1262,7 @@ export const brotherInfo = [
     {
         "id": 127.0,
         "name": "Lawrence Chong",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Computer Science and Engineering",
@@ -1272,7 +1272,7 @@ export const brotherInfo = [
     {
         "id": 128.0,
         "name": "Alvin Kwong",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Computer Science",
@@ -1282,7 +1282,7 @@ export const brotherInfo = [
     {
         "id": 129.0,
         "name": "Calvin Li",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Material Science Engineering",
@@ -1292,7 +1292,7 @@ export const brotherInfo = [
     {
         "id": 130.0,
         "name": "Yu Wei Liu ",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Computer Science",
@@ -1302,7 +1302,7 @@ export const brotherInfo = [
     {
         "id": 131.0,
         "name": "John Luong",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Biomedical Engineering",
@@ -1312,7 +1312,7 @@ export const brotherInfo = [
     {
         "id": 132.0,
         "name": "Jessica Ma",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Electrical Engineering",
@@ -1322,7 +1322,7 @@ export const brotherInfo = [
     {
         "id": 133.0,
         "name": "Laura Marsh",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Software Engineering",
@@ -1332,7 +1332,7 @@ export const brotherInfo = [
     {
         "id": 134.0,
         "name": "Phi Nguyen",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Computer Science",
@@ -1342,7 +1342,7 @@ export const brotherInfo = [
     {
         "id": 136.0,
         "name": "Nathan Padrid",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Software Engineering",
@@ -1352,7 +1352,7 @@ export const brotherInfo = [
     {
         "id": 137.0,
         "name": "Michael Pagdonsolan",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
@@ -1362,7 +1362,7 @@ export const brotherInfo = [
     {
         "id": 138.0,
         "name": "Aina Tancinco",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Computer Science",
@@ -1372,7 +1372,7 @@ export const brotherInfo = [
     {
         "id": 139.0,
         "name": "Viet Tran",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Aerospace Engineering",
@@ -1382,7 +1382,7 @@ export const brotherInfo = [
     {
         "id": 140.0,
         "name": "Mandy Weng ",
-        "class": "Lamba",
+        "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Computer Science",
@@ -1875,7 +1875,7 @@ export const brotherInfo = [
         "class": "Omicron",
         "active_status": "Y",
         "linkedin_url": "http://linkedin.com/in/louis-lin31",
-        "major": "Environmental Engineering",
+        "major": "Civil Engineering",
         "cabby_exec_status": "Y",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/louislin.jpg"
     },

@@ -1,7 +1,17 @@
-#button{
-    float: right;
+#actives-button{
     background-color: #8b0000;
     color:white;
+    margin: 5px;
+}
+#alumni-button{
+    background-color: #8b0000;
+    color:white;
+    margin: 5px;
+}
+#class-button{
+    background-color: #8b0000;
+    color:white;
+    margin: 5px;
 }
 
 .btn-toolbar{
@@ -20,9 +30,9 @@ body{
 
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     background-color: white;
-    padding: 5px;
+    /*padding: 5px;*/
 }
 .grid-item {
     background-color: white;
@@ -33,10 +43,10 @@ body{
 
 .headshot {
     border: 2px solid #8b0000;
-    object-fit: cover;
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
+    /*object-fit: cover;*/
+    /*border-radius: 50%;*/
+    height: 100%;
+    width: 100%;
     box-shadow: 5px 5px 5px #999;
 }
 
@@ -45,10 +55,20 @@ body{
 }
 
 .buttonBar{
+    padding: 20px;
     width: 100%;
     margin: 0;
 }
 
 .names{
-    color:black;
+    color:#8b0000;
+}
+
+.close-button{
+    background-color: #8b0000;
+}
+
+.majors {
+    font-style: italic;
+    color: #8b0000;
 }
