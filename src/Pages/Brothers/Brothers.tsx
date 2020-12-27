@@ -141,7 +141,8 @@ class AlumniCard extends React.Component<{id: number, name: string, class: strin
     render() {
         return (
             <div>
-                <a href={this.props.profile_url}> <p className = "brother-text"> {this.props.name}</p> </a>
+                {/*<a href={this.props.profile_url}> <p className = "brother-text"> {this.props.name}</p> </a>*/}
+                <img className = "headshot" src = {this.props.profile_url}/>
             </div>
         );
     }

@@ -2,8 +2,9 @@
   background: #8b0000;
 }
 
-.navbar-light .navbar-nav .nav-link{
+.navbar-light .navbar-nav .nav-link .nav-dropdown{
   color: #ffffff;
+  font-weight: bold;
 }
 
 .navbar-brand img{

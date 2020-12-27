@@ -1,6 +1,6 @@
 import React from "react";
 import tt_logo_placeholder from "../../Media/tt-logo.png";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./NavigationBar.css"
 
 
@@ -15,9 +15,9 @@ class NavigationBar extends React.Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link className = "mx-5" href="/about"><strong>About</strong></Nav.Link>
-                        <Nav.Link className = "mx-5" href="/recruitment"><strong>Recruitment</strong></Nav.Link>
-                        <Nav.Link className = "mx-5" href="/brothers"><strong>Brothers</strong></Nav.Link>
+                        <Nav.Link id = "nav-about" className = "mx-5" href="/about">About</Nav.Link>
+                        <Nav.Link id = "nav-recruitment" className = "mx-5" href="/recruitment">Recruitment</Nav.Link>
+                        <NavDropdown id = "nav-brothers" className = "mx-5" title = "Brothers"></NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
