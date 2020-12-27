@@ -2,13 +2,15 @@ import React, { Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import About from "./Pages/About/About";
-import Brothers from "./Pages/Brothers/Brothers";
+import Actives from "./Pages/Brothers/Actives";
+import Alumni from "./Pages/Brothers/Alumni"
+import Officers from "./Pages/Brothers/Officers"
+import Classes from "./Pages/Brothers/Classes"
 import Landing from "./Pages/Landing/Landing";
 import Recruitment from "./Pages/Recruitment/Recruitment";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./SharedComponents/NavigationBar/NavigationBar";
 import NavigationBar from "./SharedComponents/NavigationBar/NavigationBar"
-import Footer from "./SharedComponents/Footer/Footer"
 
 
 function App() {
@@ -17,9 +19,12 @@ function App() {
         <Fragment>
           <NavigationBar/>
           <Route path="/" exact component={Landing} />
-          <Route path="/about"  component={About} />
-          <Route path="/brothers"  component={Brothers}/>
-          <Route path="/recruitment"  component={Recruitment}/>
+          <Route path="/about" component={About} />
+          <Route path="/actives" component={Actives}/>
+          <Route path="/alumni" component={Alumni}/>
+          <Route path="/officers" component={Officers}/>
+          <Route path="/classes" component={Classes}/>
+          <Route path="/recruitment" component={Recruitment}/>
 
         </Fragment>
       </Router>

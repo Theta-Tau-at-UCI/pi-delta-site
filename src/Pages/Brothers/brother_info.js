@@ -1857,6 +1857,7 @@ export const brotherInfo = [
         "linkedin_url": "linkedin.com/in/angelou-lao/",
         "major": "Biomedical Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Marshal",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/angeloulao.jpg"
     },
     {
@@ -1877,6 +1878,7 @@ export const brotherInfo = [
         "linkedin_url": "http://linkedin.com/in/louis-lin31",
         "major": "Civil Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Fundraising",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/louislin.jpg"
     },
     {
@@ -1887,6 +1889,7 @@ export const brotherInfo = [
         "linkedin_url": "https://www.linkedin.com/in/vivian-truong-nguyen/",
         "major": "Software Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Corresponding Secretary",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/viviannguyen.jpg"
     },
     {
@@ -1917,6 +1920,7 @@ export const brotherInfo = [
         "linkedin_url": "linkedin.com/in/victoriaspiegel",
         "major": "Computer Science and Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Vice Regent",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/victoriaspiegel.jpg"
     },
     {
@@ -1947,6 +1951,7 @@ export const brotherInfo = [
         "linkedin_url": "https://www.linkedin.com/in/taekyoowon/",
         "major": "Aerospace Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Regent",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/taekyoowon.jpg"
     },
     {
@@ -1997,6 +2002,7 @@ export const brotherInfo = [
         "linkedin_url": "http://linkedin.com/in/yosephghazal",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Brotherhood",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/yosephghazal.jpg"
     },
     {
@@ -2007,6 +2013,7 @@ export const brotherInfo = [
         "linkedin_url": "https://www.linkedin.com/in/justin-ho627/",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Media",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/justinho.jpg"
     },
     {
@@ -2047,6 +2054,7 @@ export const brotherInfo = [
         "linkedin_url": "www.linkedin.com/in/aaronhliang",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Website Development",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/aaronliang.jpg"
     },
     {
@@ -2077,6 +2085,7 @@ export const brotherInfo = [
         "linkedin_url": "Linkedin.com/in/andrewnguyen11",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Public Relations",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/andrewnguyen.jpg"
     },
     {
@@ -2087,6 +2096,7 @@ export const brotherInfo = [
         "linkedin_url": "https://www.linkedin.com/in/lynettenguyen14/",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Fundraising",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/lynettenguyen.jpg"
     },
     {
@@ -2097,6 +2107,7 @@ export const brotherInfo = [
         "linkedin_url": "https://www.linkedin.com/in/phamlily/",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Treasurer",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/lilypham.jpg"
     },
     {
@@ -2117,6 +2128,7 @@ export const brotherInfo = [
         "linkedin_url": "https://www.linkedin.com/in/areeta",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Scribe",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/areetawong.jpg"
     },
     {
@@ -2137,6 +2149,7 @@ export const brotherInfo = [
         "linkedin_url": "https://www.linkedin.com/in/lauren-yoo/",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Recruitment",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/laurenyoo.jpg"
     },
     {
@@ -2147,6 +2160,7 @@ export const brotherInfo = [
         "linkedin_url": "https://www.linkedin.com/in/changster747",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Engineering",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/jonathanchang.jpg"
     },
     {
@@ -2157,6 +2171,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Software Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Media",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/maireenespiritu.jpg"
     },
     {
@@ -2197,6 +2212,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Computer Science and Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Service",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/clairehyon.jpg"
     },
     {
@@ -2217,6 +2233,7 @@ export const brotherInfo = [
         "linkedin_url": "linkedin.com/in/rliao4",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Professional Development",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/ryanliao.jpg"
     },
     {
@@ -2227,6 +2244,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Brotherhood",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/laurenlin.jpg"
     },
     {
@@ -2237,6 +2255,7 @@ export const brotherInfo = [
         "linkedin_url": "https://www.linkedin.com/in/joshua-liu/",
         "major": "Computer Science and Engineering",
         "cabby_exec_status": "Y",
+        "cabby_exec_position": "Recruitment",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/joshualiu.jpg"
     },
     {
