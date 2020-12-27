@@ -1,15 +1,16 @@
 .footer {
     padding-top: 1rem;
     background-color: #808080;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
     width: 100%;
 }
 
 .footer-text {
     text-align: center;
 }
+
 
 .credits {
     margin-top: 20px;
