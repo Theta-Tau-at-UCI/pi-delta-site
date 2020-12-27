@@ -49,7 +49,7 @@ class BrotherCard extends React.Component<{id: number, name: string, class: stri
             <div>
                 <img className = "headshot" src={this.props.profile_url} onClick = {this.openModal} />
                 <p className = "names" onClick = {this.openModal}> {this.props.name} </p>
-                <p className = "majors" onClick = {this.openModal}> {this.props.major} </p>
+                <p className = "descriptor" onClick = {this.openModal}> {this.props.major} </p>
 
                 <Modal show={this.state.isOpen} onHide={this.closeModal}>
                     <Modal.Header closeButton>

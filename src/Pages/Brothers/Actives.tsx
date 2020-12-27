@@ -13,7 +13,7 @@ export default class Actives extends React.Component<{}, {}> {
     render() {
         return (
             <Fragment>
-                <h1> Actives</h1>
+                <h1> Active Members</h1>
                 <div className="grid-container">
                     {brotherInfo.filter(brother => (brother.active_status === "Y")).map(brother => (
                         <div className="grid-item"><ActiveCard id={brother.id} name={brother.name}
@@ -48,7 +48,7 @@ class ActiveCard extends React.Component<{id: number, name: string, class: strin
             <div>
                 <img className = "headshot" src={this.props.profile_url} onClick = {this.openModal} />
                 <p className = "names" onClick = {this.openModal}> {this.props.name} </p>
-                <p className = "majors" onClick = {this.openModal}> {this.props.major} </p>
+                <p className = "descriptor" onClick = {this.openModal}> {this.props.major} </p>
 
                 <Modal show={this.state.isOpen} onHide={this.closeModal}>
                     <Modal.Header closeButton>
