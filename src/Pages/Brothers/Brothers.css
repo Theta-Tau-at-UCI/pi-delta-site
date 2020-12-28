@@ -27,13 +27,34 @@ body{
     background-color: white;
 }
 
-
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    background-color: white;
-    /*padding: 5px;*/
+@media (min-width: 1024px){
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto;
+        background-color: white;
+        /*padding: 5px;*/
+    }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        background-color: white;
+        /*padding: 5px;*/
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        background-color: white;
+        /*padding: 5px;*/
+    }
+}
+
+
 .grid-item {
     background-color: white;
     padding: 20px;

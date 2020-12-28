@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import About from "./Pages/About/About";
 import Actives from "./Pages/Brothers/Actives";
-import Alumni from "./Pages/Brothers/Alumni"
 import Officers from "./Pages/Brothers/Officers"
 import Classes from "./Pages/Brothers/Classes"
 import Landing from "./Pages/Landing/Landing";
@@ -21,7 +20,6 @@ function App() {
           <Route path="/" exact component={Landing} />
           <Route path="/about" component={About} />
           <Route path="/actives" component={Actives}/>
-          <Route path="/alumni" component={Alumni}/>
           <Route path="/officers" component={Officers}/>
           <Route path="/classes" component={Classes}/>
           <Route path="/recruitment" component={Recruitment}/>

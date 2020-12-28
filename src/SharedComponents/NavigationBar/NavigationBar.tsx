@@ -20,8 +20,6 @@ class NavigationBar extends React.Component {
                         <NavDropdown id = "nav-brothers" className = "mx-5" title = "Brothers">
                             <NavDropdown.Item href="/actives">Actives</NavDropdown.Item>
                             <NavDropdown.Item href="/officers">Officers</NavDropdown.Item>
-                            <NavDropdown.Item href="/alumni">Alumni</NavDropdown.Item>
-                            <NavDropdown.Divider />
                             <NavDropdown.Item href="/classes">Classes</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
