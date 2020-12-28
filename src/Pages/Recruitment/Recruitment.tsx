@@ -1,15 +1,11 @@
-import { Button, Modal } from "react-bootstrap";
+// import { Button, Modal } from "react-bootstrap";
 import React, { Fragment } from "react";
-import "./current_rush";
 import "./faq";
 import "./last_rush";
 import CurrentRush from "./current_rush";
+import Footer from "../../SharedComponents/Footer/Footer"
 
 export default class Recruitment extends React.Component<{}, {}> {
-    constructor(props: {}) {
-        super(props);
-    }
-
 
     render() {
         return (
@@ -17,6 +13,7 @@ export default class Recruitment extends React.Component<{}, {}> {
                 <CurrentRush />
                 <section> Our Last Rush </section>
                 <section> Frequently Asked Questions </section>
+                <Footer />
             </Fragment>
         );
     }
