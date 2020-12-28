@@ -25,7 +25,8 @@ class CurrentRush extends Component {
                                description="Join us for night of puzzles and brain teasers as you try ot escape with the help of your peers!"
                                time_loc="7:00 pm @ Engineering Quad"
                                attire="Casual"
-                               img={test}/>
+                               img1={test}
+                               img2={test}/>
                     <EventNode date="Tuesday 3/30"
                                name="Info Night"
                                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -33,7 +34,8 @@ class CurrentRush extends Component {
                     nostrum quae quam quibusdam soluta totam vero. A ab adipisci dolores repellat unde."
                                time_loc="7:00 pm @ Engineering Quad"
                                attire="Casual"
-                               img={test}/>
+                               img1={test}
+                               img2={test}/>
                     <EventNode date="Wednesday 3/31"
                                name="Professional Development Night"
                                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -41,7 +43,8 @@ class CurrentRush extends Component {
                     nostrum quae quam quibusdam soluta totam vero. A ab adipisci dolores repellat unde."
                                time_loc="7:00 pm @ Engineering Quad"
                                attire="Casual"
-                               img={test}/>
+                               img1={test}
+                               img2={test}/>
                     <EventNode date="Thursday 4/1"
                                name="BBQ"
                                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -49,7 +52,8 @@ class CurrentRush extends Component {
                     nostrum quae quam quibusdam soluta totam vero. A ab adipisci dolores repellat unde."
                                time_loc="7:00 pm @ Engineering Quad"
                                attire="Casual"
-                               img={test}/>
+                               img1={test}
+                               img2={test}/>
                     <EventNode date="Friday 4/2"
                                name="Interviews"
                                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -57,7 +61,8 @@ class CurrentRush extends Component {
                     nostrum quae quam quibusdam soluta totam vero. A ab adipisci dolores repellat unde."
                                time_loc="7:00 pm @ Engineering Quad"
                                attire="Casual"
-                               img={test}/>
+                               img1={test}
+                               img2={test}/>
                 </div>
 
             </div>
@@ -67,7 +72,7 @@ class CurrentRush extends Component {
 
 export default CurrentRush;
 
-class EventNode extends Component<{date: string, name: string, description: string, time_loc: string, attire: string, img: string}, {isHover: boolean}> {
+class EventNode extends Component<{date: string, name: string, description: string, time_loc: string, attire: string, img1: string, img2: string}, {isHover: boolean}> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -79,20 +84,22 @@ class EventNode extends Component<{date: string, name: string, description: stri
     closeEvent = () => this.setState({isHover: false});
 
     render() {
-        let description, time_loc, attire, img;
+        let description, time_loc, attire, img1, img2;
         let expand_div, show_img;
         if (this.state.isHover) {
             description = this.props.description;
             time_loc = this.props.time_loc;
             attire = this.props.attire;
-            img = this.props.img;
+            img1 = this.props.img1;
+            img2 = this.props.img2;
             show_img = "show";
             expand_div = "expand";
         } else {
             description = null;
             time_loc = null;
             attire = null;
-            img = "";
+            img1 = "";
+            img2 = "";
             show_img = "noshow";
             expand_div = "noexpand";
         }
@@ -118,7 +125,8 @@ class EventNode extends Component<{date: string, name: string, description: stri
                     </div>
                 </div>
                 <div className={show_img}>
-                    <img src={img}/>
+                    <img src={img1}/>
+                    <img src={img2}/>
                 </div>
             </div>
         );
