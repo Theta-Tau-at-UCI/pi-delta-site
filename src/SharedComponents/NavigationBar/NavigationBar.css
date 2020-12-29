@@ -12,3 +12,8 @@
   float: left;
   margin-right: 7px;
 }
+
+.dropdown-menu {
+  height:auto;
+  overflow-y: auto;
+}

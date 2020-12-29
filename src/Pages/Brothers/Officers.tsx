@@ -13,14 +13,14 @@ export default class Officers extends React.Component<{}, {}> {
     render() {
         let cabinet = ["Brotherhood", "Fundraising", "Engineering", "Media", "Professional Development", "Public Relations", "Recruitment", "Service", "Website Development"]
         let exec = ["Regent", "Vice Regent", "Scribe", "Treasurer", "Corresponding Secretary", "Marshal"]
+
+
         return (
             <Fragment>
                 <h1> Executive Board</h1>
                 <div className="grid-container">
-                    {(brotherInfo.filter(brother => (brother.active_status === "Y" && (brother.cabby_exec_position !== undefined && exec.includes(brother.cabby_exec_position)))).sort(function(a, b){// @ts-ignore
-                        if(a.cabby_exec_position.toLowerCase() < b.cabby_exec_position.toLowerCase()) return -1;
-                        if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-                        return 0;})).map(brother => (
+                    {(brotherInfo.filter(brother => (brother.active_status === "Y" && (brother.cabby_exec_position !== "NULL" && exec.includes(brother.cabby_exec_position)))).sort((a, b) => exec.indexOf(a.cabby_exec_position) - exec.indexOf(b.cabby_exec_position)
+                        )).map(brother => (
                         <div className="grid-item"><OfficerCard id={brother.id} name={brother.name}
                                                                 class={brother.class}
                                                                 linkedin_url={brother.linkedin_url}
@@ -53,7 +53,7 @@ export default class Officers extends React.Component<{}, {}> {
 
 
 
-class OfficerCard extends React.Component<{id: number, name: string, class: string, linkedin_url: string, major: string, cabby_exec_position: any, profile_url:string}, {isOpen: boolean}> {
+class OfficerCard extends React.Component<{id: number, name: string, class: string, linkedin_url: string, major: string, cabby_exec_position: string | undefined , profile_url:string}, {isOpen: boolean}> {
     constructor(props: any) {
         super(props);
         this.state = {

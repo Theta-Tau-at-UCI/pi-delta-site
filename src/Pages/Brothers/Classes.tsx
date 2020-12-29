@@ -12,13 +12,14 @@ export default class Classes extends React.Component<{}, {selected: string}> {
         }
     }
 
+    classes = ["Founding", "Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta",
+        "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Tau"]
+
     toggle_class = (class_name: string) => {
         this.setState({selected: class_name})
     }
 
     render() {
-        let classes = ["Founding", "Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta",
-            "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Tau"]
 
         return (
             <Fragment>
@@ -26,7 +27,7 @@ export default class Classes extends React.Component<{}, {selected: string}> {
 
                 <div className = "text-right">
                     <DropdownButton className = "d-inline-block" id="class-button" title="Class"  >
-                        {classes.map((class_name) =>  <Dropdown.Item  onClick = {() => this.toggle_class(class_name)}>{class_name}</Dropdown.Item>)}
+                        {this.classes.map((class_name) =>  <Dropdown.Item  onClick = {() => this.toggle_class(class_name)}>{class_name}</Dropdown.Item>)}
                     </DropdownButton>
                 </div>
                 <div className=" grid-container">
