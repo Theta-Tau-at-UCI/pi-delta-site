@@ -2,8 +2,7 @@ import React, { Fragment } from "react";
 import "./About.css"
 import Pillar from "./Pillar";
 import tt_logo from "../../Media/tt-logo.png";
-import Image from 'react-bootstrap/Image';
-import Chart from "./Chart";
+import Image from 'react-bootstrap/Image'
 
 
 export default class About extends React.Component<{}, { }> {
@@ -26,7 +25,7 @@ export default class About extends React.Component<{}, { }> {
                             <div className="row">
                                 <div className="col-sm">
                                     <Image src={tt_logo} fluid />
-                                    <Chart></Chart>
+                                    Pie chart of majors
                                 </div>
                                 <div className="col-sm">
                                     <Image src={tt_logo} fluid />
