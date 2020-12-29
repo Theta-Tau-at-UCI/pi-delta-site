@@ -5,32 +5,31 @@ import {FaInstagram, FaFacebook} from 'react-icons/fa';
 import {HiOutlineMail} from "react-icons/all";
 // icons sourced from https://react-icons.github.io/search
 
-export default class Footer extends React.Component {
+export default class Footer extends React.Component<{}, { selected: string }> {
     render() {
         return (
             <Fragment>
                 <section className= "footer">
-                    <div className="row main-content">
+                    <div className="row">
                         <div className="col sm-3 md-3 logo-column">
                             <img className = "logo" src = {tt_logo_placeholder}/>
                             <p> <strong>Engineering Leaders</strong> <i> for Service, Professionalism, and Brotherhood. </i></p>
                         </div>
-
                         <div className="col sm-3 md-3 about-column">
                             <div className="sm-3 md-3"><strong> About</strong></div>
                             <div>Our Chapter</div>
                             <div>Our Values</div>
                             <div><a href = "/brothers">Brothers</a></div>
                             <div><a href = "https://thetatau.org/">Theta Tau</a></div>
-                        </div>
 
+                        </div>
                         <div className="col sm-3 md-3 recruitment-column">
                             <div className="sm-3 md-3"><strong> Recruitment</strong></div>
                             <div>Info</div>
                             <div>FAQ</div>
                             <div>Events</div>
-                        </div>
 
+                        </div>
                         <div className="col sm-3 md-3 contact-column">
                             <div className="sm-3 md-3"><strong> Contact</strong></div>
                             <div><HiOutlineMail/> ucithetatau@gmail.com</div>
@@ -39,12 +38,13 @@ export default class Footer extends React.Component {
                         </div>
 
                     </div>
-
                     <div className="row credits">
                         <div className="col">Site Developed by 2020-21 Web Dev Committee</div>
                     </div>
+
                 </section>
             </Fragment>
+
         );
     }
 }
