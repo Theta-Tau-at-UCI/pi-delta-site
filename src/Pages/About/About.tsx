@@ -3,7 +3,7 @@ import "./About.css"
 import Pillar from "./Pillar";
 import tt_logo from "../../Media/tt-logo.png";
 import Image from 'react-bootstrap/Image';
-
+import Footer from '../../SharedComponents/Footer/Footer'
 
 export default class About extends React.Component<{}, {}> {
     constructor(props: {}) {
@@ -78,6 +78,7 @@ export default class About extends React.Component<{}, {}> {
                         Map Placeholder
                     </div>
                 </div>
+                <Footer/>
             </Fragment>
         );
     }
