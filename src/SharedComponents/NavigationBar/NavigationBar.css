@@ -2,11 +2,11 @@
   background: #8b0000;
 }
 
-.navbar-light .navbar-nav .nav-link {
-  color: white;
+.navbar-light .navbar-nav .nav-link{
+  color: #ffffff;
 }
 
-.navbar-brand img {
+.navbar-brand img{
   height: 75px;
   float: left;
   margin-right: 7px;
