@@ -2,10 +2,11 @@ import React, { Fragment } from "react";
 import "./About.css"
 import Pillar from "./Pillar";
 import tt_logo from "../../Media/tt-logo.png";
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
+// import Chart from "./Chart";
 
 
-export default class About extends React.Component<{}, { }> {
+export default class About extends React.Component<{}, {}> {
     constructor(props: {}) {
         super(props);
     }
@@ -25,7 +26,7 @@ export default class About extends React.Component<{}, { }> {
                             <div className="row">
                                 <div className="col-sm">
                                     <Image src={tt_logo} fluid />
-                                    Pie chart of majors
+                                    {/* <Chart></Chart> */}
                                 </div>
                                 <div className="col-sm">
                                     <Image src={tt_logo} fluid />
