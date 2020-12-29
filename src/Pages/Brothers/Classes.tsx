@@ -9,7 +9,7 @@ export default class Classes extends React.Component<{}, {selected: string}> {
     constructor(props: {}) {
         super(props);
         this.state = {
-            selected: "Pi"
+            selected: "Pi "
         }
     }
 
