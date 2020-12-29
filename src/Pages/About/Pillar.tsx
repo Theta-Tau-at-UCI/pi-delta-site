@@ -13,8 +13,8 @@ export default class Pillar extends React.Component<{img: string, value: string,
             <div className="pillar-row">
                 <Image src={this.props.img} alt="Picture of Pillar" fluid />
                 <div className="col">
-                    <h2>{this.props.value}</h2>
-                    <div className="description">{this.props.description}</div>
+                    <div className="pillar-title">{this.props.value}</div>
+                    <div className="pillar-description">{this.props.description}</div>
                 </div>
             </div>
         );
