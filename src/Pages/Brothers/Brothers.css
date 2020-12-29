@@ -98,3 +98,8 @@ body{
 h1{
     text-align: left;
 }
+
+.dropdown-menu {
+    height: 50vw;
+    overflow-y: scroll;
+}

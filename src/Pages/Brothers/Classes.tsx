@@ -1,15 +1,14 @@
-
 import React, {Fragment} from "react";
 import "./Brothers.css"
 import {brotherInfo} from "./brother_info.js"
 import Footer from "../../SharedComponents/Footer/Footer"
-
+import {Dropdown, DropdownButton} from "react-bootstrap";
 
 export default class Classes extends React.Component<{}, {selected: string}> {
     constructor(props: {}) {
         super(props);
         this.state = {
-            selected: "Pi "
+            selected: "Founding"
         }
     }
 
@@ -18,10 +17,19 @@ export default class Classes extends React.Component<{}, {selected: string}> {
     }
 
     render() {
+        let classes = ["Founding", "Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta",
+            "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Tau"]
+
         return (
             <Fragment>
-                <h1> {this.state.selected} Class</h1>
-                <div className="grid-container">
+                <div className = "container"> <h1> {this.state.selected}</h1> </div>
+
+                <div className = "text-right">
+                    <DropdownButton className = "d-inline-block" id="class-button" title="Class"  >
+                        {classes.map((class_name) =>  <Dropdown.Item  onClick = {() => this.toggle_class(class_name)}>{class_name}</Dropdown.Item>)}
+                    </DropdownButton>
+                </div>
+                <div className=" grid-container">
                     {brotherInfo.filter(brother => (brother.class === this.state.selected)).map(brother => (
                         <div className="grid-item"><BrotherCard id={brother.id} name={brother.name}
                                                                major={brother.major}
