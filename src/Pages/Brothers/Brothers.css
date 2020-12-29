@@ -1,17 +1,17 @@
 #actives-button{
     background-color: #8b0000;
     color:white;
-    margin: 5px;
+    margin: 2px;
 }
 #alumni-button{
     background-color: #8b0000;
     color:white;
-    margin: 5px;
+    margin: 2px;
 }
 #class-button{
     background-color: #8b0000;
     color:white;
-    margin: 5px;
+    margin: 2px;
 }
 
 .btn-toolbar{
@@ -27,13 +27,34 @@ body{
     background-color: white;
 }
 
-
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    background-color: white;
-    /*padding: 5px;*/
+@media (min-width: 1024px){
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto;
+        background-color: white;
+        /*padding: 5px;*/
+    }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        background-color: white;
+        /*padding: 5px;*/
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        background-color: white;
+        /*padding: 5px;*/
+    }
+}
+
+
 .grid-item {
     background-color: white;
     padding: 20px;
@@ -42,12 +63,10 @@ body{
 }
 
 .headshot {
-    border: 2px solid #8b0000;
-    /*object-fit: cover;*/
-    /*border-radius: 50%;*/
+
     height: 100%;
     width: 100%;
-    box-shadow: 5px 5px 5px #999;
+    box-shadow: 2px 2px 2px #8b0000;
 }
 
 .alumni{
@@ -62,13 +81,25 @@ body{
 
 .names{
     color:#8b0000;
+    text-align: left;
+    font-weight: bold;
+    margin: 0;
 }
 
 .close-button{
     background-color: #8b0000;
 }
 
-.majors {
-    font-style: italic;
+.descriptor {
+    text-align: left;
     color: #8b0000;
+}
+
+h1{
+    text-align: left;
+}
+
+dropdown-menu {
+    height: 50vw;
+    overflow-y: scroll;
 }
