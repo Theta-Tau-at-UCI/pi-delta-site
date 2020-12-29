@@ -27,9 +27,16 @@
     padding: 5rem;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 800px) {
     .section-title {
         padding: 1rem;
+        font-size: 3rem;
+    }
+}
+
+
+@media only screen and (max-width: 650px) {
+    .section-title {
         font-size: 2.5rem;
     }
 
