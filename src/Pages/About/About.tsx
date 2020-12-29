@@ -6,7 +6,7 @@ import Image from 'react-bootstrap/Image';
 import Chart from "./Chart";
 
 
-export default class About extends React.Component<{}, { }> {
+export default class About extends React.Component<{}, {}> {
     constructor(props: {}) {
         super(props);
     }
