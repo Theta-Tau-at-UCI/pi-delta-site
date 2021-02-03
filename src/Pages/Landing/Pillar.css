@@ -1,0 +1,14 @@
+.pillar {
+    width: 18rem;
+    color: black;
+    text-align: center;
+}
+
+.pillar:hover {
+    box-shadow: 0 3px 3px black;
+    background-color: #7C0303;
+}
+
+.pillar-text {
+    color: black;
+}
