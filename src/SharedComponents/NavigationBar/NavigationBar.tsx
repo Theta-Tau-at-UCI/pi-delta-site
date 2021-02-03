@@ -1,5 +1,5 @@
 import React from "react";
-import tt_logo_placeholder from "../../Media/tt-logo.png";
+import tt_logo_placeholder from "../../Media/possible_logo.png";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./NavigationBar.css"
 

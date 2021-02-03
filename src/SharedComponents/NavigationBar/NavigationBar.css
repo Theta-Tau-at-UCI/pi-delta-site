@@ -2,7 +2,7 @@
   background: #8b0000;
 }
 
-.navbar-light .navbar-nav .nav-link .nav-dropdown {
+.navbar-light .navbar-nav .nav-link {
   color: #ffffff;
   font-weight: bold;
 }
@@ -16,4 +16,21 @@
 .dropdown-menu {
   height:auto;
   overflow-y: auto;
+  background-color: #8b0000;
+}
+
+.show{
+  display: block;
+  margin-top: 0;
+  width: 100%;
+}
+
+.navbar-nav{
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.dropdown-item{
+  font-weight: bold;
+  color: white;
 }
