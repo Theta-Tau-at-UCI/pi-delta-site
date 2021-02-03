@@ -1,8 +1,8 @@
 import React, {Fragment} from "react";
-import "./Brothers.css"
 import {brotherInfo} from "./brother_info.js"
 import Footer from "../../SharedComponents/Footer/Footer"
 import {Dropdown, DropdownButton} from "react-bootstrap";
+import "./Brothers.css"
 
 export default class Classes extends React.Component<{}, {selected: string}> {
     constructor(props: {}) {
@@ -23,7 +23,7 @@ export default class Classes extends React.Component<{}, {selected: string}> {
 
         return (
             <Fragment>
-                <div className = "container"> <h1> {this.state.selected}</h1> </div>
+                <h1> {this.state.selected}</h1>
 
                 <div className = "text-right">
                     <DropdownButton className = "d-inline-block" id="class-button" title="Class"  >

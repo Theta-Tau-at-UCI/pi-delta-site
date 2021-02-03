@@ -99,7 +99,8 @@ h1{
     text-align: left;
 }
 
-dropdown-menu {
-    height: 50vw;
+.dropdown-menu.show {
+    width: 50%;
+    height: 66vw;
     overflow-y: scroll;
 }

@@ -13,16 +13,15 @@
   margin-right: 7px;
 }
 
-.dropdown-menu {
+.dropdown-menu.show {
   height:auto;
-  overflow-y: auto;
   background-color: #8b0000;
+  overflow-y: auto;
 }
 
 .show{
   display: block;
   margin-top: 0;
-  width: 100%;
 }
 
 .navbar-nav{
@@ -34,3 +33,4 @@
   font-weight: bold;
   color: white;
 }
+
