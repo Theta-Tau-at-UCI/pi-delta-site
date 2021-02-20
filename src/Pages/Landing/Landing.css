@@ -44,7 +44,7 @@ header .overlay {
 }
 
 h1 {
-    text-align: center;
+    text-align: left;
 }
 
 p {
@@ -58,4 +58,22 @@ p {
     header video {
         display: none;
     }
+}
+
+.media {
+    width: 100%;
+    height: 100%;
+}
+
+#who-we-are{
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+}
+
+#pillars{
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

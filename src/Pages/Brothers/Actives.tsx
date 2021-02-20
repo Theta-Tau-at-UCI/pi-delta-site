@@ -13,7 +13,7 @@ export default class Actives extends React.Component<{}, {}> {
     render() {
         return (
             <Fragment>
-                <h1> Active Members</h1>
+                <h1 className = "class-header"> Active Members</h1>
                 <div className="grid-container">
                     {brotherInfo.filter(brother => (brother.active_status === "Y")).map(brother => (
                         <div className="grid-item"><ActiveCard id={brother.id} name={brother.name}

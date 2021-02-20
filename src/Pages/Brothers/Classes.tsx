@@ -23,12 +23,15 @@ export default class Classes extends React.Component<{}, {selected: string}> {
 
         return (
             <Fragment>
-                <h1> {this.state.selected}</h1>
 
-                <div className = "text-right">
+
+                <div>
+                    <h1 className = "class-header"> {this.state.selected} Class</h1>
+                    <div className = "text-right">
                     <DropdownButton className = "d-inline-block" id="class-button" title="Class"  >
                         {this.classes.map((class_name) =>  <Dropdown.Item  onClick = {() => this.toggle_class(class_name)}>{class_name}</Dropdown.Item>)}
                     </DropdownButton>
+                    </div>
                 </div>
                 <div className=" grid-container">
                     {brotherInfo.filter(brother => (brother.class === this.state.selected)).map(brother => (

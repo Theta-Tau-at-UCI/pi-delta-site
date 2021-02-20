@@ -17,7 +17,7 @@ export default class Officers extends React.Component<{}, {}> {
 
         return (
             <Fragment>
-                <h1> Executive Board</h1>
+                <h1 className = "class-header"> Executive Board</h1>
                 <div className="grid-container">
                     {(brotherInfo.filter(brother => (brother.active_status === "Y" && (brother.cabby_exec_position !== "NULL" && exec.includes(brother.cabby_exec_position)))).sort((a, b) => exec.indexOf(a.cabby_exec_position) - exec.indexOf(b.cabby_exec_position)
                         )).map(brother => (

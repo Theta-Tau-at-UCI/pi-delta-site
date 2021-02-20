@@ -67,6 +67,7 @@ body{
     height: 100%;
     width: 100%;
     box-shadow: 2px 2px 2px #8b0000;
+
 }
 
 .alumni{
@@ -104,3 +105,9 @@ h1{
     height: 66vw;
     overflow-y: scroll;
 }
+
+.class-header{
+    color: #8b0000;
+    text-align: center;
+}
+
