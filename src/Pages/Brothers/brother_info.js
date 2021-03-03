@@ -2473,5 +2473,171 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/tamnguyen.jpg"
+    },
+    {
+        "id": 230.0,
+        "name": "Alyssa Harvey",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "https://www.linkedin.com/in/alyssajharvey/",
+        "major": "Computer Science",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 231.0,
+        "name": "Leo Ho",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 232.0,
+        "name": "Teryn Kum",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "www.linkedin.com/in/teryn-kum",
+        "major": "Software Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 233.0,
+        "name": "Hana Lee",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "http://linkedin.com/in/hanalee394",
+        "major": "Computer Science",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 234.0,
+        "name": "Claire Lin",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "http://linkedin.com/in/clairelin1",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 235.0,
+        "name": "Lewis Lin",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "https://www.linkedin.com/in/lewislin9/",
+        "major": "Civil Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 236.0,
+        "name": "Crystal Grace David Militante",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "https://www.linkedin.com/in/crystalmilitante/",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 237.0,
+        "name": "Thu Nguyen",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "www.linkedin.com/in/thu-inguyen",
+        "major": "Computer Science",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 238.0,
+        "name": "Alec Owen",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "www.linkedin.com/in/alecowen21",
+        "major": "Chemical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 239.0,
+        "name": "Cyre Jorin To",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Computer Science",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 240.0,
+        "name": "Christine Tran",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "https://www.linkedin.com/in/christine-m-tran/",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 241.0,
+        "name": "Jeffrey Truong",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Electrical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 242.0,
+        "name": "Nathan Twigg",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Computer Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 243.0,
+        "name": "Trinity Wong",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Civil Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
+    },
+    {
+        "id": 244.0,
+        "name": "Karen Yip",
+        "class": "Tau",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Civil Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg"
     }
+
 ]

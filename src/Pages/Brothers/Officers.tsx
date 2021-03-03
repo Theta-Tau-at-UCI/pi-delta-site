@@ -30,7 +30,7 @@ export default class Officers extends React.Component<{}, {}> {
                         </div>
                     ))}
                 </div>
-                <h1> Cabinet </h1>
+                <h1 className = "class-header"> Cabinet </h1>
                 <div className="grid-container">
                     {(brotherInfo.filter(brother => (brother.active_status === "Y" && (brother.cabby_exec_position !== undefined && cabinet.includes(brother.cabby_exec_position)))).sort(function(a, b){// @ts-ignore
                         if(a.cabby_exec_position.toLowerCase() < b.cabby_exec_position.toLowerCase()) return -1;

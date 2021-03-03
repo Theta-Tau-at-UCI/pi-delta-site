@@ -65,8 +65,7 @@ p {
     height: 100%;
 }
 
-#who-we-are{
-
+#who-we-are {
     padding-top: 20px;
     padding-bottom: 20px;
     width: 100%;
@@ -74,6 +73,14 @@ p {
 }
 
 #pillars{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid lightgray;
+}
+
+#join {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
 }

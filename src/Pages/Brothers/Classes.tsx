@@ -23,8 +23,6 @@ export default class Classes extends React.Component<{}, {selected: string}> {
 
         return (
             <Fragment>
-
-
                 <div>
                     <h1 className = "class-header"> {this.state.selected} Class</h1>
                     <div className = "text-right">

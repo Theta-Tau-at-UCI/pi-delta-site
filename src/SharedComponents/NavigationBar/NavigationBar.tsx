@@ -10,7 +10,7 @@ class NavigationBar extends React.Component {
         return (
             <Navbar className="color-nav" expand="md" sticky="top">
                 <Navbar.Brand href="/">
-                    <img src={tt_logo_placeholder} alt="theta-tau-logo" />
+                    <img src={tt_logo_placeholder} alt="theta-tau-logo" /> <h1> Theta Tau </h1>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

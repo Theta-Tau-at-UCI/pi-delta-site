@@ -41,7 +41,7 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                               We foster an environment for our brothers to develop individually and professionally
                               while giving back to the community.
                               <br/> <br/>
-                              <Button variant="danger">Learn More</Button> <Button variant = "danger"> Spring '21 Rush</Button></Col>
+                            <a href = "/about"><Button variant="danger">Learn More</Button></a> </Col>
                         <Col> <img className = "media" src={chapter_photo} alt="theta-tau-logo" /></Col>
                     </Row>
                 </Container>
@@ -49,22 +49,25 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                 <Container id = "pillars">
                     <h1>Our Pillars</h1>
                     <CardDeck id={"pillar-cards"}>
-                        <Pillar value={"Brotherhood"} img={chapter_photo} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \n" +
-                        "                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \n" +
-                        "                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \n" +
-                        "                                consequat."}
+                        <Pillar value={"Brotherhood"} img={chapter_photo} description={"We forge lifelong bonds of fraternal friendship, a journey that develops and delivers a network of lasting personal and professional relationships. We foster an inviting, safe, and social environment in which our members become lifelong friends."}
                         />
-                        <Pillar value={"Professionalism"} img={chapter_photo} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \n" +
-                        "                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \n" +
-                        "                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \n" +
-                        "                                consequat."}
+                        <Pillar value={"Professionalism"} img={chapter_photo} description={"We develop and nurture engineers with strong communication, problem-solving, collaboration, and leadership skills that we demonstrate in our profession, our community, and in our lives."}
                         />
-                        <Pillar value={"Service"} img={chapter_photo} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \n" +
-                        "                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \n" +
-                        "                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \n" +
-                        "                                consequat."}
+                        <Pillar value={"Service"} img={chapter_photo} description={"We are known for our service to our college, university and the larger community. Our service projects create a unifying environment for learning and personal growth for our members."}
                         />
                     </CardDeck>
+                </Container>
+                <Container id = "join">
+
+
+                    <Row>
+                        <Col> <h1> Interested In Joining Our Brotherhood? </h1>
+                            We hold recruitment events every fall and spring quarter. Feel free to stop
+                            by at our booth at the engineering quad or contact us via email or social media.
+                            <br/> <br/>
+                            <a href = "/recruitment"> <Button variant = "danger"> Spring '21 Rush</Button> </a> </Col>
+                        <Col> <img className = "media" src={chapter_photo} alt="theta-tau-logo" /></Col>
+                    </Row>
                 </Container>
 
                 <Footer/>
