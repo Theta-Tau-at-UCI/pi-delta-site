@@ -1,16 +1,17 @@
 .pillar {
     width: 18rem;
     color: black;
-    text-align: center;
+    text-align: left;
+    border: none;
 }
 
 .pillar:hover {
-    box-shadow: 0 3px 3px black;
-    background-color: #8b0000;
+    background-color: lightgray;
 }
 
 .pillar-text {
     color: black;
+    text-align: left;
 }
 
 @media only screen and (max-width: 650px) {
