@@ -11,7 +11,6 @@ export default class Recruitment extends React.Component<{}, {}> {
         return (
             <Fragment>
                 <CurrentRush />
-                <section> Our Last Rush </section>
                 <section> Frequently Asked Questions </section>
                 <Footer />
             </Fragment>

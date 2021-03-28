@@ -16,8 +16,22 @@ export default class About extends React.Component<{}, {}> {
             <Fragment>
                 <div id="body">
                     <div className="section">
+                        <h1> Theta Tau </h1>
+                        <div className="info">
+                            Founded in 1904 at the University of Minnesota in Minneapolis, Theta Tau
+                            is the oldest, largest, and foremost Fraternity for Engineers. Today,
+                            Theta Tau proudly has a diverse membership of men and women studying
+                            engineering at more than 80 campuses across the US.
+                        </div>
+                        <br/>
+                        <div className = "motto">
+                            “Whatsoever thy hand findeth to do, do it with thy might;…” –Ecclesiastes 9:10
+                        </div>
 
-                        <div className="section-title">Our Chapter: Pi Delta</div>
+                    </div>
+                    <div className="section">
+
+                        <h1> Our Chapter: Pi Delta </h1>
                         <div className="info">
                             In the winter of 2011, Alex Staebler, Arshitha Vaidhyanathan, and Jonathan Wong sought out to create greater opportunities for professional development and networking at UCI for future engineers. Shortly after reaching out to Theta Tau’s Central Office, nine others joined them to form the founding class: Clever Tan, Jacqueline Kim, Sarah Leung, Terence Leung, Amy Nguyen, Christopher Louie, Dhivya Sridhar, Jeffrey Go, and Jonathan Turcios. After creating a constitution and pledge process, the founding fathers welcomed 20 pledges the following fall: the Alpha class. On April 14, 2013, the UCI colony was installed as the Pi Delta Chapter of Theta Tau and has only continued to grow since, now with over 200 active members and alumni.
                         </div>
@@ -75,17 +89,9 @@ export default class About extends React.Component<{}, {}> {
                         />
                     </div>
 
-                    <div className="section">
-                        <div className="section-title">Theta Tau</div>
-                        <div className="info">
-                            Founded in 1904 at the University of Minnesota in Minneapolis, Theta Tau
-                            is the oldest, largest, and foremost Fraternity for Engineers. Today,
-                            Theta Tau proudly has a diverse membership of men and women studying
-                            engineering at more than 80 campuses across the US. “Whatsoever thy hand findeth to do, do it with thy might;…” –Ecclesiastes 9:10
-                        </div>
-
-                        <div className="section-title">Other Chapters in Our Region</div>
-                        Map Placeholder
+                    <div className = "section">
+                    <h1> Other Chapters in Our Region </h1>
+                    Map Placeholder
                     </div>
                 </div>
                 <Footer/>

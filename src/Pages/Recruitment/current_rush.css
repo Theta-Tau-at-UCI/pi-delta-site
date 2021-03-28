@@ -1,8 +1,8 @@
 #title-block {
     width: 100%;
     height: 500px;
-    background-image: url("../../Media/winter_photoshoot_2020.jpg");
-    background-size: cover;
+    background-image: url("../../Media/rush-header.png");
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     display: grid;
@@ -176,3 +176,10 @@
     }
 }
 
+/*a {*/
+/*    color: blue;*/
+/*}*/
+
+/*p {*/
+/*    text-align: left;*/
+/*}*/

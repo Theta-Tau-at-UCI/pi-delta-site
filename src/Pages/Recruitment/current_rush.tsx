@@ -8,58 +8,54 @@ class CurrentRush extends Component {
         return (
             <div>
                 <div id="title-block">
-                    <div id="title">Spring Rush 2021</div>
+                    <div id="title"></div>
                 </div>
                 <div id="rush-blurb">
-                    <p id="blurb">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Adipisci animi assumenda deserunt eaque, est fugit iure molestias
-                    nostrum quae quam quibusdam soluta totam vero. A ab adipisci dolores repellat unde.
+                    <p>
+                        Pi Delta is now hosting Spring Rush! We hope to see you on our <a href = "http://discord.gg/AGxvc3scp8"> discord server
+                        </a> ! If you have any questions, feel free to reach out to our recruitment chairs:
+
+                        <br/>
+                        Rush Chair: Joshua Liu | IG:@joshualiuser | (510) 386-2818
+                        <br/>
+                        Rush Chair: Lauren Yoo | IG:@laurenyoohoo | (818) 913-4104
                     </p>
                 </div>
                 <hr className="divider"/>
                 <div className="timeline">
-                    <div id="timeline-title">Timeline</div>
+                    <h1> Timeline</h1>
                     <EventNode date="Monday 3/29"
-                               name="Virtual Escape Room"
-                               description="Join us for night of puzzles and brain teasers as you try ot escape with the help of your peers!"
-                               time_loc="7:00 pm @ Engineering Quad"
+                               name="Game Night"
+                               description="Spend a night playing some games while getting to know the brothers of Theta Tau!"
+                               time_loc="7:00 pm @ Discord Server"
                                attire="Casual"
                                img1={test}
                                img2={test}/>
                     <EventNode date="Tuesday 3/30"
                                name="Info Night"
-                               description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Adipisci animi assumenda deserunt eaque, est fugit iure molestias
-                    nostrum quae quam quibusdam soluta totam vero. A ab adipisci dolores repellat unde."
-                               time_loc="7:00 pm @ Engineering Quad"
+                               description="Learn more about Theta Tau and what we have to offer, have all your questions answered, and get a chance to hear from some of our amazing alumni!"
+                               time_loc="7:00 pm @ Discord Server"
                                attire="Casual"
                                img1={test}
                                img2={test}/>
                     <EventNode date="Wednesday 3/31"
                                name="Professional Development Night"
-                               description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Adipisci animi assumenda deserunt eaque, est fugit iure molestias
-                    nostrum quae quam quibusdam soluta totam vero. A ab adipisci dolores repellat unde."
-                               time_loc="7:00 pm @ Engineering Quad"
+                               description="Resume building, Interview Tips, and LinkedIn Help! Get all the professional development help you could want from our very own brothers! "
+                               time_loc="7:00 pm @ Discord Server"
                                attire="Casual"
                                img1={test}
                                img2={test}/>
                     <EventNode date="Thursday 4/1"
-                               name="BBQ"
-                               description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Adipisci animi assumenda deserunt eaque, est fugit iure molestias
-                    nostrum quae quam quibusdam soluta totam vero. A ab adipisci dolores repellat unde."
-                               time_loc="7:00 pm @ Engineering Quad"
+                               name="[Invite Only] Potluck"
+                               description="Eat and chat virtually with the brothers of Theta Tau to get to know us better!"
+                               time_loc="7:00 pm @ Discord Server"
                                attire="Casual"
                                img1={test}
                                img2={test}/>
                     <EventNode date="Friday 4/2"
-                               name="Interviews"
-                               description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Adipisci animi assumenda deserunt eaque, est fugit iure molestias
-                    nostrum quae quam quibusdam soluta totam vero. A ab adipisci dolores repellat unde."
-                               time_loc="7:00 pm @ Engineering Quad"
+                               name="[Invite Only] Interviews"
+                               description="Show off your best self in a professional interview setting!"
+                               time_loc="7:00 pm @ Discord Server"
                                attire="Casual"
                                img1={test}
                                img2={test}/>
@@ -76,7 +72,7 @@ class EventNode extends Component<{date: string, name: string, description: stri
     constructor(props: any) {
         super(props);
         this.state = {
-            isHover: false
+            isHover: true
         };
     }
 
@@ -106,7 +102,7 @@ class EventNode extends Component<{date: string, name: string, description: stri
 
 
         return (
-            <div className={expand_div} onMouseEnter={() => this.expandEvent()} onMouseLeave={() => this.closeEvent()}>
+            <div className={expand_div} onMouseEnter={() => this.expandEvent()} onMouseLeave={() => this.expandEvent()}>
                 <div className="event">
                     <div className="node">
                         <svg width="1em" height="6em" viewBox="0 0 200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,10 +120,10 @@ class EventNode extends Component<{date: string, name: string, description: stri
                         <p className="description"> {description} </p>
                     </div>
                 </div>
-                <div className={show_img}>
-                    <img src={img1}/>
-                    <img src={img2}/>
-                </div>
+                {/*<div className={show_img}>*/}
+                {/*    <img src={img1}/>*/}
+                {/*    <img src={img2}/>*/}
+                {/*</div>*/}
             </div>
         );
     }
