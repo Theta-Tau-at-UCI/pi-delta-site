@@ -20,7 +20,7 @@ class Question extends React.Component<{question: string, answer: string}, {}> {
         return (
             <div className = "question">
                 <ul> <li> <h3> {this.props.question}</h3> </li> </ul>
-                <p> {this.props.answer}</p>
+                <p className = "faq-answers"> {this.props.answer}</p>
             </div>
 
         );

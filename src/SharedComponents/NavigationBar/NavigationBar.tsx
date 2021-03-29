@@ -1,5 +1,6 @@
 import React from "react";
 import tt_logo_placeholder from "../../Media/possible_logo.png";
+import tt_crest from "../../Media/tt-logo.png"
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./NavigationBar.css"
 
@@ -10,7 +11,7 @@ class NavigationBar extends React.Component {
         return (
             <Navbar className="color-nav" expand="md" sticky="top">
                 <Navbar.Brand href="/">
-                    <img src={tt_logo_placeholder} alt="theta-tau-logo" /> <h1> Theta Tau </h1>
+                    <img src={tt_crest} alt="theta-tau-logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

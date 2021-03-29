@@ -41,6 +41,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    border-bottom: 1px solid gray;
+    padding-bottom: 20px;
 }
 
 #timeline-title {
@@ -186,6 +188,12 @@
 /*}*/
 
 #rush-header{
+    padding-top: 10px;
     width: 100%;
     height: auto;
+}
+
+.rush-desc{
+    font-weight: bold;
+    text-align: left;
 }

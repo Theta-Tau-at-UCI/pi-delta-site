@@ -45,7 +45,7 @@ export default class About extends React.Component<{}, {}> {
                         <div className="info">
                             In the winter of 2011, Alex Staebler, Arshitha Vaidhyanathan, and Jonathan Wong sought out to create greater opportunities for professional development and networking at UCI for future engineers. Shortly after reaching out to Theta Tau’s Central Office, nine others joined them to form the founding class: Clever Tan, Jacqueline Kim, Sarah Leung, Terence Leung, Amy Nguyen, Christopher Louie, Dhivya Sridhar, Jeffrey Go, and Jonathan Turcios. After creating a constitution and pledge process, the founding fathers welcomed 20 pledges the following fall: the Alpha class. On April 14, 2013, the UCI colony was installed as the Pi Delta Chapter of Theta Tau and has only continued to grow since, now with over 200 active members and alumni.
 
-                        <div className="container">
+                        <div className="charts container">
                             <div className="row">
                                 <div className="col-sm">
                                     <MajorChart/>
@@ -56,9 +56,9 @@ export default class About extends React.Component<{}, {}> {
                             </div>
                         </div>
 
-                    </div>
 
-                    <div className="section">
+
+
                         <Pillar
                             value="Brotherhood"
                             img={brotherhood}
@@ -88,21 +88,20 @@ export default class About extends React.Component<{}, {}> {
 
                     <div className = "section">
                         <h1> Other Chapters in Our Region </h1>
-                        <div>
+                        <div className = "other-chapters">
                         Pi Delta is a part of the Western Region of Theta Tau. Here are the
                         other chapters and colonies in our region if you would like to learn about them.
                         </div>
 
                         <Container>
-                            <Row>
-                                <Col>1 of 2</Col>
-                                <Col>2 of 2</Col>
-                            </Row>
-                            <Row>
-                                <Col>1 of 3</Col>
-                                <Col>2 of 3</Col>
 
-                            </Row>
+                            <h2> Chapters </h2>
+                            <h2> Colonies </h2>
+
+                            <ul>
+                                <li> placeholder 1</li>
+                                <li> placeholder 2 </li>
+                            </ul>
                         </Container>
 
                     </div>

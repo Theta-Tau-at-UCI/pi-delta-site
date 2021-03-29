@@ -60,7 +60,7 @@ h1{
 
 .motto {
     color: #ffcc33;
-    font-weight: bold;
+    font-weight: bolder;
     font-style: italic;
     text-align: center;
     padding-bottom: 40px;
@@ -82,4 +82,8 @@ h1{
     padding-bottom: 30px;
     width: 100%;
     border-bottom: 1px solid lightgray;
+}
+
+.charts{
+    padding-bottom: 40px;
 }

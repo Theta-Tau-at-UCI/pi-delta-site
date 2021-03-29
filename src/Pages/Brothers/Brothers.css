@@ -85,6 +85,7 @@ body{
     text-align: left;
     font-weight: bold;
     margin: 0;
+    padding-left: 0;
 }
 
 .close-button{
@@ -94,6 +95,7 @@ body{
 .descriptor {
     text-align: left;
     color: #8b0000;
+    padding-left: 0;
 }
 
 h1{
