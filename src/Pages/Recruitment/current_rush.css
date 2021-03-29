@@ -1,20 +1,20 @@
-#title-block {
-    width: 100%;
-    height: 500px;
-    background-image: url("../../Media/rush-header.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-}
+/*#title-block {*/
+/*    width: 100%;*/
+/*    height: 500px;*/
+/*    background-image: url("../../Media/rush-header.png");*/
+/*    background-size: 100%;*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: center;*/
+/*    display: grid;*/
+/*    justify-content: center;*/
+/*    align-content: center;*/
+/*}*/
 
-#title {
-    color: white;
-    font-size: 2.4em;
-    font-family: monospace;
-}
+/*#title {*/
+/*    color: white;*/
+/*    font-size: 2.4em;*/
+/*    font-family: monospace;*/
+/*}*/
 
 #rush-blurb {
     margin: 24px;
@@ -183,3 +183,8 @@
 /*p {*/
 /*    text-align: left;*/
 /*}*/
+
+#rush-header{
+    width: 100%;
+    height: auto;
+}

@@ -3,7 +3,7 @@ import "./Landing.css"
 import chapter_photo from "../../Media/winter_photoshoot_2020.jpg";
 import Pillar from "./Pillar";
 import {CardDeck, Container, Row, Col, Button} from "react-bootstrap";
-import tt_logo_placeholder from "../../Media/possible_logo.png";
+import chapter_photo_2 from "../../Media/winter_retreat.jpg"
 import Footer from "../../SharedComponents/Footer/Footer"
 
 export default class Landing extends React.Component<{}, { selected: string }> {
@@ -42,7 +42,7 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                               while giving back to the community.
                               <br/> <br/>
                             <a href = "/about"><Button variant="danger">Learn More</Button></a> </Col>
-                        <Col> <img className = "media" src={chapter_photo} alt="theta-tau-logo" /></Col>
+                        <Col> <img className = "media" src={chapter_photo} alt="chapter-photo" /></Col>
                     </Row>
                 </Container>
 
@@ -66,7 +66,7 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                             by at our booth at the engineering quad or contact us via email or social media.
                             <br/> <br/>
                             <a href = "/recruitment"> <Button variant = "danger"> Spring '21 Rush</Button> </a> </Col>
-                        <Col> <img className = "media" src={chapter_photo} alt="theta-tau-logo" /></Col>
+                        <Col> <img className = "media" src={chapter_photo_2} alt="chapter-photo-2" /></Col>
                     </Row>
                 </Container>
 

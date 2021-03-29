@@ -62,7 +62,11 @@ p {
 
 .media {
     width: 100%;
-    height: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 #who-we-are {

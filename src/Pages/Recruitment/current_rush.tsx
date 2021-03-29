@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import "./current_rush.css";
 import test from '../../Media/winter_photoshoot_2020.jpg';
+import rush_header from "../../Media/rush-header.png"
 // import {url} from inspector;
 
 class CurrentRush extends Component {
     render() {
         return (
             <div>
-                <div id="title-block">
-                    <div id="title"></div>
-                </div>
+                {/*<div id="title-block">*/}
+                {/*    <div id="title"></div>*/}
+                {/*</div>*/}
+                <img id = "rush-header" src = {rush_header} alt = "rush_header"/>
                 <div id="rush-blurb">
                     <p>
                         Pi Delta is now hosting Spring Rush! We hope to see you on our <a href = "http://discord.gg/AGxvc3scp8"> discord server

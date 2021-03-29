@@ -1,10 +1,13 @@
 import React, { Fragment } from "react";
+import {Container, Col, Row, Button} from "react-bootstrap";
 import "./About.css"
 import Pillar from "./Pillar";
 import tt_logo from "../../Media/tt-logo.png";
+import brotherhood from "../../Media/brotherhood.jpg"
 import Image from 'react-bootstrap/Image';
 import Footer from '../../SharedComponents/Footer/Footer'
 import { PieChart } from 'react-minimal-pie-chart';
+import MajorChart from "./MajorChart";
 
 export default class About extends React.Component<{}, {}> {
     constructor(props: {}) {
@@ -14,19 +17,22 @@ export default class About extends React.Component<{}, {}> {
     render() {
         return (
             <Fragment>
+                <MajorChart/>
                 <div id="body">
                     <div className="section">
                         <h1> Theta Tau </h1>
                         <div className="info">
-                            Founded in 1904 at the University of Minnesota in Minneapolis, Theta Tau
-                            is the oldest, largest, and foremost Fraternity for Engineers. Today,
-                            Theta Tau proudly has a diverse membership of men and women studying
-                            engineering at more than 80 campuses across the US.
+                            Founded in 1904 at the University of Minnesota in Minneapolis as the Society of Hammer and Tongs by four engineering students,
+                            Theta Tau is the oldest, largest, and foremost Fraternity for Engineers.
+                            Today, Theta Tau proudly has a diverse membership of men and women studying
+                            engineering and computer science at more than 80 campuses across the US.
                         </div>
                         <br/>
+
                         <div className = "motto">
-                            “Whatsoever thy hand findeth to do, do it with thy might;…” –Ecclesiastes 9:10
+                            “Whatsoever thy hand findeth to do, do it with thy might…” –Ecclesiastes 9:10
                         </div>
+                        <a href = "https://www.thetatau.org"><Button  variant="danger">Learn More</Button></a>
 
                     </div>
                     <div className="section">
@@ -65,7 +71,7 @@ export default class About extends React.Component<{}, {}> {
                     <div className="section">
                         <Pillar
                             value="Brotherhood"
-                            img={tt_logo}
+                            img={brotherhood}
                             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
                                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
                                 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
@@ -90,8 +96,24 @@ export default class About extends React.Component<{}, {}> {
                     </div>
 
                     <div className = "section">
-                    <h1> Other Chapters in Our Region </h1>
-                    Map Placeholder
+                        <h1> Other Chapters in Our Region </h1>
+                        <div>
+                        Pi Delta is a part of the Western Region of Theta Tau. Here are the
+                        other chapters and colonies in our region if you would like to learn about them.
+                        </div>
+
+                        <Container>
+                            <Row>
+                                <Col>1 of 2</Col>
+                                <Col>2 of 2</Col>
+                            </Row>
+                            <Row>
+                                <Col>1 of 3</Col>
+                                <Col>2 of 3</Col>
+
+                            </Row>
+                        </Container>
+
                     </div>
                 </div>
                 <Footer/>
