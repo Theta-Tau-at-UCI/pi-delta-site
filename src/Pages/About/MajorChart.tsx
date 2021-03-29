@@ -77,7 +77,7 @@ class MajorChart extends React.Component {
             <MDBContainer>
                 <h3 className="mt-5">Major Breakdown</h3>
                 <Doughnut data={this.state.dataDoughnut} options={{ responsive: true }} />
-                <button onClick = {(e) => this.update_chart(majors_and_count)}> Click </button>
+                <button onClick = { this.update_chart.bind(this,majors_and_count)}> Click </button>
             </MDBContainer>
         );
     }
