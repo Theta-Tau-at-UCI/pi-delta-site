@@ -20,7 +20,7 @@ export default class Footer extends React.Component {
                             <div className="sm-3 md-3"><strong> About</strong></div>
                             <div>Our Chapter</div>
                             <div>Our Values</div>
-                            <div><a href = "/brothers">Brothers</a></div>
+                            <div><a href = "/actives">Brothers</a></div>
                             <div><a href = "https://thetatau.org/">Theta Tau</a></div>
                         </div>
 

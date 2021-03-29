@@ -1425,7 +1425,7 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Theta/derekyeh.jpg",
         "casual_photo": "NULL",
-        "blurb": "NULL"vvvvvvvvvvvvvvvvvvvvvvvvvv
+        "blurb": "NULL"
     },
     {
         "id": 103.0,

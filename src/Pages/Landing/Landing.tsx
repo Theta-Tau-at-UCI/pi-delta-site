@@ -6,6 +6,7 @@ import {CardDeck, Container, Row, Col, Button} from "react-bootstrap";
 import chapter_photo_2 from "../../Media/winter_retreat.jpg"
 import Footer from "../../SharedComponents/Footer/Footer"
 
+
 export default class Landing extends React.Component<{}, { selected: string }> {
     constructor(props: {}) {
         super(props);
@@ -19,8 +20,9 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                     <header>
                         <div className={"overlay"}/>
                         <video playsInline={true} autoPlay={true} muted={true} loop={true}>
-                            <source src={"https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4"} type={"video/mp4"}/>
+                            <source src={"../../Media/TT_Website_Video.mp4"} type={"video/mp4"}/>
                         </video>
+
                         <div className={"container h-100"}>
                             <div className={"d-flex h-100 align-items-center"}>
                                 <div className={"w-100 text-white"}>

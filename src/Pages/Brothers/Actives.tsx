@@ -3,6 +3,7 @@ import React, {Fragment, ReactEventHandler} from "react";
 import "./Brothers.css"
 import {brotherInfo} from "./brother_info.js"
 import Footer from "../../SharedComponents/Footer/Footer"
+import {FaLinkedin} from "react-icons/all";
 
 
 export default class Actives extends React.Component<{}, {}> {
@@ -20,7 +21,8 @@ export default class Actives extends React.Component<{}, {}> {
                                                                 class={brother.class}
                                                                 linkedin_url={brother.linkedin_url}
                                                                 major={brother.major}
-                                                                profile_url={brother.profile_url}/>
+                                                                profile_url={brother.profile_url}
+                                                                blurb = {brother.blurb}/>
                         </div>
                     ))}
                 </div>
@@ -32,7 +34,7 @@ export default class Actives extends React.Component<{}, {}> {
 
 
 
-class ActiveCard extends React.Component<{id: number, name: string, class: string, linkedin_url: string, major: string, profile_url:string}, {isOpen: boolean}> {
+class ActiveCard extends React.Component<{id: number, name: string, class: string, linkedin_url: string, major: string, profile_url:string, blurb: string}, {isOpen: boolean}> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -54,8 +56,14 @@ class ActiveCard extends React.Component<{id: number, name: string, class: strin
                     <Modal.Header closeButton>
                         <Modal.Title>{this.props.name}</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body><img className = "headshot" src={this.props.profile_url}/></Modal.Body>
+                    <Modal.Body>
+                        <div>
+                            <img className = "headshot" src={this.props.profile_url}/>
+                            <p> {this.props.blurb}</p>
+                        </div>
+                    </Modal.Body>
                     <Modal.Footer>
+
                         <Button className = "close-button" onClick={this.closeModal}>Close</Button>
                     </Modal.Footer>
                 </Modal>
