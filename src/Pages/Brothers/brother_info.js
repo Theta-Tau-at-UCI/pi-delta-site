@@ -2,17 +2,19 @@ export const brotherInfo = [
     {
         "id": 1.0,
         "name": "Richard Staebler",
+        "gender": "M",
         "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Aerospace Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/richardstaebler.jpg"
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/richardstaebler.jpg",
     },
     {
         "id": 2.0,
         "name": "Jonathan Wong",
+        "gender": "M",
         "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -24,6 +26,7 @@ export const brotherInfo = [
     {
         "id": 3.0,
         "name": "Sarah Leung",
+        "gender": "F",
         "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -35,6 +38,7 @@ export const brotherInfo = [
     {
         "id": 4.0,
         "name": "Jacqueline Kim",
+        "gender": "F",
         "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -46,6 +50,7 @@ export const brotherInfo = [
     {
         "id": 5.0,
         "name": "Terence Leung",
+        "gender": "M",
         "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -57,6 +62,7 @@ export const brotherInfo = [
     {
         "id": 6.0,
         "name": "Jonathan Turcios",
+        "gender": "M",
         "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -68,6 +74,7 @@ export const brotherInfo = [
     {
         "id": 7.0,
         "name": "Amy Nguyen",
+        "gender": "F",
         "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -79,6 +86,7 @@ export const brotherInfo = [
     {
         "id": 8.0,
         "name": "Jeffrey Go",
+        "gender": "M",
         "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -90,6 +98,7 @@ export const brotherInfo = [
     {
         "id": 9.0,
         "name": "Christopher Louie",
+        "gender": "M",
         "class": "Founding",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -101,6 +110,7 @@ export const brotherInfo = [
     {
         "id": 10.0,
         "name": "Charles Chiang ",
+        "gender": "M",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -112,6 +122,7 @@ export const brotherInfo = [
     {
         "id": 11.0,
         "name": "Walter Hsieh",
+        "gender": "M",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -123,6 +134,7 @@ export const brotherInfo = [
     {
         "id": 12.0,
         "name": "Elliot Huang",
+        "gender": "M",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -134,6 +146,7 @@ export const brotherInfo = [
     {
         "id": 13.0,
         "name": "Bryan Le ",
+        "gender": "M",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -145,6 +158,7 @@ export const brotherInfo = [
     {
         "id": 14.0,
         "name": "Michelle Mueller",
+        "gender": "F",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -156,6 +170,7 @@ export const brotherInfo = [
     {
         "id": 15.0,
         "name": "Nazneen Pashutanizadeh",
+        "gender": "F",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -167,6 +182,7 @@ export const brotherInfo = [
     {
         "id": 16.0,
         "name": "Siddharthan Selvasekar",
+        "gender": "M",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -178,6 +194,7 @@ export const brotherInfo = [
     {
         "id": 17.0,
         "name": "Patrick Sy ",
+        "gender": "M",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -189,6 +206,7 @@ export const brotherInfo = [
     {
         "id": 18.0,
         "name": "Chynna Velasco",
+        "gender": "F",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -200,6 +218,7 @@ export const brotherInfo = [
     {
         "id": 19.0,
         "name": "Matthew Vera",
+        "gender": "M",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -211,6 +230,7 @@ export const brotherInfo = [
     {
         "id": 20.0,
         "name": "Eric Wengert ",
+        "gender": "M",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -222,6 +242,7 @@ export const brotherInfo = [
     {
         "id": 21.0,
         "name": "Jack Zhai",
+        "gender": "M",
         "class": "Alpha",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -233,6 +254,7 @@ export const brotherInfo = [
     {
         "id": 22.0,
         "name": "Gabrielle Abdon",
+        "gender": "F",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -244,6 +266,7 @@ export const brotherInfo = [
     {
         "id": 23.0,
         "name": "Evan Coombs ",
+        "gender": "M",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -255,6 +278,7 @@ export const brotherInfo = [
     {
         "id": 24.0,
         "name": "Benjamin Halbach",
+        "gender": "M",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -266,6 +290,7 @@ export const brotherInfo = [
     {
         "id": 25.0,
         "name": "Kevin Huynh",
+        "gender": "M",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -277,6 +302,7 @@ export const brotherInfo = [
     {
         "id": 26.0,
         "name": "Kelly Inciong",
+        "gender": "F",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -288,6 +314,7 @@ export const brotherInfo = [
     {
         "id": 27.0,
         "name": "Shan Kim",
+        "gender": "M",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -299,6 +326,7 @@ export const brotherInfo = [
     {
         "id": 28.0,
         "name": "Andrew Kin",
+        "gender": "M",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -310,6 +338,7 @@ export const brotherInfo = [
     {
         "id": 29.0,
         "name": "Eddie Kwan",
+        "gender": "M",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -321,6 +350,7 @@ export const brotherInfo = [
     {
         "id": 30.0,
         "name": "Allison Ramirez",
+        "gender": "F",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -332,6 +362,7 @@ export const brotherInfo = [
     {
         "id": 31.0,
         "name": "Laraib Saeed ",
+        "gender": "F",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -343,6 +374,7 @@ export const brotherInfo = [
     {
         "id": 32.0,
         "name": "Ya Thao",
+        "gender": "M",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -354,6 +386,7 @@ export const brotherInfo = [
     {
         "id": 33.0,
         "name": "Andrew Toledo",
+        "gender": "M",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -365,6 +398,7 @@ export const brotherInfo = [
     {
         "id": 34.0,
         "name": "Dustin Vo",
+        "gender": "M",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -376,6 +410,7 @@ export const brotherInfo = [
     {
         "id": 35.0,
         "name": "Jasper Wang",
+        "gender": "M",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -387,6 +422,7 @@ export const brotherInfo = [
     {
         "id": 36.0,
         "name": "Yijiao (Jo) Wang",
+        "gender": "F",
         "class": "Beta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -398,6 +434,7 @@ export const brotherInfo = [
     {
         "id": 37.0,
         "name": "Divya Bajaj",
+        "gender": "F",
         "class": "Gamma",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -409,6 +446,7 @@ export const brotherInfo = [
     {
         "id": 38.0,
         "name": "Casey Carter ",
+        "gender": "M",
         "class": "Gamma",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -420,6 +458,7 @@ export const brotherInfo = [
     {
         "id": 39.0,
         "name": "Jessica Kao",
+        "gender": "F",
         "class": "Gamma",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -431,6 +470,7 @@ export const brotherInfo = [
     {
         "id": 40.0,
         "name": "Nicolas Kurtz",
+        "gender": "M",
         "class": "Gamma",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -442,6 +482,7 @@ export const brotherInfo = [
     {
         "id": 41.0,
         "name": "Amelia Meyer",
+        "gender": "F",
         "class": "Gamma",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -453,6 +494,7 @@ export const brotherInfo = [
     {
         "id": 42.0,
         "name": "Connie Phan",
+        "gender": "F",
         "class": "Gamma",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -464,6 +506,7 @@ export const brotherInfo = [
     {
         "id": 43.0,
         "name": "Ashley Robinson",
+        "gender": "F",
         "class": "Gamma",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -475,6 +518,7 @@ export const brotherInfo = [
     {
         "id": 44.0,
         "name": "Martin Boyd",
+        "gender": "M",
         "class": "Delta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -486,6 +530,7 @@ export const brotherInfo = [
     {
         "id": 45.0,
         "name": "Yonathan Esquivel",
+        "gender": "M",
         "class": "Delta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -497,6 +542,7 @@ export const brotherInfo = [
     {
         "id": 46.0,
         "name": "Brian Mugg",
+        "gender": "M",
         "class": "Delta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -508,6 +554,7 @@ export const brotherInfo = [
     {
         "id": 47.0,
         "name": "Adiseshu Peesapati",
+        "gender": "M",
         "class": "Delta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -519,6 +566,7 @@ export const brotherInfo = [
     {
         "id": 48.0,
         "name": "Chris Prijic",
+        "gender": "M",
         "class": "Delta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -530,6 +578,7 @@ export const brotherInfo = [
     {
         "id": 49.0,
         "name": "Irvin Vazquez ",
+        "gender": "M",
         "class": "Delta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -541,6 +590,7 @@ export const brotherInfo = [
     {
         "id": 50.0,
         "name": "Telena Vo ",
+        "gender": "F",
         "class": "Delta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -552,6 +602,7 @@ export const brotherInfo = [
     {
         "id": 51.0,
         "name": "Darren Yang ",
+        "gender": "M",
         "class": "Delta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -563,6 +614,7 @@ export const brotherInfo = [
     {
         "id": 52.0,
         "name": "Juan Contreras",
+        "gender": "M",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -574,6 +626,7 @@ export const brotherInfo = [
     {
         "id": 53.0,
         "name": "Lynn Dannan",
+        "gender": "F",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -585,6 +638,7 @@ export const brotherInfo = [
     {
         "id": 54.0,
         "name": "Anthony Foley",
+        "gender": "M",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -596,6 +650,7 @@ export const brotherInfo = [
     {
         "id": 55.0,
         "name": "Daniel Klebe",
+        "gender": "M",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -607,6 +662,7 @@ export const brotherInfo = [
     {
         "id": 56.0,
         "name": "Alex LaVelle",
+        "gender": "M",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -618,6 +674,7 @@ export const brotherInfo = [
     {
         "id": 57.0,
         "name": "Bryce Loop",
+        "gender": "M",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -629,6 +686,7 @@ export const brotherInfo = [
     {
         "id": 58.0,
         "name": "Rio Menchaca",
+        "gender": "M",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -640,6 +698,7 @@ export const brotherInfo = [
     {
         "id": 59.0,
         "name": "Colleen Muawad",
+        "gender": "F",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -651,6 +710,7 @@ export const brotherInfo = [
     {
         "id": 60.0,
         "name": "Milan Odedra",
+        "gender": "M",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -662,6 +722,7 @@ export const brotherInfo = [
     {
         "id": 61.0,
         "name": "Brian Seng",
+        "gender": "M",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -673,6 +734,7 @@ export const brotherInfo = [
     {
         "id": 62.0,
         "name": "Narumi Takagi",
+        "gender": "F",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -684,6 +746,7 @@ export const brotherInfo = [
     {
         "id": 63.0,
         "name": "Kush Thukral",
+        "gender": "M",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -695,6 +758,7 @@ export const brotherInfo = [
     {
         "id": 64.0,
         "name": "Linda Ton",
+        "gender": "F",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -706,6 +770,7 @@ export const brotherInfo = [
     {
         "id": 65.0,
         "name": "Yen Tu",
+        "gender": "F",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -717,6 +782,7 @@ export const brotherInfo = [
     {
         "id": 66.0,
         "name": "Chelsea Yuen",
+        "gender": "F",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -728,6 +794,7 @@ export const brotherInfo = [
     {
         "id": 67.0,
         "name": "Han Zheng",
+        "gender": "M",
         "class": "Epsilon",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -739,6 +806,7 @@ export const brotherInfo = [
     {
         "id": 68.0,
         "name": "Brandon Chen",
+        "gender": "M",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -750,6 +818,7 @@ export const brotherInfo = [
     {
         "id": 69.0,
         "name": "Xavier Chuck",
+        "gender": "M",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -761,6 +830,7 @@ export const brotherInfo = [
     {
         "id": 70.0,
         "name": "Itzetl Frausto",
+        "gender": "F",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -772,6 +842,7 @@ export const brotherInfo = [
     {
         "id": 71.0,
         "name": "Ryan Hai",
+        "gender": "M",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -783,6 +854,7 @@ export const brotherInfo = [
     {
         "id": 72.0,
         "name": "Winnie Hu",
+        "gender": "F",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -794,6 +866,7 @@ export const brotherInfo = [
     {
         "id": 73.0,
         "name": "Ryan Kawahara",
+        "gender": "M",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -805,6 +878,7 @@ export const brotherInfo = [
     {
         "id": 74.0,
         "name": "Christine Lao ",
+        "gender": "F",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -816,6 +890,7 @@ export const brotherInfo = [
     {
         "id": 75.0,
         "name": "Bryan Luong",
+        "gender": "M",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -827,6 +902,7 @@ export const brotherInfo = [
     {
         "id": 76.0,
         "name": "Meghan Matibag",
+        "gender": "F",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -838,6 +914,7 @@ export const brotherInfo = [
     {
         "id": 77.0,
         "name": "Mae Tamayo ",
+        "gender": "F",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -849,6 +926,7 @@ export const brotherInfo = [
     {
         "id": 78.0,
         "name": "Anita Tran",
+        "gender": "F",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -860,6 +938,7 @@ export const brotherInfo = [
     {
         "id": 79.0,
         "name": "James Yi ",
+        "gender": "F",
         "class": "Zeta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -871,6 +950,7 @@ export const brotherInfo = [
     {
         "id": 80.0,
         "name": "Jayvee Aspa",
+        "gender": "M",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -882,6 +962,7 @@ export const brotherInfo = [
     {
         "id": 81.0,
         "name": "Sandy Dao",
+        "gender": "F",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -893,6 +974,7 @@ export const brotherInfo = [
     {
         "id": 82.0,
         "name": "Vivian Hang",
+        "gender": "F",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -904,6 +986,7 @@ export const brotherInfo = [
     {
         "id": 83.0,
         "name": "William Hsueh",
+        "gender": "F",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -915,6 +998,7 @@ export const brotherInfo = [
     {
         "id": 84.0,
         "name": "Jevons Jiang",
+        "gender": "M",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -926,6 +1010,7 @@ export const brotherInfo = [
     {
         "id": 85.0,
         "name": "Jodie Loo",
+        "gender": "F",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -937,6 +1022,7 @@ export const brotherInfo = [
     {
         "id": 86.0,
         "name": "David Pham",
+        "gender": "M",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -948,6 +1034,7 @@ export const brotherInfo = [
     {
         "id": 87.0,
         "name": "Weiqiang (Jesse) Yin",
+        "gender": "M",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -959,6 +1046,7 @@ export const brotherInfo = [
     {
         "id": 88.0,
         "name": "Celina Chen",
+        "gender": "F",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -970,6 +1058,7 @@ export const brotherInfo = [
     {
         "id": 89.0,
         "name": "Cesar Ramales",
+        "gender": "M",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -981,6 +1070,7 @@ export const brotherInfo = [
     {
         "id": 90.0,
         "name": "Amanda Reth",
+        "gender": "F",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -992,6 +1082,7 @@ export const brotherInfo = [
     {
         "id": 91.0,
         "name": "Brittany Tran",
+        "gender": "F",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1003,6 +1094,7 @@ export const brotherInfo = [
     {
         "id": 92.0,
         "name": "Michelle (Ana) Tulean",
+        "gender": "F",
         "class": "Eta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1014,6 +1106,7 @@ export const brotherInfo = [
     {
         "id": 93.0,
         "name": "Rodney Buzon",
+        "gender": "M",
         "class": "Theta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1025,6 +1118,7 @@ export const brotherInfo = [
     {
         "id": 94.0,
         "name": "Baldwin Chang",
+        "gender": "M",
         "class": "Theta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1036,6 +1130,7 @@ export const brotherInfo = [
     {
         "id": 95.0,
         "name": "Samantha Huang",
+        "gender": "F",
         "class": "Theta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1047,6 +1142,7 @@ export const brotherInfo = [
     {
         "id": 96.0,
         "name": "Jackie Li ",
+        "gender": "F",
         "class": "Theta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1058,6 +1154,7 @@ export const brotherInfo = [
     {
         "id": 97.0,
         "name": "GuanYu Liu",
+        "gender": "F",
         "class": "Theta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1069,6 +1166,7 @@ export const brotherInfo = [
     {
         "id": 98.0,
         "name": "Andrew Melendez",
+        "gender": "M",
         "class": "Theta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1080,6 +1178,7 @@ export const brotherInfo = [
     {
         "id": 99.0,
         "name": "Eric Nguyen",
+        "gender": "M",
         "class": "Theta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1091,6 +1190,7 @@ export const brotherInfo = [
     {
         "id": 100.0,
         "name": "Marlen Rojas ",
+        "gender": "F",
         "class": "Theta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1102,6 +1202,7 @@ export const brotherInfo = [
     {
         "id": 101.0,
         "name": "David Tran",
+        "gender": "M",
         "class": "Theta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1113,6 +1214,7 @@ export const brotherInfo = [
     {
         "id": 102.0,
         "name": "Derek Yeh ",
+        "gender": "M",
         "class": "Theta",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1124,6 +1226,7 @@ export const brotherInfo = [
     {
         "id": 103.0,
         "name": "Michael Acasio",
+        "gender": "M",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1135,6 +1238,7 @@ export const brotherInfo = [
     {
         "id": 104.0,
         "name": "Bridget Ventura",
+        "gender": "F",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1146,6 +1250,7 @@ export const brotherInfo = [
     {
         "id": 105.0,
         "name": "Tina Chan",
+        "gender": "F",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1157,6 +1262,7 @@ export const brotherInfo = [
     {
         "id": 106.0,
         "name": "Allen Chang",
+        "gender": "M",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1168,6 +1274,7 @@ export const brotherInfo = [
     {
         "id": 107.0,
         "name": "Daniel Duong",
+        "gender": "M",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1179,6 +1286,7 @@ export const brotherInfo = [
     {
         "id": 108.0,
         "name": "Dean Gonzales",
+        "gender": "M",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1190,6 +1298,7 @@ export const brotherInfo = [
     {
         "id": 109.0,
         "name": "Dale Lee",
+        "gender": "M",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1201,6 +1310,7 @@ export const brotherInfo = [
     {
         "id": 110.0,
         "name": "Sean Chih Wei Lee",
+        "gender": "M",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1212,6 +1322,7 @@ export const brotherInfo = [
     {
         "id": 111.0,
         "name": "Sergio Linares",
+        "gender": "M",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1223,6 +1334,7 @@ export const brotherInfo = [
     {
         "id": 112.0,
         "name": "Vishal Mandalia",
+        "gender": "M",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1234,6 +1346,7 @@ export const brotherInfo = [
     {
         "id": 113.0,
         "name": "Dan Tang ",
+        "gender": "F",
         "class": "Iota",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1245,6 +1358,7 @@ export const brotherInfo = [
     {
         "id": 114.0,
         "name": "Santiago Barrera",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1256,6 +1370,7 @@ export const brotherInfo = [
     {
         "id": 115.0,
         "name": "Heejun Chough",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1267,6 +1382,7 @@ export const brotherInfo = [
     {
         "id": 116.0,
         "name": "Jimmy Chung",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1278,6 +1394,7 @@ export const brotherInfo = [
     {
         "id": 117.0,
         "name": "Yun Jo (Kevin)",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1289,6 +1406,7 @@ export const brotherInfo = [
     {
         "id": 118.0,
         "name": "Henry Hoang",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1300,6 +1418,7 @@ export const brotherInfo = [
     {
         "id": 119.0,
         "name": "Joseph Hong",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1311,6 +1430,7 @@ export const brotherInfo = [
     {
         "id": 120.0,
         "name": "Kyle Krumrei ",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1322,6 +1442,7 @@ export const brotherInfo = [
     {
         "id": 121.0,
         "name": "Jason Lee ",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1333,6 +1454,7 @@ export const brotherInfo = [
     {
         "id": 122.0,
         "name": "Keith Leung",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1344,6 +1466,7 @@ export const brotherInfo = [
     {
         "id": 123.0,
         "name": "Kevin Nguyen",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1355,6 +1478,7 @@ export const brotherInfo = [
     {
         "id": 124.0,
         "name": "Leianne Roylo",
+        "gender": "F",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1366,6 +1490,7 @@ export const brotherInfo = [
     {
         "id": 125.0,
         "name": "Brendon Tran",
+        "gender": "M",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1377,6 +1502,7 @@ export const brotherInfo = [
     {
         "id": 126.0,
         "name": "Sophia Ynami ",
+        "gender": "F",
         "class": "Kappa",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1388,6 +1514,7 @@ export const brotherInfo = [
     {
         "id": 127.0,
         "name": "Lawrence Chong",
+        "gender": "M",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1399,6 +1526,7 @@ export const brotherInfo = [
     {
         "id": 128.0,
         "name": "Alvin Kwong",
+        "gender": "M",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1410,6 +1538,7 @@ export const brotherInfo = [
     {
         "id": 129.0,
         "name": "Calvin Li",
+        "gender": "M",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1421,6 +1550,7 @@ export const brotherInfo = [
     {
         "id": 130.0,
         "name": "Yu Wei Liu ",
+        "gender": "M",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1432,6 +1562,7 @@ export const brotherInfo = [
     {
         "id": 131.0,
         "name": "John Luong",
+        "gender": "M",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1443,6 +1574,7 @@ export const brotherInfo = [
     {
         "id": 132.0,
         "name": "Jessica Ma",
+        "gender": "F",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1454,6 +1586,7 @@ export const brotherInfo = [
     {
         "id": 133.0,
         "name": "Laura Marsh",
+        "gender": "F",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1465,6 +1598,7 @@ export const brotherInfo = [
     {
         "id": 134.0,
         "name": "Phi Nguyen",
+        "gender": "M",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1476,6 +1610,7 @@ export const brotherInfo = [
     {
         "id": 136.0,
         "name": "Nathan Padrid",
+        "gender": "M",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1487,6 +1622,7 @@ export const brotherInfo = [
     {
         "id": 137.0,
         "name": "Michael Pagdonsolan",
+        "gender": "M",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1498,6 +1634,7 @@ export const brotherInfo = [
     {
         "id": 138.0,
         "name": "Aina Tancinco",
+        "gender": "F",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1509,6 +1646,7 @@ export const brotherInfo = [
     {
         "id": 139.0,
         "name": "Viet Tran",
+        "gender": "M",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1520,6 +1658,7 @@ export const brotherInfo = [
     {
         "id": 140.0,
         "name": "Mandy Weng ",
+        "gender": "F",
         "class": "Lambda",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1531,6 +1670,7 @@ export const brotherInfo = [
     {
         "id": 141.0,
         "name": "Christopher Banh",
+        "gender": "M",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1542,6 +1682,7 @@ export const brotherInfo = [
     {
         "id": 142.0,
         "name": "Steven Campos ",
+        "gender": "M",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1553,6 +1694,7 @@ export const brotherInfo = [
     {
         "id": 143.0,
         "name": "Jessica Chen",
+        "gender": "F",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1564,6 +1706,7 @@ export const brotherInfo = [
     {
         "id": 144.0,
         "name": "John Chua",
+        "gender": "M",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1575,6 +1718,7 @@ export const brotherInfo = [
     {
         "id": 145.0,
         "name": "Brian Dang",
+        "gender": "M",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1586,6 +1730,7 @@ export const brotherInfo = [
     {
         "id": 146.0,
         "name": "Kevin Troy De Guzman",
+        "gender": "M",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1597,6 +1742,7 @@ export const brotherInfo = [
     {
         "id": 147.0,
         "name": "Sebastian Gao",
+        "gender": "M",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1608,6 +1754,7 @@ export const brotherInfo = [
     {
         "id": 148.0,
         "name": "Tony Ho",
+        "gender": "M",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1619,6 +1766,7 @@ export const brotherInfo = [
     {
         "id": 149.0,
         "name": "Agnes Jang",
+        "gender": "F",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1630,6 +1778,7 @@ export const brotherInfo = [
     {
         "id": 150.0,
         "name": "Tony Lao",
+        "gender": "M",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1641,6 +1790,7 @@ export const brotherInfo = [
     {
         "id": 151.0,
         "name": "Theresa Le",
+        "gender": "F",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1652,6 +1802,7 @@ export const brotherInfo = [
     {
         "id": 152.0,
         "name": "Ruth Nguyen",
+        "gender": "F",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1663,6 +1814,7 @@ export const brotherInfo = [
     {
         "id": 153.0,
         "name": "Johnny Pham",
+        "gender": "M",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1674,6 +1826,7 @@ export const brotherInfo = [
     {
         "id": 154.0,
         "name": "Judith Rupasinghe",
+        "gender": "F",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1697,6 +1850,7 @@ export const brotherInfo = [
     {
         "id": 156.0,
         "name": "Michelle Vasquez ",
+        "gender": "F",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1708,6 +1862,7 @@ export const brotherInfo = [
     {
         "id": 157.0,
         "name": "Kevin Wong",
+        "gender": "M",
         "class": "Mu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1719,6 +1874,7 @@ export const brotherInfo = [
     {
         "id": 158.0,
         "name": "Chloe Agape",
+        "gender": "F",
         "class": "Nu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1730,6 +1886,7 @@ export const brotherInfo = [
     {
         "id": 159.0,
         "name": "Kevin Chen",
+        "gender": "M",
         "class": "Nu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1741,6 +1898,7 @@ export const brotherInfo = [
     {
         "id": 160.0,
         "name": "Willis Lao",
+        "gender": "M",
         "class": "Nu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1752,6 +1910,7 @@ export const brotherInfo = [
     {
         "id": 162.0,
         "name": "Dawn Malla",
+        "gender": "F",
         "class": "Nu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1763,6 +1922,7 @@ export const brotherInfo = [
     {
         "id": 163.0,
         "name": "Shogo Nakamura ",
+        "gender": "M",
         "class": "Nu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1786,6 +1946,7 @@ export const brotherInfo = [
     {
         "id": 165.0,
         "name": "Kyla Quilos",
+        "gender": "F",
         "class": "Nu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1797,6 +1958,7 @@ export const brotherInfo = [
     {
         "id": 166.0,
         "name": "Jose Santillan",
+        "gender": "M",
         "class": "Nu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1808,6 +1970,7 @@ export const brotherInfo = [
     {
         "id": 167.0,
         "name": "Yvonne Szeto",
+        "gender": "F",
         "class": "Nu",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1831,6 +1994,7 @@ export const brotherInfo = [
     {
         "id": 169.0,
         "name": "Karla Abad-Torrez",
+        "gender": "F",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1842,6 +2006,7 @@ export const brotherInfo = [
     {
         "id": 170.0,
         "name": "Maxine Apoderado",
+        "gender": "F",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1853,6 +2018,7 @@ export const brotherInfo = [
     {
         "id": 171.0,
         "name": "Eric Chen",
+        "gender": "M",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1864,6 +2030,7 @@ export const brotherInfo = [
     {
         "id": 172.0,
         "name": "Paul John Evangelista (PJ) ",
+        "gender": "M",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1899,6 +2066,7 @@ export const brotherInfo = [
     {
         "id": 175.0,
         "name": "Jessica Lee",
+        "gender": "F",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1910,6 +2078,7 @@ export const brotherInfo = [
     {
         "id": 176.0,
         "name": "Lucy Liang",
+        "gender": "F",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1945,6 +2114,7 @@ export const brotherInfo = [
     {
         "id": 179.0,
         "name": "Harry Pak",
+        "gender": "M",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1956,6 +2126,7 @@ export const brotherInfo = [
     {
         "id": 180.0,
         "name": "Jason Tang ",
+        "gender": "M",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1967,6 +2138,7 @@ export const brotherInfo = [
     {
         "id": 181.0,
         "name": "Hannad Trinh ",
+        "gender": "F",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1978,6 +2150,7 @@ export const brotherInfo = [
     {
         "id": 182.0,
         "name": "Vincent Villacorta",
+        "gender": "M",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -1989,6 +2162,7 @@ export const brotherInfo = [
     {
         "id": 183.0,
         "name": "Jeffery Wong",
+        "gender": "M",
         "class": "Xi",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -2000,6 +2174,7 @@ export const brotherInfo = [
     {
         "id": 184.0,
         "name": "Kulraj Dhaliwal ",
+        "gender": "M",
         "class": "Omicron",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -2023,6 +2198,7 @@ export const brotherInfo = [
     {
         "id": 186.0,
         "name": "Chandan Jain",
+        "gender": "M",
         "class": "Omicron",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -2106,6 +2282,7 @@ export const brotherInfo = [
     {
         "id": 193.0,
         "name": "Nicholas Silaphet ",
+        "gender": "M",
         "class": "Omicron",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -2129,6 +2306,7 @@ export const brotherInfo = [
     {
         "id": 195.0,
         "name": "Alexis Vu",
+        "gender": "F",
         "class": "Omicron",
         "active_status": "N",
         "linkedin_url": "NULL",
@@ -2140,6 +2318,7 @@ export const brotherInfo = [
     {
         "id": 196.0,
         "name": "Victoria Vuong",
+        "gender": "F",
         "class": "Omicron",
         "active_status": "N",
         "linkedin_url": "NULL",

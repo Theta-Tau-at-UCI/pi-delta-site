@@ -11,16 +11,7 @@ class MajorChart extends React.Component {
 
         dataDoughnut: {
             labels: ["M", "F"],
-            datasets: [
-                {
-                    data: [0,0],
-                    backgroundColor: ["#F7464A", "#46BFBD"],
-                    hoverBackgroundColor: [
-                        "#FF5A5E",
-                        "#5AD3D1"
-                    ]
-                }
-            ]
+            datasets: []
         }
     }
 
@@ -33,6 +24,11 @@ class MajorChart extends React.Component {
                 datasets: [
                     {
                         data: counts,
+                        backgroundColor: ["#F7464A", "#46BFBD"],
+                        hoverBackgroundColor: [
+                            "#FF5A5E",
+                            "#5AD3D1"
+                        ]
                     }
                 ]
             }
@@ -57,7 +53,7 @@ class MajorChart extends React.Component {
 
         return (
             <MDBContainer>
-                <h3 className="mt-5">Major Breakdown</h3>
+                <h3 className="mt-5">Gender Breakdown</h3>
                 <Doughnut data={this.state.dataDoughnut} options={{ responsive: true }} />
                 <button onClick = { this.update_chart.bind(this,genders_and_count)}> Click </button>
             </MDBContainer>

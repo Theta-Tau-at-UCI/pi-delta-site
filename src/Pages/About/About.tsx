@@ -8,6 +8,7 @@ import Image from 'react-bootstrap/Image';
 import Footer from '../../SharedComponents/Footer/Footer'
 import { PieChart } from 'react-minimal-pie-chart';
 import MajorChart from "./MajorChart";
+import GenderChart from "./GenderChart"
 
 export default class About extends React.Component<{}, {}> {
     constructor(props: {}) {
@@ -17,7 +18,7 @@ export default class About extends React.Component<{}, {}> {
     render() {
         return (
             <Fragment>
-                <MajorChart/>
+
                 <div id="body">
                     <div className="section">
                         <h1> Theta Tau </h1>
@@ -44,25 +45,10 @@ export default class About extends React.Component<{}, {}> {
                         <div className="container">
                             <div className="row">
                                 <div className="col-sm">
-                                    <PieChart
-                                        data={[
-                                            { title: 'One', value: 10, color: '#E38627' },
-                                            { title: 'Two', value: 15, color: '#C13C37' },
-                                            { title: 'Three', value: 20, color: '#6A2135' },
-                                        ]}
-                                    />
+                                    <MajorChart/>
                                 </div>
                                 <div className="col-sm">
-
-
-
-                                    <PieChart
-                                        data={[
-                                            { title: 'One', value: 10, color: '#E38627' },
-                                            { title: 'Two', value: 15, color: '#C13C37' },
-                                            { title: 'Three', value: 20, color: '#6A2135' },
-                                        ]}
-                                    />
+                                    <GenderChart/>
                                 </div>
                             </div>
                         </div>
