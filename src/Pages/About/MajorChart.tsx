@@ -2,13 +2,10 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 import {brotherInfo} from "../Brothers/brother_info.js"
-import {Button} from "react-bootstrap";
 
 class MajorChart extends React.Component {
 
-
     state = {
-
         dataDoughnut: {
             labels: [],
             datasets: [
@@ -21,10 +18,22 @@ class MajorChart extends React.Component {
         }
     }
 
-    update_chart = (majors_and_count: Object) => {
+    componentWillMount() {
+        const majors_and_count = Object();
+        const brother_count = brotherInfo.length;
+        for (let i = brother_count-1; i >= 0; i--){
+            if (brotherInfo[i].active_status == "Y"){
+                const major = brotherInfo[i].major;
+                if (majors_and_count[major]){
+                    majors_and_count[major] = majors_and_count[major] + 1;
+                } else {
+                    majors_and_count[major] = 1;
+                }
+            }
+        }
+
         const majors = Object.keys(majors_and_count);
         const counts = Object.values(majors_and_count);
-        console.log(majors);
         this.setState({
             dataDoughnut: {
                 labels: majors,
@@ -47,31 +56,14 @@ class MajorChart extends React.Component {
                     }
                 ]
             }
-
-        });
+    })
     }
 
     render() {
-        const majors_and_count = Object();
-        const brother_count = brotherInfo.length;
-        for (let i = brother_count-1; i >= 0; i--){
-            if (brotherInfo[i].active_status == "Y"){
-
-                const major = brotherInfo[i].major;
-                if (majors_and_count[major]){
-                    majors_and_count[major] = majors_and_count[major] + 1;
-                } else {
-                    majors_and_count[major] = 1;
-                }
-            }
-        }
-
-
         return (
             <MDBContainer>
                 <h3 className="mt-5">Major Breakdown</h3>
                 <Doughnut data={this.state.dataDoughnut} options={{ responsive: true }} />
-                <button onClick = { this.update_chart.bind(this,majors_and_count)}> Click </button>
             </MDBContainer>
         );
     }

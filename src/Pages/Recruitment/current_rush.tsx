@@ -23,7 +23,7 @@ class CurrentRush extends Component {
                         Rush Chair: Lauren Yoo | IG:@laurenyoohoo | (818) 913-4104
                     </p>
                 </div>
-                <hr className="divider"/>
+
                 <div className="timeline">
                     <h1> Timeline</h1>
                     <EventNode date="Monday 3/29"
