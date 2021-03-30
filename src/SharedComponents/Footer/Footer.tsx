@@ -18,17 +18,17 @@ export default class Footer extends React.Component {
 
                         <div className="col sm-3 md-3 about-column">
                             <div className="sm-3 md-3"><strong> About</strong></div>
-                            <div>Our Chapter</div>
-                            <div>Our Values</div>
-                            <div><a href = "/brothers">Brothers</a></div>
+                            <div><a href = "/about#our-chapter"> Our Chapter </a></div>
+                            <div><a href = "/about#our-values">Our Values</a></div>
+                            <div><a href = "/actives">Brothers</a></div>
                             <div><a href = "https://thetatau.org/">Theta Tau</a></div>
                         </div>
 
                         <div className="col sm-3 md-3 recruitment-column">
                             <div className="sm-3 md-3"><strong> Recruitment</strong></div>
-                            <div>Info</div>
-                            <div>FAQ</div>
-                            <div>Events</div>
+                            <div><a href = "recruitment#rush-header"> Info </a></div>
+                            <div><a href = "/recruitment#faq"> FAQ</a></div>
+                            <div><a href = "/recruitment#events"> Events </a></div>
                         </div>
 
                         <div className="col sm-3 md-3 contact-column">

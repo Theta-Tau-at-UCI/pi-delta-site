@@ -17,7 +17,7 @@ export default class Officers extends React.Component<{}, {}> {
 
         return (
             <Fragment>
-                <h1> Executive Board</h1>
+                <h1 className = "class-header"> Executive Board</h1>
                 <div className="grid-container">
                     {(brotherInfo.filter(brother => (brother.active_status === "Y" && (brother.cabby_exec_position !== "NULL" && exec.includes(brother.cabby_exec_position)))).sort((a, b) => exec.indexOf(a.cabby_exec_position) - exec.indexOf(b.cabby_exec_position)
                         )).map(brother => (
@@ -30,7 +30,7 @@ export default class Officers extends React.Component<{}, {}> {
                         </div>
                     ))}
                 </div>
-                <h1> Cabinet </h1>
+                <h1 className = "class-header"> Cabinet </h1>
                 <div className="grid-container">
                     {(brotherInfo.filter(brother => (brother.active_status === "Y" && (brother.cabby_exec_position !== undefined && cabinet.includes(brother.cabby_exec_position)))).sort(function(a, b){// @ts-ignore
                         if(a.cabby_exec_position.toLowerCase() < b.cabby_exec_position.toLowerCase()) return -1;
@@ -71,15 +71,15 @@ class OfficerCard extends React.Component<{id: number, name: string, class: stri
                 <p className = "names" onClick = {this.openModal}> {this.props.name} </p>
                 <p className = "descriptor" onClick = {this.openModal}> {this.props.cabby_exec_position} </p>
 
-                <Modal show={this.state.isOpen} onHide={this.closeModal}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>{this.props.name}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body><img className = "headshot" src={this.props.profile_url}/></Modal.Body>
-                    <Modal.Footer>
-                        <Button className = "close-button" onClick={this.closeModal}>Close</Button>
-                    </Modal.Footer>
-                </Modal>
+                {/*<Modal show={this.state.isOpen} onHide={this.closeModal}>*/}
+                {/*    <Modal.Header closeButton>*/}
+                {/*        <Modal.Title>{this.props.name}</Modal.Title>*/}
+                {/*    </Modal.Header>*/}
+                {/*    <Modal.Body><img className = "headshot" src={this.props.profile_url}/></Modal.Body>*/}
+                {/*    <Modal.Footer>*/}
+                {/*        <Button className = "close-button" onClick={this.closeModal}>Close</Button>*/}
+                {/*    </Modal.Footer>*/}
+                {/*</Modal>*/}
             </div>
         );
     }

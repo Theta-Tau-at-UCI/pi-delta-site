@@ -1,8 +1,11 @@
 import React, { Fragment } from "react";
 import "./Landing.css"
-import tt_logo from "../../Media/tt-logo.png";
+import chapter_photo from "../../Media/winter_photoshoot_2020.jpg";
 import Pillar from "./Pillar";
-import {CardDeck} from "react-bootstrap";
+import {CardDeck, Container, Row, Col, Button} from "react-bootstrap";
+import chapter_photo_2 from "../../Media/winter_retreat.jpg"
+import Footer from "../../SharedComponents/Footer/Footer"
+
 
 export default class Landing extends React.Component<{}, { selected: string }> {
     constructor(props: {}) {
@@ -13,53 +16,63 @@ export default class Landing extends React.Component<{}, { selected: string }> {
     render() {
         return (
             <Fragment>
-                <header>
-                    <div className={"overlay"}/>
-                    <video playsInline={true} autoPlay={true} muted={true} loop={true}>
-                        <source src={"https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4"} type={"video/mp4"}/>
-                    </video>
-                    <div className={"container h-100"}>
-                        <div className={"d-flex h-100 align-items-center"}>
-                            <div className={"w-100 text-white"}>
-                                <h1 className={"display-3"}>Theta Tau (Placeholder)</h1>
-                                <div>Professional Engineering Fraternity</div>
+
+                    <header>
+                        <div className={"overlay"}/>
+                        <video playsInline={true} autoPlay={true} muted={true} loop={true}>
+                            <source src={"https://www.dropbox.com/s/ysz6cfcbkavkzsp/TT_Website_Video.mp4?raw=1"} type={"video/mp4"}/>
+                        </video>
+
+                        <div className={"container h-100"}>
+                            <div className={"d-flex h-100 align-items-center"}>
+                                <div className={"w-100 text-white"}>
+                                    <h1 className="video-text display-3">Theta Tau at UC Irvine</h1>
+                                    <h6 className={ "video-subtext"}>Co-ed Professional Engineering Fraternity</h6>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </header>
+                    </header>
 
-                <h1>Our Pillars</h1>
-                <CardDeck id={"pillar-cards"}>
-                    <Pillar value={"Brotherhood"} img={tt_logo} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \n" +
-                    "                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \n" +
-                    "                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \n" +
-                    "                                consequat."}
-                    />
-                    <Pillar value={"Professionalism"} img={tt_logo} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \n" +
-                    "                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \n" +
-                    "                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \n" +
-                    "                                consequat."}
-                    />
-                    <Pillar value={"Service"} img={tt_logo} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \n" +
-                    "                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \n" +
-                    "                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \n" +
-                    "                                consequat."}
-                    />
-                </CardDeck>
 
-                <h1>Our other stuff</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet at cum dicta dolorum ea eligendi
-                    error et eum facilis fuga iure laboriosam magnam, maiores modi quibusdam temporibus vero
-                    voluptatibus!</p><p>Quae reiciendis, voluptates! Architecto atque, beatae corporis delectus ea
-                expedita explicabo illo minima mollitia neque omnis quibusdam quisquam, ratione recusandae reprehenderit
-                tempore ut voluptatem voluptatibus? Illum nihil odio qui sapiente.</p><p>Aperiam, asperiores at commodi
-                consectetur dolores eaque expedita illo iusto, laborum laudantium numquam pariatur possimus quod sequi
-                ullam ut, veniam. Laborum nisi odit sed ut vel! Assumenda dolor quod repudiandae.</p><p>Consequatur
-                culpa delectus, doloribus dolorum labore libero nemo perspiciatis placeat quae sed sunt tempore totam?
-                Cumque dignissimos enim eos fugit magni maxime odio quam, tempore vitae. Eligendi ex minima
-                voluptas.</p><p>A, atque autem consectetur culpa distinctio dolor enim eos, exercitationem fugiat
-                incidunt ipsa maxime natus nihil nulla perspiciatis praesentium quas quo sequi tempore veniam.
-                Accusantium amet doloribus explicabo mollitia repudiandae.</p>
+
+                <Container id="who-we-are">
+
+                    <Row>
+                        <Col> <h1>Who We Are</h1>
+                              Theta Tau is the premier co-ed professional engineering fraternity at UC Irvine.
+                              We foster an environment for our brothers to develop individually and professionally
+                              while giving back to the community.
+                              <br/> <br/>
+                            <a href = "/about"><Button variant="danger">Learn More</Button></a> </Col>
+                        <Col> <img className = "media" src={chapter_photo} alt="chapter-photo" /></Col>
+                    </Row>
+                </Container>
+
+                <Container id = "pillars">
+                    <Col> <h1>Our Pillars</h1> </Col>
+                    <CardDeck id={"pillar-cards"}>
+                        <Pillar value={"Brotherhood"} img={chapter_photo} description={"We forge lifelong bonds of fraternal friendship, a journey that develops and delivers a network of lasting personal and professional relationships. We foster an inviting, safe, and social environment in which our members become lifelong friends."}
+                        />
+                        <Pillar value={"Professionalism"} img={chapter_photo} description={"We develop and nurture engineers with strong communication, problem-solving, collaboration, and leadership skills that we demonstrate in our profession, our community, and in our lives."}
+                        />
+                        <Pillar value={"Service"} img={chapter_photo} description={"We are known for our service to our college, university and the larger community. Our service projects create a unifying environment for learning and personal growth for our members."}
+                        />
+                    </CardDeck>
+                </Container>
+                <Container id = "join">
+
+
+                    <Row>
+                        <Col> <h1> Interested In Joining Our Brotherhood? </h1>
+                            We hold recruitment events every fall and spring quarter. Feel free to stop
+                            by at our booth at the engineering quad or contact us via email or social media.
+                            <br/> <br/>
+                            <a href = "/recruitment"> <Button variant = "danger"> Spring '21 Rush</Button> </a> </Col>
+                        <Col> <img className = "media" src={chapter_photo_2} alt="chapter-photo-2" /></Col>
+                    </Row>
+                </Container>
+
+                <Footer/>
             </Fragment>
         );
     }

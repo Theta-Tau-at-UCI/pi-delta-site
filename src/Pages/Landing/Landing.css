@@ -44,7 +44,7 @@ header .overlay {
 }
 
 h1 {
-    text-align: center;
+    text-align: left;
 }
 
 p {
@@ -58,4 +58,45 @@ p {
     header video {
         display: none;
     }
+}
+
+.media {
+    width: 100%;
+    height: auto;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*margin: auto;*/
+}
+
+#who-we-are {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+}
+
+#pillars{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid lightgray;
+    padding-left: 0;
+}
+
+#join {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+}
+
+.video-text{
+    color: white;
+    font-weight: bolder;
+    font-family: "Segoe Print";
+}
+
+.video-subtext{
+    font-style: italic;
+    font-family: "Segoe Print";
 }
