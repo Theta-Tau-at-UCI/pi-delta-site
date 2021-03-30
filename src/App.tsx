@@ -18,7 +18,7 @@ function App() {
         <Fragment>
           <NavigationBar/>
 
-          <Route exact path="/pi-delta-react-site"><Redirect to="/" /></Route>
+          {/*<Route exact path="/pi-delta-react-site"><Redirect to="/" /></Route>*/}
           <Route path="/" exact component={Landing}/>
           <Route path="/about" component={About} />
           <Route path="/actives" component={Actives}/>
