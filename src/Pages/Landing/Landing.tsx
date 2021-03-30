@@ -20,7 +20,7 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                     <header>
                         <div className={"overlay"}/>
                         <video playsInline={true} autoPlay={true} muted={true} loop={true}>
-                            <source src={"../../Media/TT_Website_Video.mp4"} type={"video/mp4"}/>
+                            <source src={"https://www.dropbox.com/s/ysz6cfcbkavkzsp/TT_Website_Video.mp4?raw=1"} type={"video/mp4"}/>
                         </video>
 
                         <div className={"container h-100"}>
