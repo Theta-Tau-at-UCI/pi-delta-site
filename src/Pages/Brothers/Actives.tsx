@@ -22,7 +22,8 @@ export default class Actives extends React.Component<{}, {}> {
                                                                 linkedin_url={brother.linkedin_url}
                                                                 major={brother.major}
                                                                 profile_url={brother.profile_url}
-                                                                blurb = {brother.blurb}/>
+                                                                blurb = {brother.blurb}
+                                                                casual_photo = {brother.casual_photo}/>
                         </div>
                     ))}
                 </div>
@@ -34,7 +35,7 @@ export default class Actives extends React.Component<{}, {}> {
 
 
 
-class ActiveCard extends React.Component<{id: number, name: string, class: string, linkedin_url: string, major: string, profile_url:string, blurb: string}, {isOpen: boolean}> {
+class ActiveCard extends React.Component<{id: number, name: string, class: string, linkedin_url: string, major: string, profile_url:string, blurb: string, casual_photo: string}, {isOpen: boolean}> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -46,29 +47,59 @@ class ActiveCard extends React.Component<{id: number, name: string, class: strin
     closeModal = () => this.setState({ isOpen: false });
 
     render() {
-        return (
-            <div>
-                <img className = "headshot" src={this.props.profile_url} onClick = {this.openModal} />
-                <p className = "names" onClick = {this.openModal}> {this.props.name} </p>
-                <p className = "descriptor" onClick = {this.openModal}> {this.props.major} </p>
+        if (this.props.casual_photo == "NULL") {
+            return (
+                <div>
+                    <img className="headshot" src={this.props.profile_url} onClick={this.openModal}/>
+                    <p className="names" onClick={this.openModal}> {this.props.name} </p>
+                    <p className="descriptor" onClick={this.openModal}> {this.props.major} </p>
 
-                <Modal show={this.state.isOpen} onHide={this.closeModal}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>{this.props.name}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <div>
-                            <img className = "headshot" src={this.props.profile_url}/>
-                            <p> {this.props.blurb}</p>
-                        </div>
-                    </Modal.Body>
-                    <Modal.Footer>
+                    <Modal show={this.state.isOpen} onHide={this.closeModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>{this.props.name}</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div className="headshot-div">
+                                <img className="headshot" src={this.props.profile_url}/>
+                            </div>
+                            <div>
+                                <p className="blurb"> {this.props.blurb}</p>
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
 
-                        <Button className = "close-button" onClick={this.closeModal}>Close</Button>
-                    </Modal.Footer>
-                </Modal>
-            </div>
-        );
+                            <Button className="close-button" onClick={this.closeModal}>Close</Button>
+                        </Modal.Footer>
+                    </Modal>
+                </div>
+            );
+        } else{
+            return (
+                <div>
+                    <img className="headshot" src={this.props.profile_url} onClick={this.openModal}/>
+                    <p className="names" onClick={this.openModal}> {this.props.name} </p>
+                    <p className="descriptor" onClick={this.openModal}> {this.props.major} </p>
+
+                    <Modal show={this.state.isOpen} onHide={this.closeModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>{this.props.name}</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div className="headshot-div">
+                                <img className="headshot" src={this.props.casual_photo}/>
+                            </div>
+                            <div>
+                                <p className="blurb"> {this.props.blurb}</p>
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+
+                            <Button className="close-button" onClick={this.closeModal}>Close</Button>
+                        </Modal.Footer>
+                    </Modal>
+                </div>
+            );
+        }
     }
 }
 

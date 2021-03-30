@@ -2455,13 +2455,13 @@ export const brotherInfo = [
         "gender": "F",
         "class": "Xi",
         "active_status": "Y",
-        "linkedin_url": "https://www.linkedin.com/mwlite/in/dylan-kao-00299b163",
+        "linkedin_url": "",
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Xi/megannguyen.jpg",
         "casual_photo": "NULL",
-        "blurb": "Hello my name is Dylan Kao. I love fried chicken."
+        "blurb": ""
     },
     {
         "id": 179.0,
@@ -2586,7 +2586,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/christopherla.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/christopherla_casual.jpg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/christopherla_casual.jpg?raw=true",
         "blurb": "My name is Christopher La and I am a 4th year mechanical engineer; some of my interests include 3D design, passive income and gaming. Most of the time you will find me spending time with my friends or family. My ultimate goal is to retire as soon as possible and spend time with the people I care about :) "
     },
     {
@@ -2600,7 +2600,7 @@ export const brotherInfo = [
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Marshal",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/angeloulao.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/angeloulao_casual.jpeg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/angeloulao_casual.jpeg?raw=true",
         "blurb": "I like cheese! Professional interests include research, point-of-care, health care devices and tissue engineering. Current personal interests include learning Tik Tok recipes and beating anyone who wants it in MarioKart. "
     },
     {
@@ -2642,7 +2642,7 @@ export const brotherInfo = [
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Corresponding Secretary",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/viviannguyen.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/viviannguyen_casual.jpeg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/viviannguyen_casual.jpeg?raw=true",
         "blurb": "future cat mom to a naked cat named chicken, future dog mom to a weenie dog named nugget"
     },
     {
@@ -2656,7 +2656,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/dannynguyen.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/dannynguyen_casual.jpg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/dannynguyen_casual.jpg?raw=true",
         "blurb": ""
     },
     {
@@ -2740,7 +2740,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/kellywong.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/kellywong_casual.jpg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/kellywong_casual.jpg?raw=true",
         "blurb": "I love staying active by working out, going for runs, and playing basketball. I also enjoy spending time with family and friends. During my time in Irvine, my favorite way to destress was going to Disneyland with my friends!  "
     },
     {
@@ -2754,7 +2754,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Omicron/ryanzhen.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/ryanzhen_casual.JPG",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/ryanzhen_casual.JPG?raw=true",
         "blurb": ""
     },
     {
@@ -2810,7 +2810,7 @@ export const brotherInfo = [
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Media",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/justinho.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/justinho_casual.jpg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/justinho_casual.jpg?raw=true",
         "blurb": "Hey! I'm Justin and a Computer Science Major. I'm always down to try new things and some of my hobbies include eating, video editing, and tricking. Always down to skip sleep so hmu in the AM's"
     },
     {
@@ -2824,7 +2824,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/alberthong.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/alberthong_casual.JPG",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/alberthong_casual.JPG?raw=true",
         "blurb": "Hi guys! My name is Albert Hong, and I am a Biomedical Engineering major at UCI with a specialization in nano and micro technologies. Outside of school, some of my hobbies include fitness (specifically weightlifting) and watching Netflix and anime. I also love listening to different kinds of music in my free time with some of my favorite genres including rap and R&B. "
     },
     {
@@ -2838,7 +2838,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/kevinhuynh.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/kevinhuynh_casual.jpeg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/kevinhuynh_casual.jpeg?raw=true",
         "blurb": "Hi! My name is Kevin and I am currently pursuing a career in software engineering. I chose to study this field initially because my relatives are software engineers and encouraged me to try programming since I was an Undeclared major. After stepping into this field, I saw computer science as a valuable skill of this generation and something to exercise/challenge my desire to create. I also enjoy playing basketball, dancing and singing. But more importantly, I enjoy using my time to sit and converse with my fellow companions about more personal subjects."
     },
     {
@@ -2852,8 +2852,8 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/dylankao.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/dylankao_casual.jpg",
-        "blurb": ""
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/dylankao_casual.jpg?raw=true",
+        "blurb": "Hello my name is Dylan Kao. I love fried chicken and bananas."
     },
     {
         "id": 207.0,
@@ -2866,8 +2866,8 @@ export const brotherInfo = [
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Website Development",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/aaronliang.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/aaronliang_casual%20-%20Aaron%20Liang.jpg",
-        "blurb": "What's good I made this website"
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/a9fa5e5d5c99c5a8cc3b16cf03d114b7c12430fc/casual-photos/aaronliang_casual%20-%20Aaron%20Liang.jpg?raw=true",
+        "blurb": "What's poppin, I made this website. Hope you like it "
     },
     {
         "id": 208.0,
@@ -2894,7 +2894,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/andersonnguyen.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/andersonnguyen_casual.JPG",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/andersonnguyen_casual.JPG?raw=true",
         "blurb": "Hi! I love basketball, photography, and guitar. Hmu anytime if you want to do any of these activities!"
     },
     {
@@ -2978,7 +2978,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/jeffreyxu.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/jeffreyxu_casual.png",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/jeffreyxu_casual.png?raw=true",
         "blurb": "Hi I'm Jeffrey! I'm currently a third year computer science student. I love going outdoors whether it be playing basketball or running. I've been playing Valorant for a while, but I'm still Iron. I've also been doing my best to cook more and more, but after having a hard boiled egg explode on me after microwaving it, I have reconsidered this hobby. Other than these things, I really enjoy watching kdramas and animes (currently watching jujitsu kaisen :) )"
     },
     {
@@ -2992,7 +2992,7 @@ export const brotherInfo = [
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Recruitment",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Pi/laurenyoo.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/laurenyoo_casual.jpg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/laurenyoo_casual.jpg?raw=true",
         "blurb": "Hello! My name is Lauren and I'm a Computer Science Major. Aside from being a Brother in Theta Tau, I am also a Hack At UCI Corporate Organizer and a Quokka Brew Brand Ambassador. For fun I love to snowboard and drive cars!"
     },
     {
@@ -3020,7 +3020,7 @@ export const brotherInfo = [
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Media",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/maireenespiritu.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/maireenespiritu_casual.JPG",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/maireenespiritu_casual.JPG?raw=true",
         "blurb": "Hello! My name is Maireen Espiritu, and I am currently a third year software engineering major at UCI! I crossed in Fall 2019 as a part of the Rho class. In the future, I either want to go into web/application development or surgical robotics programming and have recently accepted a UI/UX front-end internship with Vien Health that I will start in the spring! As of my involvements on campus, I'm apart of Kababayan at UCI as the current Rural PACN Coordinator, am a camp counselor for CampMed, and am the current Media Chair for Theta Tau. In the spring, I will begin my term as Director of New Member Education for this chapter, and in Fall 2021, I will begin my term as Vice Regent! I really love the environment that Theta Tau has given me for the past year, and that's part of the reason why I am so passionate about giving back to this organization. I'm so excited to see what the future of the organization has in store for my brothers and I."
     },
     {
@@ -3034,7 +3034,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/emilyhoang.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/emilyhoang_casual.jpg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/emilyhoang_casual.jpg?raw=true",
         "blurb": "Hello! My name is Emily Hoang and I am currently a fourth year Biomedical Engineering major specializing in Biophotonics and minoring in Materials Science Engineering. Throughout college, I have grown to love working on biomedical devices and most importantly helping others in need! Some of my hobbies include learning about (and spending all my money on) skincare, making kombucha, and trying new foods."
     },
     {
@@ -3062,7 +3062,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/benjaminhuynh.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/benjaminhuynh_casual.png",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/benjaminhuynh_casual.png?raw=true",
         "blurb": "Hello! I am Ben Huynh and am a part of C/O 2022! I’ve always enjoyed coding and software development, even going back to high school. However, I initially went to UCI as a bio major, but eventually switched into Computer Science my second year, so you may say it was a complete switch-up! Aside from that, I am a fish – I can only play land sports (swimming/water polo), but cannot play land sports for the life of me. My favorite foods are shabu shabu, ramen, and pizza! If you have any questions about my collegiate journey, my professional life, or anything really, feel free to message me on LinkedIn!"
     },
     {
@@ -3076,7 +3076,7 @@ export const brotherInfo = [
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Service",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/clairehyon.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/clairehyon_casual.jpeg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/clairehyon_casual.jpeg?raw=true",
         "blurb": "Hello!!! I’m Claire and I am currently studying to major in Computer Science and Engineering. Some fun facts about me are that I actually used to be a synchronized swimmer (now known as artistic swimmer) and I broke my tooth while eating a sandwich, which I replaced with a fake tooth after and then the fake tooth FELL OUT while I was eating a gumdrop!!! Oh! I also forgot to mention that I adopted a little kitty during quarantine and her name is Delilah!! If you want to ask about my tooth or cat or just want to get to know me, please feel free to reach out!! I promise that I don’t bite :”) "
     },
     {
@@ -3118,7 +3118,7 @@ export const brotherInfo = [
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Brotherhood",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/laurenlin.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/laurenlin_casual.jpeg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/laurenlin_casual.jpeg?raw=true",
         "blurb": "Hi!! My name is Lauren Lin and I am a second-year Mechanical Engineering student. I grew up in San Jose and have two dogs. I have a weak spot for spicy chips and baked goods. I love going on drives at night and having long talks with friends. One day I hope to live somewhere outside of California (temporarily)!!"
     },
     {
@@ -3133,7 +3133,7 @@ export const brotherInfo = [
         "cabby_exec_position": "Recruitment",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/joshualiu.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "Hi! I’m Joshua Liu, a second year Computer Science and Engineering Major! I’m one of the current Rush Directors so send any questions you have about Theta Tau or rush my way! I joined my first year fall and it has been one of the best experiences of my life getting to meet my second family here on campus! Things I enjoy to do besides just school are cooking, bouldering, going to the driving range with my housemate, and playing guitar. I absolutely love music as it has been a huge part of my life ever since I could remember. I listen to almost every genre: alternative, emo, punk, screamo, pop, r&b, Kr&b, EDM, rap, the list goes on… So send me your music recs!"
     },
     {
         "id": 229.0,
@@ -3174,7 +3174,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/leoho_casual.jpeg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/leoho_casual.jpeg?raw=true",
         "blurb": "UCI c/o 2022\n" +
             "Mechanical Engineering"
     },
@@ -3203,7 +3203,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/hanalee_casual.jpg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/hanalee_casual.jpg?raw=true",
         "blurb": "Hi everyone! My name is Hana and I'm a Computer Science major! I actually came into college without any prior programming experience, but now I can't imagine studying anything else. With my major, I hope to continue finding future opportunities to grow and contribute my skills in the technological industry as a software engineer. Being able to join Theta Tau has been a blessing in itself creating memories with a group of passionate and fun individuals while professionally developing together! Outside of the fraternity, I enjoy dancing as I'm a part of a competitive hip-hop dance team on campus called CADC. You can also catch me strolling through Trader Joe's, buying all sorts of candles, trying to get into the thrifting scene, or in search of new foods/adventures in my free time :))"
     },
     {
@@ -3231,7 +3231,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/lewislin_casual.JPG",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/lewislin_casual.JPG?raw=true",
         "blurb": "Hello! I'm Lewis Lin and I'm currently a graduate student at UCI studying civil/structural engineering. Some of my favorite things to do is go out with friends, play games and travel. One fun fact about me is that I'm from Utah. Go Jazz!"
     },
     {
@@ -3301,7 +3301,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/christinetran_casual.jpg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/christinetran_casual.jpg?raw=true",
         "blurb": "Hi! I'm Christine, a third-year Mechanical Engineering student, and hope to make a positive impact on those around me through the work that I do. I enjoy working out during my free time and am a current member of UCI's Dragon Boat team! Spending time with those I love brings me tremendous joy; that's why I enjoy baking for and with others, playing games (card games, online games, etc.), and simply being around other people. I'm looking forward to the future, since you never know what's coming next!"
     },
     {
@@ -3315,7 +3315,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/jeffreytruong_casual.jpg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/jeffreytruong_casual.jpg?raw=true",
         "blurb": "Hello my name is Jeffrey Truong. I eat chicken nuggets without the sauce. "
     },
     {
@@ -3329,7 +3329,7 @@ export const brotherInfo = [
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/nathantwigg_casual.jpg",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/nathantwigg_casual.jpg?raw=true",
         "blurb": "I'm a 3rd year Computer Engineering major - originally from Pittsburgh Pennsylvania, and I used to be a bartender."
     },
     {

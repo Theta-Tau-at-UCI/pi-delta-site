@@ -71,15 +71,15 @@ class OfficerCard extends React.Component<{id: number, name: string, class: stri
                 <p className = "names" onClick = {this.openModal}> {this.props.name} </p>
                 <p className = "descriptor" onClick = {this.openModal}> {this.props.cabby_exec_position} </p>
 
-                <Modal show={this.state.isOpen} onHide={this.closeModal}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>{this.props.name}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body><img className = "headshot" src={this.props.profile_url}/></Modal.Body>
-                    <Modal.Footer>
-                        <Button className = "close-button" onClick={this.closeModal}>Close</Button>
-                    </Modal.Footer>
-                </Modal>
+                {/*<Modal show={this.state.isOpen} onHide={this.closeModal}>*/}
+                {/*    <Modal.Header closeButton>*/}
+                {/*        <Modal.Title>{this.props.name}</Modal.Title>*/}
+                {/*    </Modal.Header>*/}
+                {/*    <Modal.Body><img className = "headshot" src={this.props.profile_url}/></Modal.Body>*/}
+                {/*    <Modal.Footer>*/}
+                {/*        <Button className = "close-button" onClick={this.closeModal}>Close</Button>*/}
+                {/*    </Modal.Footer>*/}
+                {/*</Modal>*/}
             </div>
         );
     }

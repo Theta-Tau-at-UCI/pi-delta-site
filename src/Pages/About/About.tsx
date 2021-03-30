@@ -6,9 +6,8 @@ import tt_logo from "../../Media/tt-logo.png";
 import brotherhood from "../../Media/brotherhood.jpg"
 import hammer_and_tongs from "../../Media/hammer_and_tongs.jpg"
 import service from "../../Media/service.jpg"
-import Image from 'react-bootstrap/Image';
+import professionalism from "../../Media/professionalism.jpg"
 import Footer from '../../SharedComponents/Footer/Footer'
-import { PieChart } from 'react-minimal-pie-chart';
 import MajorChart from "./MajorChart";
 import GenderChart from "./GenderChart"
 
@@ -31,15 +30,14 @@ export default class About extends React.Component<{}, {}> {
                             engineering and computer science at more than 80 campuses across the US.
 
                         <br/>
-
+                        <div className = "learn-more">  <a href = "https://www.thetatau.org"><Button  variant="danger">Learn More</Button></a></div>
                         <div id = "hammer-and-tongs"> <img src = {hammer_and_tongs}/> </div>
                         <div className = "motto">
                             “Whatsoever thy hand findeth to do, do it with thy might…” –Ecclesiastes 9:10
                         </div>
-                        <a href = "https://www.thetatau.org"><Button  variant="danger">Learn More</Button></a>
                         </div>
                     </div>
-                    <div className="section">
+                    <div id = "our-chapter" className="section">
 
                         <h1> Our Chapter: Pi Delta </h1>
                         <div className="info">
@@ -58,31 +56,26 @@ export default class About extends React.Component<{}, {}> {
 
 
 
+                        <div id = "our-values">
+                            <Pillar
+                                value="Brotherhood"
+                                img={brotherhood}
+                                description="Our chapter takes pride in the close bond between our brothers. From seasonal retreats and mixers to regionals with brothers from all over the state and nation, we make sure to take time to relax and connect with each other."
+                            />
+                            <Pillar
+                                value="Professionalism"
+                                img={professionalism}
+                                description="We hope to help our brothers develop into engineers with strong communication, problem-solving, and leadership skills that we demonstrate in our work and our community. Whether building up professional basics or guiding each other through the job hunt, our chapter is a community of like-minded individuals preparing each other for the professional world.
+    "
+                            />
+                            <Pillar
+                                value="Service"
+                                img={service}
+                                description="We believe that giving back to the community is an integral part of becoming well rounded people. From taking on a rich array of community service projects or using our lessons learned to guide the next generation of students interested in STEM, we’re always looking for a way to give back to the community.
 
-                        <Pillar
-                            value="Brotherhood"
-                            img={brotherhood}
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
-                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                                consequat."
-                        />
-                        <Pillar
-                            value="Professionalism"
-                            img={tt_logo}
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
-                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                                consequat."
-                        />
-                        <Pillar
-                            value="Service"
-                            img={service}
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
-                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                                consequat."
-                        />
+    "
+                            />
+                        </div>
                     </div>
                     </div>
 

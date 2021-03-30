@@ -7,7 +7,7 @@ import Officers from "./Pages/Brothers/Officers"
 import Classes from "./Pages/Brothers/Classes"
 import Landing from "./Pages/Landing/Landing";
 import Recruitment from "./Pages/Recruitment/Recruitment";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import "./SharedComponents/NavigationBar/NavigationBar";
 import NavigationBar from "./SharedComponents/NavigationBar/NavigationBar"
 
@@ -17,7 +17,9 @@ function App() {
       <Router>
         <Fragment>
           <NavigationBar/>
-          <Route path="/" exact component={Landing} />
+
+          <Route exact path="/pi-delta-react-site"><Redirect to="/" /></Route>
+          <Route path="/" exact component={Landing}/>
           <Route path="/about" component={About} />
           <Route path="/actives" component={Actives}/>
           <Route path="/officers" component={Officers}/>

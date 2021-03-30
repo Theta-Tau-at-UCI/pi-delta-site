@@ -90,3 +90,13 @@ p {
     border-bottom: 1px solid lightgray;
 }
 
+.video-text{
+    color: white;
+    font-weight: bolder;
+    font-family: "Segoe Print";
+}
+
+.video-subtext{
+    font-style: italic;
+    font-family: "Segoe Print";
+}

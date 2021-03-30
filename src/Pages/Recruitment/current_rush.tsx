@@ -28,7 +28,7 @@ class CurrentRush extends Component {
 
                 </div>
 
-                <div className="timeline">
+                <div id = "events" className="timeline">
                     <h1> Timeline</h1>
                     <EventNode date="Monday 3/29"
                                name="Game Night"

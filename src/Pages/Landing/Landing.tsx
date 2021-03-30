@@ -26,8 +26,8 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                         <div className={"container h-100"}>
                             <div className={"d-flex h-100 align-items-center"}>
                                 <div className={"w-100 text-white"}>
-                                    <h1 className={"display-3"}>Theta Tau at UC Irvine</h1>
-                                    <div>Co-ed Professional Engineering Fraternity</div>
+                                    <h1 className="video-text display-3">Theta Tau at UC Irvine</h1>
+                                    <h6 className={ "video-subtext"}>Co-ed Professional Engineering Fraternity</h6>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                 </Container>
 
                 <Container id = "pillars">
-                    <h1>Our Pillars</h1>
+                    <Col> <h1>Our Pillars</h1> </Col>
                     <CardDeck id={"pillar-cards"}>
                         <Pillar value={"Brotherhood"} img={chapter_photo} description={"We forge lifelong bonds of fraternal friendship, a journey that develops and delivers a network of lasting personal and professional relationships. We foster an inviting, safe, and social environment in which our members become lifelong friends."}
                         />
