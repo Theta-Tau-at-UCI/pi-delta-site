@@ -2,11 +2,10 @@ import React, { Fragment } from "react";
 import {Container, Col, Row, Button} from "react-bootstrap";
 import "./About.css"
 import Pillar from "./Pillar";
-import tt_logo from "../../Media/tt-logo.png";
-import brotherhood from "../../Media/brotherhood.jpg"
-import hammer_and_tongs from "../../Media/hammer_and_tongs.jpg"
-import service from "../../Media/service.jpg"
-import professionalism from "../../Media/professionalism.jpg"
+import brotherhood from "../../Media/chapter-photos/brotherhood.jpg"
+import hammer_and_tongs from "../../Media/tt-graphics/hammer_and_tongs.jpg"
+import service from "../../Media/chapter-photos/service.jpg"
+import professionalism from "../../Media/chapter-photos/professionalism.jpg"
 import Footer from '../../SharedComponents/Footer/Footer'
 import MajorChart from "./MajorChart";
 import GenderChart from "./GenderChart"

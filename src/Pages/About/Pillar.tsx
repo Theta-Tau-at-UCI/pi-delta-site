@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import './Pillar.css'
-import tt_logo_placeholder from "../../Media/tt-wordmark-uci.png";
+import tt_logo_placeholder from "../../Media/tt-graphics/tt-wordmark-uci.png";
 import Image from 'react-bootstrap/Image'
 
 export default class Pillar extends React.Component<{img: string, value: string, description: string}, {}> {

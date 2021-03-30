@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./Footer.css"
-import tt_logo_placeholder from "../../Media/tt-wordmark-uci.png";
+import tt_logo_placeholder from "../../Media/tt-graphics/tt-wordmark-uci.png";
 import {FaInstagram, FaFacebook} from 'react-icons/fa';
 import {HiOutlineMail} from "react-icons/all";
 // icons sourced from https://react-icons.github.io/search

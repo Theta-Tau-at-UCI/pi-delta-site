@@ -7,42 +7,31 @@ class MajorChart extends React.Component {
     state = {
         dataDoughnut: {
             labels: ["M", "F"],
-            datasets: []
         }
     }
 
     componentWillMount() {
-        const genders_and_count = Object();
-        const brother_count = brotherInfo.length;
-        for (let i = brother_count-1; i >= 0; i--){
+        const genders_and_count = {"M" : 0, "F": 0};
+        for (let i = brotherInfo.length-1; i >= 0; i--){
             if (brotherInfo[i].active_status == "Y"){
-                const gender = brotherInfo[i].gender;
-                if (genders_and_count[gender]){
-                    genders_and_count[gender] = genders_and_count[gender] + 1;
-                } else {
-                    genders_and_count[gender] = 1;
-                }
+                // @ts-ignore
+                genders_and_count[brotherInfo[i].gender] = genders_and_count[brotherInfo[i].gender] + 1;
             }
         }
-        const genders = Object.keys(genders_and_count);
-        const counts = Object.values(genders_and_count);
+
         this.setState({
             dataDoughnut: {
-                labels: genders,
+                labels: Object.keys(genders_and_count),
                 datasets: [
                     {
-                        data: counts,
-                        backgroundColor: ["#00FFFF", "#FF66FF"],
-                        hoverBackgroundColor: [
-                            "#99FFFF",
-                            "#FFCCFF"
-                        ]
+                        data:Object.values(genders_and_count),
+                        backgroundColor: ["#4d92e0", "#FF66FF"],
+                        hoverBackgroundColor: ["#379fbe", "#FFCCFF"]
                     }
                 ]
             }
         });
     }
-
 
     render() {
         return (

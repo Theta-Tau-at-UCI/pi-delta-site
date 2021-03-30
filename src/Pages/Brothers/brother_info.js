@@ -3132,7 +3132,7 @@ export const brotherInfo = [
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Recruitment",
         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Rho/joshualiu.jpg",
-        "casual_photo": "NULL",
+        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/joshualiu_casual?raw=true",
         "blurb": "Hi! I’m Joshua Liu, a second year Computer Science and Engineering Major! I’m one of the current Rush Directors so send any questions you have about Theta Tau or rush my way! I joined my first year fall and it has been one of the best experiences of my life getting to meet my second family here on campus! Things I enjoy to do besides just school are cooking, bouldering, going to the driving range with my housemate, and playing guitar. I absolutely love music as it has been a huge part of my life ever since I could remember. I listen to almost every genre: alternative, emo, punk, screamo, pop, r&b, Kr&b, EDM, rap, the list goes on… So send me your music recs!"
     },
     {

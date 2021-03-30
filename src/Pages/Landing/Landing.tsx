@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import "./Landing.css"
-import chapter_photo from "../../Media/winter_photoshoot_2020.jpg";
+import chapter_photo from "../../Media/chapter-photos/winter_photoshoot_2020.jpg";
 import Pillar from "./Pillar";
 import {CardDeck, Container, Row, Col, Button} from "react-bootstrap";
-import chapter_photo_2 from "../../Media/winter_retreat.jpg"
+import chapter_photo_2 from "../../Media/chapter-photos/winter_retreat.jpg"
 import Footer from "../../SharedComponents/Footer/Footer"
 
 
