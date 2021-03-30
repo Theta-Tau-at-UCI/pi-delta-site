@@ -66,12 +66,18 @@ h1{
     padding-bottom: 40px;
 }
 
-#hammer-and-tongs{
+#hammer-and-tongs-div{
     padding-top: 20px ;
     padding: 20px;
     text-align: center;
     width: 100%;
     height: auto;
+}
+
+#hammer-and-tongs-img {
+    width: 100%;
+    height: auto;
+
 }
 
 #tt_logo{

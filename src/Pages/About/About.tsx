@@ -31,7 +31,9 @@ export default class About extends React.Component<{}, {}> {
 
                         <br/>
                         <div className = "learn-more">  <a href = "https://www.thetatau.org"><Button  variant="danger">Learn More</Button></a></div>
-                        <div id = "hammer-and-tongs"> <img src = {hammer_and_tongs}/> </div>
+                        <div id = "hammer-and-tongs-div">
+                            <img id ="hammer-and-tongs-img" src = {hammer_and_tongs}/>
+                        </div>
                         <div className = "motto">
                             “Whatsoever thy hand findeth to do, do it with thy might…” –Ecclesiastes 9:10
                         </div>
@@ -45,8 +47,9 @@ export default class About extends React.Component<{}, {}> {
 
                         <div className="charts container">
                             <div className="row">
-                                    <MajorChart/>
-                                    <GenderChart/>
+                                <Col xs = {12} lg = {6} > <MajorChart/> </Col>
+                                <Col xs = {12} lg = {6}>  <GenderChart/> </Col>
+
                             </div>
                         </div>
 

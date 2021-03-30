@@ -32,10 +32,10 @@ class MajorChart extends React.Component {
                 datasets: [
                     {
                         data: counts,
-                        backgroundColor: ["#F7464A", "#46BFBD"],
+                        backgroundColor: ["#00FFFF", "#FF66FF"],
                         hoverBackgroundColor: [
-                            "#FF5A5E",
-                            "#5AD3D1"
+                            "#99FFFF",
+                            "#FFCCFF"
                         ]
                     }
                 ]

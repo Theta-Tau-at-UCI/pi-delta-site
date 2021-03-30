@@ -30,7 +30,7 @@ body{
 @media (min-width: 1024px){
     .grid-container {
         display: grid;
-        grid-template-columns: auto auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto auto;
         background-color: white;
         /*padding: 5px;*/
     }
@@ -39,7 +39,7 @@ body{
 @media (min-width: 768px) and (max-width: 1024px) {
     .grid-container {
         display: grid;
-        grid-template-columns: auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto;
         background-color: white;
         /*padding: 5px;*/
     }
@@ -48,7 +48,7 @@ body{
 @media (max-width: 768px) {
     .grid-container {
         display: grid;
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: auto auto auto ;
         background-color: white;
         /*padding: 5px;*/
     }
