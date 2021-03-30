@@ -40,18 +40,19 @@ class MajorChart extends React.Component {
                 datasets: [
                     {
                         data: counts,
-                        backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360", "#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+                        backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#AC1CFF", "#4D5360", "#4DA6FF", "#D5FF03","#FF1C49", "#12FF2A", "#949FB1" ],
                         hoverBackgroundColor: [
                             "#FF5A5E",
                             "#5AD3D1",
                             "#FFC870",
-                            "#A8B3C5",
+                            "#D387FF",
                             "#616774",
-                            "#FF5A5E",
-                            "#5AD3D1",
-                            "#FFC870",
-                            "#A8B3C5",
-                            "#616774"
+                            "#B0D7FF",
+                            "#E5FF66",
+                            "#FF99A7",
+                            "#85FF9D",
+                            "#A8B3C5"
+
                         ]
                     }
                 ]

@@ -14,7 +14,7 @@ export default class Pillar extends React.Component<{img: string, value: string,
                     <Card.Text className={"pillar-text"}>
                         {this.props.description}
                     </Card.Text>
-                    {/*<Image src={this.props.img} alt="Picture of Pillar" fluid />*/}
+
                 </Card.Body>
             </Card>
         );
