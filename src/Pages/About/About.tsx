@@ -45,12 +45,8 @@ export default class About extends React.Component<{}, {}> {
 
                         <div className="charts container">
                             <div className="row">
-                                <div className="col-sm">
                                     <MajorChart/>
-                                </div>
-                                <div className="col-sm">
                                     <GenderChart/>
-                                </div>
                             </div>
                         </div>
 
@@ -83,17 +79,39 @@ export default class About extends React.Component<{}, {}> {
                         <h1> Other Chapters in Our Region </h1>
                         <div className = "other-chapters">
                         Pi Delta is a part of the Western Region of Theta Tau. Here are the
-                        other chapters and colonies in our region if you would like to learn about them.
+                        other chapters and colonies in our region.
                         </div>
 
-                        <Container>
+                        <Container className = "chapters-and-colonies">
 
-                            <h2> Chapters </h2>
-                            <h2> Colonies </h2>
+                            <h3> Chapters </h3>
+                            <ul>
+
+                                <li> Chi Chapter (University of Arizona) </li>
+                                <li> Delta Gamma Chapter (Arizona State University)</li>
+                                <li> Epsilon Chapter (University of California, Berkeley)</li>
+                                <li> Epsilon Delta Chapter (University of California, San Diego)</li>
+                                <li> Kappa Epsilon Chapter (University of Southern California) </li>
+                                <li> Lambda Delta Chapter (University of the Pacific) </li>
+                                <li> Lambda Epsilon Chapter (University of San Diego)</li>
+                                <li> Mu Delta Chapter (University of California, Merced) </li>
+                                <li> Omicron Epsilon Chapter (Northern Arizona University)</li>
+                                <li> Omicron Gamma Chapter (University of California, Davis) </li>
+                                <li> Phi Epsilon (California State University, Fullerton)</li>
+                                <li> Rho Delta Chapter (University of Nevada, Reno)</li>
+                                <li> Sigma Delta Chapter (University of California, Riverside) </li>
+                                <li> Sigma Epsilon Chapter (University of California, Santa Barbara) </li>
+                                <li> Upsilon Delta Chapter (University of California, Los Angeles)</li>
+                                <li> Upsilon Epsilon (Santa Clara University)</li>
+                                <li> Xi Epsilon Chapter (California State University, Long Beach) </li>
+
+
+                            </ul>
+                            <h3> Colonies </h3>
 
                             <ul>
-                                <li> placeholder 1</li>
-                                <li> placeholder 2 </li>
+                                <li> University of Nevada, Las Vegas Colony of Theta Tau </li>
+                                <li> University of Washington Colony</li>
                             </ul>
                         </Container>
 
