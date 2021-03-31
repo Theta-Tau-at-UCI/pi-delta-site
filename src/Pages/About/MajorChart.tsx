@@ -7,25 +7,25 @@ class MajorChart extends React.Component {
     state = {dataDoughnut: {}}
 
     componentWillMount() {
-        const majors_and_count = {"Mechanical" : 0, "Chemical" : 0, "Civil": 0, "CS/CSE/CPE/SWE" : 0, "Biomedical" : 0, "Aerospace" : 0, "Electrical" : 0}
+        const majors_and_count = {"MechE" : 0, "ChemE" : 0, "Civil": 0, "CS/CSE/CpE/SWE" : 0, "BmE" : 0, "Aero" : 0, "EE" : 0}
         for (let i = 0; i < brotherInfo.length; i++){
             if (brotherInfo[i].active_status == "Y"){
                 const major = brotherInfo[i].major;
 
                 if (major == "Mechanical Engineering"){
-                    majors_and_count["Mechanical"] =  majors_and_count["Mechanical"]+1;
+                    majors_and_count["MechE"] =  majors_and_count["MechE"]+1;
                 } else if (major == "Chemical Engineering"){
-                    majors_and_count["Chemical"] =  majors_and_count["Chemical"]+1;
+                    majors_and_count["ChemE"] =  majors_and_count["ChemE"]+1;
                 } else if (major == "Civil Engineering") {
                     majors_and_count["Civil"] = majors_and_count["Civil"] + 1;
                 } else if (new Set(["Computer Science", "Computer Science and Engineering", "Computer Engineering", "Software Engineering"]).has(major)) {
-                    majors_and_count["CS/CSE/CPE/SWE"] = majors_and_count["CS/CSE/CPE/SWE"] + 1;
+                    majors_and_count["CS/CSE/CpE/SWE"] = majors_and_count["CS/CSE/CpE/SWE"] + 1;
                 } else if (major == "Biomedical Engineering"){
-                    majors_and_count["Biomedical"] =  majors_and_count["Biomedical"] +1;
+                    majors_and_count["BmE"] =  majors_and_count["BmE"] +1;
                 } else if (major == "Aerospace Engineering"){
-                majors_and_count["Aerospace"] =  majors_and_count["Aerospace"] +1;
+                majors_and_count["Aero"] =  majors_and_count["Aero"] +1;
                 } else if (major == "Electrical Engineering"){
-                    majors_and_count["Electrical"] =  majors_and_count["Electrical"] +1;
+                    majors_and_count["EE"] =  majors_and_count["EE"] +1;
                 }
             }
         }

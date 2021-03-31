@@ -8,7 +8,7 @@
 }
 
 .navbar-brand img{
-  height: 75px;
+  height: 100px;
   float: left;
   margin-right: 7px;
 }
@@ -34,3 +34,23 @@
   color: white;
 }
 
+
+
+@media only screen and (min-width: 400px) {
+  #nav-about, #nav-recruitment, #nav-brothers{
+    margin-left: 3rem!important;
+    margin-right: 3rem!important;
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+  #nav-about, #nav-recruitment, #nav-brothers{
+    margin-left: 1.00rem!important;
+    margin-right: 1.00rem!important;
+  }
+}
+
+.dropdown-item{
+  padding-right: 0px;
+}

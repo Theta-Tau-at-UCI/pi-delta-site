@@ -100,7 +100,7 @@ class BrotherCard extends React.Component<{id: number, name: string, class: stri
                         </Modal.Header>
                         <Modal.Body>
                             <div className="headshot-div">
-                                <img className="headshot" src={this.props.casual_photo}/>
+                                <img id="modal-pic" src={this.props.casual_photo}/>
                             </div>
                             <div>
                                 <p className="blurb"> {this.props.blurb}</p>

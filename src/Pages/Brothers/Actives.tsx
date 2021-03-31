@@ -60,7 +60,7 @@ class ActiveCard extends React.Component<{id: number, name: string, class: strin
                         </Modal.Header>
                         <Modal.Body>
                             <div className="headshot-div">
-                                <img className="headshot" src={this.props.profile_url}/>
+                                <img id = "modal-pic" src={this.props.profile_url}/>
                             </div>
                             <div>
                                 <p className="blurb"> {this.props.blurb}</p>

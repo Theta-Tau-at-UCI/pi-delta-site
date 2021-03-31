@@ -23,10 +23,6 @@
     color: black;
 }
 
-body{
-    background-color: white;
-}
-
 @media (min-width: 1024px){
     .grid-container {
         display: grid;
@@ -50,7 +46,6 @@ body{
         display: grid;
         grid-template-columns: auto auto auto ;
         background-color: white;
-        /*padding: 5px;*/
     }
 }
 
@@ -124,4 +119,9 @@ h1{
 
 .headshot-div{
     text-align: center;
+}
+
+#modal-pic {
+    width: 75%;
+    height: auto;
 }

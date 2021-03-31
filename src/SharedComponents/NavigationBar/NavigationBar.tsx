@@ -1,5 +1,5 @@
 import React from "react";
-import tt_crest from "../../Media/tt-graphics/tt-logo.png"
+import navbar_brand from "../../Media/tt-graphics/navbar-brand.png"
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./NavigationBar.css"
 
@@ -10,14 +10,14 @@ class NavigationBar extends React.Component {
         return (
             <Navbar className="color-nav" expand="md" sticky="top">
                 <Navbar.Brand href="/">
-                    <img src={tt_crest} alt="theta-tau-logo" />
+                    <img src={navbar_brand} alt="theta-tau-logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link id = "nav-about" className = "mx-5" href="/about">About</Nav.Link>
-                        <Nav.Link id = "nav-recruitment" className = "mx-5" href="/recruitment">Recruitment</Nav.Link>
-                        <NavDropdown id = "nav-brothers" className = "mx-5" title = "Brothers">
+                        <Nav.Link id = "nav-about"  href="/about">About</Nav.Link>
+                        <Nav.Link id = "nav-recruitment"  href="/recruitment">Recruitment</Nav.Link>
+                        <NavDropdown id = "nav-brothers"  title = "Brothers">
                             <NavDropdown.Item href="/actives">Actives</NavDropdown.Item>
                             <NavDropdown.Item href="/officers">Officers</NavDropdown.Item>
                             <NavDropdown.Item href="/classes">Classes</NavDropdown.Item>

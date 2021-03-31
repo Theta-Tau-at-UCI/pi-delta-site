@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import "./Landing.css"
 import chapter_photo from "../../Media/chapter-photos/winter_photoshoot_2020.jpg";
+import tt_logo from "../../Media/tt-graphics/tt-logo.png"
 import Pillar from "./Pillar";
 import {CardDeck, Container, Row, Col, Button} from "react-bootstrap";
 import chapter_photo_2 from "../../Media/chapter-photos/winter_retreat.jpg"
@@ -26,8 +27,8 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                         <div className={"container h-100"}>
                             <div className={"d-flex h-100 align-items-center"}>
                                 <div className={"w-100 text-white"}>
-                                    <h1 className="video-text display-3">Theta Tau at UC Irvine</h1>
-                                    <h6 className={ "video-subtext"}>Co-ed Professional Engineering Fraternity</h6>
+                                    <img id = "video-overlay-graphic" src = {tt_logo}/>
+                                    <h6 className={ "video-subtext"}>Pi Delta Chapter at UC Irvine</h6>
                                 </div>
                             </div>
                         </div>

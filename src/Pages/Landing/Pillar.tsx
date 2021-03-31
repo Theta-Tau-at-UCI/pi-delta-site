@@ -17,6 +17,8 @@ export default class Pillar extends React.Component<{img: string, value: string,
 
                 </Card.Body>
             </Card>
+
+
         );
     }
 }
