@@ -1,6 +1,6 @@
 .footer {
     padding-top: 1rem;
-    background-color: #545353;
+    background-color: #2d2c2c;
     width: 100%;
 }
 
@@ -9,12 +9,7 @@
 }
 
 
-.credits {
-    color: #ffffff;
-    margin-top: 20px;
-    text-align: right;
-    font-size: 10px;
-}
+
 
 .logo {
     width: 66%;
@@ -24,8 +19,17 @@
     margin:auto;
 }
 
+.logo-mobile {
+    width: 50%;
+    height: auto;
+    padding-bottom: 10px;
+    display:block;
+    margin:auto;
+}
+
 a {
     color: #ffffff;
+    font-size: 1.0rem;
 }
 
 p {
@@ -38,6 +42,14 @@ strong, i {
     color: white;
 }
 
-.email {
+#email{
     color: white;
+}
+
+.mobile-font-size{
+    font-size: 0.6rem;
+}
+
+#footer-col {
+    padding: 6px;
 }
