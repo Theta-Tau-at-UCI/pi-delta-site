@@ -8,11 +8,23 @@ import chapter_photo_2 from "../../Media/chapter-photos/winter_retreat.jpg"
 import Footer from "../../SharedComponents/Footer/Footer"
 
 
-export default class Landing extends React.Component<{}, { selected: string }> {
+export default class Landing extends React.Component<{}, { windowWidth: any }> {
     constructor(props: {}) {
         super(props);
+        this.state = { windowWidth: window.innerWidth };
     }
 
+    handleResize = (e:any) => {
+        this.setState({ windowWidth: window.innerWidth });
+    };
+
+    componentDidMount() {
+        window.addEventListener("resize", this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.addEventListener("resize", this.handleResize);
+    }
 
     render() {
         return (
@@ -35,19 +47,8 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                     </header>
 
 
+                    <WhoWeAre/>
 
-                <Container id="who-we-are">
-
-                    <Row>
-                        <Col> <h1>Who We Are</h1>
-                              Theta Tau is the premier co-ed professional engineering fraternity at UC Irvine.
-                              We foster an environment for our brothers to develop individually and professionally
-                              while giving back to the community.
-                              <br/> <br/>
-                            <a href = "/about"><Button variant="danger">Learn More</Button></a> </Col>
-                        <Col> <img className = "media" src={chapter_photo} alt="chapter-photo" /></Col>
-                    </Row>
-                </Container>
 
                 <Container id = "pillars">
                     <Col> <h1>Our Pillars</h1> </Col>
@@ -60,9 +61,95 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                         />
                     </CardDeck>
                 </Container>
+               <Join/>
+
+                <Footer/>
+            </Fragment>
+        );
+    }
+}
+
+
+class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
+    constructor(props: {}) {
+        super(props);
+        this.state = { windowWidth: window.innerWidth };
+    }
+
+    handleResize = (e:any) => {
+        this.setState({ windowWidth: window.innerWidth });
+    };
+
+    componentDidMount() {
+        window.addEventListener("resize", this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.addEventListener("resize", this.handleResize);
+    }
+
+    render(){
+        if (this.state.windowWidth > 375){
+            return(
+                <Container id="who-we-are">
+
+                    <Row>
+                        <Col> <h1>Who We Are</h1>
+                            Theta Tau is the premier co-ed professional engineering fraternity at UC Irvine.
+                            We foster an environment for our brothers to develop individually and professionally
+                            while giving back to the community.
+                            <br/> <br/>
+                            <a href = "/about"><Button variant="danger">Learn More</Button></a> </Col>
+                        <Col> <img className = "media" src={chapter_photo} alt="chapter-photo" /></Col>
+                    </Row>
+                </Container>)
+        } else {
+            return(
+                <Container id="who-we-are">
+                    <Row>
+                        <Col>
+                            <h1>Who We Are</h1>
+
+
+                            <img className = "media" src={chapter_photo} alt="chapter-photo" />
+                            <br/>
+                            Theta Tau is the premier co-ed professional engineering fraternity at UC Irvine.
+                            We foster an environment for our brothers to develop individually and professionally
+                            while giving back to the community.
+                            <br/>
+                            <div className = "text-center"> <a href = "/about"><Button id = "learn-more" variant="danger">Learn More</Button></a> </div>
+
+
+                        </Col>
+                    </Row>
+                </Container>
+            )
+        }
+    }
+}
+
+class Join extends React.Component<{}, { windowWidth: any }> {
+    constructor(props: {}) {
+        super(props);
+        this.state = { windowWidth: window.innerWidth };
+    }
+
+    handleResize = (e:any) => {
+        this.setState({ windowWidth: window.innerWidth });
+    };
+
+    componentDidMount() {
+        window.addEventListener("resize", this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.addEventListener("resize", this.handleResize);
+    }
+
+    render(){
+        if (this.state.windowWidth > 375){
+            return(
                 <Container id = "join">
-
-
                     <Row>
                         <Col> <h1> Interested In Joining Our Brotherhood? </h1>
                             We hold recruitment events every fall and spring quarter. Feel free to stop
@@ -71,10 +158,25 @@ export default class Landing extends React.Component<{}, { selected: string }> {
                             <a href = "/recruitment"> <Button variant = "danger"> Spring '21 Rush</Button> </a> </Col>
                         <Col> <img className = "media" src={chapter_photo_2} alt="chapter-photo-2" /></Col>
                     </Row>
-                </Container>
+                </Container>)
+        } else {
+            return(
+                <Container id = "join">
+                    <Row>
+                        <Col> <h1> Interested In Joining Our Brotherhood? </h1>
+                            <Row>
+                                <Col> <img className = "media" src={chapter_photo_2} alt="chapter-photo-2" /></Col>
+                            </Row>
 
-                <Footer/>
-            </Fragment>
-        );
+                            We hold recruitment events every fall and spring quarter. Feel free to stop
+                            by at our booth at the engineering quad or contact us via email or social media.
+                            <br/> <br/>
+                            <div className = "text-center" ><a href = "/recruitment"> <Button variant = "danger"> Spring '21 Rush</Button> </a> </div>
+                        </Col>
+                    </Row>
+
+                </Container>
+            )
+        }
     }
 }
