@@ -5,10 +5,10 @@ import {Modal} from "react-bootstrap";
 
 
 
-export default class Credits extends React.Component<{}, { windowWidth: any, isOpen: boolean }> {
+export default class Credits extends React.Component<{}, { isOpen: boolean }> {
     constructor(props: any) {
         super(props);
-        this.state = {windowWidth: window.innerWidth, isOpen: false};
+        this.state = { isOpen: false};
     }
 
 
@@ -16,17 +16,7 @@ export default class Credits extends React.Component<{}, { windowWidth: any, isO
     closeModal = () => this.setState({ isOpen: false });
 
 
-handleResize = (e:any) => {
-        this.setState({ windowWidth: window.innerWidth });
-    };
 
-    componentDidMount() {
-        window.addEventListener("resize", this.handleResize);
-    }
-
-    componentWillUnmount() {
-        window.addEventListener("resize", this.handleResize);
-    }
 
     render(){
         return (

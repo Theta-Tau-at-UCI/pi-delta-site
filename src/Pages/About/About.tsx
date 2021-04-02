@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import {Container, Col, Row, Button} from "react-bootstrap";
+import {Container, Col, Button} from "react-bootstrap";
 import "./About.css"
 import Pillar from "./Pillar";
 import brotherhood from "../../Media/chapter-photos/brotherhood.jpg"
@@ -11,10 +11,6 @@ import MajorChart from "./MajorChart";
 import GenderChart from "./GenderChart"
 
 export default class About extends React.Component<{}, {}> {
-    constructor(props: {}) {
-        super(props);
-    }
-    
     render() {
         return (
             <Fragment>
