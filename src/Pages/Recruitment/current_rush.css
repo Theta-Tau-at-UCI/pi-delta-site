@@ -118,50 +118,20 @@
     margin-right: 5%;
 }
 
-@media (min-width: 414px) {
-    #title {
-        font-size: 3em;
-    }
-    #rush-blurb {
-        font-size: 1.2em;
-    }
-    .event {
-        font-size: 1.2em;
-    }
-    #timeline-title {
-        font-size: 1.6em;
-    }
+
+#title {
+    font-size: 3em;
+}
+.event {
+    font-size: 1.2em;
+}
+#timeline-title {
+    font-size: 1.6em;
 }
 
-@media (min-width: 768px) {
-    #title {
-        font-size: 4em;
-    }
-    #rush-blurb {
-        font-size: 1.2em;
-    }
-    .event {
-        font-size: 1.6em;
-    }
-    #timeline-title {
-        font-size: 1.6em;
-    }
-}
 
-@media (min-width: 1024px) {
-    #title {
-        font-size: 6em;
-    }
-    #rush-blurb {
-        font-size: 1.6em;
-    }
-    .event {
-        font-size: 2.5em;
-    }
-    #timeline-title {
-        font-size: 2em;
-    }
-}
+
+
 
 
 #rush-header{
@@ -171,8 +141,8 @@
 }
 
 .rush-desc{
-    font-weight: bold;
     text-align: left;
+    font-size: 1.0em;
 }
 
 #discord-link{

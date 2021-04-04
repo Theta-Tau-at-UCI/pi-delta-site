@@ -117,7 +117,7 @@ class ThetaTau extends React.Component<{}, {windowWidth:any }> {
         window.addEventListener("resize", this.handleResize);
     }
     render(){
-        if (this.state.windowWidth > 375){
+        if (this.state.windowWidth > 500){
             return (
                 <div className="section">
                     <h1> Theta Tau  </h1>

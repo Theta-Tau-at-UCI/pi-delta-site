@@ -50,6 +50,10 @@ strong, i {
     font-size: 0.6rem;
 }
 
-#footer-col {
+.footer-col {
     padding: 6px;
+}
+
+#about-column {
+    padding-left: 10px;
 }

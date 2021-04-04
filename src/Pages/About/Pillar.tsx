@@ -21,7 +21,7 @@ export default class Pillar extends React.Component<{img: string, value: string,
     }
 
     render() {
-        if (this.state.windowWidth > 375){
+        if (this.state.windowWidth > 500){
             return (
                 <div className="pillar-row">
                     <div className="col">

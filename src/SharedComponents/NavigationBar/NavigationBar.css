@@ -36,7 +36,7 @@
 
 
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 500px) {
   #nav-about, #nav-recruitment, #nav-brothers{
     margin-left: 3rem!important;
     margin-right: 3rem!important;
@@ -44,10 +44,10 @@
 }
 
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   #nav-about, #nav-recruitment, #nav-brothers{
-    margin-left: 1.00rem!important;
-    margin-right: 1.00rem!important;
+    margin-left: 0.75rem!important;
+    margin-right: 0.75rem!important;
   }
 }
 

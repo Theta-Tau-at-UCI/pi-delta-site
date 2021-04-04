@@ -23,7 +23,7 @@ export default class Footer extends React.Component<{}, { windowWidth: any }> {
         window.addEventListener("resize", this.handleResize);
     }
     render() {
-        if (this.state.windowWidth > 375){
+        if (this.state.windowWidth > 500){
             return (
                 <Fragment>
                     <section className= "footer">

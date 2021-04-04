@@ -11,9 +11,10 @@ class CurrentRush extends Component {
                 <img id = "rush-header" src = {rush_header} alt = "rush_header"/>
                 <div id="rush-blurb">
                     <p className = "rush-desc">
-                        Pi Delta is now hosting Spring Rush! We hope to see you on our <a id = "discord-link" href = "http://discord.gg/AGxvc3scp8"> discord server
-                        </a> ! If you have any questions, feel free to reach out to our recruitment chairs:
-
+                        {/*Pi Delta is now hosting Spring Rush! We hope to see you on our <a id = "discord-link" href = "http://discord.gg/AGxvc3scp8"> discord server*/}
+                        {/*</a> ! If you have any questions, feel free to reach out to our recruitment chairs:*/}
+                        Pi Delta will be holding our next recruitment event in the fall. If you have any questions
+                        in the meantime, feel free to contact our recruitment directors.
                         <br/>
                     </p>
                     <p className = "rush-desc">

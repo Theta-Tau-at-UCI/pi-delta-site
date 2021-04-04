@@ -89,7 +89,7 @@ class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
     }
 
     render(){
-        if (this.state.windowWidth > 375){
+        if (this.state.windowWidth > 500){
             return(
                 <Container id="who-we-are">
 
@@ -147,7 +147,7 @@ class Join extends React.Component<{}, { windowWidth: any }> {
     }
 
     render(){
-        if (this.state.windowWidth > 375){
+        if (this.state.windowWidth > 500){
             return(
                 <Container id = "join">
                     <Row>
