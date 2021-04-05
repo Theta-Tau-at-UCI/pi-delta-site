@@ -41,6 +41,7 @@ export default class Credits extends React.Component<{}, { isOpen: boolean }> {
                                 <li> Maireen Espiritu</li>
                                 <li> Justin Ho</li>
                                 <li> Claire Hyon</li>
+                                <li> Alyssa Harvey</li>
                             </ul>
 
                         </div>

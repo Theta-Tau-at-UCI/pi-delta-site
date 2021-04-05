@@ -6,6 +6,7 @@
 }
 
 #chair{
-    font-weight: bold;
+    padding-left: 5px;
+    font-weight: bolder;
     font-style: italic;
 }

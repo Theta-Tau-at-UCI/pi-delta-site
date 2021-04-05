@@ -2165,7 +2165,7 @@ export const brotherInfo = [
         "major": "Computer Science and Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Mu/michellecasquez.jpg",
+        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Mu/michellevasquez.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
