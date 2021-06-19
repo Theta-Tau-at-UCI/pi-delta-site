@@ -2678,7 +2678,7 @@ export const brotherInfo = [
         "name": "Tori Spiegel",
         "gender": "F",
         "class": "Omicron",
-        "active_status": "Y",
+        "active_status": "N",
         "linkedin_url": "linkedin.com/in/victoriaspiegel",
         "major": "Computer Science and Engineering",
         "cabby_exec_status": "Y",
