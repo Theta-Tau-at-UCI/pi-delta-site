@@ -3163,21 +3163,21 @@ export const brotherInfo = [
         "casual_photo": "NULL",
         "blurb": ""
     },
-    {
-        "id": 231.0,
-        "name": "Leo Ho",
-        "gender": "M",
-        "class": "Tau",
-        "active_status": "Y",
-        "linkedin_url": "NULL",
-        "major": "Mechanical Engineering",
-        "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg",
-        "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/leoho_casual.jpeg?raw=true",
-        "blurb": "UCI c/o 2022\n" +
-            "Mechanical Engineering"
-    },
+//     {
+//         "id": 231.0,
+//         "name": "Leo Ho",
+//         "gender": "M",
+//         "class": "Tau",
+//         "active_status": "Y",
+//         "linkedin_url": "NULL",
+//         "major": "Mechanical Engineering",
+//         "cabby_exec_status": "N",
+//         "cabby_exec_position": "NULL",
+//         "profile_url": "https://raw.githubusercontent.com/ttucidev/pi-delta-brothers-images/main/Founders/jeffreygo.jpg",
+//         "casual_photo": "https://github.com/ttucidev/pi-delta-brothers-images/blob/main/casual-photos/leoho_casual.jpeg?raw=true",
+//         "blurb": "UCI c/o 2022\n" +
+//             "Mechanical Engineering"
+//     },
     {
         "id": 232.0,
         "name": "Teryn Kum",
