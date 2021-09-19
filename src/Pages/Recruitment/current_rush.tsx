@@ -18,9 +18,9 @@ class CurrentRush extends Component {
                         <br/>
                     </p>
                     <p className = "rush-desc">
-                        Rush Chair: Joshua Liu | IG:@joshualiuser | (510) 386-2818
+                        Rush Chair: Jeffrey Truong | (415) 401-5197
                         <br/>
-                        Rush Chair: Lauren Yoo | IG:@laurenyoohoo | (818) 913-4104
+                        Rush Chair: Alec Owen      | (808) 283-1202
                     </p>
 
 
@@ -28,39 +28,39 @@ class CurrentRush extends Component {
 
                 <div id = "events" className="timeline">
                     <h1> Timeline</h1>
-                    <EventNode date="Monday 3/29"
-                               name="Game Night"
-                               description="Spend a night playing some games while getting to know the brothers of Theta Tau!"
-                               time_loc="7:00 pm @ Discord Server"
+                    <EventNode date="Monday 9/27"
+                               name="E-Challenge"
+                               description="Spend a night getting to know other rushees and the brothers of Theta Tau!"
+                               time_loc="7pm to 9pm @ ICS 213"
                                attire="Casual"
                                img1={test}
                                img2={test}/>
-                    <EventNode date="Tuesday 3/30"
+                    <EventNode date="Tuesday 9/28"
                                name="Info Night"
-                               description="Learn more about Theta Tau and what we have to offer, have all your questions answered, and get a chance to hear from some of our amazing alumni!"
-                               time_loc="7:00 pm @ Discord Server"
-                               attire="Casual"
+                               description="Learn more about Theta Tau and what we have to offer and have all your questions answered!"
+                               time_loc="7pm to 9pm @ TBA"
+                               attire="Business Casual"
                                img1={test}
                                img2={test}/>
-                    <EventNode date="Wednesday 3/31"
+                    <EventNode date="Wednesday 9/29"
                                name="Professional Development Night"
                                description="Resume building, Interview Tips, and LinkedIn Help! Get all the professional development help you could want from our very own brothers! "
-                               time_loc="7:00 pm @ Discord Server"
+                               time_loc="7pm to 9pm @ ICS 213"
+                               attire="Professional"
+                               img1={test}
+                               img2={test}/>
+                    <EventNode date="Thursday 9/30"
+                               name="[Invite Only] BBQ"
+                               description="Eat and chat with the brothers of Theta Tau to get to know us better!"
+                               time_loc="7pm to 9pm @ TBA"
                                attire="Casual"
                                img1={test}
                                img2={test}/>
-                    <EventNode date="Thursday 4/1"
-                               name="[Invite Only] Potluck"
-                               description="Eat and chat virtually with the brothers of Theta Tau to get to know us better!"
-                               time_loc="7:00 pm @ Discord Server"
-                               attire="Casual"
-                               img1={test}
-                               img2={test}/>
-                    <EventNode date="Friday 4/2"
+                    <EventNode date="Friday 10/1"
                                name="[Invite Only] Interviews"
                                description="Show off your best self in a professional interview setting!"
-                               time_loc="7:00 pm @ Discord Server"
-                               attire="Casual"
+                               time_loc="7pm to 9pm @ TBA"
+                               attire="Professional"
                                img1={test}
                                img2={test}/>
                 </div>
