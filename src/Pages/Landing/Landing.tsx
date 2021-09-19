@@ -40,7 +40,7 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
                             <div className={"d-flex h-100 align-items-center"}>
                                 <div className={"w-100 text-white"}>
                                     <img id = "video-overlay-graphic" src = {tt_logo}/>
-                                    <h6 className={ "video-subtext"}>[DEV] Pi Delta Chapter at UC Irvine</h6>
+                                    <h6 className={ "video-subtext"}>Pi Delta Chapter at UC Irvine</h6>
                                 </div>
                             </div>
                         </div>
