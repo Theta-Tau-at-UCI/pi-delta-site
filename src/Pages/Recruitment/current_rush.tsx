@@ -8,12 +8,12 @@ class CurrentRush extends Component {
         return (
             <div>
 
-                <img id = "rush-header" src = {rush_header} alt = "rush_header"/>
+                {/* <img id = "rush-header" src = {rush_header} alt = "rush_header"/> */}
                 <div id="rush-blurb">
+                    <h1> Spring '22 Rush </h1>
+                    <br/>
                     <p className = "rush-desc">
-                        {/*Pi Delta is now hosting Spring Rush! We hope to see you on our <a id = "discord-link" href = "http://discord.gg/AGxvc3scp8"> discord server*/}
-                        {/*</a> ! If you have any questions, feel free to reach out to our recruitment chairs:*/}
-                        Pi Delta will be holding our next recruitment event in the fall. If you have any questions
+                        Pi Delta will be holding our next recruitment event in the spring. If you have any questions
                         in the meantime, feel free to contact our recruitment directors.
                         <br/>
                     </p>
@@ -26,7 +26,7 @@ class CurrentRush extends Component {
 
                 </div>
 
-                <div id = "events" className="timeline">
+                {/* <div id = "events" className="timeline">
                     <h1> Timeline</h1>
                     <EventNode date="Monday 9/27"
                                name="E-Challenge"
@@ -63,7 +63,7 @@ class CurrentRush extends Component {
                                attire="Professional"
                                img1={test}
                                img2={test}/>
-                </div>
+                </div> */}
 
             </div>
         );

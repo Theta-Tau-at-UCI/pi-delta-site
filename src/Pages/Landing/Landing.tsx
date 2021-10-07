@@ -155,7 +155,7 @@ class Join extends React.Component<{}, { windowWidth: any }> {
                             We hold recruitment events every fall and spring quarter. Feel free to stop
                             by at our booth at the engineering quad or contact us via email or social media.
                             <br/> <br/>
-                            <a href = "/recruitment"> <Button variant = "danger"> Spring '21 Rush</Button> </a> </Col>
+                            <a href = "/recruitment"> <Button variant = "danger"> Spring '22 Rush</Button> </a> </Col>
                         <Col> <img className = "media" src={chapter_photo_2} alt="chapter-photo-2" /></Col>
                     </Row>
                 </Container>)
