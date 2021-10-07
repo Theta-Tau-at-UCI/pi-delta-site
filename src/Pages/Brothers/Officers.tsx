@@ -9,7 +9,7 @@ export default class Officers extends React.Component<{}, {}> {
 
 
     render() {
-        let cabinet = ["Brotherhood", "Fundraising", "Engineering", "Media", "Professional Development", "Public Relations", "Recruitment", "Service", "Website Development"]
+        let cabinet = ["Brotherhood", "Professional Development", "Service", "Engineering", "Media", "Public Relations", "Recruitment", "Fundraising", "Website Development"]
         let exec = ["Regent", "Vice Regent", "Scribe", "Treasurer", "Corresponding Secretary", "Marshal"]
 
 

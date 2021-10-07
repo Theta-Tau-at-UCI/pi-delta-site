@@ -13,7 +13,7 @@ export default class Classes extends React.Component<{}, {selected: string}> {
     }
 
     classes = ["Founding", "Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta",
-        "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Tau"]
+        "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Tau", "Upsilon"]
 
     toggle_class = (class_name: string) => {
         this.setState({selected: class_name})
