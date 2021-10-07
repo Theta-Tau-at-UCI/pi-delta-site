@@ -3432,7 +3432,7 @@ export const brotherInfo = [
     },
     {
         "id": 251.0,
-        "name": "Danson <a",
+        "name": "Danson Ma",
         "gender": "M",
         "class": "Upsilon",
         "active_status": "Y",
