@@ -2947,8 +2947,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "NULL",
         "major": "Computer Science",
-        "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Website Development",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Pi/cameronsherry.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3201,7 +3201,7 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/clairelinjpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/clairelin.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3210,7 +3210,7 @@ export const brotherInfo = [
         "name": "Lewis Lin",
         "gender": "M",
         "class": "Tau",
-        "active_status": "N",
+        "active_status": "Y",
         "linkedin_url": "https://www.linkedin.com/in/lewislin9/",
         "major": "Civil Engineering",
         "cabby_exec_status": "Y",
@@ -3243,7 +3243,7 @@ export const brotherInfo = [
         "major": "Computer Science",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Media",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/nophotoavailable.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3285,7 +3285,7 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/nophotoavailable.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "https://github.com/Theta-Tau-at-UCI/pi-delta-brothers-images/blob/main/casual-photos/christinetran_casual.jpg?raw=true",
         "blurb": "Hi! I'm Christine, a third-year Mechanical Engineering student, and hope to make a positive impact on those around me through the work that I do. I enjoy working out during my free time and am a current member of UCI's Dragon Boat team! Spending time with those I love brings me tremendous joy; that's why I enjoy baking for and with others, playing games (card games, online games, etc.), and simply being around other people. I'm looking forward to the future, since you never know what's coming next!"
     },
@@ -3313,7 +3313,7 @@ export const brotherInfo = [
         "major": "Computer Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/nophotoavailable.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "https://github.com/Theta-Tau-at-UCI/pi-delta-brothers-images/blob/main/casual-photos/nathantwigg_casual.jpg?raw=true",
         "blurb": "I'm a 3rd year Computer Engineering major - originally from Pittsburgh Pennsylvania, and I used to be a bartender."
     },
@@ -3327,7 +3327,7 @@ export const brotherInfo = [
         "major": "Civil Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/nophotoavailable.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3341,7 +3341,7 @@ export const brotherInfo = [
         "major": "Civil Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Treasurer",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Founders/karenyip.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/karenyip.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     }
