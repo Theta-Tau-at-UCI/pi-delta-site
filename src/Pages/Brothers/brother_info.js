@@ -3452,8 +3452,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
-        "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Fundraising",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
