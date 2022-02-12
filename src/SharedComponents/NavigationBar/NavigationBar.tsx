@@ -17,6 +17,7 @@ class NavigationBar extends React.Component {
                     <Nav className="ml-auto">
                         <Nav.Link id = "nav-about"  href="/about">About</Nav.Link>
                         <Nav.Link id = "nav-recruitment"  href="/recruitment">Recruitment</Nav.Link>
+                        <Nav.Link id = "nav-brothers-dev"  href="/brothers">Brothers Dev</Nav.Link>
                         <NavDropdown id = "nav-brothers"  title = "Brothers">
                             <NavDropdown.Item href="/actives">Actives</NavDropdown.Item>
                             <NavDropdown.Item href="/officers">Officers</NavDropdown.Item>

@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import About from "./Pages/About/About";
+import Brothers from "./Pages/Brothers/Brothers-Dev"
 import Actives from "./Pages/Brothers/Actives";
 import Officers from "./Pages/Brothers/Officers"
 import Classes from "./Pages/Brothers/Classes"
@@ -20,13 +21,14 @@ function App() {
         <Fragment>
           <NavigationBar/>
 
-          <Route exact path="/pi-delta-react-site"><Redirect to="/" /></Route>
-          <Route path="/" exact component={Landing}/>
-          <Route path="/about" component={About} />
-          <Route path="/actives" component={Actives}/>
-          <Route path="/officers" component={Officers}/>
-          <Route path="/classes" component={Classes}/>
-          <Route path="/recruitment" component={Recruitment}/>
+            <Route exact path="/pi-delta-react-site"><Redirect to="/" /></Route>
+            <Route path="/" exact component={Landing}/>
+            <Route path="/about" component={About} />
+            <Route path="/brothers" component={Brothers}/>
+            <Route path="/actives" component={Actives}/>
+            <Route path="/officers" component={Officers}/>
+            <Route path="/classes" component={Classes}/>
+            <Route path="/recruitment" component={Recruitment}/>
 
         </Fragment>
       </Router>
