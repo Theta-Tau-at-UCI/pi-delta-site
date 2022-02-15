@@ -11,7 +11,6 @@ import Recruitment from "./Pages/Recruitment/Recruitment";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import "./SharedComponents/NavigationBar/NavigationBar";
 import NavigationBar from "./SharedComponents/NavigationBar/NavigationBar"
-import { Helmet } from 'react-helmet'
 
 
 function App() {

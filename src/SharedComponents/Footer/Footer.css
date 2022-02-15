@@ -2,6 +2,7 @@
     padding-top: 1rem;
     background-color: #2d2c2c;
     width: 100%;
+    overflow: hidden;
 }
 
 .footer-text {

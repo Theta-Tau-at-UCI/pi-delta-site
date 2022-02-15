@@ -1,35 +1,47 @@
-#actives-button{
-    background-color: #8b0000;
-    color:white;
-    margin: 2px;
-}
-#alumni-button{
-    background-color: #8b0000;
-    color:white;
-    margin: 2px;
-}
-#class-button{
-    background-color: #8b0000;
-    color:white;
-    margin: 2px;
+/* Brother Item Container */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
 }
 
-.btn-toolbar{
-    float:right;
+.grid-item {
+    background-color: white;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
 }
 
-.brother-text {
-    size: 10px;
-    color: black;
-}
+/* Brother Item */
 
 .headshot {
     width: 100%;
+    min-width: 250px;
     height: 15vh;
+    min-height: 500px;
     object-fit: cover;
     box-shadow: 4px 2px rgb(173, 2, 2);
     border-radius: .75rem;
 }
+
+.names{
+    color:#8b0000;
+    text-align: left;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 0;
+}
+
+.descriptor {
+    text-align: left;
+    color: #8b0000;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+/* Filter*/
 
 .filter-container button {
     margin-right: 2rem;
@@ -48,67 +60,14 @@ button.active {
     color: white;
 }
 
-@media (min-width: 1024px){
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        background-color: white;
-        /*padding: 5px;*/
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-    .grid-container {
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-        background-color: white;
-        /*padding: 5px;*/
-    }
-}
-
-@media (max-width: 768px) {
-    .grid-container {
-        display: grid;
-        grid-template-columns: auto auto auto ;
-        background-color: white;
-    }
-}
-
-
-.grid-item {
-    background-color: white;
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-}
-
-.alumni{
-    font-size: 1rem;
-}
-
 .buttonBar{
     padding: 20px;
     width: 100%;
     margin: 0;
 }
 
-.names{
-    color:#8b0000;
-    text-align: left;
-    font-weight: bold;
-    margin: 0;
-    padding-left: 0;
-}
-
 .close-button{
     background-color: #8b0000;
-}
-
-.descriptor {
-    text-align: left;
-    color: #8b0000;
-    padding-left: 0;
-    margin-bottom: 0;
 }
 
 h1{
@@ -143,3 +102,29 @@ h1{
     width: 75%;
     height: auto;
 }
+
+/*@media (min-width: 1024px){*/
+/*    .grid-container {*/
+/*        display: grid;*/
+/*        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
+/*        background-color: white;*/
+/*        !*padding: 5px;*!*/
+/*    }*/
+/*}*/
+
+/*@media (min-width: 768px) and (max-width: 1024px) {*/
+/*    .grid-container {*/
+/*        display: grid;*/
+/*        grid-template-columns: auto auto auto auto;*/
+/*        background-color: white;*/
+/*        !*padding: 5px;*!*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 768px) {*/
+/*    .grid-container {*/
+/*        display: grid;*/
+/*        grid-template-columns: auto auto auto ;*/
+/*        background-color: white;*/
+/*    }*/
+/*}*/
