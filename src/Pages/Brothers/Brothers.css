@@ -1,3 +1,21 @@
+/* General */
+
+h1{
+    text-align: left;
+}
+
+.dropdown-menu.show {
+    width: 50%;
+    height: 66vw;
+    overflow-y: scroll;
+}
+
+.class-header{
+    margin-top: 10px;
+    color: #8b0000;
+    text-align: center;
+}
+
 /* Brother Item Container */
 
 .grid-container {
@@ -41,58 +59,7 @@
     margin-bottom: 0;
 }
 
-/* Filter*/
-
-.filter-container button {
-    margin-right: 2rem;
-    min-width: 5rem;
-    padding: 0.5rem 1rem;
-    background: white;
-    color: rgb(65, 98, 168);
-    border-radius: 1rem;
-    border: 2px solid rgb(65, 98, 168);
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button.active {
-    background: rgb(65, 98, 168);
-    color: white;
-}
-
-.buttonBar{
-    padding: 20px;
-    width: 100%;
-    margin: 0;
-}
-
-.close-button{
-    background-color: #8b0000;
-}
-
-h1{
-    text-align: left;
-}
-
-.dropdown-menu.show {
-    width: 50%;
-    height: 66vw;
-    overflow-y: scroll;
-}
-
-.class-header{
-    margin-top: 10px;
-    color: #8b0000;
-    text-align: center;
-}
-
-.blurb {
-    text-align: left;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-}
-
+/* Brother Item Modal */
 
 .headshot-div{
     text-align: center;
@@ -103,28 +70,40 @@ h1{
     height: auto;
 }
 
-/*@media (min-width: 1024px){*/
-/*    .grid-container {*/
-/*        display: grid;*/
-/*        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
-/*        background-color: white;*/
-/*        !*padding: 5px;*!*/
-/*    }*/
-/*}*/
+.blurb {
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
 
-/*@media (min-width: 768px) and (max-width: 1024px) {*/
-/*    .grid-container {*/
-/*        display: grid;*/
-/*        grid-template-columns: auto auto auto auto;*/
-/*        background-color: white;*/
-/*        !*padding: 5px;*!*/
-/*    }*/
-/*}*/
+.close-button{
+    background-color: #8b0000;
+}
 
-/*@media (max-width: 768px) {*/
-/*    .grid-container {*/
-/*        display: grid;*/
-/*        grid-template-columns: auto auto auto ;*/
-/*        background-color: white;*/
-/*    }*/
-/*}*/
+/* Filter*/
+
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-container button {
+    margin: 1rem .5rem 0 1rem;
+    min-width: 5rem;
+    padding: 0.25rem .5rem;
+    background: white;
+    color: rgb(139, 0, 0);
+    border-radius: 1.25rem;
+    border: 2px solid rgb(139, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.active {
+    background: rgb(139, 0, 0);
+    color: white;
+}
