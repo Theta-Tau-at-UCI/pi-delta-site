@@ -4,16 +4,25 @@ import React, { useEffect } from "react";
 function Filter({ brothers, setFiltered, activeFilter, setActiveFilter }) {
   useEffect(() => {
     if (activeFilter === 0) {
-      setActiveFilter(brothers);
-      return;
-    }
-    if (activeFilter === 1) {
-      // @ts-ignore
-        const filtered = brothers.filter((brother) =>
-        brother.active_status.includes("Y")
+      const filtered = brothers.filter(
+        (brother: { active_status: string | string[] }) =>
+          brother.active_status.includes("Y")
       );
       setFiltered(filtered);
     }
+
+    if (activeFilter === 1) {
+      const filtered = brothers.filter(
+        (brother: {
+          active_status: string | string[];
+          cabby_exec_status: string | string[];
+        }) =>
+          brother.active_status.includes("Y") &&
+          brother.cabby_exec_status.includes("Y")
+      );
+      setFiltered(filtered);
+    }
+
     if (activeFilter === 2) {
       setActiveFilter(brothers);
       return;
