@@ -14,6 +14,7 @@ export default class BrotherProfileCard extends React.Component<
     profile_url: string;
     blurb: string;
     casual_photo: string;
+    position: string;
   },
   { isOpen: boolean }
 > {
@@ -34,7 +35,8 @@ export default class BrotherProfileCard extends React.Component<
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
+        whileHover={{ scale: 1.02 }}
         className="grid-item"
       >
         <LazyLoadImage
@@ -46,12 +48,13 @@ export default class BrotherProfileCard extends React.Component<
           onClick={this.openModal}
         />
         <p className="names" onClick={this.openModal}>
-          {" "}
-          {this.props.name}{" "}
+          {this.props.name}
+          {this.props.position !== "NULL" ? (
+            <span className={"position"}> | {this.props.position}</span>
+          ) : null}
         </p>
         <p className="descriptor" onClick={this.openModal}>
-          {" "}
-          {this.props.major}{" "}
+          {this.props.major}
         </p>
 
         <Modal show={this.state.isOpen} onHide={this.closeModal}>

@@ -13,12 +13,12 @@ function BroDev() {
 
   useEffect(() => {
     const bros = JSON.parse(JSON.stringify(brotherInfo));
-    const active_bros = bros.filter(
+    setBrothers(bros);
+    const filtered = bros.filter(
       (brother: { active_status: string | string[] }) =>
         brother.active_status.includes("Y")
     );
-    setBrothers(active_bros);
-    setFiltered(active_bros);
+    setFiltered(filtered);
   }, []);
 
   return (
@@ -44,6 +44,7 @@ function BroDev() {
                 profile_url={brother["profile_url"]}
                 blurb={brother["blurb"]}
                 casual_photo={brother["casual_photo"]}
+                position={brother["cabby_exec_position"]}
               />
             );
           })}

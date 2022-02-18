@@ -6,22 +6,25 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 function Filter({ brothers, setFiltered, activeFilter, setActiveFilter }) {
   useEffect(() => {
     if (activeFilter === 0) {
-      setFiltered(brothers);
+      // Filter out all non-actives
+      const filtered = brothers.filter(
+        (brother: { active_status: string | string[] }) =>
+          brother.active_status.includes("Y")
+      );
+      setFiltered(filtered);
     }
 
+    // Filter out only active cabby/exec
     if (activeFilter === 1) {
       const filtered = brothers.filter(
         (brother: {
           active_status: string | string[];
           cabby_exec_status: string | string[];
-        }) => brother.cabby_exec_status.includes("Y")
+        }) =>
+          brother.active_status.includes("Y") &&
+          brother.cabby_exec_status.includes("Y")
       );
       setFiltered(filtered);
-    }
-
-    if (activeFilter === 2) {
-      setActiveFilter(brothers);
-      return;
     }
   }, [activeFilter]);
 
