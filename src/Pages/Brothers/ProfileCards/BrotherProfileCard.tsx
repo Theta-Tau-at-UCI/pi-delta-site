@@ -44,6 +44,7 @@ export default class BrotherProfileCard extends React.Component<
           alt={"profile-pic"}
           src={this.props.profile_url}
           effect={"blur"}
+          delayMethod={"throttle"}
           delayTime={100}
           onClick={this.openModal}
         />

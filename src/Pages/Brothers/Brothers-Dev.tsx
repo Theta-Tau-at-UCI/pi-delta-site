@@ -5,6 +5,7 @@ import Filter from "./Filter";
 import Footer from "../../SharedComponents/Footer/Footer";
 import BrotherProfileCard from "./ProfileCards/BrotherProfileCard";
 import { AnimatePresence, motion } from "framer-motion";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 function BroDev() {
   const [brothers, setBrothers] = useState([]);
@@ -34,6 +35,7 @@ function BroDev() {
         <AnimatePresence>
           {filtered.map((brother) => {
             return (
+              // <LazyLoadComponent>
               <BrotherProfileCard
                 key={brother["id"]}
                 id={brother["id"]}
@@ -46,6 +48,7 @@ function BroDev() {
                 casual_photo={brother["casual_photo"]}
                 position={brother["cabby_exec_position"]}
               />
+              // </LazyLoadComponent>
             );
           })}
         </AnimatePresence>
