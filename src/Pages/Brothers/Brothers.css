@@ -160,6 +160,12 @@ h1{
     box-shadow: none;
 }
 
+.dropdown-item {
+    background-color: rgb(139, 0, 0);
+    font-weight: normal;
+    color: white;
+}
+
 .dropdown-item.active {
     background-color: white;
     color: rgb(139, 0, 0);
