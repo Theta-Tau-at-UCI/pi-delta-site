@@ -43,7 +43,6 @@ export default class BrotherProfileCard extends React.Component<
           src={this.props.profile_url}
           effect={"blur"}
           delayTime={100}
-          delayMethod={"debounce"}
           onClick={this.openModal}
         />
         <p className="names" onClick={this.openModal}>
@@ -61,9 +60,10 @@ export default class BrotherProfileCard extends React.Component<
           </Modal.Header>
           <Modal.Body>
             <div className="headshot-div">
-              <img
-                id="modal-pic"
-                alt="casual-pic"
+              <LazyLoadImage
+                id={"modal-pic"}
+                alt={"casual-pic"}
+                effect={"blur"}
                 src={
                   this.props.casual_photo === "NULL"
                     ? this.props.profile_url
