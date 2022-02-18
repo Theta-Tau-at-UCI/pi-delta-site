@@ -5,7 +5,7 @@ h1{
 }
 
 .dropdown-menu.show {
-    width: 50%;
+    width: auto;
     height: 66vw;
     overflow-y: scroll;
 }
@@ -101,9 +101,54 @@ h1{
     border: 2px solid rgb(139, 0, 0);
     font-weight: bold;
     cursor: pointer;
+    box-shadow: none;
 }
 
-button.active {
-    background: rgb(139, 0, 0);
+.filter-container button.active {
+    background-color: rgb(139, 0, 0);
     color: white;
 }
+
+.filter-container button:hover {
+    background-color: rgb(139, 0, 0);
+    color: white;
+}
+
+/* Filter Class Button */
+
+.filter-container button.dropdown-toggle.btn.btn-primary {
+    box-shadow: none;
+    border-color: rgb(139, 0, 0);
+}
+
+.filter-container button.dropdown-toggle.btn.btn-primary:focus {
+    background-color: rgb(139, 0, 0);
+    color: white;
+}
+
+.filter-container button.dropdown-toggle.btn.btn-primary:hover {
+    background-color: rgb(139, 0, 0);
+    color: white;
+}
+
+.filter-container button.dropdown-toggle.btn.btn-primary:active {
+    background-color: white;
+    color: rgb(139, 0, 0);
+}
+
+.show.dropdown {
+    width: auto;
+    display: flex;
+    box-shadow: none;
+}
+
+.dropdown-item.active {
+    background-color: white;
+    color: rgb(139, 0, 0);
+}
+
+.dropdown-item:hover {
+    background-color: white;
+    color: rgb(139, 0, 0);
+}
+
