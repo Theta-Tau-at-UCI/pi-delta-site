@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import "./Brothers.css";
-import BrotherProfileCard from "./ProfileCards/BrotherProfileCard";
-import { motion } from "framer-motion";
+import BrotherProfileCard from "./BrotherProfileCard";
 
 export default class Classes extends React.Component<
   {

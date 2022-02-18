@@ -1,3 +1,12 @@
+.nav-link {
+  margin-left: 2rem;
+  margin-right: 5rem;
+}
+
+#nav-about.nav-link {
+  margin-right: 7rem;
+}
+
 .color-nav {
   background: #8b0000;
 }
@@ -29,28 +38,9 @@
   justify-content: flex-end;
 }
 
-.dropdown-item{
-  font-weight: bold;
-  color: white;
-}
-
-
-
-@media only screen and (min-width: 500px) {
-  #nav-about, #nav-recruitment, #nav-brothers{
-    margin-left: 3rem!important;
-    margin-right: 3rem!important;
-  }
-}
-
-
 @media only screen and (max-width: 500px) {
   #nav-about, #nav-recruitment, #nav-brothers{
     margin-left: 0.75rem!important;
     margin-right: 0.75rem!important;
   }
-}
-
-.dropdown-item{
-  padding-right: 0px;
 }

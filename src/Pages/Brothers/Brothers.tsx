@@ -3,7 +3,7 @@ import "./Brothers.css";
 import { brotherInfo } from "./brother_info";
 import Filter from "./Filter";
 import Footer from "../../SharedComponents/Footer/Footer";
-import BrotherProfileCard from "./ProfileCards/BrotherProfileCard";
+import BrotherProfileCard from "./BrotherProfileCard";
 import { AnimatePresence, motion } from "framer-motion";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 import Classes from "./Classes";
