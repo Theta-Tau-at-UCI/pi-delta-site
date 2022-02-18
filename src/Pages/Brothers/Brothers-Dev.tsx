@@ -34,18 +34,17 @@ function BroDev() {
         <AnimatePresence>
           {filtered.map((brother) => {
             return (
-              <div className="grid-item">
-                <BrotherProfileCard
-                  id={brother["id"]}
-                  name={brother["name"]}
-                  class={brother["class"]}
-                  linkedin_url={brother["linkedin_url"]}
-                  major={brother["major"]}
-                  profile_url={brother["profile_url"]}
-                  blurb={brother["blurb"]}
-                  casual_photo={brother["casual_photo"]}
-                />
-              </div>
+              <BrotherProfileCard
+                key={brother["id"]}
+                id={brother["id"]}
+                name={brother["name"]}
+                class={brother["class"]}
+                linkedin_url={brother["linkedin_url"]}
+                major={brother["major"]}
+                profile_url={brother["profile_url"]}
+                blurb={brother["blurb"]}
+                casual_photo={brother["casual_photo"]}
+              />
             );
           })}
         </AnimatePresence>
