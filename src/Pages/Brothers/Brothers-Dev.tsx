@@ -6,6 +6,7 @@ import Footer from "../../SharedComponents/Footer/Footer";
 import BrotherProfileCard from "./ProfileCards/BrotherProfileCard";
 import { AnimatePresence, motion } from "framer-motion";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
+import Classes from "./Classes";
 
 function BroDev() {
   const [brothers, setBrothers] = useState([]);
@@ -33,24 +34,28 @@ function BroDev() {
 
       <motion.div layout className="grid-container">
         <AnimatePresence>
-          {filtered.map((brother) => {
-            return (
-              // <LazyLoadComponent>
-              <BrotherProfileCard
-                key={brother["id"]}
-                id={brother["id"]}
-                name={brother["name"]}
-                class={brother["class"]}
-                linkedin_url={brother["linkedin_url"]}
-                major={brother["major"]}
-                profile_url={brother["profile_url"]}
-                blurb={brother["blurb"]}
-                casual_photo={brother["casual_photo"]}
-                position={brother["cabby_exec_position"]}
-              />
-              // </LazyLoadComponent>
-            );
-          })}
+          {activeFilter < 3 ? (
+            filtered.map((brother) => {
+              return (
+                // <LazyLoadComponent>
+                <BrotherProfileCard
+                  key={brother["id"]}
+                  id={brother["id"]}
+                  name={brother["name"]}
+                  class={brother["class"]}
+                  linkedin_url={brother["linkedin_url"]}
+                  major={brother["major"]}
+                  profile_url={brother["profile_url"]}
+                  blurb={brother["blurb"]}
+                  casual_photo={brother["casual_photo"]}
+                  position={brother["cabby_exec_position"]}
+                />
+                // </LazyLoadComponent>
+              );
+            })
+          ) : (
+            <Classes brothers={brothers} selected={activeFilter - 3} />
+          )}
         </AnimatePresence>
       </motion.div>
       <Footer />

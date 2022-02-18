@@ -11,7 +11,10 @@ h1{
 }
 
 .class-header{
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 2vh 0;
     color: #8b0000;
     text-align: center;
 }
