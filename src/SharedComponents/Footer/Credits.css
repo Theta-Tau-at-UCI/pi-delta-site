@@ -2,7 +2,12 @@
     color: #ffffff;
     margin-top: 20px;
     text-align:center;
-    font-size: 10px;
+    font-size: .75rem;
+    transition: .3s;
+}
+
+#credits-blurb:hover {
+    transform: scale(1.15);
 }
 
 #chair{
