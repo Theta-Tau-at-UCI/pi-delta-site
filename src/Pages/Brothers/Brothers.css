@@ -1,121 +1,78 @@
-#actives-button{
-    background-color: #8b0000;
-    color:white;
-    margin: 2px;
-}
-#alumni-button{
-    background-color: #8b0000;
-    color:white;
-    margin: 2px;
-}
-#class-button{
-    background-color: #8b0000;
-    color:white;
-    margin: 2px;
-}
-
-.btn-toolbar{
-    float:right;
-}
-
-.brother-text {
-    size: 10px;
-    color: black;
-}
-
-@media (min-width: 1024px){
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        background-color: white;
-        /*padding: 5px;*/
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-    .grid-container {
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-        background-color: white;
-        /*padding: 5px;*/
-    }
-}
-
-@media (max-width: 768px) {
-    .grid-container {
-        display: grid;
-        grid-template-columns: auto auto auto ;
-        background-color: white;
-    }
-}
-
-
-.grid-item {
-    background-color: white;
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-}
-
-.headshot {
-
-    height: auto;
-    width: 100%;
-    box-shadow: 2px 2px 2px #8b0000;
-
-}
-
-.alumni{
-    font-size: 1rem;
-}
-
-.buttonBar{
-    padding: 20px;
-    width: 100%;
-    margin: 0;
-}
-
-.names{
-    color:#8b0000;
-    text-align: left;
-    font-weight: bold;
-    margin: 0;
-    padding-left: 0;
-}
-
-.close-button{
-    background-color: #8b0000;
-}
-
-.descriptor {
-    text-align: left;
-    color: #8b0000;
-    padding-left: 0;
-}
+/* General */
 
 h1{
     text-align: left;
 }
 
 .dropdown-menu.show {
-    width: 50%;
+    width: auto;
     height: 66vw;
     overflow-y: scroll;
 }
 
 .class-header{
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 2vh 0;
     color: #8b0000;
     text-align: center;
 }
 
-.blurb {
-    text-align: left;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
+/* Brother Item Container */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
 }
 
+.grid-item {
+    background-color: transparent;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* Brother Item */
+
+.headshot {
+    width: 100%;
+    min-width: 250px;
+    height: 15vh;
+    min-height: 500px;
+    object-fit: cover;
+    box-shadow: 4px 2px rgb(173, 2, 2);
+    border-radius: .75rem;
+}
+
+.names {
+    color:#8b0000;
+    text-align: left;
+    font-weight: bold;
+    margin: .25rem 0 0 0;
+    padding-left: 0;
+    font-size: 1.25rem;
+}
+
+.position {
+    color:#8b0000;
+    text-align: left;
+    font-weight: normal;
+    margin: 0;
+    padding-left: 0;
+    font-size: 1.2rem;
+}
+
+.descriptor {
+    text-align: left;
+    color: #8b0000;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+/* Brother Item Modal */
 
 .headshot-div{
     text-align: center;
@@ -125,3 +82,97 @@ h1{
     width: 75%;
     height: auto;
 }
+
+.blurb {
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+.close-button{
+    background-color: #8b0000;
+}
+
+/* Filter*/
+
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-container button {
+    margin: 1rem .5rem 0 1rem;
+    min-width: 5rem;
+    padding: 0.25rem .5rem;
+    background: white;
+    color: rgb(139, 0, 0);
+    border-radius: 1.25rem;
+    border: 2px solid rgb(139, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.filter-container button.active {
+    background-color: rgb(139, 0, 0);
+    color: white;
+}
+
+.filter-container button:hover {
+    background-color: rgb(139, 0, 0);
+    color: white;
+}
+
+/* Filter Class Button */
+
+.filter-container button.dropdown-toggle.btn.btn-primary {
+    box-shadow: none;
+    border-color: rgb(139, 0, 0);
+}
+
+.filter-container button.dropdown-toggle.btn.btn-primary:focus {
+    background-color: rgb(139, 0, 0);
+    color: white;
+}
+
+.filter-container button.dropdown-toggle.btn.btn-primary:hover {
+    background-color: rgb(139, 0, 0);
+    color: white;
+}
+
+.filter-container button.dropdown-toggle.btn.btn-primary:active {
+    background-color: white;
+    color: rgb(139, 0, 0);
+}
+
+.filter-container .dropdown.active button {
+    background-color: rgb(139, 0, 0);
+    color: white;
+}
+
+.show.dropdown {
+    width: auto;
+    display: flex;
+    box-shadow: none;
+}
+
+.dropdown-item {
+    background-color: rgb(139, 0, 0);
+    font-weight: normal;
+    color: white;
+}
+
+.dropdown-item.active {
+    background-color: white;
+    color: rgb(139, 0, 0);
+}
+
+.dropdown-item:hover {
+    background-color: white;
+    color: rgb(139, 0, 0);
+}
+
