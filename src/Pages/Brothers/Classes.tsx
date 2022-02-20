@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import "./Brothers.css";
 import BrotherProfileCard from "./BrotherProfileCard";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 export default class Classes extends React.Component<
   {

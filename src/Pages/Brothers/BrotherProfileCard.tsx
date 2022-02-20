@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
-import { motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
@@ -30,22 +29,12 @@ export default class BrotherProfileCard extends React.Component<
 
   render() {
     return (
-      <motion.div
-        layout
-        animate={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.02 }}
-        className="grid-item"
-      >
+      <div className="grid-item">
         <LazyLoadImage
           className={"headshot"}
           alt={"profile-pic"}
           src={this.props.profile_url}
           effect={"blur"}
-          delayMethod={"throttle"}
-          delayTime={100}
           onClick={this.openModal}
         />
         <p className="names" onClick={this.openModal}>
@@ -85,7 +74,7 @@ export default class BrotherProfileCard extends React.Component<
             </Button>
           </Modal.Footer>
         </Modal>
-      </motion.div>
+      </div>
     );
   }
 }
