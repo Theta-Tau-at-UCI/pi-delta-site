@@ -4,10 +4,7 @@ import { brotherInfo } from "./brother_info";
 import Filter from "./Filter";
 import Footer from "../../SharedComponents/Footer/Footer";
 import BrotherProfileCard from "./BrotherProfileCard";
-import {
-  LazyLoadComponent,
-  LazyLoadImage,
-} from "react-lazy-load-image-component";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 import Classes from "./Classes";
 
 function BroDev() {
