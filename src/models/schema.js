@@ -17,6 +17,20 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "BrotherInClass": {
+                    "name": "BrotherInClass",
+                    "isArray": true,
+                    "type": {
+                        "model": "Brother"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "classID"
+                    }
+                },
                 "crossing_quarter": {
                     "name": "crossing_quarter",
                     "isArray": false,
@@ -221,5 +235,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "6ada58db669ed30289b50979eb06fa95"
+    "version": "dd29e82b73a9458cb28812f874df5646"
 };

@@ -15,6 +15,7 @@ type BrotherMetaData = {
 export declare class Class {
   readonly id: string;
   readonly name: string;
+  readonly BrotherInClass?: (Brother | null)[];
   readonly crossing_quarter?: string;
   readonly crossing_year?: string;
   readonly createdAt?: string;
