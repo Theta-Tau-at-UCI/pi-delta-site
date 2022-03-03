@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3pideltasitestorage",
+  "bucketName": "pi-delta-site-storage",
+  "policyUUID": "6c50c0de",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "READ",
+    "CREATE_AND_UPDATE",
+    "DELETE"
+  ]
+}

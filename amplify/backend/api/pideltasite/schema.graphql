@@ -1,0 +1,24 @@
+type Class @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  BrotherInClass: [Brother] @connection(keyName: "byClass", fields: ["id"])
+  crossing_quarter: String
+  crossing_year: String
+}
+
+type Brother @model @auth(rules: [{allow: public}]) @key(name: "byClass", fields: ["classID"]) {
+  id: ID!
+  first_name: String!
+  last_name: String!
+  gender: String!
+  active_status: Boolean!
+  major: String!
+  cabby_status: Boolean!
+  cabby_position: String!
+  exec_status: Boolean!
+  exec_position: String!
+  casual_image: AWSURL
+  linkedin_url: AWSURL
+  classID: ID!
+}
+ 
