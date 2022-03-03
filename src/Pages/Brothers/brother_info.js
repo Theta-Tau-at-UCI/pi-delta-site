@@ -3496,7 +3496,7 @@ export const brotherInfo = [
         "major": "Computer Science",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Upsilon/katherinethai.JPG",
         "casual_photo": "NULL",
         "blurb": ""
     },
