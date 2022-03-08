@@ -1,5 +1,5 @@
 import "./Credits.css";
-import React, { Fragment, ReactEventHandler } from "react";
+import React, { Fragment } from "react";
 import { Modal } from "react-bootstrap";
 
 export default class Credits extends React.Component<{}, { isOpen: boolean }> {

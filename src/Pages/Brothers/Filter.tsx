@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { ButtonGroup, DropdownButton } from "react-bootstrap";
+import { DropdownButton } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 
 // @ts-ignore
@@ -26,6 +26,7 @@ function Filter({ brothers, setFiltered, activeFilter, setActiveFilter }) {
       );
       setFiltered(filtered);
     }
+    // eslint-disable-next-line
   }, [activeFilter]);
 
   return (
