@@ -168,6 +168,18 @@ function Filter({ brothers, setFiltered, activeFilter, setActiveFilter }) {
         >
           Upsilon
         </DropdownItem>
+        <DropdownItem
+          className={activeFilter === 23 ? "active" : ""}
+          onClick={() => setActiveFilter(23)}
+        >
+          Phi
+        </DropdownItem>
+        <DropdownItem
+          className={activeFilter === 24 ? "active" : ""}
+          onClick={() => setActiveFilter(24)}
+        >
+          Chi
+        </DropdownItem>
       </DropdownButton>
     </div>
   );
