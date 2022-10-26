@@ -2794,7 +2794,7 @@ export const brotherInfo = [
         "linkedin_url": "http://linkedin.com/in/yosephghazal",
         "major": "Computer Science",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "Marshal",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Pi/yosephghazal.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -2986,7 +2986,7 @@ export const brotherInfo = [
         "name": "Lauren Yoo",
         "gender": "F",
         "class": "Pi",
-        "active_status": "Y",
+        "active_status": "N",
         "linkedin_url": "https://www.linkedin.com/in/lauren-yoo/",
         "major": "Computer Science",
         "cabby_exec_status": "N",
@@ -3014,11 +3014,11 @@ export const brotherInfo = [
         "name": "Maireen Espiritu",
         "gender": "F",
         "class": "Rho",
-        "active_status": "Y",
+        "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Software Engineering",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Vice Regent",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Rho/maireenespiritu.jpg",
         "casual_photo": "https://github.com/Theta-Tau-at-UCI/pi-delta-brothers-images/blob/main/casual-photos/maireenespiritu_casual.JPG?raw=true",
         "blurb": "Hello! My name is Maireen Espiritu, and I am currently a third year software engineering major at UCI! I crossed in Fall 2019 as a part of the Rho class. In the future, I either want to go into web/application development or surgical robotics programming and have recently accepted a UI/UX front-end internship with Vien Health that I will start in the spring! As of my involvements on campus, I'm apart of Kababayan at UCI as the current Rural PACN Coordinator, am a camp counselor for CampMed, and am the current Media Chair for Theta Tau. In the spring, I will begin my term as Director of New Member Education for this chapter, and in Fall 2021, I will begin my term as Vice Regent! I really love the environment that Theta Tau has given me for the past year, and that's part of the reason why I am so passionate about giving back to this organization. I'm so excited to see what the future of the organization has in store for my brothers and I."
@@ -3056,7 +3056,7 @@ export const brotherInfo = [
         "name": "Benjamin Huynh",
         "gender": "M",
         "class": "Rho",
-        "active_status": "Y",
+        "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Computer Science",
         "cabby_exec_status": "N",
@@ -3116,7 +3116,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Corresponding Secretary",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Rho/laurenlin.jpg",
         "casual_photo": "https://github.com/Theta-Tau-at-UCI/pi-delta-brothers-images/blob/main/casual-photos/laurenlin_casual.jpeg?raw=true",
         "blurb": "Hi!! My name is Lauren Lin and I am a second-year Mechanical Engineering student. I grew up in San Jose and have two dogs. I have a weak spot for spicy chips and baked goods. I love going on drives at night and having long talks with friends. One day I hope to live somewhere outside of California (temporarily)!!"
@@ -3130,7 +3130,7 @@ export const brotherInfo = [
         "linkedin_url": "https://www.linkedin.com/in/joshua-liu/",
         "major": "Computer Science and Engineering",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Regent",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Rho/joshualiu.jpg",
         "casual_photo": "https://github.com/Theta-Tau-at-UCI/pi-delta-brothers-images/blob/main/casual-photos/joshualiu_casual?raw=true",
         "blurb": "Hi! I’m Joshua Liu, a second year Computer Science and Engineering Major! I’m one of the current Rush Directors so send any questions you have about Theta Tau or rush my way! I joined my first year fall and it has been one of the best experiences of my life getting to meet my second family here on campus! Things I enjoy to do besides just school are cooking, bouldering, going to the driving range with my housemate, and playing guitar. I absolutely love music as it has been a huge part of my life ever since I could remember. I listen to almost every genre: alternative, emo, punk, screamo, pop, r&b, Kr&b, EDM, rap, the list goes on… So send me your music recs!"
@@ -3154,11 +3154,11 @@ export const brotherInfo = [
         "name": "Alyssa Harvey",
         "gender": "F",
         "class": "Tau",
-        "active_status": "Y",
+        "active_status": "N",
         "linkedin_url": "https://www.linkedin.com/in/alyssajharvey/",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Scribe",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/alyssaharvey.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3171,8 +3171,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "https://www.linkedin.com/in/teryn-kum",
         "major": "Software Engineering",
-        "cabby_exec_status": "Y",
-        "cabby_exec_position": "Media",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/terynkum.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3182,11 +3182,11 @@ export const brotherInfo = [
         "name": "Hana Lee",
         "gender": "F",
         "class": "Tau",
-        "active_status": "Y",
+        "active_status": "N",
         "linkedin_url": "http://linkedin.com/in/hanalee394",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Brotherhood",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/hanalee.jpg",
         "casual_photo": "https://github.com/Theta-Tau-at-UCI/pi-delta-brothers-images/blob/main/casual-photos/hanalee_casual.jpg?raw=true",
         "blurb": "Hi everyone! My name is Hana and I'm a Computer Science major! I actually came into college without any prior programming experience, but now I can't imagine studying anything else. With my major, I hope to continue finding future opportunities to grow and contribute my skills in the technological industry as a software engineer. Being able to join Theta Tau has been a blessing in itself creating memories with a group of passionate and fun individuals while professionally developing together! Outside of the fraternity, I enjoy dancing as I'm a part of a competitive hip-hop dance team on campus called CADC. You can also catch me strolling through Trader Joe's, buying all sorts of candles, trying to get into the thrifting scene, or in search of new foods/adventures in my free time :))"
@@ -3213,8 +3213,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "https://www.linkedin.com/in/lewislin9/",
         "major": "Civil Engineering",
-        "cabby_exec_status": "Y",
-        "cabby_exec_position": "Professional Development",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/lewislin.jpg",
         "casual_photo": "https://github.com/Theta-Tau-at-UCI/pi-delta-brothers-images/blob/main/casual-photos/lewislin_casual.JPG?raw=true",
         "blurb": "Hello! I'm Lewis Lin and I'm currently a graduate student at UCI studying civil/structural engineering. Some of my favorite things to do is go out with friends, play games and travel. One fun fact about me is that I'm from Utah. Go Jazz!"
@@ -3227,8 +3227,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "https://www.linkedin.com/in/crystalmilitante/",
         "major": "Mechanical Engineering",
-        "cabby_exec_status": "Y",
-        "cabby_exec_position": "Public Relations",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/crystalmilitante.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3241,8 +3241,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "https://www.linkedin.com/in/thu-inguyen",
         "major": "Computer Science",
-        "cabby_exec_status": "Y",
-        "cabby_exec_position": "Media",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3255,8 +3255,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "https://www.linkedin.com/in/alecowen21",
         "major": "Chemical Engineering",
-        "cabby_exec_status": "Y",
-        "cabby_exec_position": "Recruitment",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/alecowen.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3269,8 +3269,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "NULL",
         "major": "Computer Science",
-        "cabby_exec_status": "Y",
-        "cabby_exec_position": "Brotherhood",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/cyrejorinto.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3298,7 +3298,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Electrical Engineering",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Recruitment",
+        "cabby_exec_position": "Marshal",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/jeffreytruong.jpg",
         "casual_photo": "https://github.com/Theta-Tau-at-UCI/pi-delta-brothers-images/blob/main/casual-photos/jeffreytruong_casual.jpg?raw=true",
         "blurb": "Hello my name is Jeffrey Truong. I eat chicken nuggets without the sauce. "
@@ -3326,7 +3326,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Civil Engineering",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Public Relations",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3336,11 +3336,11 @@ export const brotherInfo = [
         "name": "Karen Yip",
         "gender": "F",
         "class": "Tau",
-        "active_status": "Y",
+        "active_status": "N",
         "linkedin_url": "NULL",
         "major": "Civil Engineering",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Treasurer",
+        "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Tau/karenyip.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3354,7 +3354,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Computer Science",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Media",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Upsilon/leebahir.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3383,7 +3383,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Computer Engineering",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Engineering",
+        "cabby_exec_position": "Regent",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Upsilon/riyagoja.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3411,7 +3411,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Service",
+        "cabby_exec_position": "Corresponding Secretary",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Upsilon/longlau.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3425,7 +3425,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Computer Engineering",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Recruitment",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Upsilon/sharonle.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3439,7 +3439,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Recruitment",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Upsilon/dansonma.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3453,7 +3453,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Fundraising",
+        "cabby_exec_position": "Treasurer",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3522,8 +3522,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "NULL",
         "major": "Civil Engineering",
-        "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Vice Regent",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3593,7 +3593,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Service",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3621,7 +3621,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Media",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3719,7 +3719,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Fundraising",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3733,7 +3733,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Scribe",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3761,7 +3761,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Data Science",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Engineering",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3831,7 +3831,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Computer Science",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Fundraising",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3845,7 +3845,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Data Science",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Brotherhood",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -3859,12 +3859,25 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_position": "Brotherhood",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
+    },
+    {
+        "id": 282.0,
+        "name": "Kenny Tang",
+        "gender": "M",
+        "class": "NULL",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Computer Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "Professional Development",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    
     }
-
-
 
 ]
