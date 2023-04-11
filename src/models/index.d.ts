@@ -1,8 +1,4 @@
-import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplify/datastore";
-
-
-
-
+import { ModelInit, MutableModel } from "@aws-amplify/datastore";
 
 type ClassMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
@@ -15,11 +11,11 @@ type BrotherMetaData = {
 export declare class Class {
   readonly id: string;
   readonly name: string;
-  readonly BrotherInClass?: (Brother | null)[];
-  readonly crossing_quarter?: string;
-  readonly crossing_year?: string;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
+  readonly BrotherInClass?: (Brother | null)[] | null;
+  readonly crossing_quarter?: string | null;
+  readonly crossing_year?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
   constructor(init: ModelInit<Class, ClassMetaData>);
   static copyOf(source: Class, mutator: (draft: MutableModel<Class, ClassMetaData>) => MutableModel<Class, ClassMetaData> | void): Class;
 }
@@ -35,11 +31,11 @@ export declare class Brother {
   readonly cabby_position: string;
   readonly exec_status: boolean;
   readonly exec_position: string;
-  readonly casual_image?: string;
-  readonly linkedin_url?: string;
+  readonly casual_image?: string | null;
+  readonly linkedin_url?: string | null;
   readonly classID: string;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
   constructor(init: ModelInit<Brother, BrotherMetaData>);
   static copyOf(source: Brother, mutator: (draft: MutableModel<Brother, BrotherMetaData>) => MutableModel<Brother, BrotherMetaData> | void): Brother;
 }
