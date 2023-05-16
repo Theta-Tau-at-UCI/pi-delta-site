@@ -3594,7 +3594,7 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "Service",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Phi/yessicamarinlopez.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Phi/yessicamarinlopez.JPG",
         "casual_photo": "NULL",
         "blurb": ""
     },
