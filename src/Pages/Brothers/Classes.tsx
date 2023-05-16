@@ -32,7 +32,8 @@ export default class Classes extends React.Component<
     "Tau",
     "Upsilon",
     "Phi",
-    "Chi"
+    "Chi",
+    "Psi"
   ];
 
   render() {

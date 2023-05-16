@@ -3538,7 +3538,7 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Phi/kameronahmed.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3580,7 +3580,7 @@ export const brotherInfo = [
         "major": "Electrical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Phi/jonathanho.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3594,7 +3594,7 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "Service",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Phi/yessicamarinlopez.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3622,7 +3622,7 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "Media",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Phi/navyasangam.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3706,7 +3706,7 @@ export const brotherInfo = [
         "major": "Aerospace Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Chi/tylerbuffa.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3734,7 +3734,7 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "Scribe",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Chi/clarachao.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3748,7 +3748,7 @@ export const brotherInfo = [
         "major": "Software Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Chi/rayhua.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3762,7 +3762,7 @@ export const brotherInfo = [
         "major": "Data Science",
         "cabby_exec_status": "N",
         "cabby_exec_position": "Engineering",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Chi/brandonkeung.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3790,7 +3790,7 @@ export const brotherInfo = [
         "major": "Computer Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "Website Development",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Chi/ianku.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3818,7 +3818,7 @@ export const brotherInfo = [
         "major": "Electrical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Chi/joshserrano.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3832,7 +3832,7 @@ export const brotherInfo = [
         "major": "Computer Science",
         "cabby_exec_status": "N",
         "cabby_exec_position": "Fundraising",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Chi/briannasteier.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3846,7 +3846,7 @@ export const brotherInfo = [
         "major": "Data Science",
         "cabby_exec_status": "N",
         "cabby_exec_position": "Brotherhood",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Chi/emilytruong.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3860,7 +3860,7 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "Brotherhood",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Chi/abigailvillasis.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3878,6 +3878,104 @@ export const brotherInfo = [
         "casual_photo": "NULL",
         "blurb": ""
     
+    },
+    {
+        "id": 283.0,
+        "name": "Andrea Tran",
+        "gender": "F",
+        "class": "Psi",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Aerospace Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/andreatran.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 284.0,
+        "name": "Andrew Eck",
+        "gender": "M",
+        "class": "Psi",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Biomedical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/andreweck.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 285.0,
+        "name": "Ivan Huang",
+        "gender": "M",
+        "class": "Psi",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Electrical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/ivanhuang.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 286.0,
+        "name": "Jack Le",
+        "gender": "M",
+        "class": "Psi",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Computer Science",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/jackle.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 287.0,
+        "name": "Nikolaj Kim",
+        "gender": "M",
+        "class": "Psi",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Computer Science",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/nikolajkim.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 288.0,
+        "name": "Tiffany Gao",
+        "gender": "F",
+        "class": "Psi",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/tiffanygao.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 289.0,
+        "name": "Tristan Zabala",
+        "gender": "M",
+        "class": "Psi",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/tristanzabala.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
     }
 
 ]

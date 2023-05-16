@@ -180,6 +180,12 @@ function Filter({ brothers, setFiltered, activeFilter, setActiveFilter }) {
         >
           Chi
         </DropdownItem>
+        <DropdownItem
+          className={activeFilter === 25 ? "active" : ""}
+          onClick={() => setActiveFilter(25)}
+        >
+          Psi
+        </DropdownItem>
       </DropdownButton>
     </div>
   );
