@@ -3976,6 +3976,20 @@ export const brotherInfo = [
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/tristanzabala.jpg",
         "casual_photo": "NULL",
         "blurb": ""
+    },
+    {
+        "id": 290.0,
+        "name": "Diego Solorzano",
+        "gender": "M",
+        "class": "Gamma Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Electrical Engineering",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Media",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Gamma%20Beta/diegosolorzano.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
     }
 
 ]
