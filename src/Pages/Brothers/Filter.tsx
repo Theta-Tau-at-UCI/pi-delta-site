@@ -186,6 +186,12 @@ function Filter({ brothers, setFiltered, activeFilter, setActiveFilter }) {
         >
           Psi
         </DropdownItem>
+        <DropdownItem
+            className={activeFilter === 26 ? "active" : ""}
+            onClick={() => setActiveFilter(26)}
+        >
+          Gamma Beta
+        </DropdownItem>
       </DropdownButton>
     </div>
   );

@@ -19,5 +19,29 @@
         "s3pideltasitestorage": {}
       }
     }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pideltasite-dev-03414-authRole",
+      "UnauthRoleArn": "arn:aws:iam::394433901226:role/amplify-pideltasite-dev-03414-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::394433901226:role/amplify-pideltasite-dev-03414-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-pideltasite-dev-03414-deployment",
+      "UnauthRoleName": "amplify-pideltasite-dev-03414-unauthRole",
+      "StackName": "amplify-pideltasite-dev-03414",
+      "StackId": "arn:aws:cloudformation:us-west-1:394433901226:stack/amplify-pideltasite-dev-03414/3cda9a50-6fe4-11ee-bf68-026403de0061",
+      "AmplifyAppId": "d3pobzve1xp4jx"
+    },
+    "categories": {
+      "auth": {
+        "pideltasite": {}
+      },
+      "api": {
+        "pideltasite": {}
+      },
+      "storage": {
+        "s3pideltasitestorage": {}
+      }
+    }
   }
 }
