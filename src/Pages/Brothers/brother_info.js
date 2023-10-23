@@ -4054,7 +4054,7 @@ export const brotherInfo = [
         "class": "Gamma Beta",
         "active_status": "Y",
         "linkedin_url": "NULL",
-        "major": "Electrical Engineering Engineering",
+        "major": "Electrical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Gamma%20Beta/lukevargas.jpg",
