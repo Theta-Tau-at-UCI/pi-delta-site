@@ -27,6 +27,8 @@ export default class Credits extends React.Component<{}, { isOpen: boolean }> {
           <Modal.Body>
             <div>
               <ul>
+                <li>Nikolaj Kim - 2023-2024 WebDev Director</li>
+                <li>Yi Sien (Ian) Ku - 2022-2023 WebDev Director</li>
                 <li>Cameron Sherry - 2021-2022 WebDev Director</li>
                 <li>Aaron Liang - 2020-2021 WebDev Director</li>
               </ul>
