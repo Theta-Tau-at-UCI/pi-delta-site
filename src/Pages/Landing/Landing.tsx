@@ -197,7 +197,7 @@ class Join extends React.Component<{}, { windowWidth: any }> {
               <br /> <br />
               <a href={"/recruitment"}>
                 {" "}
-                <Button variant="danger"> Spring '22 Rush</Button>{" "}
+                <Button variant="danger"> Spring '24 Rush</Button>{" "}
               </a>{" "}
             </Col>
             <Col>
@@ -231,7 +231,7 @@ class Join extends React.Component<{}, { windowWidth: any }> {
               <div className="text-center">
                 <a href={"/recruitment"}>
                   {" "}
-                  <Button variant="danger"> Spring '21 Rush</Button>{" "}
+                  <Button variant="danger"> Spring '24 Rush</Button>{" "}
                 </a>{" "}
               </div>
             </Col>
