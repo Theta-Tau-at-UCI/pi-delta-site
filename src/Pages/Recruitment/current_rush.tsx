@@ -16,9 +16,9 @@ class CurrentRush extends Component {
             <br />
           </p>
           <p className="rush-desc">
-            Rush Chair: Jeffrey Truong | (415) 401-5197
+            Rush Chair: Andrew Eck | (714) 504-5906
             <br />
-            Rush Chair: Alec Owen | (808) 283-1202
+            Rush Chair: Ivan Huang | (916) 895-0339
           </p>
         </div>
       </div>
