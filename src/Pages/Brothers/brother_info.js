@@ -3370,7 +3370,7 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Upsilon/shlokbansal.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3454,7 +3454,7 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Upsilon/nicoleostrowski.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3468,7 +3468,7 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Upsilon/nataliepoist.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3720,7 +3720,7 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Service",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Chi/danielacampuzano.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
