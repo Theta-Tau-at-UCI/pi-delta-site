@@ -7,7 +7,7 @@ class CurrentRush extends Component {
       <div>
         {/* <img id = "rush-header" src = {rush_header} alt = "rush_header"/> */}
         <div id="rush-blurb">
-          <h1> Spring '23 Rush </h1>
+          <h1> Spring '24 Rush </h1>
           <br />
           <p className="rush-desc">
             Pi Delta will be holding our next recruitment event in the spring.
