@@ -47,6 +47,7 @@ function BroDev() {
                   blurb={brother["blurb"]}
                   casual_photo={brother["casual_photo"]}
                   position={brother["cabby_exec_position"]}
+                  cabby_exec_status={brother["cabby_exec_status"]}
                 />
               </LazyLoadComponent>
             );

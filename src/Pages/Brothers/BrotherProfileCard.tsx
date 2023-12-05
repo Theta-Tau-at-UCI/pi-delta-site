@@ -14,6 +14,7 @@ export default class BrotherProfileCard extends React.Component<
     blurb: string;
     casual_photo: string;
     position: string;
+    cabby_exec_status: string;
   },
   { isOpen: boolean }
 > {
@@ -39,7 +40,7 @@ export default class BrotherProfileCard extends React.Component<
         />
         <p className="names" onClick={this.openModal}>
           {this.props.name}
-          {this.props.position !== "NULL" ? (
+          {this.props.cabby_exec_status !== "N" ? (
             <span className={"position"}> | {this.props.position}</span>
           ) : null}
         </p>

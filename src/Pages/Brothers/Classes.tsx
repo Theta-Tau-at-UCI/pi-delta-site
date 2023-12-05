@@ -59,6 +59,7 @@ export default class Classes extends React.Component<
               blurb: string;
               casual_photo: string;
               cabby_exec_position: string;
+              cabby_exec_status: string;
             }) => (
               <LazyLoadComponent>
                 <BrotherProfileCard
@@ -71,6 +72,7 @@ export default class Classes extends React.Component<
                   blurb={brother.blurb}
                   casual_photo={brother.casual_photo}
                   position={brother.cabby_exec_position}
+                  cabby_exec_status={brother.cabby_exec_status}
                 />
               </LazyLoadComponent>
             )
