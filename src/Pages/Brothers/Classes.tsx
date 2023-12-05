@@ -34,7 +34,8 @@ export default class Classes extends React.Component<
     "Phi",
     "Chi",
     "Psi",
-    "Gamma Beta"
+    "Gamma Beta",
+    "Delta Beta"
   ];
 
   render() {
