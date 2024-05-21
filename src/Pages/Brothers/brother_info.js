@@ -3524,7 +3524,7 @@ export const brotherInfo = [
         "major": "Civil Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Upsilon/zilong.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
