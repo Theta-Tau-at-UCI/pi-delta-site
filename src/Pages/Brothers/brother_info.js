@@ -4064,7 +4064,7 @@ export const brotherInfo = [
     {
         "id": 296.0,
         "name": "Arim Song",
-        "gender": "M",
+        "gender": "F",
         "class": "Delta Beta",
         "active_status": "Y",
         "linkedin_url": "NULL",
@@ -4078,7 +4078,7 @@ export const brotherInfo = [
     {
         "id": 297.0,
         "name": "Elise Ji",
-        "gender": "M",
+        "gender": "F",
         "class": "Delta Beta",
         "active_status": "Y",
         "linkedin_url": "NULL",
@@ -4092,7 +4092,7 @@ export const brotherInfo = [
     {
         "id": 298.0,
         "name": "Ellen So",
-        "gender": "M",
+        "gender": "F",
         "class": "Delta Beta",
         "active_status": "Y",
         "linkedin_url": "NULL",
@@ -4106,7 +4106,7 @@ export const brotherInfo = [
     {
         "id": 299.0,
         "name": "Jamie Kuang",
-        "gender": "M",
+        "gender": "F",
         "class": "Delta Beta",
         "active_status": "Y",
         "linkedin_url": "NULL",
@@ -4134,7 +4134,7 @@ export const brotherInfo = [
     {
         "id": 301.0,
         "name": "Natalie Perrochon",
-        "gender": "M",
+        "gender": "F",
         "class": "Delta Beta",
         "active_status": "Y",
         "linkedin_url": "NULL",
