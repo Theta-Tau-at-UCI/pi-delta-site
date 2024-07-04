@@ -3941,7 +3941,7 @@ export const brotherInfo = [
         "gender": "M",
         "class": "Psi",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "https://www.linkedin.com/in/nikolajkim/",
         "major": "Data Science",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
