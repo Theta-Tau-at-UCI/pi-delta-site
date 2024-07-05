@@ -1,7 +1,7 @@
 header {
     position: relative;
     background-color: black;
-    height: 75vh;
+    height: 100vh;
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
@@ -30,6 +30,11 @@ header .container {
 
 header .container h1 {
     text-align: center;
+}
+
+#title-text{
+    color: white;
+
 }
 
 header .overlay {
@@ -103,10 +108,14 @@ p {
 
 }
 
+#video-overlay-graphic{
+    width: 10vw;
+
+}
 
 @media only screen and (max-width: 650px) {
     #video-overlay-graphic{
-        width: 100%;
+        width: 20vw;
     }
 
 }

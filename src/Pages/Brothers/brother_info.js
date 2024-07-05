@@ -3985,8 +3985,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "NULL",
         "major": "Electrical Engineering",
-        "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Co-Director of Engineering",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Gamma%20Beta/diegosolorzano.jpeg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -4168,7 +4168,7 @@ export const brotherInfo = [
         "linkedin_url": "NULL",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
-        "cabby_exec_position": "Director of Engineering",
+        "cabby_exec_position": "Co-Director of Engineering",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/wilsonnguyen.jpeg",
         "casual_photo": "NULL",
         "blurb": ""

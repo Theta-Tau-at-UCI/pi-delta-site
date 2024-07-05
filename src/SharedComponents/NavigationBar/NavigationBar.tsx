@@ -1,5 +1,5 @@
 import React from "react";
-import navbar_brand from "../../Media/tt-graphics/navbar-brand.png";
+import navbar_brand from "../../Media/tt-graphics/ttbadge.png";
 import { Nav, Navbar } from "react-bootstrap";
 import "./NavigationBar.css";
 
@@ -9,6 +9,7 @@ class NavigationBar extends React.Component {
       <Navbar className="color-nav" expand="md" sticky="top">
         <Navbar.Brand href="/">
           <img src={navbar_brand} alt="theta-tau-logo" />
+            <h1>THETA TAU</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

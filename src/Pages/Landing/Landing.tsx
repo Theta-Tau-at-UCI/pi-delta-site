@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import "./Landing.css";
 import chapter_photo from "../../Media/chapter-photos/winter_photoshoot_2024.jpg";
-import tt_logo from "../../Media/tt-graphics/tt-logo.png";
+import tt_logo from "../../Media/tt-graphics/ttbadge.png";
 import Pillar from "./Pillar";
 import { CardDeck, Container, Row, Col, Button } from "react-bootstrap";
 import chapter_photo_2 from "../../Media/chapter-photos/landing/winter_retreat_2024.jpg";
@@ -47,6 +47,7 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
                   src={tt_logo}
                   alt={"Theta Tau Logo"}
                 />
+                <h1 id = "title-text">Theta Tau</h1>
                 <h6 className={"video-subtext"}>
                   Pi Delta Chapter at UC Irvine
                 </h6>
