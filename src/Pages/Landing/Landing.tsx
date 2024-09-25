@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import "./Landing.css";
 import chapter_photo from "../../Media/chapter-photos/winter_photoshoot_2024.jpg";
 import tt_logo from "../../Media/tt-graphics/ttbadge.png";
@@ -6,6 +6,7 @@ import Pillar from "./Pillar";
 import { CardDeck, Container, Row, Col, Button } from "react-bootstrap";
 import chapter_photo_2 from "../../Media/chapter-photos/landing/winter_retreat_2024.jpg";
 import Footer from "../../SharedComponents/Footer/Footer";
+
 
 export default class Landing extends React.Component<{}, { windowWidth: any }> {
   constructor(props: {}) {
@@ -61,7 +62,8 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
         <Container id="pillars">
           <Col>
             {" "}
-            <h1>Our Pillars</h1>{" "}
+            <h1>OUR PILLARS</h1>{" "}
+            <br></br>
           </Col>
           <CardDeck id={"pillar-cards"}>
             <Pillar
@@ -114,26 +116,40 @@ class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
   }
 
   render() {
+    // const [className, setClassName] = useState("");
+    // const handleSetClassName = () => {
+    //   setClassName("gfg-card-class")};
+
     if (this.state.windowWidth > 500) {
       return (
         <Container id="who-we-are">
           <Row>
-            <Col>
-              {" "}
-              <h1>Who We Are</h1>
-              Theta Tau is the premier co-ed professional engineering fraternity
-              at UC Irvine. We foster an environment for our brothers to develop
-              individually and professionally while giving back to the
-              community.
-              <br /> <br />
+            <Col className="who-we-are-card">
+              {/*{" "}*/}
+              <h1>WHO WE ARE</h1>
+              <br></br>
+            </Col>
+
+            <Col className="who-we-are-card">
+              {/*{" "}*/}
+
+              <p>Theta Tau is the premier co-ed professional engineering fraternity
+                at UC Irvine. We foster an environment for our brothers to develop
+                individually and professionally while giving back to the
+                community.</p>
+
+            </Col>
+            <Col className="who-we-are-card">
+              <Button className="button" variant="danger" href="/about">LEARN MORE</Button>
               <a href={"/about"}>
-                <Button variant="danger">Learn More</Button>
-              </a>{" "}
+              </a>
+              <br></br>
             </Col>
-            <Col>
-              {" "}
-              <img className="media" src={chapter_photo} alt="chapter" />
+            <Col className="who-we-are-card">
+              {/*{" "}*/}
+              <img className="media" src={chapter_photo} alt="chapter"/>
             </Col>
+
           </Row>
         </Container>
       );
@@ -142,20 +158,19 @@ class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
         <Container id="who-we-are">
           <Row>
             <Col>
-              <h1>Who We Are</h1>
-              <img className="media" src={chapter_photo} alt="chapter" />
-              <br />
+              <h1>WHO WE ARE</h1>
+              <br></br>
+              <img className="media" src={chapter_photo} alt="chapter"/>
+              <br/>
               Theta Tau is the premier co-ed professional engineering fraternity
               at UC Irvine. We foster an environment for our brothers to develop
               individually and professionally while giving back to the
               community.
-              <br />
+              <br/>
               <div className="text-center">
                 {" "}
                 <a href={"/about"}>
-                  <Button id="learn-more" variant="danger">
-                    Learn More
-                  </Button>
+                  <Button className="button" id="learn-more" variant="danger" href="/about">LEARN MORE</Button>
                 </a>{" "}
               </div>
             </Col>
@@ -189,20 +204,27 @@ class Join extends React.Component<{}, { windowWidth: any }> {
       return (
         <Container id="join">
           <Row>
-            <Col>
-              {" "}
-              <h1> Interested In Joining Our Brotherhood? </h1>
-              We hold recruitment events every fall and spring quarter. Feel
-              free to stop by at our booth at the engineering quad or contact us
-              via email or social media.
-              <br /> <br />
-              <a href={"/recruitment"}>
-                {" "}
-                <Button variant="danger"> Spring '24 Rush</Button>{" "}
-              </a>{" "}
+            <Col className="who-we-are-card">
+              {/*{" "}*/}
+              <h1> INTERESTED IN JOINING? </h1>
+              <br></br>
             </Col>
-            <Col>
-              {" "}
+            <Col className="who-we-are-card">
+              <p>
+                We hold recruitment events every fall and spring quarter. Feel
+                free to stop by at our booth at the engineering quad or contact us
+                via email or social media.
+              </p>
+
+            </Col>
+            <Col className="who-we-are-card">
+              <Button className="button" variant="danger" href="/recruitement"> FALL '24 RUSH</Button>
+              <a href={"/recruitment"}>
+            </a>
+              <br></br>
+          </Col>
+          <Col className="who-we-are-card">
+          {" "}
               <img className="media" src={chapter_photo_2} alt="chapter 2" />
             </Col>
           </Row>
@@ -214,25 +236,27 @@ class Join extends React.Component<{}, { windowWidth: any }> {
           <Row>
             <Col>
               {" "}
-              <h1> Interested In Joining Our Brotherhood? </h1>
+              <h1> INTERESTED IN JOINING? </h1>
+              <br></br>
               <Row>
                 <Col>
                   {" "}
                   <img
-                    className="media"
-                    src={chapter_photo_2}
-                    alt="chapter 2"
+                      className="media"
+                      src={chapter_photo_2}
+                      alt="chapter 2"
                   />
                 </Col>
               </Row>
-              We hold recruitment events every fall and spring quarter. Feel
-              free to stop by at our booth at the engineering quad or contact us
-              via email or social media.
-              <br /> <br />
+              <p>We hold recruitment events every fall and spring quarter. Feel
+                free to stop by at our booth at the engineering quad or contact us
+                via email or social media.
+              </p>
+              <br/> <br/>
               <div className="text-center">
                 <a href={"/recruitment"}>
                   {" "}
-                  <Button variant="danger"> Spring '24 Rush</Button>{" "}
+                  <Button className="button" variant="danger" href="/recruitement"> FALL '24 RUSH</Button>{" "}
                 </a>{" "}
               </div>
             </Col>

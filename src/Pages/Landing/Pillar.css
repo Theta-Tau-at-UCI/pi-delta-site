@@ -3,34 +3,55 @@
     color: black;
     text-align: left;
     border: none;
+    border-radius: 5%;
+    white-space: break-spaces;
+    min-width: min-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .pillar:hover {
     background-color: lightgray;
 }
 
+
 .pillar-text {
     color: black;
     text-align: left;
 }
 
+.card{
+    word-wrap: break-space;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+/*
 @media only screen and (max-width: 650px) {
-    .section-title {
+    /*.section-title {
         padding: 1rem;
-        font-size: 2.5rem;
+        //font-size: 2.5rem;
     }
+
 
     .section {
         padding: 2rem;
     }
 
+
     .pillar-title {
-        font-size: 2rem;
+        //font-size: 2rem;
+
     }
 }
+*/
 
 @media only screen and (max-width: 400px) {
     .pillar-title {
-        font-size: 1.3rem;
+        //font-size: 1.3rem;
     }
+
 }

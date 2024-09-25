@@ -1,29 +1,61 @@
-.nav-link {
-  margin-left: 2rem;
-  margin-right: 5rem;
+
+@font-face {
+  /*font-family: 'Mulish';*/
+  /*src:url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');*/
+  font-family: 'Lora', sans-serif;
+  src:url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+  /*font-weight: 0;*/
+
 }
 
-#nav-about.nav-link {
-  margin-right: 7rem;
+*{
+  /*font-family: "Mulish", sans-serif;*/
+  font-family: "Mulish", sans-serif;
+  /*src:url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');*/
+
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+p {
+  font-family: 'Karla';
+  text-align: left;
+  font-size: 18px;
+}
+
+.btn {
+  font-family: "Noto Sans";
+  font-size: 18px;
+}
+
+body{
+  background-color: rgba(247, 245, 245, 1);
 }
 
 .color-nav {
-  background-color: rgba(240, 233, 233,1);
+  /*background-color: rgba(240, 233, 233,1);*/
+  background-color: rgba(227, 218, 216, 1);
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: #8b0000;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 .navbar-brand img{
   height: 50px;
   float: left;
   margin-right: 7px;
-}
-
-.navbar-brand h1{
-  font-size: 20px;
 }
 
 .navbar-brand{
@@ -45,12 +77,14 @@
 
 .navbar-nav{
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-around;
+
 }
 
 @media only screen and (max-width: 500px) {
-  #nav-about, #nav-recruitment, #nav-brothers{
-    margin-left: 0.75rem!important;
-    margin-right: 0.75rem!important;
+  .navbar-brand img{
+    height: 30px;
+    float: none;
+    margin-right: 7px;
   }
 }

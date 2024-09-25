@@ -23,7 +23,7 @@ export default class Pillar extends React.Component<
   }
 
   render() {
-    if (this.state.windowWidth > 500) {
+    // if (this.state.windowWidth > 500) {
       return (
         <div className="pillar-row">
           <div className="col">
@@ -34,32 +34,31 @@ export default class Pillar extends React.Component<
               <p className="pillar-description"> {this.props.description} </p>
             </div>
           </div>
-          <div className="col">
+          <div className="pillar-photo">
             <img className="pillar-photo" src={this.props.img} alt={"Pillar"} />
           </div>
         </div>
-      );
-    } else {
-      return (
-        <div className="pillar-row">
-          <div className="col">
-            <div className="pillar-title">
-              <h2>{this.props.value}</h2>
-            </div>
-            <div className="pillar-description">
-              <p className="pillar-description"> {this.props.description} </p>
-            </div>
-            <div>
-              {" "}
-              <img
-                className="pillar-photo"
-                src={this.props.img}
-                alt={"Pillar"}
-              />{" "}
-            </div>
-          </div>
-        </div>
-      );
-    }
-  }
-}
+      );}}
+  //   } else {
+  //     return (
+  //       <div className="pillar-row">
+  //         <div className="col">
+  //           <div className="pillar-title">
+  //             <h2>{this.props.value}</h2>
+  //           </div>
+  //           <div className="pillar-description">
+  //             <p className="pillar-description"> {this.props.description} </p>
+  //           </div>
+  //           <div className="pillar-photo">
+  //             {" "}
+  //             <img
+  //               src={this.props.img}
+  //               alt={"Pillar"}
+  //             />{" "}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     );
+  //   }
+  // }
+// }

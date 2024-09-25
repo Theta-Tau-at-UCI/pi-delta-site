@@ -36,7 +36,7 @@ class MajorChart extends React.Component {
   render() {
     return (
       <MDBContainer>
-        <h3 className="mt-5">Gender Breakdown</h3>
+        <h2 className="mt-5">Gender Breakdown</h2>
         <Doughnut
           data={this.state.dataDoughnut}
           options={{ responsive: true }}

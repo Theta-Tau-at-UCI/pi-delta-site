@@ -104,28 +104,28 @@ export default class Footer extends React.Component<{}, { windowWidth: any }> {
             <div className="container">
               <div className="row">
                 <div id="footer-col" className="col">
-                  <div className="mobile-font-size">
+                  <div className="mobile-//font-size">
                     <strong> About</strong>
                   </div>
                   <div>
-                    <a className="mobile-font-size" href={"/about#our-chapter"}>
+                    <a className="mobile-//font-size" href={"/about#our-chapter"}>
                       {" "}
                       Our Chapter{" "}
                     </a>
                   </div>
                   <div>
-                    <a className="mobile-font-size" href={"/about#our-values"}>
+                    <a className="mobile-//font-size" href={"/about#our-values"}>
                       Our Values
                     </a>
                   </div>
                   <div>
-                    <a className="mobile-font-size" href={"/brothers"}>
+                    <a className="mobile-//font-size" href={"/brothers"}>
                       Brothers
                     </a>
                   </div>
                   <div>
                     <a
-                      className="mobile-font-size"
+                      className="mobile-//font-size"
                       href="https://thetatau.org/"
                     >
                       Theta Tau
@@ -133,12 +133,12 @@ export default class Footer extends React.Component<{}, { windowWidth: any }> {
                   </div>
                 </div>
                 <div id="footer-col" className="col">
-                  <div className="mobile-font-size">
+                  <div className="mobile-//font-size">
                     <strong> Recruitment</strong>
                   </div>
                   <div>
                     <a
-                      className="mobile-font-size"
+                      className="mobile-//font-size"
                       href={"recruitment#rush-header"}
                     >
                       {" "}
@@ -146,14 +146,14 @@ export default class Footer extends React.Component<{}, { windowWidth: any }> {
                     </a>
                   </div>
                   <div>
-                    <a className="mobile-font-size" href={"/recruitment#faq"}>
+                    <a className="mobile-//font-size" href={"/recruitment#faq"}>
                       {" "}
                       FAQ
                     </a>
                   </div>
                   <div>
                     <a
-                      className="mobile-font-size"
+                      className="mobile-//font-size"
                       href={"/recruitment#events"}
                     >
                       {" "}
@@ -162,16 +162,16 @@ export default class Footer extends React.Component<{}, { windowWidth: any }> {
                   </div>
                 </div>
                 <div id="footer-col" className="col">
-                  <div className="mobile-font-size">
+                  <div className="mobile-//font-size">
                     <strong> Contact</strong>
                   </div>
-                  <div className="mobile-font-size" id="email">
+                  <div className="mobile-//font-size" id="email">
                     <FaInbox /> ucithetatau@gmail.com
                   </div>
                   <div>
                     {" "}
                     <a
-                      className="mobile-font-size"
+                      className="mobile-//font-size"
                       href="https://www.instagram.com/thetatauuci/"
                     >
                       <FaInstagram /> @thetatauuci{" "}
@@ -180,7 +180,7 @@ export default class Footer extends React.Component<{}, { windowWidth: any }> {
                   <div>
                     {" "}
                     <a
-                      className="mobile-font-size"
+                      className="mobile-//font-size"
                       href="https://www.facebook.com/thetatauuci/"
                     >
                       {" "}

@@ -11,17 +11,17 @@ class NavigationBar extends React.Component {
           <img src={navbar_brand} alt="theta-tau-logo" />
             <h1>THETA TAU</h1>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link id="nav-brothers-dev" href="/brothers">
-              Brothers
+              BROTHERS
             </Nav.Link>
             <Nav.Link id="nav-recruitment" href="/recruitment">
-              Recruitment
+              RECRUITMENT
             </Nav.Link>
             <Nav.Link id="nav-about" href="/about">
-              About
+              ABOUT
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
