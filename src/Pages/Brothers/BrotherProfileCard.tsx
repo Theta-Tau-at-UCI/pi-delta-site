@@ -39,8 +39,15 @@ export default class BrotherProfileCard extends React.Component<
           onClick={this.openModal}
         />
         <p className="names" onClick={this.openModal}>
-          {this.props.name}
-          {this.props.cabby_exec_status !== "N" ? (
+            {/*{this.props.name}*/}
+            {this.props.linkedin_url !== "NULL" ? (
+                <span className={"position"}>
+                    <a href={this.props.linkedin_url}
+                       rel={"noreferrer"}
+                       target={"_blank"}> {this.props.name}
+                    </a>
+                </span>): (this.props.name)}
+            {this.props.cabby_exec_status !== "N" ? (
             <span className={"position"}> | {this.props.position}</span>
           ) : null}
         </p>
