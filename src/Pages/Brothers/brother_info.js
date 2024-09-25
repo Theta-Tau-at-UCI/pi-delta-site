@@ -4305,7 +4305,7 @@ export const brotherInfo = [
         "gender": "F",
         "class": "Epsilon Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "https://www.linkedin.com/in/shanachao/",
         "major": "Computer Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
