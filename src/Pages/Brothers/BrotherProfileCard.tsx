@@ -40,20 +40,30 @@ export default class BrotherProfileCard extends React.Component<
         />
         <p className="names" onClick={this.openModal}>
             {/*{this.props.name}*/}
-            {this.props.linkedin_url !== "NULL" ? (
-                <span className={"position"}>
-                    <a href={this.props.linkedin_url}
-                       rel={"noreferrer"}
-                       target={"_blank"}> {this.props.name}
-                    </a>
-                </span>): (this.props.name)}
+            {/*{this.props.linkedin_url !== "NULL" ? (*/}
+            {/*    <span className={"position"}>*/}
+            {/*        <a href={this.props.linkedin_url}*/}
+            {/*           rel={"noreferrer"}*/}
+            {/*           target={"_blank"}> */}
+                        {this.props.name}
+                {/*    </a>*/}
+                {/*</span>): (this.props.name)}*/}
             {this.props.cabby_exec_status !== "N" ? (
             <span className={"position"}> | {this.props.position}</span>
           ) : null}
+
         </p>
         <p className="descriptor" onClick={this.openModal}>
           {this.props.major}
+            {this.props.linkedin_url !== "NULL" ? (
+                <span className={"position"}> |
+                    <a href={this.props.linkedin_url}
+                       rel={"noreferrer"}
+                       target={"_blank"}>  LinkedIn
+                    </a>
+                </span>): null}
         </p>
+
 
         <Modal show={this.state.isOpen} onHide={this.closeModal}>
           <Modal.Header closeButton>
