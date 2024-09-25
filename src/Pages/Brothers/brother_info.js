@@ -3997,7 +3997,7 @@ export const brotherInfo = [
         "gender": "M",
         "class": "Gamma Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "https://www.linkedin.com/in/donovanachen",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Scribe",
