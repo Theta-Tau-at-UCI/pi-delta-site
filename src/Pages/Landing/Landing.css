@@ -98,7 +98,7 @@ p {
     header {
         background: url('../../Media/misc/engineering-hall.jpg') black no-repeat center center scroll;
     }
-    header video {
+    header img {
         display: none;
     }
 }
