@@ -4195,8 +4195,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "NULL",
         "major": "Computer Science",
-        "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Co-Director of Fundraising",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/custoyang.jpeg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -4223,8 +4223,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
-        "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Director of Service",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/elenacheung.jpeg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -4265,8 +4265,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "NULL",
         "major": "Civil Engineering",
-        "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Co-Director of Fundraising",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/luisgama.jpeg",
         "casual_photo": "NULL",
         "blurb": ""
@@ -4307,8 +4307,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "https://www.linkedin.com/in/shanachao/",
         "major": "Computer Engineering",
-        "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Director of Public Relations",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/shanachao.jpeg",
         "casual_photo": "NULL",
         "blurb": ""
