@@ -4123,7 +4123,7 @@ export const brotherInfo = [
         "gender": "M",
         "class": "Delta Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "https://www.linkedin.com/in/miguelmurillo4/",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Co-Director of Recruitment",

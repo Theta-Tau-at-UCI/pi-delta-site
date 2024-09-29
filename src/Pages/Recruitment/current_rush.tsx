@@ -11,7 +11,7 @@ class CurrentRush extends Component {
           <h1> Fall '24 Rush </h1>
           <br/>
           <p className="rush-desc">
-            Pi Delta will be holding our next recruitment event from September 30th to October 4th, 2024!
+            The Pi Delta Chapter of Theta Tau will be holding our next recruitment event from September 30th to October 4th, 2024!
             We would love to meet you!
             Details are in the graphic below and on our Instagram <a href={"https://www.instagram.com/thetatauuci"}
                                                                      rel={"noreferrer"}

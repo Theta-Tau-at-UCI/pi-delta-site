@@ -94,14 +94,14 @@ p {
     color: black;
 }
 
-@media (pointer: coarse) and (hover: none) {
-    header {
-        background: url('../../Media/misc/engineering-hall.jpg') black no-repeat center center scroll;
-    }
-    header img {
-        display: none;
-    }
-}
+/*@media (pointer: coarse) and (hover: none) {*/
+/*    header {*/
+/*        background: url('../../Media/misc/engineering-hall.jpg') black no-repeat center center scroll;*/
+/*    }*/
+/*    header img {*/
+/*        display: none;*/
+/*    }*/
+/*}*/
 
 .media {
     width: 100%;
