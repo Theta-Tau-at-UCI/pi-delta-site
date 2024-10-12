@@ -4041,8 +4041,8 @@ export const brotherInfo = [
         "active_status": "Y",
         "linkedin_url": "https://www.linkedin.com/in/jakelsilverman/",
         "major": "Data Science",
-        "cabby_exec_status": "N",
-        "cabby_exec_position": "NULL",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Marshal",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Gamma%20Beta/jakesilverman.jpeg",
         "casual_photo": "NULL",
         "blurb": ""
