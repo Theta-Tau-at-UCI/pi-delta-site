@@ -4271,20 +4271,6 @@ export const brotherInfo = [
         "casual_photo": "NULL",
         "blurb": ""
     },
-    // {
-    //     "id": 311.0,
-    //     "name": "Maggie Zhang",
-    //     "gender": "F",
-    //     "class": "Epsilon Beta",
-    //     "active_status": "Y",
-    //     "linkedin_url": "https://www.linkedin.com/in/maggie-g-zhang/",
-    //     "major": "Computer Science",
-    //     "cabby_exec_status": "N",
-    //     "cabby_exec_position": "NULL",
-    //     "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/maggiezhang.jpeg",
-    //     "casual_photo": "NULL",
-    //     "blurb": ""
-    // },
     {
         "id": 312.0,
         "name": "Sarah Qu",
@@ -4327,10 +4313,145 @@ export const brotherInfo = [
         "casual_photo": "NULL",
         "blurb": ""
     },
-
-
-
-
-
+    {
+        "id": 315.0,
+        "name": "Annie Tran",
+        "gender": "F",
+        "class": "Zeta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Computer Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/annietran.jpeg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 316.0,
+        "name": "Carol Wang",
+        "gender": "F",
+        "class": "Zeta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Computer Science",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 317.0,
+        "name": "Dalena Nguyen",
+        "gender": "F",
+        "class": "Zeta Beta",
+        "active_status": "Y",
+        "linkedin_url": "https://www.linkedin.com/in/dalena-nguyen7/",
+        "major": "Computer Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/dalenanguyen.jpeg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 318.0,
+        "name": "David Culciar",
+        "gender": "M",
+        "class": "Zeta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Computer Science and Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/davidculciar.jpeg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 319.0,
+        "name": "Ethan Choi",
+        "gender": "M",
+        "class": "Zeta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/ethanchoi.jpeg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 320.0,
+        "name": "Hannah Kim",
+        "gender": "F",
+        "class": "Zeta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/hannahkim.jpeg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 321.0,
+        "name": "Jason Nguyen",
+        "gender": "M",
+        "class": "Zeta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Civil Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/jasonnguyen.jpeg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 322.0,
+        "name": "Joseph de Leon",
+        "gender": "M",
+        "class": "Zeta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Data Science",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/josephdeleon.jpeg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 323.0,
+        "name": "Katie Quach",
+        "gender": "F",
+        "class": "Zeta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Biomedical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/katiequach.jpeg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+    {
+        "id": 324.0,
+        "name": "Zane Xing",
+        "gender": "M",
+        "class": "Zeta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/zanexing.jpeg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
 ]
 
