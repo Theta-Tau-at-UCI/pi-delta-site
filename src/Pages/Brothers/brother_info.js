@@ -4170,7 +4170,7 @@ export const brotherInfo = [
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Co-Director of Engineering",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/wilsonnguyen.jpeg",
-        "casual_photo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/wilsonnguyencasual.jpeg",
+        "casual_photo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/WilsonNguyenCasual.jpeg",
         "blurb": ""
     },
     {
