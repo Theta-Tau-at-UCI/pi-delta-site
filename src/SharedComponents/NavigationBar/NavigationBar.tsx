@@ -1,7 +1,8 @@
 import React from "react";
 import navbar_brand from "../../Media/tt-graphics/ttbadge.png";
-import { Nav, Navbar } from "react-bootstrap";
+import {Container, Nav, Navbar} from "react-bootstrap";
 import "./NavigationBar.css";
+import {IconAddBox} from "@aws-amplify/ui-react";
 
 class NavigationBar extends React.Component {
   render() {
@@ -9,7 +10,11 @@ class NavigationBar extends React.Component {
       <Navbar className="color-nav" expand="md" sticky="top">
         <Navbar.Brand href="/">
           <img src={navbar_brand} alt="theta-tau-logo" />
-            <h1>THETA TAU UCI</h1>
+            <div id={"tt-title"}>
+                <h1>THETA TAU</h1>
+                <h2>Pi Delta </h2>
+            </div>
+
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">

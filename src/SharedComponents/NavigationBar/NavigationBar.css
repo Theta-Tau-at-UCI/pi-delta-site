@@ -42,6 +42,25 @@ body{
   background-color: rgba(247, 245, 245, 1);
 }
 
+#tt-title h1{
+   justify-content: center;
+  margin-bottom: 1px;
+}
+
+#tt-title h2{
+  justify-content: center;
+  margin-bottom: 1px;
+  font-family: "Mulish", sans-serif;
+  font-style: italic;
+  font-size: 10px;
+  color: #8b0000;
+}
+
+#tt-title{
+  text-align: center;
+}
+
+
 .color-nav {
   /*background-color: rgba(240, 233, 233,1);*/
   background-color: rgba(227, 218, 216, 1);
