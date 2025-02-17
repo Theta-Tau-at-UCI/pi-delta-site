@@ -4115,7 +4115,8 @@ export const brotherInfo = [
         "cabby_exec_position": "Treasurer",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/jamiekuang.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "Hi, I'm Jamie! I'm from San Diego, CA and I am a CS major (Information) :D Within CS, I'm very interested in web development and UI/UX design. My current project is making a portfolio website that perfectly captures all of my interests and style.\n" +
+            "I am an avid fan of Pompompurin and Chiikawa/Nagano (bear character LOL) and I am a big collector of stationery. Specifically, I have a large collection of stickers. In the past I ran a bullet journaling Instagram account! Some other hobbies I have include journaling, cafe hopping, tennis, and recently I have taken up climbing (w/ Natalie Perrochon!). Really leaning into the SWE stereotype..."
     },
     {
         "id": 300.0,
