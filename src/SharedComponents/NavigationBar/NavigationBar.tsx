@@ -12,7 +12,7 @@ class NavigationBar extends React.Component {
           <img src={navbar_brand} alt="theta-tau-logo" />
             <div id={"tt-title"}>
                 <h1>THETA TAU</h1>
-                <h2>Pi Delta </h2>
+                <h2>&nbsp;Pi Delta Chapter </h2>
             </div>
 
         </Navbar.Brand>
