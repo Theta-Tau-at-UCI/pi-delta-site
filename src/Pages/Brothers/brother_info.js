@@ -4003,7 +4003,7 @@ export const brotherInfo = [
         "cabby_exec_position": "Scribe",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Gamma%20Beta/donovanchen.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "Hey, I'm Donovan. I'm from Sacramento and I'm studying computer science with a specialization in intelligent systems. I'm into full stack development especially creating web applications. In my free time, I'm playing basketball at the ARC or driving to new boba spots in my pom pom purin decorated car (70+ locations). I also love documenting my journey with film pictures 📸"
     },
     {
         "id": 292.0,
@@ -4045,7 +4045,7 @@ export const brotherInfo = [
         "cabby_exec_position": "Marshal",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Gamma%20Beta/jakesilverman.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "Hello! My name's Jake, and I'm a Data Science major originally from San Diego, CA. I'm passionate about how statistical modeling and machine learning techniques can be used to solve important problems within industries such as healthcare and biotechnology. Currently, my goal is to pursue a Master's degree in Data Science and work in a Data Science position in industry. In my free time, I enjoy listening to music, collecting vinyl records, playing video games, and recently I've picked up snowboarding as well! I'm also hopelessly addicted to coffee, so you can always find me trying out new cafes or dialing in my latte making technique from my at-home espresso machine. Hit me up for any recommendations!"
     },
     {
         "id": 295.0,
