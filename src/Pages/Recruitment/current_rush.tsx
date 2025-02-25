@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./current_rush.css";
-import rushflyer from "../../Media/rush/rushflyerfall2024.png";
+import rushflyerfront from "../../Media/rush/hb-rush-flyers/flyer_front.png";
+import rushflyerback from "../../Media/rush/hb-rush-flyers/flyer_back.png";
 
 class CurrentRush extends Component {
   render() {
@@ -19,7 +20,8 @@ class CurrentRush extends Component {
             <br></br><br></br>If you have any questions in the meantime, feel free to reach out via Instagram or email.
             <br/>
           </p>
-          {/* <img className="media" src={rushflyer} alt="rushflyer"/> */}
+          <div id="rush-flyer"><img className="media" src={rushflyerfront} alt="rushflyerfront"/>
+            <img className="media" src={rushflyerback} alt="rushflyerback"/></div>
 
         </div>
       </div>
