@@ -15,6 +15,7 @@
 
 #rush-flyer img {
     width: 70vh;
+    max-width: 70vw;
 }
 
 #rush-flyer {
