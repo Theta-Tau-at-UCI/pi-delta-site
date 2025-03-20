@@ -1,0 +1,68 @@
+
+
+.testimonial-headshot {
+    max-width: 30vw;
+    min-width: 30vh;
+    max-height: 40vh;
+    align-self: center;
+    /*min-height: 40vh;*/
+    /*border-radius: 10%;*/
+    /*box-shadow: 4px 4px rgb(173, 2, 2);*/
+    border-radius: .75rem;
+    border-width: 2px;
+    border-color: rgb(173, 2, 2);
+    border-style: solid;
+
+}
+
+.carousel-image {
+    width: 75vw;
+    align-self: center;
+}
+
+.carousel-item-brotherhood {
+    display: flex;
+    flex-direction: row;
+    /*padding: 10vw;*/
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+    /*max-width: 100vw;*/
+    /*margin-top: 0px;*/
+    margin: 5vh auto;
+}
+
+@media (max-width: 10000px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+
+    /*.carousel-item {*/
+    /*    flex-direction: column;*/
+    /*    align-items: flex-start;*/
+    /*    text-align: left;*/
+    /*    position: relative;*/
+    /*    align-content: space-evenly;*/
+    /*    flex-wrap: wrap;*/
+    /*}*/
+    .testimonial-text {
+        margin: 50px;
+        max-width: 70vw;
+    }
+
+
+}
+
+.testimonial-text {
+    margin: 50px;
+    max-width: 40vw;
+}
+
+.testimonial-quote {
+    /*font-style: italic;*/
+}
+
+.testimonial-name {
+    font-style: italic;
+}

@@ -118,12 +118,28 @@ p {
 }
 
 #pillars{
-    padding-top: 10vh;
+    padding-top: 5vh;
     padding-bottom: 10vh;
     border-bottom: 1px solid lightgray;
 
 }
 
+#testimonials{
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+    border-bottom: 1px solid lightgray;
+}
+
+.container #testimonials {
+    margin-left: 0vw;
+    padding-left: 0vw;
+}
+
+#imagecarousel {
+    padding-bottom: 10vh;
+}
+
+#testimonials img {}
 #join {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -165,6 +181,8 @@ p {
     padding-right: 10vw;
 
 }
+
+
 
 .button {
     align-self: center;
