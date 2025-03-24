@@ -100,9 +100,7 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
         </Container>
         <Container id="testimonials">
           <Col>
-            {/*{" "}*/}
             <h1>TESTIMONIALS</h1>{" "}
-            {/*<br></br>*/}
           </Col>
           <Testimonial></Testimonial>
         </Container>
