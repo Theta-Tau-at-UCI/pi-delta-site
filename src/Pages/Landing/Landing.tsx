@@ -7,6 +7,9 @@ import { CardDeck, Container, Row, Col, Button } from "react-bootstrap";
 import chapter_photo_2 from "../../Media/chapter-photos/landing/winter_retreat_2024.jpg";
 import Footer from "../../SharedComponents/Footer/Footer";
 import background_main from "../../Media/chapter-photos/landing/thetatau.jpg";
+import Testimonial from "./Testimonial";
+// import ImagesCarousel from "./ImagesCarousel";
+
 
 export default class Landing extends React.Component<{}, { windowWidth: any }> {
   constructor(props: {}) {
@@ -95,7 +98,18 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
             />
           </CardDeck>
         </Container>
+        <Container id="testimonials">
+          <Col>
+            <h1>TESTIMONIALS</h1>{" "}
+          </Col>
+          <Testimonial></Testimonial>
+        </Container>
         <Join />
+        {/*<Container  id ="imagecarousel">*/}
+        {/*  <ImagesCarousel/>*/}
+        {/*</Container>*/}
+
+
 
         <Footer />
       </Fragment>
@@ -229,10 +243,6 @@ class Join extends React.Component<{}, { windowWidth: any }> {
             </a>
               <br></br>
           </Col>
-          <Col className="who-we-are-card">
-          {" "}
-              <img className="media" src={chapter_photo_2} alt="chapter 2" />
-            </Col>
           </Row>
         </Container>
       );
