@@ -1,0 +1,17 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+        - amplify pull --yes --amplify "{\"envName\":\"staging\"}" --frontend "{\"framework\":\"react\",\"config\":{\"SourceDir\":\"src\",\"DistributionDir\":\"build\",\"BuildCommand\":\"npm run build\",\"StartCommand\":\"npm start\"}}" --providers "{\"awscloudformation\":{\"region\":\"us-east-2\"}}"
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
