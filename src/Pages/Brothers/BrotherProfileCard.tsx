@@ -66,7 +66,7 @@ export default class BrotherProfileCard extends React.Component<
 
 
         <Modal show={this.state.isOpen} onHide={this.closeModal}>
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>{this.props.name}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
