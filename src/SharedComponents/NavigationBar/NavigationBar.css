@@ -74,7 +74,7 @@ body{
 .navbar-brand img{
   height: 50px;
   float: left;
-  margin-right: 7px;
+  margin: 7px;
 }
 
 .navbar-brand{
@@ -89,15 +89,23 @@ body{
   overflow-y: auto;
 }
 
+.navbar {
+  padding: 5px;
+}
+
+.navbar-collapse {
+  justify-content: end !important;
+}
+
 .show{
   display: block;
   margin-top: 0;
 }
 
-.navbar-nav{
+.basic-navbar-nav{
   flex-direction: row;
   justify-content: space-around;
-
+  align-items: end;
 }
 
 @media only screen and (max-width: 500px) {
