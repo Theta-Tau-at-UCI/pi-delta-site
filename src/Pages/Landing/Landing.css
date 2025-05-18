@@ -117,6 +117,14 @@ p {
     border-bottom: 1px solid lightgray;
 }
 
+.pillar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    align-items: center;
+}
+
 #pillars{
     padding-top: 5vh;
     padding-bottom: 10vh;

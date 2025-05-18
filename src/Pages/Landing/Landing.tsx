@@ -74,7 +74,7 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
             <h1>OUR PILLARS</h1>{" "}
             <br></br>
           </Col>
-          <CardDeck id={"pillar-cards"}>
+          <div className="pillar-container" id={"pillar-cards"}>
             <Pillar
               value={"Brotherhood"}
               img={chapter_photo}
@@ -96,7 +96,7 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
                 "We are known for our service to our college, university and the larger community. Our service projects create a unifying environment for learning and personal growth for our members."
               }
             />
-          </CardDeck>
+          </div>
         </Container>
         <Container id="testimonials">
           <Col>
