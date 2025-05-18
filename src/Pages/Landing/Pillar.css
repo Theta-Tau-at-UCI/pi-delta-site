@@ -42,12 +42,15 @@
 
 @media only screen and (max-width: 768px) {
     #pillar-cards {
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-
     .pillar {
+        flex: 0 0 90%; /* make pillar wider on small screen */
         max-width: 90%;
+        min-width: unset;
+        height: auto; /* grow with content */
+        margin-bottom: 2rem;
     }
 }
 
