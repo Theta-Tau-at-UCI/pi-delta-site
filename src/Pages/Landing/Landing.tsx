@@ -238,7 +238,7 @@ class Join extends React.Component<{}, { windowWidth: any }> {
 
             </Col>
             <Col className="who-we-are-card">
-              <Button className="button" variant="danger" href="/recruitment"> FALL '24 RUSH</Button>
+              <Button className="button" variant="danger" href="/recruitment"> FALL '25 RUSH</Button>
               <a href={"/recruitment"}>
             </a>
               <br></br>
@@ -272,7 +272,7 @@ class Join extends React.Component<{}, { windowWidth: any }> {
               <div className="text-center">
                 <a href={"/recruitment"}>
                   {" "}
-                  <Button className="button" variant="danger" href="/recruitement"> FALL '24 RUSH</Button>{" "}
+                  <Button className="button" variant="danger" href="/recruitement"> FALL '25 RUSH</Button>{" "}
                 </a>{" "}
               </div>
             </Col>

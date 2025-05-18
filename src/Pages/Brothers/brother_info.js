@@ -4181,7 +4181,7 @@ export const brotherInfo = [
         "class": "Epsilon Beta",
         "active_status": "Y",
         "linkedin_url": "NULL",
-        "major": "Aerospace Engineering",
+        "major": "Aerospace Engineering & Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/austinfugate.jpeg",

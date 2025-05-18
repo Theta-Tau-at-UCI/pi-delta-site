@@ -9,10 +9,10 @@ class CurrentRush extends Component {
       <div>
         {/* <img id = "rush-header" src = {rush_header} alt = "rush_header"/> */}
         <div id="rush-blurb">
-          <h1> Spring '25 Rush </h1>
+          <h1> Fall '25 Rush </h1>
           <br/>
           <p className="rush-desc">
-            The Pi Delta Chapter of Theta Tau will be holding our next recruitment event in Spring Quarter 2025!
+            The Pi Delta Chapter of Theta Tau will be holding our next recruitment event in Fall Quarter 2025!
             We would love to meet you!
             Closer to the date, we will be sharing more details on our Instagram <a href={"https://www.instagram.com/thetatauuci"}
                                                                      rel={"noreferrer"}
@@ -20,9 +20,6 @@ class CurrentRush extends Component {
             <br></br><br></br>If you have any questions in the meantime, feel free to reach out via Instagram or email.
             <br/>
           </p>
-          <div id="rush-flyer"><img className="media" src={rushflyerfront} alt="rushflyerfront"/>
-            <img className="media" src={rushflyerback} alt="rushflyerback"/></div>
-
         </div>
       </div>
     );
