@@ -4455,5 +4455,172 @@ export const brotherInfo = [
         "blurb": ""
     },
 
+    {
+        "id": 325.0,
+        "name": "Andrew Nguyen ",
+        "gender": "M",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Computer Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
+    {
+        "id": 326.0,
+        "name": "Anna Coppola ",
+        "gender": "F",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
+    {
+        "id": 327.0,
+        "name": "Chloe Chow ",
+        "gender": "F",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Software Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/chloe_chow.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
+    {
+        "id": 328.0,
+        "name": "Ivy Lee",
+        "gender": "F",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Aerospace Engineering",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Co-Director of Fundraising",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
+    {
+        "id": 329.0,
+        "name": "Jarrett Lim",
+        "gender": "M",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/jarrett_lim.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
+    {
+        "id": 330.0,
+        "name": "Kaitlyn Takasawa",
+        "gender": "F",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Civil Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
+    {
+        "id": 331.0,
+        "name": "Piyawan Chaiprasit",
+        "gender": "F",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Computer Science and Informatics",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Director of Website Development",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/piyawan_chaiprasit.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
+    {
+        "id": 332.0,
+        "name": "River Giffin",
+        "gender": "M",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/river_giffin.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
+
+
+    {
+        "id": 333.0,
+        "name": "Samantha Huang",
+        "gender": "F",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/samantha_huang.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
+    {
+        "id": 334.0,
+        "name": "Sydney Okazaki",
+        "gender": "F",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Mechanical Engineering",
+        "cabby_exec_status": "Y",
+        "cabby_exec_position": "Co-Director of Media and Chapter History",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/sydney_okazaki.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
+    {
+        "id": 335.0,
+        "name": "Truman Lindenthaler",
+        "gender": "M",
+        "class": "Eta Beta",
+        "active_status": "Y",
+        "linkedin_url": "NULL",
+        "major": "Aerospace Engineering",
+        "cabby_exec_status": "N",
+        "cabby_exec_position": "NULL",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/truman_lindenthaler.jpg",
+        "casual_photo": "NULL",
+        "blurb": ""
+    },
+
 ]
 
