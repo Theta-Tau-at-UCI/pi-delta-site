@@ -3589,7 +3589,7 @@ export const brotherInfo = [
         "name": "Yessica Marin-Lopez",
         "gender": "F",
         "class": "Phi",
-        "active_status": "Y",
+        "active_status": "N",
         "linkedin_url": "https://www.linkedin.com/in/yessicamarinlopez/",
         "major": "Chicano Latin Studies",
         "cabby_exec_status": "N",
