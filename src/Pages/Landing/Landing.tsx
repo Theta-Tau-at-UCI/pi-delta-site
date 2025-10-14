@@ -200,7 +200,7 @@ class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
         <Container id="who-we-are">
           <Row>
             <Col>
-              <h1>WHO WE ARE</h1>
+              <h1>UC IRVINE'S PREMIER CO-ED PROFESSIONAL ENGINEERING FRATERNITY</h1>
               <br></br>
               <img className="media" src={chapter_photo} alt="chapter"/>
               <br/>
