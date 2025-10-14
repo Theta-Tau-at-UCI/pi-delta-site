@@ -3,6 +3,9 @@
     background-color: #2d2c2c;
     width: 100%;
     overflow: hidden;
+    position: relative !important;
+    z-index: 999999 !important;   /* very high to beat video/overlays */
+    isolation: isolate !important;
 }
 
 .footer-text {
