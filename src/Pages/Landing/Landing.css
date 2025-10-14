@@ -74,7 +74,12 @@ img {
     padding-top: 50px;
 }
 
-.summary-text{
+.promo-mobile{
+    font-size: 40px;
+    padding-top: 50px;
+}
+
+.text-laptop{
     font-size: 30px;
     text-align: center;
 }
@@ -210,6 +215,10 @@ p {
 
 #learn-more{
     margin-top: 10px;
+}
+
+.join-text{
+    font-size: 40px;
 }
 
 /*for the video lol*/

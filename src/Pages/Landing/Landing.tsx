@@ -93,7 +93,7 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
         <Container id="pillars">
           <Col>
             {" "}
-            <h1>OUR PILLARS</h1>{" "}
+            <h1 className="promo">OUR PILLARS</h1>{" "}
             <br></br>
           </Col>
           <div className="pillar-container" id={"pillar-cards"}>
@@ -122,7 +122,7 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
         </Container>
         <Container id="testimonials">
           <Col>
-            <h1>TESTIMONIALS</h1>{" "}
+            <h1 className="promo">TESTIMONIALS</h1>{" "}
           </Col>
           <Testimonial></Testimonial>
         </Container>
@@ -175,7 +175,7 @@ class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
             <Col className="who-we-are-card">
               {/*{" "}*/}
 
-              <p className="summary-text">Theta Tau fosters an environment for our brothers to develop individually and professionally while giving back to the community.</p>
+              <p className="text-laptop">Theta Tau fosters an environment for our brothers to develop individually and professionally while giving back to the community.</p>
 
             </Col>
             <Col className="who-we-are-card">
@@ -197,14 +197,13 @@ class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
         <Container id="who-we-are">
           <Row>
             <Col>
-              <h1>PREMIER CO-ED PROFESSIONAL ENGINEERING FRATERNITY</h1>
+              <h1 className="promo-mobile">PREMIER CO-ED PROFESSIONAL ENGINEERING FRATERNITY</h1>
               <br></br>
-              <img className="media" src={chapter_photo} alt="chapter"/>
-              <br/>
-              Theta Tau is the premier co-ed professional engineering fraternity
-              at UC Irvine. We foster an environment for our brothers to develop
+              Theta Tau fosters an environment for our brothers to develop
               individually and professionally while giving back to the
               community.
+              <br/>
+              <img className="media" src={chapter_photo} alt="chapter"/>
               <br/>
               <div className="text-center">
                 {" "}
@@ -245,11 +244,11 @@ class Join extends React.Component<{}, { windowWidth: any }> {
           <Row>
             <Col className="who-we-are-card">
               {/*{" "}*/}
-              <h1> INTERESTED IN JOINING? </h1>
+              <h1 className="promo"> INTERESTED IN JOINING? </h1>
               <br></br>
             </Col>
             <Col className="who-we-are-card">
-              <p>
+              <p className="text-laptop">
                 We hold recruitment events every fall and spring quarter. Feel
                 free to stop by at our booth at the engineering quad or contact us
                 via email or social media.
