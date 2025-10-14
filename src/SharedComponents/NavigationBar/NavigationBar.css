@@ -94,6 +94,9 @@ body{
 
 .navbar {
   padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* horizontal, vertical, blur, color */
+  z-index: 10; /* make sure it stays above content */
+
 }
 
 .navbar-collapse {
