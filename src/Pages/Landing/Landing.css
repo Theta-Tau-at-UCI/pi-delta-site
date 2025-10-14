@@ -34,6 +34,7 @@ header .container h1 {
 
 #title-text{
     color: white;
+    font-size: 50px;
 
 }
 
@@ -165,6 +166,7 @@ p {
     font-style: italic;
     color: #F3F5F8;
     padding-top: 10px;
+    font-size: 40px;
 
 }
 
