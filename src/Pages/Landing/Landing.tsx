@@ -2,7 +2,6 @@ import React, { Fragment, useState } from "react";
 import "./Landing.css";
 import chapter_photo from "../../Media/chapter-photos/winter_photoshoot_2024.jpg";
 import tt_logo from "../../Media/tt-graphics/ttbadge.png";
-import rushVid from "../../Media/animations/rush_teaser.mp4";
 import Pillar from "./Pillar";
 import { CardDeck, Container, Row, Col, Button } from "react-bootstrap";
 import chapter_photo_2 from "../../Media/chapter-photos/landing/winter_retreat_2024.jpg";
@@ -10,6 +9,8 @@ import Footer from "../../SharedComponents/Footer/Footer";
 import background_main from "../../Media/chapter-photos/landing/thetatau.jpg";
 import Testimonial from "./Testimonial";
 import ImagesCarousel from "./ImagesCarousel";
+import rushVid from "../../Media/animations/rush_teaser.mp4";
+
 
 
 export default class Landing extends React.Component<{}, { windowWidth: any }> {
