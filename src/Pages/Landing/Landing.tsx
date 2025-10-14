@@ -168,17 +168,14 @@ class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
           <Row>
             <Col className="who-we-are-card">
               {/*{" "}*/}
-              <h1>WHO WE ARE</h1>
+              <h1 className="promo">PREMIER CO-ED PROFESSIONAL ENGINEERING FRATERNITY</h1>
               <br></br>
             </Col>
 
             <Col className="who-we-are-card">
               {/*{" "}*/}
 
-              <p>Theta Tau is the premier co-ed professional engineering fraternity
-                at UC Irvine. We foster an environment for our brothers to develop
-                individually and professionally while giving back to the
-                community.</p>
+              <p className="summary-text">Theta Tau fosters an environment for our brothers to develop individually and professionally while giving back to the community.</p>
 
             </Col>
             <Col className="who-we-are-card">
@@ -200,7 +197,7 @@ class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
         <Container id="who-we-are">
           <Row>
             <Col>
-              <h1>UC IRVINE'S PREMIER CO-ED PROFESSIONAL ENGINEERING FRATERNITY</h1>
+              <h1>PREMIER CO-ED PROFESSIONAL ENGINEERING FRATERNITY</h1>
               <br></br>
               <img className="media" src={chapter_photo} alt="chapter"/>
               <br/>

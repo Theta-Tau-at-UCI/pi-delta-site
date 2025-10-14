@@ -34,7 +34,7 @@ header .container h1 {
 
 #title-text{
     color: white;
-    font-size: 50px;
+    font-size: 80px;
 
 }
 
@@ -65,12 +65,18 @@ img {
 }
 
 .who-we-are-card p{
-    text-align: left;
+    text-align: center;
+    padding: 50px;
 }
-
 
 .promo{
     font-size: 50px;
+    padding-top: 50px;
+}
+
+.summary-text{
+    font-size: 30px;
+    text-align: center;
 }
 
 header .overlay {
@@ -215,13 +221,21 @@ p {
 }
 
 .video-wrapper {
-    position: sticky;   /* key: makes video stick while scrolling */
-    top: 0;
+    position: relative;
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    z-index: 0;
-    background: rgba(0, 0, 0, 0.45);
+}
+
+.video-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35); /* adjust darkness here */
+    z-index: 1; /* sits above video */
 }
 
 .hero-section {
