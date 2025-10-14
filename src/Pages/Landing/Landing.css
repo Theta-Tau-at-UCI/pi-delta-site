@@ -199,3 +199,58 @@ p {
 #learn-more{
     margin-top: 10px;
 }
+
+/*for the video lol*/
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* full viewport */
+    overflow: hidden;
+}
+
+.video-wrapper {
+    position: sticky;   /* key: makes video stick while scrolling */
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;   /* full viewport */
+    overflow: hidden;
+}
+
+.hero-video {
+    position: fixed;    /* stays in viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;       /* full viewport width */
+    height: 100vh;      /* full viewport height */
+    object-fit: cover;  /* cover entire viewport without stretching */
+    z-index: 0;
+    transform: none;    /* remove translate, not needed for fixed */
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;  /* overlay sits above video */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Sections scroll over the fixed video */
+footer, #who-we-are,
+#pillars,
+#testimonials,
+#join {
+    position: relative;
+    z-index: 2;
+    background-color: white;
+}

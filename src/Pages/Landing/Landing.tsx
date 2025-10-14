@@ -34,36 +34,56 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
   render() {
     return (
       <Fragment>
-        <header>
-          <img
-              className="overlay"
-              // id={"video"}
-              src={background_main}
-              alt={"Theta Tau Logo"}
-          />
-          {/*<div className={"overlay"}/>*/}
-          {/*<video playsInline={true} autoPlay={true} muted={true} loop={true}>*/}
-          {/*  <source*/}
-          {/*      src={*/}
-          {/*        "https://www.dropbox.com/s/ysz6cfcbkavkzsp/TT_Website_Video.mp4?raw=1"*/}
-          {/*      }*/}
-          {/*      type={"video/mp4"}*/}
-          {/*  />*/}
-          {/*</video>*/}
+        {/*<header>*/}
+        {/*  <img*/}
+        {/*      className="overlay"*/}
+        {/*      // id={"video"}*/}
+        {/*      src={background_main}*/}
+        {/*      alt={"Theta Tau Logo"}*/}
+        {/*  />*/}
+        {/*  /!*<div className={"overlay"}/>*!/*/}
+        {/*  /!*<video playsInline={true} autoPlay={true} muted={true} loop={true}>*!/*/}
+        {/*  /!*  <source*!/*/}
+        {/*  /!*      src={*!/*/}
+        {/*  /!*        "https://www.dropbox.com/s/ysz6cfcbkavkzsp/TT_Website_Video.mp4?raw=1"*!/*/}
+        {/*  /!*      }*!/*/}
+        {/*  /!*      type={"video/mp4"}*!/*/}
+        {/*  /!*  />*!/*/}
+        {/*  /!*</video>*!/*/}
 
-          <div className={"container h-100"}>
-            <div className={"d-flex h-100 align-items-center"}>
-              <div className={"w-100 text-white"}>
-                <img
-                    id="video-overlay-graphic"
-                    src={tt_logo}
-                    alt={"Theta Tau Logo"}
-                />
-                <h1 id="title-text">Theta Tau</h1>
-                <h6 className={"video-subtext"}>
-                  Pi Delta Chapter at UC Irvine
-                </h6>
-              </div>
+        {/*  <div className={"container h-100"}>*/}
+        {/*    <div className={"d-flex h-100 align-items-center"}>*/}
+        {/*      <div className={"w-100 text-white"}>*/}
+        {/*        <img*/}
+        {/*            id="video-overlay-graphic"*/}
+        {/*            src={tt_logo}*/}
+        {/*            alt={"Theta Tau Logo"}*/}
+        {/*        />*/}
+        {/*        <h1 id="title-text">Theta Tau</h1>*/}
+        {/*        <h6 className={"video-subtext"}>*/}
+        {/*          Pi Delta Chapter at UC Irvine*/}
+        {/*        </h6>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</header>*/}
+
+        <header className="hero-section">
+          <div className="video-wrapper">
+            <video
+                className="hero-video"
+                playsInline
+                autoPlay
+                muted
+                loop
+            >
+              <source src={rushVid} type="video/mp4" />
+            </video>
+
+            <div className="hero-overlay container h-100 d-flex flex-column justify-content-center align-items-center text-white">
+              <img id="video-overlay-graphic" src={tt_logo} alt="Theta Tau Logo" />
+              <h1 id="title-text">Theta Tau</h1>
+              <h6 className="video-subtext">Pi Delta Chapter at UC Irvine</h6>
             </div>
           </div>
         </header>
