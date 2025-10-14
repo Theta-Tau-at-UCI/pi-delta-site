@@ -10,6 +10,7 @@ import background_main from "../../Media/chapter-photos/landing/thetatau.jpg";
 import Testimonial from "./Testimonial";
 import ImagesCarousel from "./ImagesCarousel";
 import rushVid from "../../Media/animations/rush_teaser.mp4";
+import tt_logo_placeholder from "../../Media/tt-graphics/tt-wordmark-uci.png";
 
 
 
@@ -93,7 +94,7 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
         <Container id="pillars">
           <Col>
             {" "}
-            <h1 className="promo">OUR PILLARS</h1>{" "}
+            <h1 className="promo1">OUR PILLARS</h1>{" "}
             <br></br>
           </Col>
           <div className="pillar-container" id={"pillar-cards"}>
@@ -122,7 +123,7 @@ export default class Landing extends React.Component<{}, { windowWidth: any }> {
         </Container>
         <Container id="testimonials">
           <Col>
-            <h1 className="promo">TESTIMONIALS</h1>{" "}
+            <h1 className="promo1">TESTIMONIALS</h1>{" "}
           </Col>
           <Testimonial></Testimonial>
         </Container>
@@ -270,7 +271,7 @@ class Join extends React.Component<{}, { windowWidth: any }> {
           <Row>
             <Col>
               {" "}
-              <h1> INTERESTED IN JOINING? </h1>
+              <h1 className="promo"> INTERESTED IN JOINING? </h1>
               <br></br>
               <Row>
                 <Col>
