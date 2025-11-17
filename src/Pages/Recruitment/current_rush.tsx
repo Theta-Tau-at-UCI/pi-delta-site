@@ -70,8 +70,9 @@ class CurrentRush extends Component {
           {/*  <br/>*/}
           {/*</p>*/}
         </div>
-
+        <h1 className="fall-rush">Fall Rush 25'</h1>
         <div className="rush-timeline">
+
           <div className="timeline-line" />
           {rushEvents.map((event, index) => (
               <div className="timeline-item" key={index}>

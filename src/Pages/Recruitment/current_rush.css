@@ -11,6 +11,13 @@
     align-items: center;
 }
 
+.fall-rush{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
 /* Optional dark overlay effect */
 .hero-section::before {
     content: "";
