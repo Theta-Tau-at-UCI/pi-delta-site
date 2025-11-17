@@ -1,5 +1,34 @@
+.hero-section {
+    background-image: url("../../Media/chapter-photos/winter_photoshoot_2020.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* 👈 makes the background stay fixed for scroll-over effect */
+    height: 100vh;
+    position: relative;
+    display: flex; /* helps with centering overlay if needed */
+    justify-content: center;
+    align-items: center;
+}
 
+/* Optional dark overlay effect */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* adjust darkness */
+    z-index: 1;
+}
 
+.hero-overlay {
+    position: relative;
+    z-index: 2; /* keeps text above the overlay */
+    text-align: center;
+    color: white;
+}
 #rush-blurb {
     margin: 24px;
     border-bottom: 1px solid gray;
@@ -160,4 +189,151 @@
 
 #discord-link{
     color: blue;
+}
+
+.current-rush-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+/* ---------- DESKTOP DEFAULT (HORIZONTAL + ALTERNATING) ---------- */
+
+.rush-timeline {
+    position: relative;
+    margin: 4rem auto;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem 0;
+    padding-bottom: 200px;
+    padding-top: 200px;
+}
+
+/* horizontal red line */
+.rush-timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;                   /* place line in the middle */
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #c62828;
+    z-index: 1;
+}
+
+.timeline-container {
+    padding-top: 100px;
+    padding-bottom: 120px; /* adjust to taste */
+    position: relative;
+}
+
+/* each item */
+.timeline-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    /* consistent width */
+}
+
+/* bubble sits centered on the line */
+.timeline-bubble {
+    width: 70px;
+    height: 70px;
+    background: #c62828;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: relative;
+    z-index: 3;
+}
+
+/* shared card style */
+.timeline-content {
+    background: white;
+    border: 2px solid #c62828;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    width: 300px;               /* same as container */
+    min-height: 150px;          /* equal card height */
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* alternate top/bottom positions */
+.timeline-item:nth-child(even) .timeline-content {
+    position: absolute;
+    top: -210px;
+    /* above the line */
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    position: absolute;
+    bottom: -240px;             /* below the line */
+}
+
+@media (max-width: 900px) {
+
+    /* make layout vertical and restore normal flow */
+    .rush-timeline {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 2rem 1rem 4rem;  /* bottom padding prevents overlap with next section */
+        width: 90%;
+        position: relative;
+    }
+
+    /* vertical line through bubbles */
+    .rush-timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 45px;         /* centered behind 60px bubble */
+        width: 4px;
+        height: 100%;
+        background: #c62828;
+        z-index: 1;
+    }
+
+    .timeline-item {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .timeline-bubble {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+        z-index: 3;         /* bubble stays above the line */
+        margin: 0;
+    }
+
+    /* RESET absolute desktop positioning */
+    .timeline-item .timeline-content {
+        position: relative !important;
+        top: auto !important;
+        bottom: auto !important;
+        width: 100%;
+        z-index: 2;
+        justify-content: center;
+
+    }
+
+    .timeline-item{
+        position: relative !important;
+        top: auto !important;
+        bottom: auto !important;
+        width: 100%;
+        z-index: 2;
+        align-items: center;
+
+    }
 }
