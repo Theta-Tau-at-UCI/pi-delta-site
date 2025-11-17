@@ -5,6 +5,7 @@ import tt_logo from "../../Media/tt-graphics/ttbadge.png";
 import Pillar from "./Pillar";
 import { CardDeck, Container, Row, Col, Button } from "react-bootstrap";
 import chapter_photo_2 from "../../Media/chapter-photos/landing/winter_retreat_2024.jpg";
+import groupPhoto from "../../Media/chapter-photos/spring2025_chapter_photo.jpg";
 import Footer from "../../SharedComponents/Footer/Footer";
 import background_main from "../../Media/chapter-photos/landing/thetatau.jpg";
 import Testimonial from "./Testimonial";
@@ -169,6 +170,9 @@ class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
           <Row>
             <Col className="who-we-are-card">
               {/*{" "}*/}
+              {/*<br></br>*/}
+              {/*<img id="big-logo" src={tt_logo} alt="Theta Tau Logo" />*/}
+              {/*<br></br>*/}
               <h1 className="promo">PREMIER CO-ED PROFESSIONAL ENGINEERING FRATERNITY</h1>
               <br></br>
             </Col>
@@ -187,7 +191,7 @@ class WhoWeAre extends React.Component<{}, { windowWidth: any }> {
             </Col>
             <Col className="who-we-are-card">
               {/*{" "}*/}
-              <img className="media" src={chapter_photo} alt="chapter"/>
+              <img className="media" src={groupPhoto} alt="chapter"/>
             </Col>
 
           </Row>
@@ -261,6 +265,8 @@ class Join extends React.Component<{}, { windowWidth: any }> {
               <a href={"/recruitment"}>
             </a>
               <br></br>
+              <img className="media" src={chapter_photo} alt="chapter"/>
+              <br></br>
           </Col>
           </Row>
         </Container>
@@ -293,6 +299,7 @@ class Join extends React.Component<{}, { windowWidth: any }> {
                   {" "}
                   <Button className="button" variant="danger" href="/recruitement"> FALL '25 RUSH</Button>{" "}
                 </a>{" "}
+                <img className="media" src={chapter_photo} alt="chapter"/>
               </div>
             </Col>
           </Row>
