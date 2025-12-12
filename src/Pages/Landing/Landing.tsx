@@ -5,7 +5,7 @@ import tt_logo from "../../Media/tt-graphics/ttbadge.png";
 import Pillar from "./Pillar";
 import { CardDeck, Container, Row, Col, Button } from "react-bootstrap";
 import chapter_photo_2 from "../../Media/chapter-photos/landing/winter_retreat_2024.jpg";
-import groupPhoto from "../../Media/chapter-photos/spring25_hbs.jpg";
+import groupPhoto from "../../Media/chapter-photos/spring2025_hbs.jpg";
 import Footer from "../../SharedComponents/Footer/Footer";
 import background_main from "../../Media/chapter-photos/landing/thetatau.jpg";
 import Testimonial from "./Testimonial";
