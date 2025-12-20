@@ -9,8 +9,8 @@ export default class Recruitment extends React.Component<{}, {}> {
     render() {
         return (
             <Fragment>
+                <CurrentRush />
                 <div className = "container">
-                    <CurrentRush />
                     <Faq/>
                 </div>
                 <Footer />

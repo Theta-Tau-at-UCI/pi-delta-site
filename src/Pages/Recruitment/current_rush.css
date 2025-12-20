@@ -1,14 +1,21 @@
 .hero-section {
-    background-image: url("../../Media/chapter-photos/winter_photoshoot_2020.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* 👈 makes the background stay fixed for scroll-over effect */
-    height: 100vh;
+    /*background-image: url("../../Media/rush/fall_rush2025.JPG");*/
     position: relative;
-    display: flex; /* helps with centering overlay if needed */
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 .fall-rush{
@@ -18,24 +25,22 @@
     margin-bottom: 2rem;
 }
 
-/* Optional dark overlay effect */
-.hero-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* adjust darkness */
-    z-index: 1;
-}
-
 .hero-overlay {
     position: relative;
-    z-index: 2; /* keeps text above the overlay */
+    z-index: 2;
     text-align: center;
     color: white;
 }
+
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
 #rush-blurb {
     margin: 24px;
     border-bottom: 1px solid gray;

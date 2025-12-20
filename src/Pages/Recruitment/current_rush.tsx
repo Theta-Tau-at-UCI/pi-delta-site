@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./current_rush.css";
 import rushflyerfront from "../../Media/rush/hb-rush-flyers/flyer_front.png";
 import rushflyerback from "../../Media/rush/hb-rush-flyers/flyer_back.png";
+import rushFallVideo from "../../Media/rush/rush_section2.mp4";
 
 interface RushEvent {
   date: string;
@@ -49,7 +50,16 @@ class CurrentRush extends Component {
       <div>
 
         <header className="hero-section">
-          <div className="hero-overlay container h-100 d-flex flex-column justify-content-center align-items-center text-white">
+          <video
+              className="hero-video"
+              autoPlay
+              loop
+              muted
+              playsInline
+          >
+            <source src={rushFallVideo} type="video/mp4" />
+          </video>
+          <div className="hero-overlay h-100 d-flex flex-column justify-content-center align-items-center text-white">
             <h1 id="title-text">Rush</h1>
             <h6 className="video-subtext">
               Find out more about our community of engineers!
