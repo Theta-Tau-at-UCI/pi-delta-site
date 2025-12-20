@@ -216,6 +216,12 @@ function Filter({ brothers, setFiltered, activeFilter, setActiveFilter }) {
         >
           Eta Beta
         </DropdownItem>
+        <DropdownItem
+            className={activeFilter === 31 ? "active" : ""}
+            onClick={() => setActiveFilter(31)}
+        >
+          Theta Beta
+        </DropdownItem>
       </DropdownButton>
     </div>
   );
