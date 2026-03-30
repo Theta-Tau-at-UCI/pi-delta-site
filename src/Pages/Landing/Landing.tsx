@@ -10,7 +10,7 @@ import Footer from "../../SharedComponents/Footer/Footer";
 import background_main from "../../Media/chapter-photos/landing/thetatau.jpg";
 import Testimonial from "./Testimonial";
 import ImagesCarousel from "./ImagesCarousel";
-import rushVid from "../../Media/animations/rush_teaser.mp4";
+import rushVid from "../../Media/animations/Spring_Rush_Teaser_Compressed_.mp4";
 import tt_logo_placeholder from "../../Media/tt-graphics/tt-wordmark-uci.png";
 
 
