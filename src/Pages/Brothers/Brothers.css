@@ -31,11 +31,10 @@ h1{
 .grid-item {
     background-color: transparent;
     padding: 20px;
-    //font-size: 30px;
+    font-size: 30px;
     text-align: center;
 }
 
-/* Brother Item */
 
 .headshot {
     width: 100%;
@@ -180,3 +179,179 @@ h1{
     color: rgb(139, 0, 0);
 }
 
+.headshot-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(139, 0, 0, 0.65);
+    opacity: 0;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.25s ease;
+    background: rgba(139, 0, 0, 0.5); /* was 0.65 */
+    backdrop-filter: blur(2px);
+}
+
+.headshot-wrapper:hover .hover-overlay {
+    opacity: 1;
+}
+
+.company-logo {
+    max-width: 65%;
+    max-height: 65%;
+    object-fit: contain;
+    filter: brightness(1.1) contrast(1.1);
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+}
+
+.company-text {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.modal-dialog {
+    max-width: 900px;
+}
+
+
+.profile-modal .modal-dialog {
+    max-width: 900px;
+    width: 90%;
+    margin: auto;
+    color: #111 !important;
+}
+
+.profile-modal .modal-content {
+    padding: 20px;
+    color: #111 !important;
+}
+.profile-modal .modal-body {
+    color: #111 !important;
+}
+
+.profile-modal .modal-body p,
+.profile-modal .modal-body li,
+.profile-modal .modal-body h2,
+.profile-modal .modal-body h6,
+.profile-modal .modal-body blockquote {
+    color: #111 !important;
+}
+/* Layout inside modal */
+.profile-modal-layout {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.profile-left {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-middle {
+    flex: 1;
+}
+
+.info-box {
+    background-color: #f9f9f9;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+    color: #111 !important;
+    font-weight: 500;
+}
+
+.profile-middle .info-box p {
+    margin: 4px 0;
+    color: #111 !important;
+}
+
+.profile-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.profile-right .box-section {
+    background-color: #f9f9f9;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.08);
+}
+
+.profile-right .box-section h6 {
+    font-weight: 700;
+    color: #8b0000;
+}
+
+.profile-right .box-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.profile-right .box-section ul li {
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #111 !important;
+}
+
+#modal-pic {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.linkedin-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #0077b5;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.linkedin-button:hover {
+    background-color: #005983;
+}
+
+.testimonial-section {
+    width: 100%;
+    margin-top: 32px;
+    padding: 24px;
+    background-color: #fff4f4;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.05);
+}
+
+.testimonial-section h6 {
+    margin-bottom: 12px;
+    color: #8b0000;
+}
+
+.testimonial-section blockquote {
+    font-style: italic;
+    font-size: 1.15rem;
+    color: #333 !important;
+    margin: 0;
+}
+
+.profile-modal .modal-body strong,
+.profile-modal .modal-body b {
+    color: #111 !important;
+}

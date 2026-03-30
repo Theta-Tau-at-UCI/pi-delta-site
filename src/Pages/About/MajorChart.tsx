@@ -1,69 +1,100 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import { MDBContainer } from "mdbreact";
-import {brotherInfo} from "../Brothers/brother_info.js"
+import { brotherInfo } from "../Brothers/brother_info.js";
+
+const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false, // let chart fill parent
+    plugins: {
+        legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+                boxWidth: 14,
+                padding: 14,
+            },
+        },
+    },
+};
 
 class MajorChart extends React.Component {
-    state = {dataDoughnut: {}}
+    state = { dataDoughnut: {} };
 
     componentWillMount() {
-        // The strings listed in this set are going to be the ones listed on the site.
-        const majors_and_count =
-            {"Mechanical" : 0, "Chemical" : 0, "Civil": 0, "Data Science": 0,
-                "CS/CSE/CpE/SWE": 0, "Biomedical" : 0, "Aerospace" : 0, "Electrical" : 0}
-        for (let i = 0; i < brotherInfo.length; i++){
-            if (brotherInfo[i].active_status === "Y"){
-                const major = brotherInfo[i].major;
+        const majors_and_count = {
+            Mechanical: 0,
+            Chemical: 0,
+            Civil: 0,
+            "Data Science": 0,
+            "CS/CSE/CpE/SWE": 0,
+            Biomedical: 0,
+            Aerospace: 0,
+            Electrical: 0,
+        };
 
-                // Count how many of each major are contained by brothers who are listed as active.
-                if (major === "Mechanical Engineering"){
-                    majors_and_count["Mechanical"]++;
-                } else if (major === "Chemical Engineering"){
-                    majors_and_count["Chemical"]++;
-                } else if (major === "Civil Engineering") {
-                    majors_and_count["Civil"]++;
-                } else if (major === "Computer Science"){
-                    majors_and_count["CS/CSE/CpE/SWE"]++;
-                } else if (major === "Computer Science Engineering"){
-                    majors_and_count["CS/CSE/CpE/SWE"]++;
-                } else if (major === "Computer Engineering"){
-                    majors_and_count["CS/CSE/CpE/SWE"]++;
-                } else if (major === "Software Engineering"){
-                    majors_and_count["CS/CSE/CpE/SWE"]++;
-                } else if (major === "Biomedical Engineering"){
-                    majors_and_count["Biomedical"]++;
-                } else if (major === "Aerospace Engineering"){
-                    majors_and_count["Aerospace"]++;
-                } else if (major === "Electrical Engineering"){
-                    majors_and_count["Electrical"]++;
-                } else if (major === "Data Science"){
-                    majors_and_count["Data Science"]++;
-                }
+        for (let i = 0; i < brotherInfo.length; i++) {
+            if (brotherInfo[i].active_status === "Y") {
+                const major = brotherInfo[i].major;
+                if (major === "Mechanical Engineering") majors_and_count.Mechanical++;
+                else if (major === "Chemical Engineering") majors_and_count.Chemical++;
+                else if (major === "Civil Engineering") majors_and_count.Civil++;
+                else if (
+                    ["Computer Science", "Computer Science Engineering", "Computer Engineering", "Software Engineering"]
+                        .includes(major)
+                ) majors_and_count["CS/CSE/CpE/SWE"]++;
+                else if (major === "Biomedical Engineering") majors_and_count.Biomedical++;
+                else if (major === "Aerospace Engineering") majors_and_count.Aerospace++;
+                else if (major === "Electrical Engineering") majors_and_count.Electrical++;
+                else if (major === "Data Science") majors_and_count["Data Science"]++;
             }
         }
 
-        const majors = Object.keys(majors_and_count);
-        const counts = Object.values(majors_and_count);
         this.setState({
             dataDoughnut: {
-                labels: majors,
+                labels: Object.keys(majors_and_count),
                 datasets: [
                     {
-                        data: counts,
-                        backgroundColor: ["#f7464a", "#46BFBD", "#6cfd5c", "#AC1CFF", "#4D5360", "#4DA6FF", "#D5FF03"],
-                        hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#44f187", "#D387FF", "#616774", "#B0D7FF", "#E5FF66"]
-                    }
-                ]
-            }
-        })
+                        data: Object.values(majors_and_count),
+                        backgroundColor: [
+                            "#7C0303",
+                            "#C1121F",
+                            "#780000",
+                            "#003049",
+                            "#669BBC",
+                            "#F77F00",
+                            "#FCBF49",
+                            "#EAE2B7",
+                        ],
+                    },
+                ],
+            },
+        });
     }
 
     render() {
         return (
-            <MDBContainer>
-                <h2 className="mt-5">Major Breakdown</h2>
-                <Doughnut data={this.state.dataDoughnut} options={{ responsive: true }} />
-            </MDBContainer>
+            <div
+                className="chart-wrapper"
+                style={{
+                    width: 500,
+                    height: 500,
+                    margin: "0 auto",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
+                <h3 className="chart-title" style={{ textAlign: "center" }}>
+                    Major Breakdown
+                </h3>
+                {/* Set height/width directly on Doughnut via props */}
+                <Doughnut
+                    data={this.state.dataDoughnut}
+                    options={chartOptions}
+                    height={400}
+                    width={400}
+                />
+            </div>
         );
     }
 }

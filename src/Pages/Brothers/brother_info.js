@@ -3945,7 +3945,7 @@ export const brotherInfo = [
         "major": "Data Science",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/nikolajkim.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/nik_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -3989,7 +3989,15 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Gamma%20Beta/diegosolorzano.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Tower Semiconductor",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/tower.png",
+        "experience": ["Failure Analysis Engineering Intern (Tower Semiconductor)", "Undergraduate Researcher (Shcherbakov Nanophotonics Lab)", "R&D Engineer (Hyperxite)"
+        ],
+        "hobbies": ["Piano", "Guitar", "Chess", "Photography"],
+        "hometown": "Riverside, CA",
+        "year": "2027",
+        "testimonial": "Theta tau surrounded me with driven and motivated friends, which motived me to push myself as well. I like that there is always someone to study with, help you prep for an interview, or go to for advice. \n"
     },
     {
         "id": 291.0,
@@ -4071,7 +4079,7 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/arimsong.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/arim_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4099,9 +4107,16 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Marshal",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/ellenso.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/ellen_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "J&J",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/j&j.png",
+        "experience": ["Lab Research Assistant (Professor King's Lab)", "Process Engineering Intern (Applied Medical)", "LCM/NPI Process Engineering Intern & R&D Co-Op (Johnson & Johnson MedTech)"],
+        "hobbies": ["Golf", "Pilates", "Matcha"],
+        "hometown": "Santa Clara, CA",
+        "year": "2026",
+        "testimonial": "Coming from a tight-knit community in my hometown/high school, I wanted to find the same thing at UCI with like-minded engineers. TT has helped me grow me personally, academically, and professionally."
     },
     {
         "id": 299.0,
@@ -4142,7 +4157,7 @@ export const brotherInfo = [
         "major": "Computer Science",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/natalieperrochon.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/natalie_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4170,9 +4185,16 @@ export const brotherInfo = [
         "major": "Computer Science",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Regent",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/wilsonnguyen.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/mute cat regent.jpg",
         "casual_photo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/WilsonNguyenCasual.jpeg",
-        "blurb": ""
+        "blurb": "",
+        "company": "Qualcomm",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/qualcomm.png",
+        "experience": ["Incoming QGOV Engineering Intern (Qualcomm)", "Embedded Systems Engineer (UCI FSAE Electric Racing)", "SWE Intern (Trace and Skyryse)", "Embedded SWE intern (Castelion)","Director of BitHacks",],
+        "hobbies": ["Backpacking", "Photography", "Formula 1"],
+        "hometown": "Westminster, CA",
+        "year": "2027",
+        "testimonial": "Without Theta Tau, I don't think I'd have even half the achievements I do right now. Theta Tau has helped me grow professionally through exposing me to new opportunities like Anteater Electric Racing and internships and also socially by giving me lifelong friends. One of my favorite memories was our Disneyland trip during Winter Break!\n"
     },
     {
         "id": 304.0,
@@ -4222,13 +4244,23 @@ export const brotherInfo = [
         "gender": "F",
         "class": "Epsilon Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "https://www.linkedin.com/in/elenatcheung/",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Vice-Regent",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/elenacheung.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/elena_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Anteater Formula Racing",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/afr.png",
+        "experience": ["Marketing Analyst (Anteater Formula Racing)", "Marketing and Data Analytics Intern (gaaboo)",
+        "International Business Summer Program (UPF-ESCI)"
+        ],
+        "hobbies": ["F1", "MOTOGP", "Golf", "Traveling", "Reading"],
+        "hometown": "Mission Viejo, CA",
+        "year": "2027",
+        "linkedin":"https://www.linkedin.com/in/xamanthadeluna/",
+        "testimonial": "TT serves as my reminder of the many people and communities that we will encounter and learn from. Of the spontaneity or the strive or the easily recognizable snipes, I have come to witness in every aspect of each brother the power of bringing people together for a shared purpose."
     },
     {
         "id": 308.0,
@@ -4236,13 +4268,23 @@ export const brotherInfo = [
         "gender": "F",
         "class": "Epsilon Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "www.linkedin.com/in/keiko-yamamuro",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Scribe",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/keikoyamamuro.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Medtronic",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/medtronic.png",
+        "experience": ["Incoming Quality Engineering Intern (Medtronic)", "Mechanical Engineering Intern (Hesse Mechatronics)",
+           "Dynamic Systems Engineer (HyperXite)",
+            "Undergraduate Research Assistant (CALIT2)",
+            "Simulations Engineer (UCI CubeSat)"],
+        "hobbies": ["Baseball", "Field Hockey", "Lacrosse", "Painting", "Knitting", "Trying new food/drink places", "Doing my nails"],
+        "hometown": "San Diego, CA",
+        "year": "2026",
+        "testimonial": "Theta Tau has made me more driven person. Seeing my brothers succeed in their careers, academics, and more, inspires me to work hard :)"
     },
     {
         "id": 309.0,
@@ -4254,9 +4296,16 @@ export const brotherInfo = [
         "major": "Software Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Co-Director of Professional Development",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/lancevu.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/lance_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Tevora",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/tevora.png",
+        // "experience": ["Cybersecurity Consulting Intern (Tevora)", "Cybersecurity Defense and Engineering Intern (PwC)", "Security Analyst (CyberForward)"],
+        // "hobbies": ["Billiards","Video Games", "Basketball"],
+        // "hometown": "Anaheim, CA",
+        // "year": "2026",
+        // "testimonial": "I love Theta Tau because I was able to meet so many people that are success driven like me. I wanted to surround myself with people that had the same ambition and drive, and I believe I have found that here. \n"
     },
     {
         "id": 310.0,
@@ -4264,13 +4313,20 @@ export const brotherInfo = [
         "gender": "M",
         "class": "Epsilon Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "LinkedIn.com/in/luisadolfogama/",
         "major": "Civil Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Treasurer",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/luisgama.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/luis_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Kiewit",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/kiewit.png",
+        "experience": ["Incoming Field Engineering Intern (Kiewit)", "President of ASC (Associated Schools of Construction) at UCI", "ASCE (American Society of Civil Engineers) Geowall Design Lead"],
+        "hobbies": ["Pickleball", "Music", "Physics", "Getting Food", "Going on late night drives."],
+        "hometown": "San Diego, CA",
+        "year": "2027",
+        "testimonial": "Theta Tau has created a community that I struggled to find my first year. Whether it was the strong connections within my “Fam” or with my Big and Little, or the people I got close with through study dates, food adventures, and late night talks. Everyone in TT has impacted some aspect of my life and for that reason I am forever grateful; my favorite memories are rooted in going on late night food runs and deep talks with my big, which I then was able to translate to my little."
     },
     {
         "id": 312.0,
@@ -4296,9 +4352,16 @@ export const brotherInfo = [
         "major": "Computer Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Co-Director of Media",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/shanachao.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/shana_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "CARL",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/carl.jpg",
+        // "experience": ["Cybersecurity Consulting Intern (Tevora)", "Cybersecurity Defense and Engineering Intern (PwC)", "Security Analyst (CyberForward)"],
+        // "hobbies": ["Billiards","Video Games", "Basketball"],
+        // "hometown": "Anaheim, CA",
+        // "year": "2027",
+        // "testimonial": "I love
     },
     {
         "id": 314.0,
@@ -4310,9 +4373,17 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Director of Service",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/xamanthadeluna.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/xam_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Legacy Robotics",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/legacy_robotics.jpg",
+        "experience": ["Life Detection Lead Engineer(Legacy Robotics)", "Process Engineering Intern (Applied Medical)", "Undergrad Researcher (Haun Lab)" ],
+        "hobbies": ["Thrifting", "Upcycling", "Fashion", "Crafting"],
+        "hometown": "St Charles, IL",
+        "year": "2027",
+        "linkedin":"https://www.linkedin.com/in/xamanthadeluna/",
+        "testimonial": "My favorite memory was my first Banquet; it was great to see everyone together all at once, celebrating the upperclassmen I looked up to as an underclassman.",
     },
     {
         "id": 315.0,
@@ -4320,13 +4391,21 @@ export const brotherInfo = [
         "gender": "F",
         "class": "Zeta Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "https://www.linkedin.com/in/annietran05/",
         "major": "Civil Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Director of Public Relations",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/annietran.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/annie_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "RailPros",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/railpros.png",
+        "experience": ["Civil Engineering Intern (RailPros)" ],
+        "hobbies": ["Crochet", "Painting", "Eating"],
+        "hometown": "Los Angeles",
+        "year": "2027",
+        "linkedin":"https://www.linkedin.com/in/annietran05/",
+        "testimonial": "My favorite memory with Theta Tau was when my class and I had our at home barbecue dinner right outside of PV. The food was good, the vibes were right, I would love to do it again. ",
     },
     {
         "id": 316.0,
@@ -4334,13 +4413,20 @@ export const brotherInfo = [
         "gender": "F",
         "class": "Zeta Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "https://www.linkedin.com/in/carolwang05/",
         "major": "Computer Science",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Co-Director of Professional Development",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/carolwang.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/carol_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Morgan Stanley",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/morgan_stanley.png",
+        "experience": ["Software Engineering Intern (Morgan Stanley)", "Data Science Intern (John Hopkins Applied Physics Laboratory"],
+        "hobbies": ["Matcha", "Reviewing Cafes on Beli", "NYT Minigames", "Reading", "Traveling", "YouTube Video Essays"],
+        "hometown": "Fremont, CA",
+        "year": "2027",
+        "testimonial": "From casual study sessions running late into the night, meaningful conversations about shared values and life goals, and spontaneous outings to LA and Pasadena just to get matcha, TT has offered me the quintessential college experience that I was hoping to get out of UCI, as it has been incredibly fulfilling to be surrounded by a group of friends who are similarly ambitious and driven about their futures."
     },
     {
         "id": 317.0,
@@ -4394,7 +4480,7 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Co-Director of Engineering",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/hannahkim.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/hannah_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4422,7 +4508,7 @@ export const brotherInfo = [
         "major": "Data Science",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Co-Director of Recruitment",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/josephdeleon.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/joesph_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4436,7 +4522,7 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Co-Director of Recruitment",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/katiequach.jpeg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/katie_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4480,7 +4566,7 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/anna_coppola.JPG",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/anna_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4495,9 +4581,16 @@ export const brotherInfo = [
         "major": "Software Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/chloe_chow.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "N/A",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/ics.png",
+        // "experience": [""],
+        "hobbies": ["Cafe Hopping", "Music Festivals", "Snowboarding"],
+        "hometown": "Diamond Bar, CA",
+        "year": "2028",
+        "testimonial": "I love how you can reach out to anyone in Theta Tau and they don't hesitate to help you. I've had many heartwarming talks with my pbros about things I may not usually talk about in the daily."
     },
 
     {
@@ -4510,7 +4603,7 @@ export const brotherInfo = [
         "major": "Aerospace Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Co-Director of Fundraising",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/ivy_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4521,13 +4614,22 @@ export const brotherInfo = [
         "gender": "M",
         "class": "Eta Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/jarrett_lim.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/jar_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "linkedin_url": "NULL",
+        "company": "General Atomics",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/general_atomics.png",
+        "experience": ["Incoming Mechanical Systems Analyst (General Atomics)", "Robotics Automation Intern (Briviant)", "Technical Engineering Intern (MatterHackers)", "FSAE Electric - Wings Lead", ],
+        "hobbies": ["Backpacking", "Cars", "Basketball", "Running", "Clash of Clans"],
+        "hometown": "San Jose, CA",
+        "year": "2027",
+        "linkedin":"https://www.linkedin.com/in/jarrett-lim",
+        "testimonial": "People are pretty chill.",
+
     },
 
     {
@@ -4555,9 +4657,17 @@ export const brotherInfo = [
         "major": "Computer Science",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Director of Website Development",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/piyawan_chaiprasit.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/piyawan_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Zotbins",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/zotbins.jpg",
+        "experience": ["API Developer (Zotbins)", "Core Contributor (Cactus Compute YC S25)", "Digital Marketing Intern (SG Solar)"],
+        "hobbies": ["Arts and Crafts", "Video Games", "Reading", "Writing", "Collecting Pokemon Cards"],
+        "hometown": "Yangon, Myanmar",
+        "year": "2028",
+        "linkedin":"https://www.linkedin.com/in/xamanthadeluna/",
+        "testimonial": "Being a part of Theta Tau has pushed me to grow, to aim higher, and to become more confident in who I am and what I want to achieve. More than anything, it’s given me a community of incredible engineers who have become some of my closest friends, and I’m truly grateful for the lifelong bonds we’ve built together and all the memories we've made."
     },
 
     {
@@ -4570,7 +4680,7 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/river_giffin.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4587,7 +4697,7 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/samantha_huang.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/sam_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4602,7 +4712,7 @@ export const brotherInfo = [
         "major": "Civil Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Co-Director of Media",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/sydney_okazaki.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/syd_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4617,7 +4727,7 @@ export const brotherInfo = [
         "major": "Aerospace Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/truman_lindenthaler.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/trubear_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4632,7 +4742,7 @@ export const brotherInfo = [
         "major": "Aerospace Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/Ahkil_Nandhakumar.PNG",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/akhil_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4647,7 +4757,7 @@ export const brotherInfo = [
         "major": "Computer Science and Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/Allyson_Lay.PNG",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4658,13 +4768,20 @@ export const brotherInfo = [
         "gender": "M",
         "class": "Theta Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "www.linkedin.com/in/dalen-s\n",
         "major": "Computer Science and Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/Dalen_Smith.PNG",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/dalen_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "N/A",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png",
+        "experience": ["Peer Tutor", "Tau Beta Pi Engineering Honor Society", "Engineering Ambassador Network"],
+        "hobbies": ["Application of machine learning in physical sciences"],
+        "hometown": "Modesto, CA",
+        "year": "2027",
+        "testimonial": "I love the people I have met in Theta Tau. The biggest thing I have gained since joining is the lifelong friends that motivate me every day.\n"
     },
 
     {
@@ -4677,7 +4794,7 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/liz_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4692,7 +4809,7 @@ export const brotherInfo = [
         "major": "Engineering Undeclared",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/Emma_Shin.png",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/emma_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4707,7 +4824,7 @@ export const brotherInfo = [
         "major": "Computer Science",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/Harmeet_Singh.PNG",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/harmeet_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4722,7 +4839,7 @@ export const brotherInfo = [
         "major": "Computer Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/ival_web.png",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4733,13 +4850,20 @@ export const brotherInfo = [
         "gender": "M",
         "class": "Theta Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "https://www.linkedin.com/in/jaynkim/",
         "major": "Computer Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Optum",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/optum.png",
+        "experience": ["Software Engineer (Optum)", "AI @UCI", "VFS @ UCI", "UAV @ UCI", "ASUCI SSVP", "Cyber @ UCI", "HACK @ UCI"],
+        "hobbies": ["Raving", "Seaside", "Gym", "Boba, Matcha"],
+        "hometown": "Dallas, TX",
+        "year": "2027",
+        "testimonial": "Were tous"
     },
 
     {
@@ -4752,7 +4876,7 @@ export const brotherInfo = [
         "major": "Biomedical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/richy_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },
@@ -4767,7 +4891,7 @@ export const brotherInfo = [
         "major": "Computer Science",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/Victoria_Sun.png",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/vic_web.jpg",
         "casual_photo": "NULL",
         "blurb": ""
     },

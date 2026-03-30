@@ -2,10 +2,10 @@ import React, { Fragment } from "react";
 import {Container, Col, Button, CardDeck, Row} from "react-bootstrap";
 import "./About.css";
 import Pillar from "./Pillar";
-import brotherhood from "../../Media/chapter-photos/brotherhood/brotherhood_2024.jpg";
+import brotherhood from "../../Media/chapter-photos/brotherhood/winter_retreat_2026.jpg";
 import hammer_and_tongs from "../../Media/tt-graphics/shield-theta-tau.png";
-import service from "../../Media/chapter-photos/service/service_2024.jpg";
-import professionalism from "../../Media/chapter-photos/professionalism/professionalism_2024.jpg";
+import service from "../../Media/chapter-photos/service/winter_service_2026.jpg";
+import professionalism from "../../Media/chapter-photos/professionalism/prof.jpeg";
 import Footer from "../../SharedComponents/Footer/Footer";
 import MajorChart from "./MajorChart";
 import GenderChart from "./GenderChart";
@@ -23,7 +23,7 @@ export default class About extends React.Component<{}, {}> {
 
 
             <Container className="chapters-and-colonies">
-              <h1> Other Chapters in Our Region </h1>
+              <h1 className="section-title"> Other Chapters in Our Region </h1>
               <p className="other-chapters">
                 Pi Delta is a part of the Western Region of Theta Tau. Here are
                 the other chapters and colonies in our region.
@@ -87,30 +87,38 @@ export default class About extends React.Component<{}, {}> {
 class OurChapter extends React.Component<{}, {}> {
   render() {
     return (
-        <Container id={"ourchapter"}>
-          <Col>
-            <br></br>
-            <h1>OUR CHAPTER: PI DELTA</h1>
-            <br></br>
-          </Col>
-          <Col>
-            <p>In the winter of 2011, Alex Staebler, Arshitha Vaidhyanathan, and
-              Jonathan Wong sought out to create greater opportunities for
-              professional development and networking at UCI for future engineers.
-              Shortly after reaching out to Theta Tau’s Central Office, nine others
-              joined them to form the founding class: Clever Tan, Jacqueline Kim,
-              Sarah Leung, Terence Leung, Amy Nguyen, Christopher Louie, Dhivya
-              Sridhar, Jeffrey Go, and Jonathan Turcios. After creating a
-              constitution and pledge process, the founding fathers welcomed 20
-              pledges the following fall: the Alpha class. On April 14, 2013, the
-              UCI colony was installed as the Pi Delta Chapter of Theta Tau and has
-              only continued to grow since, now with over 200 active members and
-              alumni.</p>
-          </Col>
-          <div className={"charts"}>
-            <MajorChart />
-            <GenderChart />
-          </div>
+        <Container id="ourchapter">
+          <Row className="text-center">
+            <Col>
+              <h1 className="section-title">OUR CHAPTER: PI DELTA</h1>
+            </Col>
+          </Row>
+
+          <Row className="justify-content-center">
+            <Col md={12} lg={10}>
+              <p>In the winter of 2011, Alex Staebler, Arshitha Vaidhyanathan, and
+                Jonathan Wong sought out to create greater opportunities for
+                professional development and networking at UCI for future engineers.
+                Shortly after reaching out to Theta Tau’s Central Office, nine others
+                joined them to form the founding class: Clever Tan, Jacqueline Kim,
+                Sarah Leung, Terence Leung, Amy Nguyen, Christopher Louie, Dhivya
+                Sridhar, Jeffrey Go, and Jonathan Turcios. After creating a
+                constitution and pledge process, the founding fathers welcomed 20
+                pledges the following fall: the Alpha class. On April 14, 2013, the
+                UCI colony was installed as the Pi Delta Chapter of Theta Tau and has
+                only continued to grow since, now with over 200 active members and
+                alumni.</p>
+            </Col>
+          </Row>
+
+          <Row className="charts justify-content-center">
+            <Col md={6} className="chart-col">
+              <MajorChart />
+            </Col>
+            <Col md={6} className="chart-col">
+              <GenderChart />
+            </Col>
+          </Row>
 
          {/*<Container id="pillars">*/}
 
@@ -118,7 +126,7 @@ class OurChapter extends React.Component<{}, {}> {
             {" "}
             <br></br>
             <br></br>
-            <h1>OUR PILLARS</h1>{" "}
+            <h1 className="section-title">OUR PILLARS</h1>{" "}
             <br></br>
           </Col>
           <CardDeck id={"pillar-cards"}>
@@ -176,15 +184,18 @@ class ThetaTau extends React.Component<{}, { windowWidth: any }> {
               </Col>
               <Col className="who-we-are-card">
                 {/*{" "}*/}
-                <h1>WHO WE ARE</h1>
+                <h1 className="section-title">WHO WE ARE</h1>
                 <br></br>
               </Col>
 
               <Col className="who-we-are-card">
                 {/*{" "}*/}
 
-                <p id="motto">“Whatsoever thy hand findeth to do, do it with thy might…”
-                  –Ecclesiastes 9:10</p>
+                <p id="motto"><em>
+                  “Whatsoever thy hand findeth to do, do it with thy might…”
+                  <br />
+                  – Ecclesiastes 9:10
+                </em></p>
                 <br></br>
                 <p>Founded in 1904 at the University of Minnesota in Minneapolis as the
                   Society of Hammer and Tongs by four engineering students, Theta Tau

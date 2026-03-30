@@ -7,6 +7,7 @@ import BrotherProfileCard from "./BrotherProfileCard";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 import Classes from "./Classes";
 
+
 function BroDev() {
   const [brothers, setBrothers] = useState([]);
   const [filtered, setFiltered] = useState([]);
@@ -48,6 +49,15 @@ function BroDev() {
                   casual_photo={brother["casual_photo"]}
                   position={brother["cabby_exec_position"]}
                   cabby_exec_status={brother["cabby_exec_status"]}
+                  company={brother["company"]}
+                  company_logo={brother["company_logo"]}
+                  experience={brother["experience"]}
+                  hobbies={brother["hobbies"]}
+                  fun_fact={brother["fun_fact"]}
+                  hometown={brother["hometown"]}
+                  year={brother["year"]}
+                  linkedin={brother["linkedin"]}
+                  testimonial={brother["testimonial"]}
                 />
               </LazyLoadComponent>
             );
