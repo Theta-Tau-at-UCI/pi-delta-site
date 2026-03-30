@@ -3997,6 +3997,7 @@ export const brotherInfo = [
         "hobbies": ["Piano", "Guitar", "Chess", "Photography"],
         "hometown": "Riverside, CA",
         "year": "2027",
+        "linkedin":"https://www.linkedin.com/in/diegoasolo/",
         "testimonial": "Theta tau surrounded me with driven and motivated friends, which motived me to push myself as well. I like that there is always someone to study with, help you prep for an interview, or go to for advice. \n"
     },
     {
@@ -4116,6 +4117,7 @@ export const brotherInfo = [
         "hobbies": ["Golf", "Pilates", "Matcha"],
         "hometown": "Santa Clara, CA",
         "year": "2026",
+        "linkedin":"https://www.linkedin.com/in/ellen-so/",
         "testimonial": "Coming from a tight-knit community in my hometown/high school, I wanted to find the same thing at UCI with like-minded engineers. TT has helped me grow me personally, academically, and professionally."
     },
     {
@@ -4259,7 +4261,7 @@ export const brotherInfo = [
         "hobbies": ["F1", "MOTOGP", "Golf", "Traveling", "Reading"],
         "hometown": "Mission Viejo, CA",
         "year": "2027",
-        "linkedin":"https://www.linkedin.com/in/xamanthadeluna/",
+        "linkedin":"https://www.linkedin.com/in/elenatcheung/",
         "testimonial": "TT serves as my reminder of the many people and communities that we will encounter and learn from. Of the spontaneity or the strive or the easily recognizable snipes, I have come to witness in every aspect of each brother the power of bringing people together for a shared purpose."
     },
     {
@@ -4284,6 +4286,7 @@ export const brotherInfo = [
         "hobbies": ["Baseball", "Field Hockey", "Lacrosse", "Painting", "Knitting", "Trying new food/drink places", "Doing my nails"],
         "hometown": "San Diego, CA",
         "year": "2026",
+        "linkedin": "https://www.linkedin.com/in/keiko-yamamuro/",
         "testimonial": "Theta Tau has made me more driven person. Seeing my brothers succeed in their careers, academics, and more, inspires me to work hard :)"
     },
     {
@@ -4326,6 +4329,7 @@ export const brotherInfo = [
         "hobbies": ["Pickleball", "Music", "Physics", "Getting Food", "Going on late night drives."],
         "hometown": "San Diego, CA",
         "year": "2027",
+        "linkedin": "https://www.linkedin.com/in/luisadolfogama/",
         "testimonial": "Theta Tau has created a community that I struggled to find my first year. Whether it was the strong connections within my “Fam” or with my Big and Little, or the people I got close with through study dates, food adventures, and late night talks. Everyone in TT has impacted some aspect of my life and for that reason I am forever grateful; my favorite memories are rooted in going on late night food runs and deep talks with my big, which I then was able to translate to my little."
     },
     {
@@ -4426,6 +4430,7 @@ export const brotherInfo = [
         "hobbies": ["Matcha", "Reviewing Cafes on Beli", "NYT Minigames", "Reading", "Traveling", "YouTube Video Essays"],
         "hometown": "Fremont, CA",
         "year": "2027",
+        "linkedin": "https://www.linkedin.com/in/carolwang05/",
         "testimonial": "From casual study sessions running late into the night, meaningful conversations about shared values and life goals, and spontaneous outings to LA and Pasadena just to get matcha, TT has offered me the quintessential college experience that I was hoping to get out of UCI, as it has been incredibly fulfilling to be surrounded by a group of friends who are similarly ambitious and driven about their futures."
     },
     {
@@ -4666,7 +4671,7 @@ export const brotherInfo = [
         "hobbies": ["Arts and Crafts", "Video Games", "Reading", "Writing", "Collecting Pokemon Cards"],
         "hometown": "Yangon, Myanmar",
         "year": "2028",
-        "linkedin":"https://www.linkedin.com/in/xamanthadeluna/",
+        "linkedin":"https://www.linkedin.com/in/piyawan-chaiprasit/",
         "testimonial": "Being a part of Theta Tau has pushed me to grow, to aim higher, and to become more confident in who I am and what I want to achieve. More than anything, it’s given me a community of incredible engineers who have become some of my closest friends, and I’m truly grateful for the lifelong bonds we’ve built together and all the memories we've made."
     },
 
@@ -4863,6 +4868,7 @@ export const brotherInfo = [
         "hobbies": ["Raving", "Seaside", "Gym", "Boba, Matcha"],
         "hometown": "Dallas, TX",
         "year": "2027",
+        "linkedin": "https://www.linkedin.com/in/jaynkim/",
         "testimonial": "Were tous"
     },
 

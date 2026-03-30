@@ -355,3 +355,52 @@ h1{
 .profile-modal .modal-body b {
     color: #111 !important;
 }
+
+@media (max-width: 768px) {
+
+    .profile-modal-layout {
+        flex-direction: column;
+    }
+
+    .profile-left,
+    .profile-middle,
+    .profile-right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-name {
+        text-align: center;
+    }
+
+    .profile-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #modal-pic {
+        max-width: 200px;
+        width: 100%;
+    }
+}
+
+.profile-modal .modal-body {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.info-box p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.no-bullets {
+    padding-left: 0;
+    list-style: none;
+}
+
+.profile-section ul li {
+    word-break: break-word;
+}
