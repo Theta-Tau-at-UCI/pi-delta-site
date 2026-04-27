@@ -84,7 +84,7 @@ export default class BrotherProfileCard extends React.Component<
                 <span className={"position"}> |
                     <a href={this.props.linkedin_url}
                        rel={"noreferrer"}
-                       target={"_blank"}>  LinkedIn
+                       target={"_blank"}>LinkedIn
                     </a>
                 </span>): null}
         </p>

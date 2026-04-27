@@ -3568,7 +3568,8 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/ics.png"
     },
     {
         "id": 261.0,
@@ -3891,7 +3892,8 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/andreatran.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
     },
     {
         "id": 284.0,
@@ -3919,7 +3921,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/ivanhuang.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 286.0,
@@ -3947,7 +3951,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/nik_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/ics.png"
+
     },
     {
         "id": 288.0,
@@ -3975,7 +3981,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Psi/tristanzabala.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 290.0,
@@ -4012,7 +4020,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Gamma%20Beta/donovanchen.jpeg",
         "casual_photo": "NULL",
-        "blurb": "Hey, I'm Donovan. I'm from Sacramento and I'm studying computer science with a specialization in intelligent systems. I'm into full stack development especially creating web applications. In my free time, I'm playing basketball at the ARC or driving to new boba spots in my pom pom purin decorated car (70+ locations). I also love documenting my journey with film pictures 📸"
+        "blurb": "Hey, I'm Donovan. I'm from Sacramento and I'm studying computer science with a specialization in intelligent systems. I'm into full stack development especially creating web applications. In my free time, I'm playing basketball at the ARC or driving to new boba spots in my pom pom purin decorated car (70+ locations). I also love documenting my journey with film pictures 📸",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/ics.png"
+
     },
     {
         "id": 292.0,
@@ -4068,7 +4078,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Gamma%20Beta/lukevargas.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 296.0,
@@ -4082,7 +4094,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/arim_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 297.0,
@@ -4096,7 +4110,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/eliseji.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/ics.png"
+
     },
     {
         "id": 298.0,
@@ -4161,7 +4177,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/natalie_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/ics.png"
+
     },
     {
         "id": 302.0,
@@ -4175,7 +4193,15 @@ export const brotherInfo = [
         "cabby_exec_position": "Corresponding Secretary",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/stevenlee.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "DapLab",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/daplab.png",
+        "experience": ["Lab Coordinator/ Lead Software Engineer (Design and Partnership Lab)", "Software Engineer Lead (Zotbins)", "Software Engineering Intern (CoStar Group)", ],
+        "hobbies": ["Match", "Gym", "Fashion",],
+        "hometown": "Elk Grove, CA",
+        "year": "2026",
+        "linkedin":"http://www.linkedin.com/in/steven-lee35",
+        "testimonial": "I love Theta Tau because from it I gained a community of likeminded individuals that have lifted me up to do better. My favorite memory was recently participating in a wii sports olympics with a few of the actives! "
     },
     {
         "id": 303.0,
@@ -4184,12 +4210,13 @@ export const brotherInfo = [
         "class": "Delta Beta",
         "active_status": "Y",
         "linkedin_url": "https://www.linkedin.com/in/wilsonng17/",
-        "major": "Computer Science",
+        "major": "Computer Engineering",
         "cabby_exec_status": "Y",
         "cabby_exec_position": "Regent",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/mute cat regent.jpg",
         "casual_photo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Delta%20Beta/WilsonNguyenCasual.jpeg",
         "blurb": "",
+        "linkedin": "https://www.linkedin.com/in/wilsonng17/",
         "company": "Qualcomm",
         "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/qualcomm.png",
         "experience": ["Incoming QGOV Engineering Intern (Qualcomm)", "Embedded Systems Engineer (UCI FSAE Electric Racing)", "SWE Intern (Trace and Skyryse)", "Embedded SWE intern (Castelion)","Director of BitHacks",],
@@ -4210,7 +4237,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/austinfugate.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 305.0,
@@ -4224,7 +4253,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/custoyang.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/ics.png"
+
     },
     {
         "id": 306.0,
@@ -4238,7 +4269,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Epsilon%20Beta/dianeyoon.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 307.0,
@@ -4254,7 +4287,7 @@ export const brotherInfo = [
         "casual_photo": "NULL",
         "blurb": "",
         "company": "Anteater Formula Racing",
-        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/afr.png",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/uci_afr.png",
         "experience": ["Marketing Analyst (Anteater Formula Racing)", "Marketing and Data Analytics Intern (gaaboo)",
         "International Business Summer Program (UPF-ESCI)"
         ],
@@ -4344,7 +4377,9 @@ export const brotherInfo = [
         "cabby_exec_position": "Co-Director of Fundraising",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 313.0,
@@ -4445,7 +4480,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/dalenanguyen.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 318.0,
@@ -4459,7 +4496,9 @@ export const brotherInfo = [
         "cabby_exec_position": "Co-Director of Engineering",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/davidculciar.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/ics.png"
+
     },
     {
         "id": 319.0,
@@ -4473,7 +4512,9 @@ export const brotherInfo = [
         "cabby_exec_position": "Co-Director of Brotherhood",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/ethanchoi.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 320.0,
@@ -4487,7 +4528,15 @@ export const brotherInfo = [
         "cabby_exec_position": "Co-Director of Engineering",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/hannah_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "UCI Rocket Project Solids",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/uci_rockets.jpeg",
+        "experience": ["Payload Structures Engineer - UCI Rocket Project Solids", "Makerspace Director - ZOTBotics", "Incoming R&D Engineering Intern - Johnson & Johnson"],
+        "hobbies": ["Cafe hopping", "Crocheting", "Baking", "LinkedIn games", "Spontaneous trips"],
+        "hometown": "Tulare, CA",
+        "year": "2028",
+        "linkedin": "https://www.linkedin.com/in/hannah-l-kim",
+        "testimonial": "TT is where I found a community of people who constantly push each other to grow professionally and personally. My favorite memory is the time we drove out to Joshua Tree on a random Wednesday night to go stargazing!"
     },
     {
         "id": 321.0,
@@ -4501,7 +4550,9 @@ export const brotherInfo = [
         "cabby_exec_position": "Co-Director of Brotherhood",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/jasonnguyen.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 322.0,
@@ -4515,7 +4566,15 @@ export const brotherInfo = [
         "cabby_exec_position": "Co-Director of Recruitment",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/joesph_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Kaiser Permanente",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/kaiser-permanente-logo.png",
+        "experience": ["Incoming Data Analytics Intern at Kaiser Permanente", ],
+        "hobbies": ["Kpop", "Gymming"],
+        "hometown": "Dublin, CA",
+        "year": "2026",
+        "linkedin":"www.linkedin.com/in/josephxdeleon",
+        "testimonial": "",
     },
     {
         "id": 323.0,
@@ -4529,7 +4588,9 @@ export const brotherInfo = [
         "cabby_exec_position": "Co-Director of Recruitment",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/katie_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
     {
         "id": 324.0,
@@ -4543,7 +4604,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Zeta%20Beta/zanexing.jpeg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4558,7 +4621,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4573,7 +4638,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/anna_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4610,7 +4677,9 @@ export const brotherInfo = [
         "cabby_exec_position": "Co-Director of Fundraising",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/ivy_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4649,7 +4718,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4687,7 +4758,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
 
@@ -4704,7 +4777,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/sam_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4719,7 +4794,9 @@ export const brotherInfo = [
         "cabby_exec_position": "Co-Director of Media",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/syd_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4734,7 +4811,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/trubear_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4743,13 +4822,21 @@ export const brotherInfo = [
         "gender": "M",
         "class": "Theta Beta",
         "active_status": "Y",
-        "linkedin_url": "NULL",
+        "linkedin_url": "https://www.linkedin.com/in/akhilnandhakumar/",
         "major": "Aerospace Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/akhil_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Fabric8Labs",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/fabric8labs.png",
+        "experience": ["Engineering Design Intern (Fabric8Labs)", "Research Intern (Autonomous Vehicle Laboratory UCSD)", "Chassis Design Engineer (Anteater Formula Racing UCI)", "Aerodynamics Engineer (Anteater Electric Racing UCI)", "Competitive Team Director (UCI Club Tennis)", ],
+        "hobbies": ["Tennis", "Soccer", "PICKLEBALL", "Piano", "Guitar", "Motorsport"],
+        "hometown": "San Diego, CA",
+        "year": "2027",
+        "linkedin":"https://www.linkedin.com/in/akhilnandhakumar/",
+        "testimonial": "Theta Tau has helped me branch out and explore new experiences, both in a social and academic setting! My favorite memories definitely came from the connections we made during late night work sessions for projects and exam prep during crunch time each quarter."
     },
 
     {
@@ -4764,7 +4851,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/ics.png"
+
     },
 
     {
@@ -4773,7 +4862,7 @@ export const brotherInfo = [
         "gender": "M",
         "class": "Theta Beta",
         "active_status": "Y",
-        "linkedin_url": "www.linkedin.com/in/dalen-s\n",
+        "linkedin_url": "www.linkedin.com/in/dalen-s",
         "major": "Computer Science and Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
@@ -4801,7 +4890,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/liz_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4816,7 +4907,15 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/emma_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png",
+        "experience": ["High School FRC Robotics Club (Captain/Drive Coach)", ],
+        "hobbies": ["Concerts", "Hiking", "Beach drives down the coast"],
+        "hometown": "Carmel, CA",
+        "year": "2029",
+        "linkedin":"www.linkedin.com/in/emmashin07",
+        "testimonial": "My best memory is going on company tours with my fellow brothers!",
     },
 
     {
@@ -4831,7 +4930,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/harmeet_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/ics.png"
+
     },
 
     {
@@ -4846,7 +4947,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/ival_web.png",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4869,7 +4972,7 @@ export const brotherInfo = [
         "hometown": "Dallas, TX",
         "year": "2027",
         "linkedin": "https://www.linkedin.com/in/jaynkim/",
-        "testimonial": "Were tous"
+        "testimonial": "We're tous"
     },
 
     {
@@ -4884,7 +4987,9 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/richy_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
+
     },
 
     {
@@ -4899,7 +5004,15 @@ export const brotherInfo = [
         "cabby_exec_position": "NULL",
         "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Theta%20Beta/vic_web.jpg",
         "casual_photo": "NULL",
-        "blurb": ""
+        "blurb": "",
+        "company": "Legacy Robotics",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/legacy_robotics.jpg",
+        "experience": ["Legacy Robotics: Software (UCI)", "Muon Detection Research Project (IVC)", ],
+        "hobbies": ["Reading", "painting", "singing (jazz)", "weight lifting", "crafts"],
+        "hometown": "Irvine, CA",
+        "year": "2027",
+        "linkedin":"https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav",
+        "testimonial": "Theta Tau is exactly what I wanted and needed transferring in from community college. I enjoy the brotherhood aspect a lot and its helped me feel more welcome when I thought I might have a difficult time integrating. I feel the connections I made are especially meaningful because while i can connect with many people based on hobbies, the professionalism of Theta Tau has allowed me to form strong bonds with people who have the same values and long term life goals.",
     },
 
 ]
