@@ -4716,7 +4716,7 @@ export const brotherInfo = [
         "major": "Civil Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/kaitlyn_web.jpg",
         "casual_photo": "NULL",
         "blurb": "",
         "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
@@ -4756,11 +4756,17 @@ export const brotherInfo = [
         "major": "Mechanical Engineering",
         "cabby_exec_status": "N",
         "cabby_exec_position": "NULL",
-        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Random/no_photo_available.jpg",
         "casual_photo": "NULL",
         "blurb": "",
-        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/eng.png"
-
+        "profile_url": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-brothers-images/main/Eta%20Beta/river_final.jpg",
+        "company": "Legacy Robotics",
+        "company_logo": "https://raw.githubusercontent.com/Theta-Tau-at-UCI/pi-delta-site/master/src/Media/companies/legacy_robotics.jpg",
+        "experience": ["Mechanical Engineer (Legacy Robotics)",],
+        "hobbies": ["Tennis", "Surfing"],
+        "hometown": "San Diego, CA",
+        "year": "2027",
+        "linkedin":"https://www.linkedin.com/in/rivergiffin/",
+        "testimonial": ""
     },
 
 
