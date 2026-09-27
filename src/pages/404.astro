@@ -1,0 +1,210 @@
+---
+// 404, friendly chapter-themed not-found page. Big serif headline, the ΠΔ
+// monogram as the visual anchor, and clear links back to the parts of the
+// site that actually exist.
+// noindex + canonical="/" below: the error page should never enter the index,
+// and its default self-canonical pointed at /404/, a URL that itself 404s.
+import PageLayout from '@layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Page not found"
+  description="That page doesn't exist on the Theta Tau Pi Delta Chapter site. Here's where to go next."
+  canonical="/"
+  noindex
+>
+  <section class="not-found">
+    <div class="not-found__inner">
+      <span class="not-found__monogram font-display" aria-hidden="true">ΠΔ</span>
+      <p class="not-found__eyebrow">404 · page not found</p>
+      <h1 class="font-display not-found__title">
+        We couldn't find
+        <span class="not-found__title-accent">that page.</span>
+      </h1>
+      <p class="not-found__intro">
+        Whatever you were after isn't at this URL. Try one of the routes below, or head back to the
+        home page and start over.
+      </p>
+      <ul class="not-found__list" role="list">
+        <li>
+          <a class="not-found__link" href="/">
+            <span class="font-display not-found__link-title">Home</span>
+            <span class="not-found__link-blurb">
+              Hero, stats, why Pi Delta, and the rest of the chapter overview.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="not-found__link" href="/brothers">
+            <span class="font-display not-found__link-title">Brothers</span>
+            <span class="not-found__link-blurb">
+              The active roster, filterable by role, major, class, and year.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="not-found__link" href="/recruitment">
+            <span class="font-display not-found__link-title">Recruitment</span>
+            <span class="not-found__link-blurb">
+              Fall 2026 rush schedule, FAQs, and the interest form.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="not-found__link" href="/events">
+            <span class="font-display not-found__link-title">Events</span>
+            <span class="not-found__link-blurb"> Past chapter events sorted by category. </span>
+          </a>
+        </li>
+        <li>
+          <a class="not-found__link" href="/about">
+            <span class="font-display not-found__link-title">About</span>
+            <span class="not-found__link-blurb">
+              Our chapter, our story, our values, and the Southwestern Region.
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .not-found {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: calc(100dvh - 5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+    background: var(--color-surface);
+  }
+  :global(html.dark) .not-found {
+    background: #1a0505;
+    color: #ffffff;
+  }
+
+  .not-found__inner {
+    max-width: 44rem;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Oversized ΠΔ monogram as the visual anchor, bleeds behind the title. */
+  .not-found__monogram {
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(8rem, 22vw, 16rem);
+    line-height: 0.85;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: rgba(74, 4, 4, 0.08);
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+  }
+  :global(html.dark) .not-found__monogram {
+    color: rgba(212, 181, 106, 0.1);
+  }
+
+  .not-found__eyebrow {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin: 0 0 1rem;
+  }
+  :global(html.dark) .not-found__eyebrow {
+    color: var(--color-accent-400);
+  }
+
+  .not-found__title {
+    font-size: clamp(2.2rem, 5.5vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+  }
+  :global(html.dark) .not-found__title {
+    color: #ffffff;
+  }
+  .not-found__title-accent {
+    display: block;
+    color: var(--color-accent-500);
+    font-style: italic;
+  }
+
+  .not-found__intro {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin: 0 0 2rem;
+  }
+
+  .not-found__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    text-align: left;
+  }
+  @media (min-width: 640px) {
+    .not-found__list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .not-found__link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.85rem 1rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  :global(html.dark) .not-found__link {
+    background: rgba(74, 4, 4, 0.3);
+  }
+  .not-found__link:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-gold-muted);
+    box-shadow: 0 10px 22px rgba(74, 4, 4, 0.06);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .not-found__link,
+    .not-found__link:hover {
+      transition: none;
+      transform: none;
+    }
+  }
+  .not-found__link-title {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--color-text);
+  }
+  :global(html.dark) .not-found__link-title {
+    color: #ffffff;
+  }
+  .not-found__link-blurb {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+  }
+</style>

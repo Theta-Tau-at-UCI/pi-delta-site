@@ -1,0 +1,341 @@
+/* ==========================================================================
+   Revamp design system (.rv-*) — scale.com-style motion + restraint, in the
+   Pi Delta brand (Fraunces display + Plus Jakarta body, maroon/gold/cream).
+   Shared across all revamped pages; imported globally in PageLayout so every
+   page (home, about, events, recruitment) uses one source of truth. Pairs with
+   the ScaleMotion React components (Rise / Parallax / PinnedRow) + global Lenis.
+   Light editorial base; flips to the chapter dark ground in dark mode.
+   ========================================================================== */
+:root {
+  --rv-cream: #fcf7ec;
+  --rv-ink: #2a0e08;
+  --rv-maroon: #7c0303;
+  --rv-maroon-deep: #3d0808;
+  --rv-dark: #160a08;
+  --rv-gold: #b8902f;
+  --rv-gold-bright: #d4b56a;
+  --rv-muted: rgba(42, 14, 8, 0.6);
+}
+
+/* ---- Eyebrow / kicker ---- */
+.rv-eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--rv-maroon);
+}
+.rv-eyebrow--gold {
+  color: var(--rv-gold);
+}
+html.dark .rv-eyebrow {
+  color: var(--rv-gold-bright);
+}
+
+/* ---- Headings + prose ---- */
+.rv-h2 {
+  margin: 0.75rem 0 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  color: var(--rv-ink);
+}
+html.dark .rv-h2 {
+  color: var(--rv-cream);
+}
+.rv-lead {
+  margin: 1.5rem 0 0;
+  max-width: 46rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--rv-muted);
+}
+html.dark .rv-lead {
+  color: rgba(244, 238, 226, 0.62);
+}
+.rv-prose {
+  margin: 1.25rem 0 0;
+  max-width: 46rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--rv-ink);
+}
+html.dark .rv-prose {
+  color: rgba(244, 238, 226, 0.82);
+}
+
+/* ---- Section shell ---- */
+.rv-section {
+  padding: clamp(4rem, 9vh, 7rem) 6vw;
+  max-width: 84rem;
+  margin: 0 auto;
+  background-color: var(--rv-cream);
+}
+html.dark .rv-section {
+  background-color: var(--rv-dark);
+}
+/* Break between stacked sections: the chapter crest centered in the gap
+   (the "logo in the middle" divider), so subheaders read as distinct bands. */
+.rv-section + .rv-section {
+  position: relative;
+}
+/* Hairline rule spanning the content width. */
+.rv-section + .rv-section::before {
+  content: '';
+  position: absolute;
+  top: calc(clamp(1.25rem, 3vh, 2.4rem) + 18px);
+  left: 6vw;
+  right: 6vw;
+  height: 1px;
+  background: rgba(42, 14, 8, 0.16);
+}
+html.dark .rv-section + .rv-section::before {
+  background: rgba(244, 238, 226, 0.16);
+}
+/* The crest centered on the rule, with a page-colored gap so the line breaks
+   cleanly around the logo. */
+.rv-section + .rv-section::after {
+  content: '';
+  position: absolute;
+  top: clamp(1.25rem, 3vh, 2.4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 74px;
+  height: 38px;
+  background: var(--rv-cream)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 36' fill='none'%3E%3Cpath d='M16 2 4 6.5v11.7c0 7.8 5.1 12 12 15.8 6.9-3.8 12-8 12-15.8V6.5L16 2Z' fill='%237c0303' stroke='%23b8902f' stroke-width='1.5' stroke-linejoin='round'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='Georgia,serif' font-size='11' font-weight='700' fill='%23d4b56a'%3E%CE%98%CE%A4%3C/text%3E%3C/svg%3E")
+    center / 32px auto no-repeat;
+}
+html.dark .rv-section + .rv-section::after {
+  background-color: var(--rv-dark);
+}
+.rv-section--tight {
+  padding-block: clamp(3rem, 6vh, 5rem);
+}
+/* Opposite of --tight: the taller rhythm the home page wants, as a modifier
+   instead of a page-level .rv-section override. */
+.rv-section--airy {
+  padding-block: clamp(6rem, 14vh, 12rem);
+}
+
+/* Every section is "<Rise> heading island" followed by its content block. Give
+   whatever follows the heading real breathing room, so content never collides
+   with the heading's descenders. Applies site-wide to any .rv-section. */
+.rv-section > astro-island + * {
+  margin-top: clamp(2rem, 4.5vw, 3.25rem);
+}
+
+/* Theta Tau's crossed hammer & tongs, set before each section subheader. */
+.rv-eyebrow--gold::before {
+  content: '';
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  margin-right: 0.5em;
+  vertical-align: -0.2em;
+  background-color: currentColor;
+  -webkit-mask: center / contain no-repeat
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 12 C 12 8, 16 9, 24 26 L 39 40'/%3E%3Cpath d='M15 7 C 19 7, 21 10, 24 26 L 33 44'/%3E%3Ccircle cx='24' cy='26' r='1.8' fill='black' stroke='none'/%3E%3Cpath d='M12 41 L31 18'/%3E%3Crect x='26.5' y='10' width='13' height='7' rx='1.7' transform='rotate(42 33 13.5)' fill='black' stroke='none'/%3E%3C/svg%3E");
+  mask: center / contain no-repeat
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 12 C 12 8, 16 9, 24 26 L 39 40'/%3E%3Cpath d='M15 7 C 19 7, 21 10, 24 26 L 33 44'/%3E%3Ccircle cx='24' cy='26' r='1.8' fill='black' stroke='none'/%3E%3Cpath d='M12 41 L31 18'/%3E%3Crect x='26.5' y='10' width='13' height='7' rx='1.7' transform='rotate(42 33 13.5)' fill='black' stroke='none'/%3E%3C/svg%3E");
+}
+
+/* ---- Inner-page hero (no video; for about/events/recruitment) ---- */
+.rv-page-hero {
+  position: relative;
+  padding: clamp(8rem, 20vh, 15rem) 6vw clamp(4rem, 9vh, 7rem);
+  max-width: 84rem;
+  margin: 0 auto;
+  background-color: var(--rv-cream);
+}
+html.dark .rv-page-hero {
+  background-color: var(--rv-dark);
+}
+.rv-page-hero__title {
+  margin: 1.2rem 0 0;
+  font-size: clamp(2.6rem, 8vw, 6.5rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--rv-ink);
+}
+html.dark .rv-page-hero__title {
+  color: var(--rv-cream);
+}
+.rv-page-hero__title em {
+  font-style: italic;
+  color: var(--rv-gold);
+}
+html.dark .rv-page-hero__title em {
+  color: var(--rv-gold-bright);
+}
+
+/* ---- Photo-backed inner-page hero: set background-image inline on the section,
+   this adds cover sizing + a FLAT legibility scrim (no gradients). Content is
+   lifted above the scrim. Reusable across about/events. ---- */
+.rv-page-hero--photo {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  isolation: isolate;
+  overflow: hidden;
+}
+.rv-page-hero--photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(252, 247, 236, 0.82);
+}
+html.dark .rv-page-hero--photo::before {
+  background: rgba(22, 10, 8, 0.78);
+}
+.rv-page-hero--photo > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Statement (big lines) ---- */
+.rv-statement__line {
+  margin: 0;
+  font-size: clamp(1.9rem, 5.5vw, 4.75rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--rv-ink);
+  max-width: 20ch;
+}
+.rv-statement__line--muted {
+  color: var(--rv-muted);
+}
+html.dark .rv-statement__line {
+  color: var(--rv-cream);
+}
+html.dark .rv-statement__line--muted {
+  color: rgba(244, 238, 226, 0.55);
+}
+
+/* ---- Stats ---- */
+.rv-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 0;
+  border-top: 1px solid rgba(42, 14, 8, 0.14);
+  border-bottom: 1px solid rgba(42, 14, 8, 0.14);
+  padding: 3rem 0;
+}
+html.dark .rv-stats {
+  border-color: rgba(244, 238, 226, 0.14);
+}
+.rv-stat__value {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--rv-maroon);
+}
+html.dark .rv-stat__value {
+  color: var(--rv-gold-bright);
+}
+.rv-stat__label {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--rv-muted);
+}
+html.dark .rv-stat__label {
+  color: rgba(244, 238, 226, 0.6);
+}
+@media (max-width: 720px) {
+  .rv-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+}
+
+/* ---- Pinned horizontal row (dark) ---- */
+.rv-pinned {
+  background: var(--rv-maroon-deep);
+  color: var(--rv-cream);
+}
+.rv-pinned__intro {
+  flex: 0 0 auto;
+  width: min(42vw, 24rem);
+  align-self: center;
+}
+.rv-pinned__lead {
+  margin: 1rem 0 0;
+  font-size: clamp(1.6rem, 3.4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--rv-cream);
+}
+.rv-panel {
+  flex: 0 0 auto;
+  width: min(80vw, 30rem);
+}
+.rv-panel__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #1a0505;
+}
+.rv-panel__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+.rv-panel__num {
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 3rem;
+  font-style: italic;
+  color: var(--rv-gold-bright);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+.rv-panel__title {
+  margin: 1.25rem 0 0;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.rv-panel__body {
+  margin: 0.6rem 0 0;
+  max-width: 34ch;
+  line-height: 1.55;
+  color: rgba(252, 247, 236, 0.66);
+}
+
+/* ---- CTA (dark) ---- */
+.rv-cta {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(7rem, 16vh, 12rem) 6vw;
+  text-align: center;
+  background: var(--rv-maroon-deep);
+  color: var(--rv-cream);
+  isolation: isolate;
+}
+.rv-cta__inner {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+.rv-cta__title {
+  margin: 0.75rem 0 0;
+  font-size: clamp(2rem, 5.5vw, 4.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.rv-cta__body {
+  margin: 1.25rem auto 0;
+  max-width: 32rem;
+  line-height: 1.5;
+  color: rgba(252, 247, 236, 0.72);
+}

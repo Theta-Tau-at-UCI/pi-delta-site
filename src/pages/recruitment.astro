@@ -1,0 +1,735 @@
+---
+// Recruitment, rush info, the Fall 2026 schedule (vertical timeline), and an
+// animated FAQ accordion. Real content from the Pi Delta site.
+import PageLayout from '@layouts/PageLayout.astro';
+import Stamp from '@components/ui/Stamp.astro';
+import RotatingWord from '@components/react/RotatingWord.tsx';
+import { Rise } from '@components/react/ScaleMotion';
+import { rushSchedule, recruitmentFaqs, contact, rushYear } from '@data/chapter';
+import { site } from '@data/site';
+import RushSchedule from '@components/react/RushSchedule.tsx';
+
+// Where the rush interest form submits. With PUBLIC_WEB3FORMS_KEY set, the form
+// POSTs to Web3Forms, which delivers each submission straight to the rush inbox
+// (no server, no Gmail credentials, the access key is public by design). If the
+// key is unset the form falls back to a mailto: addressed to the Rush chairs, so
+// the site still works out of the box. Either way, submissions reach
+// contact.rushEmail (the address the Web3Forms key is registered to).
+// Web3Forms access key, PUBLIC by design (safe to ship in client code, per the
+// key's own dashboard). Hardcoded so delivery works with no env setup; override
+// with PUBLIC_WEB3FORMS_KEY if the chapter ever rotates it. Submissions are
+// delivered to whichever inbox this key was registered to (the rush Gmail).
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '9676f93a-eede-4d55-a1a1-ec9cec94abbd';
+const usingWeb3Forms = Boolean(web3formsKey);
+const formAction = usingWeb3Forms
+  ? 'https://api.web3forms.com/submit'
+  : `mailto:${contact.rushEmail}`;
+---
+
+<PageLayout
+  title="Recruitment"
+  description="Rush Theta Tau, Pi Delta Chapter at UC Irvine. Fall 2026 rush schedule, events, and FAQ."
+>
+  {/* HERO, open gold archway background + "Fall '26" wax-stamp corner. */}
+  <section class="recruit-hero">
+    <svg
+      class="recruit-hero__arch"
+      viewBox="0 0 800 600"
+      preserveAspectRatio="xMidYMax slice"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="arch-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="currentColor" stop-opacity="0.0"></stop>
+          <stop offset="60%" stop-color="currentColor" stop-opacity="0.35"></stop>
+          <stop offset="100%" stop-color="currentColor" stop-opacity="0.7"></stop>
+        </linearGradient>
+      </defs>
+      {/* Outer archway, open at the bottom like a doorway. */}
+      <path
+        d="M 80 600 L 80 280 A 320 280 0 0 1 720 280 L 720 600"
+        fill="none"
+        stroke="url(#arch-grad)"
+        stroke-width="2"></path>
+      <path
+        d="M 130 600 L 130 295 A 270 240 0 0 1 670 295 L 670 600"
+        fill="none"
+        stroke="url(#arch-grad)"
+        stroke-width="1.4"
+        opacity="0.55"></path>
+      <path
+        d="M 180 600 L 180 310 A 220 200 0 0 1 620 310 L 620 600"
+        fill="none"
+        stroke="url(#arch-grad)"
+        stroke-width="1"
+        opacity="0.35"></path>
+      {/* Keystone, a centered diamond. */}
+      <g transform="rotate(45 400 240)">
+        <rect
+          x="386"
+          y="226"
+          width="28"
+          height="28"
+          fill="none"
+          stroke="currentColor"
+          stroke-opacity="0.45"
+          stroke-width="1.5"></rect>
+      </g>
+      <text
+        x="400"
+        y="246"
+        text-anchor="middle"
+        font-family="'Fraunces', Georgia, serif"
+        font-size="14"
+        font-weight="700"
+        fill="currentColor"
+        opacity="0.55"
+      >
+        ΠΔ
+      </text>
+    </svg>
+
+    {/* Wax-stamp style "Open for Fall '26" badge, rotated like a real stamp. */}
+    <div class="recruit-hero__stamp" aria-hidden="true">
+      <span class="recruit-hero__stamp-ring">
+        <span class="recruit-hero__stamp-eyebrow">Open for</span>
+        <span class="font-display recruit-hero__stamp-big">Fall '26</span>
+        <span class="recruit-hero__stamp-foot">Sep 28–Oct 2</span>
+      </span>
+    </div>
+
+    <div class="recruit-hero__inner">
+      <p class="recruit-hero__eyebrow">Rush Theta Tau</p>
+      <Stamp variant="stamp" text="Fall 2026" rotate={-3} />
+      <h1 class="font-display recruit-hero__title">
+        Rush <RotatingWord
+          client:visible
+          className="recruit-hero__title-accent"
+          words={['Theta Tau.', 'Pi Delta.', 'with us.']}
+        />
+      </h1>
+      <p class="recruit-hero__intro">
+        Rush runs every fall and spring quarter. Stop by the Engineering Quad booth, meet the
+        brothers, sit in on Info Night, build something at E-Challenge, and find out if Theta Tau is
+        the right fit for you.
+      </p>
+      <div class="recruit-hero__ctas">
+        <a href="#events" class="recruit-hero__cta recruit-hero__cta--primary">
+          See the schedule →
+        </a>
+        <a href="#interest" class="recruit-hero__cta recruit-hero__cta--secondary">
+          Get in touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* RUSH FLYERS, the two Fall '26 rush graphics. */}
+  <section class="recruit-flyers" aria-label="Fall 2026 rush flyers">
+    <div class="recruit-flyers__grid">
+      <figure class="recruit-flyers__item">
+        <img
+          src="/images/recruitment/fall26-involvement-fair.jpg"
+          alt="Fall 2026 Rush, Anteater Involvement Fair, Booth F385, September 22, 2026, 11 AM to 4 PM"
+          loading="lazy"
+        />
+      </figure>
+      <figure class="recruit-flyers__item">
+        <img
+          src="/images/recruitment/fall26-rush-schedule.jpg"
+          alt="Fall 2026 Rush week: Info Night 9/28, E-Challenge 9/29, Pro-Dev Night 9/30, BBQ Night 10/1, Interviews 10/2"
+          loading="lazy"
+        />
+      </figure>
+    </div>
+  </section>
+
+  {
+    /* HOW RUSH WORKS, three editorial cards (When / Where / Contact) with
+      oversized gold numerals matching the Pillars treatment elsewhere. */
+  }
+  <section id="rush-header" class="rv-section">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">How rush works</p>
+      <h2 class="font-display rv-h2">When, where, and how to reach us.</h2>
+    </Rise>
+    <div class="how-rush" data-stagger>
+      <article class="how-rush__card">
+        <span class="how-rush__number font-display" aria-hidden="true">01</span>
+        <span class="how-rush__icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </span>
+        <h3 class="how-rush__title font-display">When</h3>
+        <p class="how-rush__body">
+          Every fall and spring quarter: three open nights anyone can come to, plus two invite-only
+          nights for the brothers and the rush class to get to know each other.
+        </p>
+      </article>
+
+      <article class="how-rush__card">
+        <span class="how-rush__number font-display" aria-hidden="true">02</span>
+        <span class="how-rush__icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </span>
+        <h3 class="how-rush__title font-display">Where</h3>
+        <p class="how-rush__body">
+          Engineering Quad at UC Irvine. Stop by the chapter's tabling booth between classes, or
+          come to any open event on the schedule below.
+        </p>
+      </article>
+
+      <article class="how-rush__card">
+        <span class="how-rush__number font-display" aria-hidden="true">03</span>
+        <span class="how-rush__icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </span>
+        <h3 class="how-rush__title font-display">Reach us</h3>
+        <p class="how-rush__body">
+          Email <a href={`mailto:${contact.rushEmail}`}>{contact.rushEmail}</a> or DM
+          <a href={contact.instagram}> @thetatauuci</a> with anything, and we'll get back to you.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  {/* SCHEDULE, clickable rows that pop each event into a full modal. */}
+  <section id="events" class="rv-section">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">Fall 2026 rush schedule</p>
+      <h2 class="font-display rv-h2">Five nights this fall.</h2>
+      <p class="rv-lead">
+        Tap any night to see the full details: what to wear, when to show up, and what to expect.
+      </p>
+    </Rise>
+    <RushSchedule client:visible events={rushSchedule} year={rushYear} />
+  </section>
+
+  {/* FAQ, animated accordion. */}
+  <section id="faq" class="rv-section">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">FAQ</p>
+      <h2 class="font-display rv-h2">Frequently asked questions.</h2>
+    </Rise>
+    <div class="mx-auto max-w-3xl" data-stream-in>
+      {
+        recruitmentFaqs.map((f, i) => (
+          <div class="faq-item border-t border-(--color-border) first:border-t-0">
+            <button
+              type="button"
+              class="faq-trigger dark:hover:text-accent-400 dark:focus-visible:outline-accent-400 flex w-full cursor-pointer items-center justify-between gap-4 py-4 text-left transition-colors hover:text-(--color-gold) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-gold)"
+              aria-expanded="false"
+              aria-controls={`faq-panel-${i}`}
+            >
+              <span class="faq-question font-display text-brand-900 font-semibold dark:text-white">
+                <span class="faq-question__index font-display" aria-hidden="true">
+                  Q{String(i + 1).padStart(2, '0')}
+                </span>
+                <span class="faq-question__text">{f.q}</span>
+              </span>
+              <svg
+                class="faq-chevron dark:text-accent-400 size-5 shrink-0 text-(--color-gold)"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div id={`faq-panel-${i}`} class="faq-panel">
+              <div class="overflow-hidden">
+                <p class="faq-answer text-brand-700/80 dark:text-brand-100/80 pb-4 text-sm leading-relaxed">
+                  {f.a}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  {/* RUSH INTEREST FORM, submits to the rush inbox (contact.rushEmail). */}
+  <section id="interest" class="rv-section">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">Get in touch</p>
+      <h2 class="font-display rv-h2">Have a question? Drop us a note.</h2>
+    </Rise>
+    <p class="text-brand-700/80 dark:text-brand-100/80 mt-6 mb-6 max-w-2xl text-base">
+      Have a question or a request? Drop us a note and we'll reply.
+    </p>
+    {
+      /* No-JS confirmation. Without JS the form does a native cross-origin POST,
+        so Web3Forms sends the visitor back to this anchor instead of its own
+        success page, and :target reveals the banner with no script involved. */
+    }
+    <p id="sent" class="rush-sent" role="status">
+      Thanks, we got your note. We'll be in touch soon.
+    </p>
+    <form
+      id="rush-form"
+      action={formAction}
+      method="POST"
+      class="grid max-w-2xl gap-4 sm:grid-cols-2"
+      data-rush-email={contact.rushEmail}
+      data-stagger
+    >
+      {
+        usingWeb3Forms && (
+          <>
+            <input type="hidden" name="access_key" value={web3formsKey} />
+            <input type="hidden" name="subject" value="New rush interest form submission" />
+            <input type="hidden" name="from_name" value="Theta Tau UCI, Rush site" />
+            {/* Only used on the no-JS path; the fetch handler strips it. */}
+            <input type="hidden" name="redirect" value={`${site.url}/recruitment/#sent`} />
+            {/* Honeypot, real users leave this empty; bots fill it and get dropped. */}
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="hidden"
+              style="display:none"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+          </>
+        )
+      }
+      <div class="sm:col-span-1">
+        <label
+          for="rf-name"
+          class="text-brand-800 dark:text-brand-100 mb-1 block text-sm font-medium">Name</label
+        >
+        <input
+          id="rf-name"
+          name="name"
+          type="text"
+          required
+          autocomplete="name"
+          class="dark:bg-brand-800/50 placeholder:text-brand-700/70 dark:placeholder:text-brand-100/60 dark:focus-visible:outline-accent-400 text-brand-900 w-full rounded-lg border border-(--color-border) bg-white px-3 py-2.5 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-gold) sm:text-sm dark:text-white"
+        />
+      </div>
+      <div class="sm:col-span-1">
+        <label
+          for="rf-email"
+          class="text-brand-800 dark:text-brand-100 mb-1 block text-sm font-medium">Email</label
+        >
+        <input
+          id="rf-email"
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          class="dark:bg-brand-800/50 placeholder:text-brand-700/70 dark:placeholder:text-brand-100/60 dark:focus-visible:outline-accent-400 text-brand-900 w-full rounded-lg border border-(--color-border) bg-white px-3 py-2.5 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-gold) sm:text-sm dark:text-white"
+        />
+      </div>
+      <div class="sm:col-span-2">
+        <label
+          for="rf-major"
+          class="text-brand-800 dark:text-brand-100 mb-1 block text-sm font-medium"
+        >
+          Year &amp; major <span class="text-brand-700/70 dark:text-brand-100/60">(optional)</span>
+        </label>
+        <input
+          id="rf-major"
+          name="year_major"
+          type="text"
+          autocomplete="off"
+          placeholder="e.g. 2nd year, Mechanical Engineering"
+          class="dark:bg-brand-800/50 placeholder:text-brand-700/70 dark:placeholder:text-brand-100/60 dark:focus-visible:outline-accent-400 text-brand-900 w-full rounded-lg border border-(--color-border) bg-white px-3 py-2.5 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-gold) sm:text-sm dark:text-white"
+        />
+      </div>
+      <div class="sm:col-span-2">
+        <label
+          for="rf-msg"
+          class="text-brand-800 dark:text-brand-100 mb-1 block text-sm font-medium"
+        >
+          Message <span class="text-brand-700/70 dark:text-brand-100/60">(optional)</span>
+        </label>
+        <textarea
+          id="rf-msg"
+          name="message"
+          rows="4"
+          class="dark:bg-brand-800/50 placeholder:text-brand-700/70 dark:placeholder:text-brand-100/60 dark:focus-visible:outline-accent-400 text-brand-900 w-full rounded-lg border border-(--color-border) bg-white px-3 py-2.5 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-gold) sm:text-sm dark:text-white"
+        ></textarea>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 sm:col-span-2">
+        <button
+          type="submit"
+          class="btn-primary bg-accent-500 text-brand-900 hover:bg-accent-400 dark:focus-visible:outline-accent-400 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-md px-6 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-gold) disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          Send it →
+        </button>
+        <p
+          id="rush-form-status"
+          class="text-brand-700/80 dark:text-brand-100/80 text-sm"
+          role="status"
+          aria-live="polite"
+        >
+        </p>
+      </div>
+    </form>
+
+    <p class="text-brand-700/70 dark:text-brand-100/60 mt-5 max-w-2xl text-sm">
+      Prefer Google Forms? <a
+        href={contact.rushInterestForm}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="dark:hover:text-accent-400 font-medium text-(--color-gold) underline underline-offset-2 hover:text-(--color-maroon)"
+        >Fill out our interest form here →</a
+      >
+    </p>
+  </section>
+</PageLayout>
+
+<script>
+  // FAQ accordion. We use `hidden` on the panel content when collapsed so
+  // assistive tech and keyboard navigation skip the answer entirely instead
+  // of tabbing into a visually-collapsed-but-still-focusable region.
+  document.querySelectorAll('.faq-trigger').forEach((btn) => {
+    const item = btn.closest('.faq-item');
+    if (!item) return;
+    const panelId = btn.getAttribute('aria-controls');
+    const panel = panelId ? document.getElementById(panelId) : null;
+    // Initial hidden state, every accordion starts closed.
+    if (panel) panel.toggleAttribute('hidden', true);
+
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      item.classList.toggle('is-open', !open);
+      if (panel) panel.toggleAttribute('hidden', open);
+    });
+  });
+
+  // Rush interest form, progressive enhancement. Only takes over when the form
+  // posts to Web3Forms; the mailto fallback keeps its native behavior. Submits
+  // via fetch so the visitor stays on the page and sees an inline result.
+  const rushForm = document.getElementById('rush-form');
+  const rushStatus = document.getElementById('rush-form-status');
+  if (rushForm instanceof HTMLFormElement && rushForm.action.includes('web3forms.com')) {
+    const submitBtn = rushForm.querySelector('button[type="submit"]');
+    const submitLabel = submitBtn ? submitBtn.textContent : null;
+    // Read the fallback address off the form so it tracks contact.rushEmail
+    // instead of drifting as a hardcoded string in here.
+    const rushEmail = rushForm.dataset.rushEmail;
+    const failureMsg = rushEmail
+      ? `Something went wrong. Please email ${rushEmail}.`
+      : 'Something went wrong. Please try again in a moment.';
+    // Belt and braces against a double submit: disabling the button alone does
+    // not stop implicit submission from Enter inside a text field.
+    let sending = false;
+    rushForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (sending) return;
+      sending = true;
+      if (rushStatus) rushStatus.textContent = 'Sending…';
+      if (submitBtn) {
+        submitBtn.setAttribute('disabled', 'true');
+        submitBtn.textContent = 'Sending…';
+      }
+      try {
+        // The `redirect` field exists for the no-JS path only; sending it here
+        // would make Web3Forms answer with a 302 instead of the JSON we parse.
+        const payload = new FormData(rushForm);
+        payload.delete('redirect');
+        const res = await fetch(rushForm.action, {
+          method: 'POST',
+          body: payload,
+          headers: { Accept: 'application/json' },
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          rushForm.reset();
+          if (rushStatus) rushStatus.textContent = "Thanks, we'll be in touch soon.";
+        } else if (rushStatus) {
+          rushStatus.textContent = failureMsg;
+        }
+      } catch {
+        if (rushStatus) rushStatus.textContent = failureMsg;
+      } finally {
+        sending = false;
+        if (submitBtn) {
+          submitBtn.removeAttribute('disabled');
+          submitBtn.textContent = submitLabel;
+        }
+      }
+    });
+  }
+</script>
+
+<style>
+  /* ----------------------------------------------------------------------- */
+  /*   Recruitment hero, open archway background + Fall '26 wax stamp.       */
+  /* ----------------------------------------------------------------------- */
+  .recruit-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface) url('/images/recruitment/rush-hero.jpg') center / cover
+      no-repeat;
+    padding: clamp(4rem, 9vw, 8rem) 0 clamp(4rem, 7vw, 6rem);
+  }
+  /* Flat legibility scrim over the banner (no gradient). */
+  .recruit-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(252, 247, 236, 0.5);
+  }
+  :global(html.dark) .recruit-hero {
+    background: #1a0505 url('/images/recruitment/rush-hero.jpg') center / cover no-repeat;
+    border-bottom-color: rgba(212, 181, 106, 0.18);
+  }
+  :global(html.dark) .recruit-hero::before {
+    background: rgba(20, 5, 5, 0.72);
+  }
+  .recruit-hero__arch {
+    /* Replaced by the Fall '26 rush banner backdrop. */
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    color: var(--color-accent-500);
+    opacity: 0.45;
+  }
+  :global(html.dark) .recruit-hero__arch {
+    color: var(--color-accent-400);
+    opacity: 0.55;
+  }
+
+  /* Wax-stamp badge in the top-right, rotated like a stamped page. */
+  .recruit-hero__stamp {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    transform: rotate(-8deg);
+    z-index: 0;
+  }
+  .recruit-hero__stamp-ring {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    width: 8.5rem;
+    height: 8.5rem;
+    padding: 0.85rem;
+    text-align: center;
+    border: 2px double var(--color-accent-500);
+    border-radius: 9999px;
+    background: rgba(212, 181, 106, 0.08);
+    color: var(--color-maroon);
+    justify-content: center;
+  }
+  :global(html.dark) .recruit-hero__stamp-ring {
+    background: rgba(212, 181, 106, 0.1);
+    color: var(--color-accent-400);
+    border-color: var(--color-accent-400);
+  }
+  .recruit-hero__stamp-eyebrow,
+  .recruit-hero__stamp-foot {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: currentColor;
+    opacity: 0.7;
+  }
+  .recruit-hero__stamp-big {
+    font-size: 1.6rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-gold);
+  }
+  @media (max-width: 720px) {
+    .recruit-hero__stamp {
+      display: none;
+    }
+  }
+
+  .recruit-hero__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 var(--spacing-page, 1.25rem);
+    position: relative;
+    z-index: 1;
+  }
+  .recruit-hero__eyebrow {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin: 0 0 1rem;
+  }
+  :global(html.dark) .recruit-hero__eyebrow {
+    color: var(--color-accent-400);
+  }
+  .recruit-hero__title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+  }
+  :global(html.dark) .recruit-hero__title {
+    color: #ffffff;
+  }
+  .recruit-hero__title-accent {
+    color: var(--color-accent-500);
+    font-style: italic;
+  }
+  .recruit-hero__intro {
+    max-width: 38rem;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    margin: 0 0 1.75rem;
+  }
+  .recruit-hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .recruit-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0 1.1rem;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition:
+      transform 0.18s ease,
+      background 0.18s ease,
+      border-color 0.18s ease;
+  }
+  .recruit-hero__cta:hover {
+    transform: translateY(-1px);
+  }
+  .recruit-hero__cta--primary {
+    background: var(--color-accent-500);
+    color: var(--color-brand-900);
+  }
+  .recruit-hero__cta--primary:hover {
+    background: var(--color-accent-400);
+  }
+  .recruit-hero__cta--secondary {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+  :global(html.dark) .recruit-hero__cta--secondary {
+    color: #ffffff;
+    border-color: rgba(212, 181, 106, 0.4);
+  }
+  .recruit-hero__cta--secondary:hover {
+    border-color: var(--color-gold-muted);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .recruit-hero__cta,
+    .recruit-hero__cta:hover {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* Rush flyers band */
+  .recruit-flyers {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 2.5rem var(--spacing-page) 0;
+  }
+  .recruit-flyers__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 640px) {
+    .recruit-flyers__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .recruit-flyers__item {
+    margin: 0;
+  }
+  .recruit-flyers__item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.9rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 16px 34px rgba(74, 4, 4, 0.12);
+  }
+  :global(html.dark) .recruit-flyers__item img {
+    border-color: rgba(212, 181, 106, 0.28);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.4);
+  }
+
+  /* No-JS submission receipt, revealed only when Web3Forms redirects back to
+     #sent. Hidden the rest of the time, including for the fetch path which
+     writes its own inline status instead. */
+  .rush-sent {
+    display: none;
+    max-width: 42rem;
+    margin: 0 0 1.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-gold-muted);
+    border-radius: 0.6rem;
+    background-color: rgba(212, 181, 106, 0.14);
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+  .rush-sent:target {
+    display: block;
+  }
+  :global(html.dark) .rush-sent {
+    background-color: rgba(212, 181, 106, 0.1);
+    border-color: rgba(212, 181, 106, 0.4);
+    color: #ffffff;
+  }
+</style>

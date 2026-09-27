@@ -1,0 +1,29 @@
+---
+// Stamp, archival primitive. Two looks:
+//   variant="stamp", rubber-stamp text in a thin box (e.g. "EST. 2013").
+//   variant="seal" , circular dashed medallion (defaults to the ΘΤ monogram).
+// Decorative by default (aria-hidden). Pass a meaningful `text` only when it
+// adds information beyond what surrounding copy already states.
+interface Props {
+  variant?: 'stamp' | 'seal';
+  /** Text inside the stamp/seal. Seal defaults to the ΘΤ monogram. */
+  text?: string;
+  /** Degrees of rotation for a hand-applied feel. Default -6. */
+  rotate?: number;
+}
+const { variant = 'stamp', text, rotate = -6 } = Astro.props;
+const content = text ?? (variant === 'seal' ? 'ΘΤ' : '');
+const style = `--stamp-rotate:${rotate}deg`;
+---
+
+{
+  variant === 'seal' ? (
+    <span class="stamp stamp--seal font-display" style={style} aria-hidden="true">
+      {content}
+    </span>
+  ) : (
+    <span class="stamp stamp--mark font-display" style={style} aria-hidden="true">
+      {content}
+    </span>
+  )
+}

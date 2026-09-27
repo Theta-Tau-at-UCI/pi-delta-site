@@ -1,0 +1,5505 @@
+/* =============================================================================
+   Global stylesheet — Tailwind CSS v4 (CSS-first configuration)
+   -----------------------------------------------------------------------------
+   Tailwind v4 is configured here in CSS via @theme rather than a JS config file.
+   Brand tokens below reflect Theta Tau's national colors (dark red + old gold),
+   applied provisionally per the user; refine exact values against an official
+   BRAND_GUIDE.md when available. See docs/DESIGN_SYSTEM.md for the token system.
+   ============================================================================= */
+
+@import 'tailwindcss';
+
+/* Enable Tailwind's `dark:` variant via a `.dark` class on <html> (set by the
+   inline theme script in PageLayout, toggled by the navbar button). Default is
+   the warm cream light theme; dark is opt-in. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* --- Brand colors --- Theta Tau maroon + gold. Default site is warm cream
+     light; the dark variant uses brown-tinted near-black with paper grain. */
+  --color-brand-50: #fcf4f4;
+  --color-brand-100: #f8e0e0;
+  --color-brand-200: #efbcbc;
+  --color-brand-300: #e08e8e;
+  --color-brand-400: #cc5757;
+  --color-brand-500: #a82e2e;
+  --color-brand-600: #7c0303; /* primary maroon (buttons, icons) — chapter maroon */
+  --color-brand-700: #5c1414;
+  --color-brand-800: #4a0404; /* brief maroon — elevated dark surfaces/cards */
+  --color-brand-900: #1a0505; /* near-black maroon — page background */
+
+  /* Gold accent scale — 400/500 are the two chapter golds; 600 is a darker
+     step that exists only because neither chapter gold clears AA as text on
+     a light surface. */
+  --color-accent-400: #d4b56a; /* light gold (text/highlights on dark) */
+  --color-accent-500: #b8902f; /* primary gold (brief) */
+  --color-accent-600: #a9842f; /* gold for use on light surfaces */
+
+  /* --- Typography --- warm humanist display serif (Fraunces) + friendly
+     contemporary body sans (Plus Jakarta Sans). Welcoming, not austere. */
+  --font-sans:
+    'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+
+  /* --- Layout --- generous whitespace so sections breathe (collegiate, not
+     startup-tight). Components opt in to --spacing-section via padding utilities. */
+  --spacing-page: 1.5rem;
+  --spacing-section: 5rem;
+
+  /* --- Radii --- softer corners for a warmer, less rigid feel. */
+  --radius-soft: 1rem;
+  --radius-card: 1.5rem;
+  --radius-pill: 9999px;
+
+  /* --- Animation --- aurora hero wash + two CTA gradient blobs. */
+  --animate-aurora: aurora 40s ease-in-out infinite alternate;
+  --animate-first: moveVertical 45s ease infinite;
+  --animate-fourth: moveHorizontal 60s ease infinite;
+
+  /* Transform-based (GPU-composited) so the blurred hero layer doesn't repaint. */
+  @keyframes aurora {
+    from {
+      transform: translate3d(-8%, 0, 0) scale(1.1);
+    }
+    to {
+      transform: translate3d(8%, 0, 0) scale(1.1);
+    }
+  }
+  @keyframes moveHorizontal {
+    0% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+    50% {
+      transform: translateX(50%) translateY(10%);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+  }
+  @keyframes moveVertical {
+    0% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+}
+
+/* Light theme (default — no `.dark` class on <html>). Warm parchment + maroon/gold.
+   Token values are color-theory-driven (Tasks 1):
+   - --color-bg is a richer parchment (not near-white) so bg-white cards visibly
+     "lift" off the page (~1.30:1 against white).
+   - All body & muted text passes WCAG AA (>=4.5:1) on the new bg; gold accent
+     text uses a darker tone so small-text gold reads on cream.
+   - All tokens share a warm amber/brown undertone — no red-undertone vs
+     yellow-undertone clashes between adjacent tokens.
+*/
+:root {
+  color-scheme: light;
+
+  /* Scrapbook revamp — palette pulled toward a paper-white. The page is a
+     near-white off-white (not pure #fff so polaroid borders + white card
+     surfaces can lift), surfaces are pure white, and the maroon/gold pair
+     stays. The cream parchment of the old design is gone in favor of an
+     "open notebook on a desk" feel. */
+  --color-bg: #fbfaf6;
+  --color-surface: #ffffff;
+  --color-surface-2: #f1ece1;
+
+  --color-maroon: #7c0303;
+  --color-maroon-mid: #c1121f;
+
+  /* Gold is the same darker AA-passing gold from the cream era — it still
+     reads ~5:1 on the new near-white background. */
+  --color-gold: #7a5a1f;
+  --color-gold-muted: #6a4d18;
+
+  --color-text: #2a0808;
+  --color-text-muted: #5a3a26;
+  /* Soft warm grey border — separates white cards from off-white page. */
+  --color-border: #e6dfd1;
+
+  --color-nav-glass: rgba(251, 250, 246, 0.82);
+  --shadow-card: 0 16px 40px rgba(74, 4, 4, 0.1);
+  --color-shimmer: rgba(74, 4, 4, 0.18);
+
+  /* Scrapbook decorative tokens. */
+  --color-tape: rgba(220, 196, 122, 0.55); /* translucent gold tape */
+  --color-handwrite: var(--color-maroon);
+
+  /* --- Editorial Archival foundations (additive; opt-in via .ed-* classes) --- */
+  --ed-display: clamp(3rem, 7vw, 5.5rem);
+  --ed-display-sm: clamp(2.25rem, 4.5vw, 3.25rem);
+  --ed-eyebrow-size: 0.78rem; /* ≈ 12.5px — small tracked caption/label size */
+  --ed-measure: 64ch;
+  --ed-space-section: clamp(4.5rem, 9vw, 9rem);
+  --ed-space-block: clamp(2rem, 4vw, 3.5rem);
+
+  /* Archival primitive tokens */
+  --color-stamp: rgba(124, 3, 3, 0.5); /* faded rubber-stamp maroon */
+  --ed-grain-opacity: 0.06;
+}
+
+/* Dark theme — warmer brown-tinted near-black ("study lounge", not "tech startup"). */
+html.dark {
+  color-scheme: dark;
+
+  /* Same dark ground as .rv-section (--rv-dark in revamp.css). They meet in
+     the gutters above 1344px, so a near-miss here shows as a colour seam. */
+  --color-bg: #160a08;
+  --color-surface: #261410;
+  --color-surface-2: #321b15;
+  --color-maroon: #8a1a1a;
+  --color-maroon-mid: #c1121f;
+  --color-gold: #d4b56a;
+  --color-gold-muted: #b8902f;
+  --color-text: #f7ecd9;
+  --color-text-muted: #bfa890;
+  --color-border: #4a2a1e;
+
+  --color-nav-glass: rgba(22, 10, 8, 0.85); /* --color-bg at 85% */
+  --shadow-card: 0 14px 36px rgba(0, 0, 0, 0.45);
+  --color-shimmer: rgba(255, 245, 220, 0.22);
+
+  /* Editorial Archival — dark overrides */
+  --color-stamp: rgba(221, 192, 122, 0.5); /* faded gold on dark */
+  --ed-grain-opacity: 0.1;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Clears the 72px sticky header (plus a little slack) so an anchor landing
+     never parks the section eyebrow behind the nav pill. */
+  scroll-padding-top: 6rem;
+  background-color: var(--color-bg);
+  /* Hide the page scrollbar in Firefox + IE while still allowing scroll. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+/* Hide the page scrollbar in Chromium / Safari. Internal scroll containers
+   (e.g. .brother-detail__scroll) have their own
+   ::-webkit-scrollbar rules and aren't affected. */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Tailwind v4's preflight no longer hands buttons a pointer cursor, so every
+   <button> that doesn't set one itself (roster cards, the mobile menu toggle,
+   the rush form's submit) renders with the default arrow. Lives in @layer base
+   so it behaves like the rest of preflight: the unlayered per-component
+   overrides below (zoom-in on photo triggers, default on modal backdrops) win
+   on specificity, and Tailwind's own cursor-* utilities — e.g. the rush form's
+   `disabled:cursor-not-allowed` — still win on layer order. */
+@layer base {
+  button,
+  summary {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: default;
+  }
+}
+
+/* The old `body::before` warmth layer lived here. It assigned a bare color to
+   `background-image`, which only accepts an <image>, so the declaration was
+   invalid in both themes and the layer painted nothing while still allocating
+   a fixed `will-change: transform` compositor layer on every page. Removed
+   rather than revived: switching it to `background-color` would tint every
+   page ground for the first time, which is a design call, not a bug fix. */
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}
+
+/* =============================================================================
+   BentoExplore card — solid hover lift with a gold rail (no blur wash)
+   ============================================================================= */
+.bento-card__rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: var(--color-accent-500);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.25s ease;
+  pointer-events: none;
+}
+.bento-card:hover .bento-card__rail,
+.bento-card:focus-within .bento-card__rail {
+  transform: scaleY(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .bento-card__rail {
+    transition: none;
+  }
+}
+
+/* =============================================================================
+   Image placeholder — labeled box until a real photo is dropped in
+   ============================================================================= */
+.image-placeholder {
+  position: relative;
+  container-type: inline-size;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  /* Subtle two-tone cream so the placeholder reads as styled paper, not as a
+     wireframe void. The diagonal gradient gives a quiet sense of depth that
+     real photos won't fight with when they replace this. */
+  background: rgba(212, 181, 106, 0.12);
+}
+.image-placeholder--dark {
+  background: rgba(212, 181, 106, 0.18);
+  border-color: rgba(212, 181, 106, 0.3);
+}
+.image-placeholder[data-has-image='true'] {
+  border-style: solid;
+  border-color: var(--color-border);
+}
+.image-placeholder__trigger {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.image-placeholder__trigger:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+.image-placeholder__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gentle scroll-driven scale on real photographs — they start ~95% scale
+   when entering the viewport and reach 100% by the time they're centered.
+   Quiet parallax-y feel without literal parallax (which is jarring on
+   mobile). Uses CSS scroll-driven animations where supported; in older
+   browsers the @supports gate keeps things static. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .image-placeholder[data-has-image='true'] .image-placeholder__img {
+      animation: photo-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+    @keyframes photo-enter {
+      from {
+        transform: scale(0.95);
+        filter: saturate(0.85);
+      }
+      to {
+        transform: scale(1);
+        filter: saturate(1);
+      }
+    }
+  }
+}
+
+/* Oversized ΠΔ monogram bleeding off the top-right corner — replaces the
+   apologetic camera icon. The placeholder now reads as a designed yearbook
+   tile, not as "loading…". */
+.image-placeholder__watermark {
+  position: absolute;
+  top: -0.2em;
+  right: -0.05em;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: rgba(74, 4, 4, 0.09);
+  pointer-events: none;
+  user-select: none;
+  font-feature-settings: 'lnum' 1;
+}
+.image-placeholder--dark .image-placeholder__watermark {
+  color: rgba(212, 181, 106, 0.18);
+}
+
+/* Caption row — small gold tick + serif label, bottom-left aligned. */
+.image-placeholder__caption {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1rem 0.85rem;
+  z-index: 1;
+}
+.image-placeholder__caption-mark {
+  display: inline-block;
+  width: 0.65rem;
+  height: 2px;
+  background: var(--color-accent-500);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.image-placeholder__caption-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+.image-placeholder--dark .image-placeholder__caption-text {
+  color: rgba(247, 236, 217, 0.82);
+}
+
+/* When the tile is very small (event thumbnails on Recruitment), hide the
+   caption and let the monogram do all the work. Threshold matches the
+   80–96px range used for those thumbs. */
+@container (max-width: 120px) {
+  .image-placeholder__caption {
+    display: none;
+  }
+}
+
+/* =============================================================================
+   Section blocks — editorial rhythm (alternating surfaces + numbered eyebrows)
+   ============================================================================= */
+.section-block {
+  position: relative;
+  padding: 3.5rem 0;
+}
+@media (min-width: 640px) {
+  .section-block {
+    padding: 4.5rem 0;
+  }
+}
+@media (min-width: 1024px) {
+  .section-block {
+    padding: 5.5rem 0;
+  }
+}
+
+/* Alternating "lifted" surface — pure white in light mode, deeper brown in
+   dark mode. Used to alternate the home page's rhythm so the cream bg isn't
+   monolithic; no gradient required. */
+.section-block--surface {
+  background: #ffffff;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+html.dark .section-block--surface {
+  background: rgba(74, 4, 4, 0.32);
+  border-top-color: rgba(212, 181, 106, 0.15);
+  border-bottom-color: rgba(212, 181, 106, 0.15);
+}
+
+.section-block__header {
+  position: relative;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+/* Identity watermark behind numbered section headers — a quiet ΠΔ monogram
+   in maroon at low opacity, bleeding off the top-left of the title. Only
+   appears on headers that have a number (data-attr selector below), so
+   the home page's narrated chapters get the watermark while one-off
+   headers stay clean. */
+.section-block__header:has(.section-block__number)::before {
+  content: 'ΠΔ';
+  position: absolute;
+  top: -0.55em;
+  left: -0.25em;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(5.5rem, 12vw, 8.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: rgba(74, 4, 4, 0.06);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  font-feature-settings: 'lnum' 1;
+}
+html.dark .section-block__header:has(.section-block__number)::before {
+  color: rgba(212, 181, 106, 0.08);
+}
+/* Keep the actual title/number above the watermark. */
+.section-block__header > * {
+  position: relative;
+  z-index: 1;
+}
+/* Eyebrow row — number + optional short eyebrow + a thin gold rule fanning
+   out to the right. Same visual rhythm as the page heroes' eyebrow + accent
+   rule, so every section reads as a mini-hero. */
+.section-block__eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0 0 0.35rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+.section-block__number {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  letter-spacing: -0.005em;
+  line-height: 1;
+  font-feature-settings: 'lnum' 1;
+}
+html.dark .section-block__number {
+  color: var(--color-accent-400);
+}
+.section-block__eyebrow-text {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-600);
+}
+html.dark .section-block__eyebrow-text {
+  color: var(--color-accent-400);
+}
+.section-block__eyebrow-rule {
+  flex: 1;
+  max-width: 6rem;
+  height: 1px;
+  background: var(--color-accent-500);
+  opacity: 0.55;
+}
+html.dark .section-block__eyebrow-rule {
+  background: var(--color-accent-400);
+  opacity: 0.45;
+}
+/* Crossed hammer & tongs emblem — opt-in accent in the section eyebrow row. */
+.section-block__emblem {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 1.85rem;
+  height: 1.85rem;
+  color: var(--color-gold);
+}
+.section-block__emblem svg {
+  width: 100%;
+  height: 100%;
+}
+html.dark .section-block__emblem {
+  color: var(--color-accent-400);
+}
+
+.section-block__title {
+  font-size: clamp(2rem, 4.6vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+html.dark .section-block__title {
+  color: #ffffff;
+}
+/* Italic-gold accent word inside the title — same accent treatment used in
+   every page hero across the site. */
+.section-block__title-accent {
+  color: var(--color-accent-500);
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* =============================================================================
+   Section dividers — non-gradient visual breaks (component: SectionDivider)
+   ============================================================================= */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: min(640px, 80%);
+  margin: 3rem auto;
+}
+.section-divider__line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+.section-divider__line--short {
+  flex: 0 0 4rem;
+}
+
+/* Crest variant — editorial yearbook break. */
+.section-divider--crest .section-divider__crest {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-gold);
+  letter-spacing: 0.05em;
+}
+html.dark .section-divider--crest .section-divider__crest {
+  color: var(--color-accent-400);
+}
+
+/* Monogram variant — chapter identity break (ΠΔ). Same rhythm as crest. */
+.section-divider--monogram .section-divider__monogram {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--color-maroon);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+html.dark .section-divider--monogram .section-divider__monogram {
+  color: var(--color-accent-400);
+}
+
+/* Ornament variant — quiet diamond. */
+.section-divider--ornament .section-divider__ornament {
+  color: var(--color-gold);
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+html.dark .section-divider--ornament .section-divider__ornament {
+  color: var(--color-accent-400);
+}
+
+/* Thick variant — solid maroon strip, full bleed inside the section. */
+.section-divider--thick {
+  display: block;
+  max-width: none;
+  margin: 0;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  background: var(--color-brand-800);
+  border-top: 1px solid var(--color-gold);
+  border-bottom: 1px solid var(--color-gold);
+}
+.section-divider__caption {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+}
+.section-divider__cite {
+  display: block;
+  margin-top: 0.55rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-style: normal;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 236, 217, 0.55);
+}
+
+/* Global button interactions (v3 Task 1). */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+.btn-primary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 22px rgba(201, 168, 76, 0.28);
+}
+.btn-primary:active {
+  transform: scale(0.97);
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: var(--color-shimmer);
+  transform: skewX(-20deg);
+  transition: left 0.45s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::after {
+  left: 150%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-primary::after {
+    transition: none;
+  }
+  .btn-primary:hover {
+    transform: none;
+  }
+}
+
+/* Scroll animation system. The `.reveal-ready` class is added to <html> by an
+   inline head script, so without JS nothing is hidden (no-JS safe). An
+   IntersectionObserver adds `.is-visible`. Disabled under reduced-motion. */
+.reveal-ready [data-reveal-scroll],
+.reveal-ready [data-animate] {
+  opacity: 0;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.reveal-ready [data-reveal-scroll],
+.reveal-ready [data-animate='fade-up'] {
+  transform: translateY(20px);
+}
+.reveal-ready [data-animate='slide-left'] {
+  transform: translateX(-24px);
+}
+.reveal-ready [data-animate='slide-right'] {
+  transform: translateX(24px);
+}
+[data-reveal-scroll].is-visible,
+[data-animate].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered children. */
+.reveal-ready [data-stagger] > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+[data-stagger].is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+[data-stagger].is-visible > *:nth-child(1) {
+  transition-delay: 0.04s;
+}
+[data-stagger].is-visible > *:nth-child(2) {
+  transition-delay: 0.11s;
+}
+[data-stagger].is-visible > *:nth-child(3) {
+  transition-delay: 0.18s;
+}
+[data-stagger].is-visible > *:nth-child(4) {
+  transition-delay: 0.25s;
+}
+[data-stagger].is-visible > *:nth-child(5) {
+  transition-delay: 0.32s;
+}
+[data-stagger].is-visible > *:nth-child(6) {
+  transition-delay: 0.39s;
+}
+
+/* Stream-in stagger — a stronger, more deliberate variant of data-stagger
+   for editorial lists (FAQ, rush timeline). Items start lower and reveal
+   one at a time with a clearer per-item gap (~120ms) so the eye reads
+   each card as a discrete arrival rather than a wash. */
+.reveal-ready [data-stream-in] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+[data-stream-in].is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+[data-stream-in].is-visible > *:nth-child(1) {
+  transition-delay: 0.05s;
+}
+[data-stream-in].is-visible > *:nth-child(2) {
+  transition-delay: 0.18s;
+}
+[data-stream-in].is-visible > *:nth-child(3) {
+  transition-delay: 0.31s;
+}
+[data-stream-in].is-visible > *:nth-child(4) {
+  transition-delay: 0.44s;
+}
+[data-stream-in].is-visible > *:nth-child(5) {
+  transition-delay: 0.57s;
+}
+[data-stream-in].is-visible > *:nth-child(6) {
+  transition-delay: 0.7s;
+}
+[data-stream-in].is-visible > *:nth-child(7) {
+  transition-delay: 0.83s;
+}
+[data-stream-in].is-visible > *:nth-child(8) {
+  transition-delay: 0.96s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal-scroll],
+  .reveal-ready [data-animate],
+  .reveal-ready [data-stagger] > *,
+  .reveal-ready [data-stream-in] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =============================================================================
+   Fullscreen brother detail view — center card + faded prev/next peek cards
+   -----------------------------------------------------------------------------
+   Click a brother in the grid to open. The selected brother sits in the
+   middle as a full card; the previous and next brothers in the (filtered)
+   list show on either side as faded, smaller "peek" cards. Click a peek
+   card (or use ← / →) to navigate to that brother.
+   ============================================================================= */
+@keyframes brother-detail-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.brother-detail {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(212, 181, 106, 0.12);
+  animation: brother-detail-fade-in 0.25s ease;
+}
+
+.brother-detail__backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: default;
+  background: transparent;
+  border: 0;
+}
+
+.brother-detail__close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 110;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: rgba(247, 236, 217, 0.85);
+  background: rgba(30, 8, 8, 0.85);
+  border: 1px solid rgba(212, 181, 106, 0.35);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+.brother-detail__close:hover {
+  background: rgba(74, 4, 4, 0.65);
+  border-color: rgba(212, 181, 106, 0.6);
+  color: #fff;
+}
+
+.brother-detail__stage {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  width: 100%;
+  max-width: 84rem;
+}
+/* When the favorite-track strip is present, shift the stage down so the card
+   doesn't sit under the strip, and tighten the card's max-height so the
+   bottom of the card stays inside the viewport (otherwise the strip + card
+   together exceed 100vh and the footer / last section gets clipped). */
+/* Offset the stage by the strip's ACTUAL height (published as --now-playing-h
+   by SpotifyTrackStrip) plus the strip's top inset (1.25rem) and a gap, so the
+   card clears the strip no matter how tall the Spotify embed renders. The
+   fallbacks cover the brief moment before the observer runs. */
+.brother-detail:has(.brother-detail__now-playing) .brother-detail__stage {
+  margin-top: calc(var(--now-playing-h, 8rem) + 3rem);
+}
+.brother-detail:has(.brother-detail__now-playing) .brother-detail__card {
+  max-height: min(calc(100vh - var(--now-playing-h, 8rem) - 6.5rem), 50rem);
+}
+@media (max-width: 720px) {
+  .brother-detail:has(.brother-detail__now-playing) .brother-detail__stage {
+    margin-top: calc(var(--now-playing-h, 9rem) + 2.75rem);
+  }
+  .brother-detail:has(.brother-detail__now-playing) .brother-detail__card {
+    max-height: min(calc(100vh - var(--now-playing-h, 9rem) - 6rem), 48rem);
+  }
+}
+
+/* Favorite-track strip — pinned at the top of the overlay above the stage,
+   width matched to the card. Frees the card itself from cramming a full
+   Spotify embed beside the portrait + facts. Auto-hidden when the brother
+   has no spotifyTrackId. */
+.brother-detail__now-playing {
+  position: absolute;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  width: min(86vw, 68rem);
+  /* Keep the strip clear of the X close button on small screens. */
+  max-width: calc(100vw - 6rem);
+  margin: 0;
+  padding: 0.75rem 0.95rem 0.65rem;
+  background: rgba(30, 8, 8, 0.95);
+  border: 1px solid rgba(212, 181, 106, 0.32);
+  border-radius: 1rem;
+  box-shadow:
+    0 0 0 1px rgba(212, 181, 106, 0.06),
+    0 18px 38px rgba(0, 0, 0, 0.45);
+  display: grid;
+  grid-template-columns: minmax(8.5rem, 12rem) 1fr;
+  align-items: center;
+  gap: 0.9rem;
+  animation: brother-detail-fade-in 0.3s ease;
+}
+@media (max-width: 720px) {
+  .brother-detail__now-playing {
+    /* On phones the close button is closer to the strip; pin tighter and
+       stack the caption above the embed so the iframe gets full width. */
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+    padding: 0.65rem 0.85rem 0.6rem;
+    width: calc(100vw - 6rem);
+  }
+}
+.brother-detail__now-playing-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  padding-left: 0.35rem;
+  border-left: 2px solid var(--color-accent-500);
+  min-width: 0;
+}
+.brother-detail__now-playing-eyebrow {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+}
+.brother-detail__now-playing-who {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.005em;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Wrap the Spotify iframe in a div that hard-clips corners. Border-radius
+   + overflow:hidden alone don't reliably clip iframe content in Chromium/
+   Safari — the iframe document renders in its own context past the
+   parent's rounded corners. clip-path: inset(... round ...) forces a hard
+   rectangular clip including iframes, eliminating the white triangle
+   leakage at the four corners. */
+.brother-detail__now-playing-embed-wrap {
+  position: relative;
+  display: block;
+  min-width: 0;
+  background: #1e0808;
+  border-radius: 0.65rem;
+  overflow: hidden;
+  clip-path: inset(0 round 0.65rem);
+  isolation: isolate;
+}
+.brother-detail__now-playing-embed {
+  border: 0;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  background: #1e0808;
+  border-radius: inherit;
+  color-scheme: dark;
+}
+
+/* Navigation slide — each time the user goes left/right, the stage re-mounts
+   (key={index}) and the center card + peek cards stagger in from the side
+   opposite the navigation direction. Faster on the center card so it lands
+   first; peeks follow with a tiny offset. */
+@keyframes brother-detail-slide-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes brother-detail-slide-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.brother-detail__stage[data-enter='right'] .brother-detail__card {
+  animation: brother-detail-slide-from-right 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.brother-detail__stage[data-enter='left'] .brother-detail__card {
+  animation: brother-detail-slide-from-left 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.brother-detail__stage[data-enter='right'] .brother-detail__peek {
+  animation: brother-detail-slide-from-right 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.06s;
+}
+.brother-detail__stage[data-enter='left'] .brother-detail__peek {
+  animation: brother-detail-slide-from-left 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.06s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brother-detail__stage[data-enter] .brother-detail__card,
+  .brother-detail__stage[data-enter] .brother-detail__peek {
+    animation: none;
+  }
+}
+
+/* Center card — fills 75% of the viewport width (capped on ultra-wide screens).
+   Interior scrolls vertically; the upper portion (header + facts) is sized so
+   that the profile sections (Interests, Experience, Ask me about) sit below
+   the initially visible area and require a scroll down. */
+.brother-detail__card {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  /* Wider than before so the quick-facts strip + name have room to breathe
+     without wrapping awkwardly. Capped so it stays legible on ultrawides. */
+  width: min(86vw, 68rem);
+  max-height: min(90vh, 60rem);
+  background: #2a1410;
+  border: 1px solid rgba(212, 181, 106, 0.35);
+  border-radius: 1.5rem;
+  box-shadow:
+    0 0 0 1px rgba(212, 181, 106, 0.06),
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  text-align: left;
+  overflow: hidden;
+}
+
+.brother-detail__card-header {
+  display: flex;
+  align-items: stretch;
+  gap: 2.5rem;
+  padding: 2.5rem 3rem 2rem;
+  border-bottom: 1px solid rgba(212, 181, 106, 0.18);
+  flex-shrink: 0;
+}
+/* Below 640px the side-by-side portrait + intro is too cramped: stack
+   vertically with reduced padding so nothing is squeezed. */
+@media (max-width: 640px) {
+  .brother-detail__card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 1.75rem 1.25rem 1.5rem;
+  }
+}
+
+/* Upright portrait frame — 3:4 aspect ratio, holds a real photo when one is
+   set on the brother, otherwise shows the brother's initials. Sized so the
+   face reads at a glance without dominating the card (3:4 gets tall fast). */
+.brother-detail__portrait {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(7rem, 16vw, 10.5rem);
+  aspect-ratio: 3 / 4;
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #7b1e1e;
+  border: 1px solid rgba(212, 181, 106, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 12px 28px rgba(0, 0, 0, 0.35);
+}
+.brother-detail__portrait-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.brother-detail__portrait-initials {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 700;
+  color: rgba(221, 192, 116, 0.85);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.brother-detail__portrait-hint {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(221, 192, 116, 0.45);
+}
+
+.brother-detail__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.brother-detail__eyebrow {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+  margin: 0;
+}
+.brother-detail__name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0.35rem 0 0;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.brother-detail__role {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(247, 236, 217, 0.75);
+  margin: 0.65rem 0 0;
+}
+
+/* Quick-facts strip — sits beside the portrait so the right column of the
+   header isn't mostly empty. Two-column grid on wider screens; stacks on
+   narrow ones. The "wide" variant (currentlyAt / school) spans both
+   columns. */
+.brother-detail__quick-facts {
+  margin: 1.1rem 0 0;
+  padding: 0.95rem 1.1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem 1.5rem;
+  background: rgba(15, 4, 4, 0.45);
+  border: 1px solid rgba(212, 181, 106, 0.18);
+  border-radius: 0.85rem;
+}
+.brother-detail__quick-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.brother-detail__quick-fact--wide {
+  grid-column: 1 / -1;
+}
+.brother-detail__quick-fact dt {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+  margin: 0;
+}
+.brother-detail__quick-fact dd {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+  margin: 0;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+@media (max-width: 640px) {
+  .brother-detail__quick-facts {
+    grid-template-columns: 1fr;
+  }
+  .brother-detail__quick-fact--wide {
+    grid-column: 1;
+  }
+}
+
+/* Make the portrait clickable button look like the figure it replaces.
+   Keep the base .brother-detail__portrait clamp() sizing — `width: 100%`
+   here previously overrode it and made the portrait swallow the modal. */
+.brother-detail__portrait--clickable {
+  padding: 0;
+  background: transparent;
+  cursor: zoom-in;
+  display: block;
+}
+.brother-detail__portrait--clickable:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+
+/* Scrollable interior — the profile sections. */
+.brother-detail__scroll {
+  /* flex:0 1 auto so the scroll area sizes to its content instead of stretching
+     to fill a tall card (which left a void under sparse profiles). The card's
+     max-height still caps it, so rich profiles scroll within that bound. */
+  flex: 0 1 auto;
+  overflow-y: auto;
+  padding: 1rem 2rem 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 181, 106, 0.25) transparent;
+}
+/* On a wide card the sections stacked in one column wasted the right half and
+   pushed everything into a scroll. Two columns show far more of a brother at
+   once; the scroll hint stays full width. */
+@media (min-width: 900px) {
+  .brother-detail__scroll {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.25rem;
+    align-content: start;
+  }
+}
+@media (max-width: 640px) {
+  .brother-detail__scroll {
+    padding: 0.75rem 1.1rem 1.25rem;
+  }
+  /* On phones the header (portrait + name + facts) ate the card's height and
+     squeezed this region down to a ~32px slit. Let the WHOLE card scroll
+     instead, so the profile gets the full sheet to be read in. */
+  .brother-detail__card {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .brother-detail__scroll {
+    flex: 0 0 auto;
+    overflow: visible;
+  }
+}
+.brother-detail__scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.brother-detail__scroll::-webkit-scrollbar-thumb {
+  background: rgba(212, 181, 106, 0.25);
+  border-radius: 9999px;
+}
+
+/* Profile sections (Interests / Experience / Ask me about). Each section is
+   preceded by a gold dotted divider that runs the width of the card so the
+   transitions feel intentional, like chapter breaks. */
+.brother-detail__section {
+  position: relative;
+  margin-top: 1rem;
+  padding: 1rem 0 0.25rem;
+}
+@media (max-width: 640px) {
+  .brother-detail__section {
+    margin-top: 0.7rem;
+    padding: 0.8rem 0 0.15rem;
+  }
+}
+.brother-detail__section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background-image: none;
+  background-size: 14px 6px;
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: 0.45;
+}
+.brother-detail__section:first-of-type {
+  margin-top: 0.85rem;
+}
+@media (max-width: 640px) {
+  .brother-detail__section:first-of-type {
+    margin-top: 0.6rem;
+  }
+}
+.brother-detail__section-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 0.95rem;
+  letter-spacing: -0.005em;
+}
+
+.brother-detail__tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.brother-detail__tag {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(247, 236, 217, 0.95);
+  background: rgba(212, 181, 106, 0.1);
+  border: 1px solid rgba(212, 181, 106, 0.3);
+  padding: 0.45rem 0.95rem;
+  border-radius: 9999px;
+  line-height: 1.3;
+}
+.brother-detail__tag--accent {
+  background: rgba(212, 181, 106, 0.16);
+  border-color: rgba(212, 181, 106, 0.45);
+  color: #fff;
+}
+
+.brother-detail__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.brother-detail__list li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: 1rem;
+  color: rgba(247, 236, 217, 0.95);
+  line-height: 1.5;
+}
+.brother-detail__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 9999px;
+  background: var(--color-accent-400);
+  transform: translateY(-50%);
+}
+
+.brother-detail__empty {
+  margin: 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: rgba(247, 236, 217, 0.4);
+}
+
+/* Free-text detail (fun fact, favorite song) — readable body copy, not the
+   muted "empty" style. */
+.brother-detail__prose {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(247, 236, 217, 0.82);
+}
+html:not(.dark) .brother-detail__prose {
+  color: rgba(40, 12, 12, 0.82);
+}
+
+.brother-detail__footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.75rem 1.1rem;
+  border-top: 1px solid rgba(212, 181, 106, 0.18);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  color: rgba(247, 236, 217, 0.55);
+}
+.brother-detail__nav-hint {
+  letter-spacing: 0.1em;
+  color: rgba(247, 236, 217, 0.4);
+}
+/* On phones there are no arrow keys and the prev/next peek cards are hidden
+   (below 1280px), so "← → to navigate" is misleading — you navigate by closing
+   and tapping another brother. Drop the hint and center the roster position so
+   the footer doesn't read as a broken control. */
+@media (max-width: 640px) {
+  .brother-detail__footer {
+    justify-content: center;
+    padding: 0.85rem 1.25rem 1rem;
+  }
+  .brother-detail__nav-hint {
+    display: none;
+  }
+}
+
+/* Peek cards — faded prev/next brothers flanking the center card. */
+.brother-detail__peek {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: clamp(11rem, 18vw, 14rem);
+  flex-shrink: 0;
+  padding: 1rem;
+  background: rgba(42, 20, 16, 0.7);
+  border: 1px solid rgba(212, 181, 106, 0.18);
+  border-radius: 1rem;
+  color: rgba(247, 236, 217, 0.72);
+  cursor: pointer;
+  opacity: 0.55;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+.brother-detail__peek:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  border-color: rgba(212, 181, 106, 0.45);
+}
+.brother-detail__peek--placeholder {
+  visibility: hidden;
+  pointer-events: none;
+  cursor: default;
+  background: transparent;
+  border: 0;
+}
+.brother-detail__peek--prev {
+  flex-direction: row;
+}
+.brother-detail__peek--next {
+  flex-direction: row;
+}
+
+.brother-detail__peek-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgba(221, 192, 116, 0.85);
+}
+
+.brother-detail__peek-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  text-align: left;
+  min-width: 0;
+}
+
+.brother-detail__peek-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: #4a0404;
+  border: 1px solid rgba(212, 181, 106, 0.3);
+  color: rgba(221, 192, 116, 0.85);
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.brother-detail__peek-eyebrow {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(221, 192, 116, 0.7);
+}
+
+.brother-detail__peek-name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.brother-detail__peek-major {
+  font-size: 0.72rem;
+  color: rgba(247, 236, 217, 0.55);
+  line-height: 1.3;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Peek cards only show on roomy screens — at standard widths the 75vw center
+   card is the focus. Below 1280px they're hidden so the center has room. */
+@media (max-width: 1279px) {
+  .brother-detail__peek {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Brother detail card — LIGHT-MODE overrides. The default styling above is
+   tuned for dark mode (always-dark before this change); these rules flip the
+   modal to a cream/parchment surface with dark text when the site is in
+   light mode. Portrait + brother's own photo stay self-contained.
+   --------------------------------------------------------------------------- */
+html:not(.dark) .brother-detail {
+  background: rgba(212, 181, 106, 0.22);
+}
+html:not(.dark) .brother-detail__close {
+  color: var(--color-brand-800);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: var(--color-gold-muted);
+}
+html:not(.dark) .brother-detail__close:hover {
+  background: var(--color-surface);
+  color: var(--color-brand-900);
+}
+
+html:not(.dark) .brother-detail__card {
+  background: #ffffff;
+  border-color: var(--color-gold-muted);
+  box-shadow:
+    0 0 0 1px rgba(212, 181, 106, 0.08),
+    0 30px 70px rgba(74, 4, 4, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+html:not(.dark) .brother-detail__card-header {
+  border-bottom-color: var(--color-border);
+}
+
+html:not(.dark) .brother-detail__eyebrow {
+  color: var(--color-accent-600);
+}
+html:not(.dark) .brother-detail__name {
+  color: var(--color-text);
+}
+html:not(.dark) .brother-detail__role {
+  color: var(--color-text-muted);
+}
+
+html:not(.dark) .brother-detail__quick-facts {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: var(--color-border);
+}
+html:not(.dark) .brother-detail__quick-fact dt {
+  color: var(--color-accent-600);
+}
+html:not(.dark) .brother-detail__quick-fact dd {
+  color: var(--color-text);
+}
+
+html:not(.dark) .brother-detail__section::before {
+  opacity: 0.6;
+}
+html:not(.dark) .brother-detail__section-title {
+  color: var(--color-text);
+}
+html:not(.dark) .brother-detail__empty {
+  color: var(--color-text-muted);
+}
+
+html:not(.dark) .brother-detail__tag {
+  color: var(--color-text);
+  background: rgba(212, 181, 106, 0.12);
+  border-color: rgba(212, 181, 106, 0.4);
+}
+html:not(.dark) .brother-detail__tag--accent {
+  background: rgba(212, 181, 106, 0.22);
+  border-color: rgba(212, 181, 106, 0.55);
+  color: var(--color-brand-900);
+}
+html:not(.dark) .brother-detail__list li {
+  color: var(--color-text);
+}
+
+html:not(.dark) .brother-detail__footer {
+  border-top-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+html:not(.dark) .brother-detail__position,
+html:not(.dark) .brother-detail__nav-hint {
+  color: var(--color-text-muted);
+}
+
+/* Peek cards on either side — cream surface with dark text in light mode. */
+html:not(.dark) .brother-detail__peek {
+  background: #ffffff;
+  border-color: var(--color-gold-muted);
+  color: var(--color-text);
+  box-shadow:
+    0 0 0 1px rgba(212, 181, 106, 0.06),
+    0 18px 36px rgba(74, 4, 4, 0.12);
+}
+html:not(.dark) .brother-detail__peek:hover {
+  border-color: var(--color-accent-500);
+}
+html:not(.dark) .brother-detail__peek-avatar {
+  background: var(--color-brand-700);
+  border-color: var(--color-accent-500);
+  color: var(--color-accent-400);
+}
+html:not(.dark) .brother-detail__peek-eyebrow {
+  color: var(--color-accent-600);
+}
+html:not(.dark) .brother-detail__peek-name {
+  color: var(--color-text);
+}
+html:not(.dark) .brother-detail__peek-major {
+  color: var(--color-text-muted);
+}
+html:not(.dark) .brother-detail__peek-arrow {
+  color: var(--color-text-muted);
+}
+
+/* Favorite-track strip in light mode — cream backdrop with maroon text so
+   the eyebrow + brother name read on the parchment surface. */
+html:not(.dark) .brother-detail__now-playing {
+  background: #ffffff;
+  border-color: var(--color-gold-muted);
+  box-shadow:
+    0 0 0 1px rgba(212, 181, 106, 0.08),
+    0 18px 38px rgba(74, 4, 4, 0.15);
+}
+html:not(.dark) .brother-detail__now-playing-eyebrow {
+  color: var(--color-accent-600);
+}
+html:not(.dark) .brother-detail__now-playing-who {
+  color: var(--color-text);
+}
+/* Spotify iframe keeps Spotify's own dark UI in both themes — match the embed's
+   outer background to the dark strip so no light edge shows around the player. */
+html:not(.dark) .brother-detail__now-playing-embed {
+  background: #1e0808;
+}
+
+/* =============================================================================
+   StickyRushCTA — floating "next rush event" callout on the home page
+   ============================================================================= */
+.sticky-rush-cta {
+  position: fixed;
+  z-index: 60;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%) translateY(150%);
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
+  width: min(28rem, calc(100vw - 2rem));
+}
+.sticky-rush-cta[data-visible='true'] {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.sticky-rush-cta__inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem 0.75rem 1.1rem;
+  background: var(--color-brand-700);
+  border: 1px solid rgba(212, 181, 106, 0.45);
+  border-radius: 1rem;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+.sticky-rush-cta__dot {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-accent-400);
+  box-shadow: 0 0 12px rgba(221, 192, 116, 0.7);
+}
+.sticky-rush-cta__copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.sticky-rush-cta__label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+}
+.sticky-rush-cta__detail {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sticky-rush-cta__btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  background: var(--color-accent-500);
+  color: var(--color-brand-900);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 0.55rem;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.sticky-rush-cta__btn:hover {
+  background: var(--color-accent-400);
+}
+.sticky-rush-cta__close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgba(255, 255, 255, 0.65);
+  background: transparent;
+  border: 0;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+.sticky-rush-cta__close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+/* Narrow phones — the bar is only ~288px at 320px wide, so the button and
+   close button squeeze the detail line down to an ellipsis and the event name
+   plus date are lost. Give the copy its own full-width row above them. */
+@media (max-width: 420px) {
+  .sticky-rush-cta__inner {
+    flex-wrap: wrap;
+  }
+  /* Drop the CTA onto its own row so the dot + copy + close get the whole bar
+     width and the event name and date both read. */
+  .sticky-rush-cta__btn {
+    order: 1;
+    flex: 1 0 100%;
+    justify-content: center;
+  }
+  .sticky-rush-cta__detail {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sticky-rush-cta {
+    transition: opacity 0.2s ease;
+    transform: translateX(-50%);
+  }
+}
+
+/* =============================================================================
+   TestimonialsScroller — auto-scrolling vertical marquee columns
+   ============================================================================= */
+.testimonials-scroller {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  height: 36rem;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .testimonials-scroller {
+    grid-template-columns: 1fr 1fr;
+    height: 42rem;
+  }
+}
+
+/* Each column is a real scroll container: the component gently auto-advances
+   it, but the user can grab it and scroll (touch drag, trackpad, or wheel) at
+   any time — auto-scroll pauses while they interact and resumes after. The
+   scrollbar is hidden so the effect still reads as an editorial marquee. */
+.testimonials-scroller__column {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge */
+}
+.testimonials-scroller__column::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+/* On phones the two columns stacked and the 2nd got clipped ("two parts").
+   Show a single clean marquee column instead. */
+@media (max-width: 767px) {
+  .testimonials-scroller__column--alt {
+    display: none;
+  }
+}
+
+.testimonials-scroller__track {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.testimonials-scroller__card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 8px 22px rgba(74, 4, 4, 0.08);
+  margin: 0;
+}
+html.dark .testimonials-scroller__card {
+  background: rgba(74, 4, 4, 0.45);
+  border-color: rgba(212, 181, 106, 0.2);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.testimonials-scroller__quote {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.55;
+  margin: 0;
+  font-style: italic;
+}
+html.dark .testimonials-scroller__quote {
+  color: rgba(247, 236, 217, 0.92);
+}
+
+.testimonials-scroller__caption {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+.testimonials-scroller__portrait {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.75rem;
+  aspect-ratio: 3 / 4;
+  border-radius: 0.55rem;
+  overflow: hidden;
+  background: var(--color-brand-700);
+  border: 1px solid rgba(212, 181, 106, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonials-scroller__portrait-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.testimonials-scroller__portrait-initials {
+  color: var(--color-accent-400);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: -0.01em;
+}
+.testimonials-scroller__name {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+html.dark .testimonials-scroller__name {
+  color: #fff;
+}
+.testimonials-scroller__role {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 0.15rem;
+}
+html.dark .testimonials-scroller__role {
+  color: rgba(247, 236, 217, 0.55);
+}
+
+.testimonials-scroller__fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  pointer-events: none;
+  z-index: 2;
+}
+.testimonials-scroller__fade--top {
+  top: 0;
+  background: var(--color-bg);
+}
+.testimonials-scroller__fade--bottom {
+  bottom: 0;
+  background: var(--color-bg);
+}
+
+/* =============================================================================
+   GlowCard — pointer-tracking warm spotlight border
+   ============================================================================= */
+.glow-card {
+  position: relative;
+  --base: 30;
+  --spread: 60;
+  --radius: 18;
+  --border: 2;
+  --size: 220;
+  --x: 0;
+  --xp: 0;
+  --y: 0;
+  --border-size: calc(var(--border) * 1px);
+  --spotlight: calc(var(--size) * 1px);
+  --hue: calc(var(--base) + (var(--xp) * var(--spread)));
+  border-radius: calc(var(--radius) * 1px);
+  isolation: isolate;
+}
+.glow-card::before,
+.glow-card::after {
+  content: '';
+  position: absolute;
+  inset: calc(var(--border-size) * -1);
+  border: var(--border-size) solid transparent;
+  border-radius: inherit;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+  mask: linear-gradient(transparent, transparent), linear-gradient(#000, #000);
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+  pointer-events: none;
+}
+.glow-card::before {
+  background-image: none;
+  filter: brightness(1.4);
+}
+.glow-card::after {
+  background-image: none;
+}
+
+/* =============================================================================
+   ScrollExpandHero — fullscreen scroll-driven intro
+   ============================================================================= */
+.scroll-expand-hero {
+  --progress: 0;
+  --p-tail: calc(1 - var(--progress));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: rgba(212, 181, 106, 0.18);
+}
+/* Viewport wrapper. On desktop it generates no box (display:contents) so the
+   absolutely-positioned children still resolve against the section, exactly as
+   before. On touch it turns into a 100dvh sticky box inside a tall section so
+   the media/title pin while the page scrolls the expand (see the touch block
+   below). */
+.scroll-expand-hero__viewport {
+  display: contents;
+}
+
+/* Touch + motion OK: a REAL scroll-expand, without hijacking scroll (the
+   hijack trapped touch users). The section is made tall and its inner viewport
+   is `position: sticky`, so the hero pins for one screenful of native scroll;
+   ScrollExpandHero.tsx maps that scroll distance to --progress. The media tile
+   then scales from a small poster to fullscreen. It scales via `transform`
+   (GPU-composited, no per-frame layout) and the video stays PAUSED — showing
+   its poster — during the scale, so the compositor only ever scales a static
+   image. That was the whole trick: scaling a *playing* HD video resamples its
+   texture every frame and janks; scaling a paused one is free. JS calls play()
+   once it's basically fullscreen. */
+@media (pointer: coarse) and (prefers-reduced-motion: no-preference) {
+  .scroll-expand-hero {
+    /* Tall enough to give the expand its scroll track plus a short dwell at
+       fullscreen before the page moves on (JS completes --progress at ~72% of
+       the pin range; the rest holds full-screen). */
+    min-height: 200vh;
+    display: block;
+    /* MUST be visible, not hidden: an ancestor with overflow:hidden turns into
+       the sticky viewport's scroll container and stops it pinning to the screen.
+       Clipping of the scaled tile is done by the sticky __viewport instead. */
+    overflow: visible;
+  }
+  .scroll-expand-hero__viewport {
+    display: block;
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    overflow: hidden;
+  }
+  /* One blurred bg-video copy is pure cost on mobile — drop it. */
+  .scroll-expand-hero__bg-video {
+    display: none;
+  }
+  /* Media tile: a small poster-sized rectangle at progress 0 (sized to the
+     viewport's own aspect so a single uniform scale fills it with no
+     distortion), scaling up to exactly cover the screen at progress 1. Base is
+     42% of each axis, so the fill scale is 100/42 = ~2.381 (factor 1.381). */
+  .scroll-expand-hero .scroll-expand-hero__media {
+    top: 50%;
+    left: 50%;
+    width: 42vw;
+    height: 42dvh;
+    max-width: none;
+    max-height: none;
+    border-radius: 1.25rem;
+    /* Base tile is 42% of each axis, so ~2.38x fills exactly; scale to 2.5x
+       (factor 1.5) for a little overscan so the footage always covers the
+       screen edge-to-edge even with the sticky viewport's navbar offset. */
+    transform: translate(-50%, -50%) scale(calc(1 + var(--progress) * 1.5));
+    transform-origin: center center;
+    will-change: transform;
+  }
+  /* Scrim over the footage; lifts a touch as the tile takes over the screen. */
+  .scroll-expand-hero .scroll-expand-hero__media-tint {
+    opacity: calc(0.32 + var(--progress) * 0.24);
+  }
+  /* Title + eyebrow fade and lift as the video expands to fill the screen. */
+  .scroll-expand-hero__stage {
+    transform: translate3d(0, calc(var(--progress) * -3vh), 0);
+    opacity: calc(1 - var(--progress) * 1.25);
+    will-change: transform, opacity;
+  }
+  .scroll-expand-hero__hint {
+    display: none;
+  }
+}
+
+/* Touch + reduced motion: no scroll-driven expand — a calm, static full-bleed
+   video hero that the page simply scrolls past. */
+@media (pointer: coarse) and (prefers-reduced-motion: reduce) {
+  .scroll-expand-hero {
+    min-height: 100dvh;
+  }
+  .scroll-expand-hero .scroll-expand-hero__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    transform: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .scroll-expand-hero__bg-video {
+    display: none;
+  }
+  .scroll-expand-hero__media-tint {
+    opacity: 0.5;
+  }
+  .scroll-expand-hero__hint {
+    display: none;
+  }
+}
+
+/* Optional background video — fills the viewport, dimmed under a layered tint
+   so the centered tile + title still pop. Opacity rises slightly as the user
+   scrolls so the page reveals "more" of the footage. */
+.scroll-expand-hero__bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: calc(0.35 + var(--progress) * 0.45);
+  filter: blur(2px) saturate(1.05);
+}
+
+.scroll-expand-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(184, 144, 47, 0.05);
+  pointer-events: none;
+}
+
+.scroll-expand-hero__stage {
+  /* Overlay on top of the absolutely-positioned media tile. Grid with
+     auto/1fr/auto rows pushes the title to the top edge and the eyebrow+hint
+     to the bottom edge, leaving the middle 1fr empty so the video tile shows
+     through cleanly — no overlap or text clash even as the tile grows. */
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  padding: clamp(9vh, 12vh, 7rem) 1.5rem clamp(3vh, 5vh, 3rem);
+  row-gap: 0.75rem;
+  pointer-events: none;
+}
+.scroll-expand-hero__stage > * {
+  pointer-events: auto;
+}
+.scroll-expand-hero__stage .scroll-expand-hero__title-row {
+  grid-row: 1;
+  align-self: start;
+}
+.scroll-expand-hero__stage .scroll-expand-hero__eyebrow {
+  grid-row: 3;
+  align-self: end;
+}
+.scroll-expand-hero__stage .scroll-expand-hero__hint {
+  grid-row: 4;
+  align-self: end;
+}
+
+.scroll-expand-hero__media {
+  /* Absolutely centered so its size doesn't have to share the flex stage with
+     the title/eyebrow/hint. At progress=0 it's a small centered poster; at
+     progress=1 it grows to truly fill the viewport (100vw × 100dvh) with no
+     gaps at top or bottom. */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: calc(320px + var(--progress) * (100vw - 320px));
+  height: calc(200px + var(--progress) * (100dvh - 200px));
+  max-width: 100vw;
+  max-height: 100dvh;
+  border-radius: calc(1.5rem * (1 - var(--progress) * 0.85));
+  overflow: hidden;
+  background: #0a0202;
+  box-shadow:
+    0 0 0 1px rgba(212, 181, 106, 0.18),
+    0 30px 80px rgba(0, 0, 0, 0.55);
+  will-change: width, height;
+}
+
+.scroll-expand-hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.scroll-expand-hero__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 0.4rem;
+  background: rgba(212, 181, 106, 0.16);
+  color: rgba(247, 236, 217, 0.6);
+  padding: 1.5rem;
+  text-align: center;
+}
+.scroll-expand-hero__placeholder-label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+}
+.scroll-expand-hero__placeholder-hint {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  max-width: 28ch;
+  line-height: 1.4;
+  color: rgba(247, 236, 217, 0.5);
+}
+
+.scroll-expand-hero__media-tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  opacity: calc(0.55 - var(--progress) * 0.45);
+}
+
+.scroll-expand-hero__title-row {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.6em;
+  width: 100%;
+  white-space: nowrap;
+  /* As the user finishes scrolling, the title floats up and out of the
+     viewport so the fully expanded video has the stage to itself.
+     The vertical lift and fade kick in past progress 0.6. */
+  transform: translateY(calc(max(0, var(--progress) - 0.6) * -25vh));
+  opacity: calc(1 - max(0, var(--progress) - 0.6) * 3);
+}
+.scroll-expand-hero__title-word {
+  /* Bumped up from clamp(2, 5vw, 4.25rem) — the home hero title gets a
+     larger, more commanding presence. */
+  font-size: clamp(2.75rem, 7.5vw, 6.25rem);
+  font-weight: 700;
+  color: #f7ecd9;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  display: inline-block;
+  will-change: transform;
+}
+.scroll-expand-hero__title-word--first {
+  transform: translateX(calc(var(--progress) * -10vw));
+}
+.scroll-expand-hero__title-word--rest {
+  transform: translateX(calc(var(--progress) * 10vw));
+}
+
+/* Thin horizontal separator between the two title halves — replaces an
+   em-dash glyph so we control the weight exactly. Disappears upward as the
+   hero expands: lifts off baseline and fades, like a beat that gets carried
+   away before the two title halves part. */
+.scroll-expand-hero__title-sep {
+  display: inline-block;
+  flex-shrink: 0;
+  align-self: center;
+  /* Render the actual separator glyph (a middle dot) rather than a drawn bar,
+     so the headline reads "ΘΤ · UCI" and never looks like an em dash. Matches
+     the "PI DELTA · UCI" dot used in the nav/footer lockups. */
+  font-family: var(--font-display, 'Fraunces', Georgia, serif);
+  color: rgba(247, 236, 217, 0.6);
+  line-height: 1;
+  margin: 0 0.12em 0.12em;
+  /* Slide up + fade out as soon as scroll progress kicks in. By the time
+     the two halves start fanning apart, the dot is gone. */
+  transform: translateY(calc(var(--progress) * -2.2em));
+  opacity: calc(1 - var(--progress) * 2);
+  transition: opacity 0.15s linear;
+  will-change: transform, opacity;
+}
+.scroll-expand-hero__title-sep::before {
+  content: attr(data-sep-char);
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-expand-hero__title-sep {
+    transition: none;
+  }
+}
+
+.scroll-expand-hero__eyebrow {
+  position: relative;
+  z-index: 5;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1rem;
+  color: rgba(247, 236, 217, 0.78);
+  max-width: 38ch;
+  margin: 0 auto;
+  opacity: calc(1 - var(--progress) * 1.4);
+  pointer-events: none;
+}
+
+.scroll-expand-hero__hint {
+  /* Let the hint flow as the last item in the centered stack so it sits
+     directly under the eyebrow with normal gap spacing instead of fighting
+     for the same edge as the title or eyebrow. */
+  margin: 0.5rem 0 0;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(247, 236, 217, 0.45);
+  opacity: calc(1 - var(--progress) * 2.2);
+  pointer-events: none;
+}
+.scroll-expand-hero__hint::after {
+  content: '↓';
+  display: block;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  margin-top: 0.35rem;
+  animation: scroll-expand-bob 1.8s ease-in-out infinite;
+}
+@keyframes scroll-expand-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-expand-hero__hint::after {
+    animation: none;
+  }
+}
+
+/* =============================================================================
+   Brothers search bar — warm cream surface, leading icon, gold focus ring
+   ============================================================================= */
+.brothers-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 28rem;
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 0 0.75rem 0 2.5rem;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+html.dark .brothers-search {
+  background: rgba(74, 4, 4, 0.32);
+}
+.brothers-search:hover {
+  border-color: var(--color-gold-muted);
+}
+.brothers-search:focus-within {
+  border-color: var(--color-accent-500);
+  background: #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(212, 181, 106, 0.18),
+    0 8px 22px rgba(74, 4, 4, 0.06);
+}
+html.dark .brothers-search:focus-within {
+  background: rgba(74, 4, 4, 0.55);
+}
+
+.brothers-search__icon {
+  position: absolute;
+  left: 0.95rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-gold);
+  display: inline-flex;
+  pointer-events: none;
+}
+.brothers-search__input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0.7rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+  min-width: 0;
+}
+html.dark .brothers-search__input {
+  color: #ffffff;
+}
+/* iOS Safari zooms the layout viewport when a focused field is under 16px and
+   never zooms back out, so hold the search input at exactly 1rem on phones. */
+@media (max-width: 640px) {
+  .brothers-search__input {
+    font-size: 1rem;
+  }
+}
+.brothers-search__input::placeholder {
+  color: var(--color-text-muted);
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 0.92rem;
+}
+/* Hide native clear/cancel buttons that some browsers add to type=search. */
+.brothers-search__input::-webkit-search-cancel-button,
+.brothers-search__input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.brothers-search__clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 9999px;
+  background: rgba(74, 4, 4, 0.08);
+  border: 0;
+  color: var(--color-text);
+  cursor: pointer;
+  margin-left: 0.4rem;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+.brothers-search__clear:hover {
+  background: var(--color-accent-500);
+  color: var(--color-brand-900);
+}
+html.dark .brothers-search__clear {
+  background: rgba(212, 181, 106, 0.18);
+  color: var(--color-accent-400);
+}
+html.dark .brothers-search__clear:hover {
+  background: var(--color-accent-400);
+  color: var(--color-brand-900);
+}
+.brothers-search__clear:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+
+/* =============================================================================
+   Brothers filter pills (Linear-style multi-segment filter chips)
+   ============================================================================= */
+.brothers-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brothers-filter-pill {
+  display: inline-flex;
+  align-items: stretch;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.brothers-filter-pill__segment {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  border-right: 1px solid var(--color-border);
+}
+.brothers-filter-pill__segment:last-child {
+  border-right: 0;
+}
+
+.brothers-filter-pill__segment--type {
+  background: var(--color-surface-2);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.brothers-filter-pill__segment--menu {
+  position: relative;
+  padding: 0;
+}
+.brothers-filter-pill__segment--values {
+  position: relative;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.55);
+}
+html.dark .brothers-filter-pill__segment--values {
+  background: rgba(74, 4, 4, 0.3);
+}
+
+.brothers-filter-pill__seg-btn {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.35rem 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: background 0.15s ease;
+}
+.brothers-filter-pill__seg-btn:hover {
+  background: rgba(212, 181, 106, 0.1);
+}
+.brothers-filter-pill__seg-btn--values {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.brothers-filter-pill__remove {
+  padding: 0;
+  background: var(--color-surface);
+  cursor: pointer;
+  border: 0;
+  border-left: 1px solid var(--color-border);
+  width: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+.brothers-filter-pill__remove:hover {
+  background: var(--color-brand-600);
+  color: #fff;
+}
+
+/* Add-filter button. */
+.brothers-filter-add {
+  position: relative;
+  display: inline-block;
+}
+.brothers-filter-add__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+.brothers-filter-add__btn:hover {
+  border-color: var(--color-gold-muted);
+  border-style: solid;
+}
+.brothers-filter-add__btn .is-open {
+  transform: rotate(180deg);
+}
+
+/* Clear-all button. */
+.brothers-filter-clear {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0.4rem 0.5rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.brothers-filter-clear:hover {
+  color: var(--color-brand-700);
+}
+html.dark .brothers-filter-clear:hover {
+  color: var(--color-accent-400);
+}
+
+/* Shared popover menu (operator + value pickers). */
+.brothers-filter-menu {
+  position: absolute;
+  top: calc(100% + 0.3rem);
+  left: 0;
+  /* Sit above the GlowCard-wrapped roster cards (which create stacking
+     contexts via `isolation: isolate`). 70 leaves room for nav (z-30) and
+     other layered UI. */
+  z-index: 70;
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem;
+  min-width: 9rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 0.55rem;
+  box-shadow: 0 18px 40px rgba(74, 4, 4, 0.15);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.82rem;
+  max-height: 18rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold-muted) transparent;
+}
+html.dark .brothers-filter-menu {
+  background: var(--color-surface);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+.brothers-filter-menu--narrow {
+  min-width: 8rem;
+}
+.brothers-filter-menu--wide {
+  min-width: 14rem;
+}
+
+.brothers-filter-menu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.brothers-filter-menu__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.4rem 0.55rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0.35rem;
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.brothers-filter-menu__option:hover,
+.brothers-filter-menu__option:focus-visible {
+  background: var(--color-surface-2);
+}
+/* Keyboard users need a real ring: the background swap alone is ~1.2:1 against
+   the menu in both themes, well under the 3:1 WCAG 2.4.11 floor. Inset so the
+   ring stays inside the menu padding. */
+.brothers-filter-menu__option:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: -2px;
+}
+html.dark .brothers-filter-menu__option:hover,
+html.dark .brothers-filter-menu__option:focus-visible {
+  background: rgba(212, 181, 106, 0.12);
+}
+html.dark .brothers-filter-menu__option:focus-visible {
+  outline-color: var(--color-accent-400);
+}
+.brothers-filter-menu__option.is-selected {
+  color: var(--color-brand-700);
+  font-weight: 600;
+}
+html.dark .brothers-filter-menu__option.is-selected {
+  color: var(--color-accent-400);
+}
+
+.brothers-filter-menu__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  color: var(--color-accent-500);
+  background: #fff;
+}
+html.dark .brothers-filter-menu__check {
+  background: rgba(74, 4, 4, 0.5);
+}
+.brothers-filter-menu__option.is-selected .brothers-filter-menu__check {
+  background: var(--color-brand-600);
+  border-color: var(--color-brand-600);
+  color: #fff;
+}
+
+.brothers-filter-menu__empty {
+  list-style: none;
+  padding: 0.55rem 0.5rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: 0.78rem;
+}
+
+/* Brothers roster card — left rectangular portrait + brother info. */
+/* Vertical roster card portrait — full width of the card, 3:4 aspect, sits
+   above the brother's info. The big surface area lets a real headshot
+   actually carry the card. */
+.brother-card__portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  background: var(--color-brand-700);
+  border: 1px solid rgba(212, 181, 106, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brother-card__portrait-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Anchor at the top so we keep the head and show more of the body. */
+  object-position: top center;
+}
+.brother-card__portrait-initials {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-accent-400);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* Company hover reveal — full-portrait dark scrim that fades up on hover
+   with the company/school text typographically anchored to the bottom of
+   the portrait. Inspired by the Aceternity / shadcn-extensions
+   "hover-effect" image-reveal pattern: no icon chrome, just refined
+   typography on a flat wash. Keyboard users get it via :focus-within;
+   prefers-reduced-motion drops the slide. */
+.brother-card__company {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.85rem 0.95rem 0.95rem;
+  color: #ffffff;
+  /* Full-cover dark scrim, flat (no gradients allowed). It only exists while
+     the overlay is hovered/focused, so the face is never dimmed at rest, and
+     0.72 keeps the gold eyebrow past 4.5:1 even over the lightest headshots. */
+  background: rgba(15, 4, 4, 0.72);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+/* Reveal only on hover-capable devices. On touch, tapping the card opens the
+   full BrotherDetail modal (which shows the same company info), and a bare
+   :focus-within here would otherwise leave the overlay stuck on after tap. */
+@media (hover: hover) {
+  .brother-card-wrap:hover .brother-card__company,
+  .brother-card-wrap:focus-within .brother-card__company {
+    opacity: 1;
+  }
+}
+
+/* Inner text block — separate transition so it gets the subtle slide-up
+   while the scrim does a pure fade. The gold thin rule above the
+   eyebrow is the only chrome. */
+.brother-card__company-eyebrow,
+.brother-card__company-name {
+  transform: translateY(8px);
+  opacity: 0;
+  transition:
+    transform 0.32s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.24s ease;
+}
+.brother-card__company-name {
+  transition-delay: 0.04s;
+}
+@media (hover: hover) {
+  .brother-card-wrap:hover .brother-card__company-eyebrow,
+  .brother-card-wrap:hover .brother-card__company-name,
+  .brother-card-wrap:focus-within .brother-card__company-eyebrow,
+  .brother-card-wrap:focus-within .brother-card__company-name {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brother-card__company,
+  .brother-card__company-eyebrow,
+  .brother-card__company-name {
+    transition: opacity 0.18s ease;
+    transform: none;
+  }
+}
+
+/* Logo-cover hover — when a brother has a real employer logo, hovering fills
+   the entire portrait with the logo on a clean white card (logos are dark-on-
+   transparent, so they need a light backdrop), with the company name pinned at
+   the bottom. Mirrors the live site's "company takeover" hover. */
+.brother-card__company--logo {
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem;
+  /* Translucent frosted backdrop so the brother's photo stays visible behind
+     the logo (logos are dark-on-transparent, so a little white keeps them
+     legible). */
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+/* Square glyph marks (Apple, NASA) fill the cap far more heavily than wide
+   wordmarks do, so they read oversized. Pull them in to match optically. */
+.brother-card__company-cover[src*='apple'],
+.brother-card__company-cover[src*='nasa'] {
+  max-width: 44%;
+  max-height: 42%;
+}
+.brother-card__company-cover {
+  max-width: 80%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(15, 4, 4, 0.25));
+  transform: translateY(10px) scale(0.96);
+  opacity: 0;
+  transition:
+    transform 0.32s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.24s ease;
+}
+@media (hover: hover) {
+  .brother-card-wrap:hover .brother-card__company-cover,
+  .brother-card-wrap:focus-within .brother-card__company-cover {
+    transform: none;
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brother-card__company-cover {
+    transition: opacity 0.18s ease;
+    transform: none;
+  }
+}
+
+/* Compact browse drawer — tighten each inner filter grid (smaller tiles +
+   gaps) so the panel packs densely with little whitespace. Global + !important
+   to override each component's own scoped grid metrics. */
+.filter-drawer__panel--compact .tier-bands {
+  gap: 0.4rem !important;
+}
+.filter-drawer__panel--compact .major-mosaic {
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)) !important;
+  gap: 0.4rem !important;
+}
+.filter-drawer__panel--compact .lineage-grid {
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)) !important;
+  gap: 0.4rem !important;
+}
+.filter-drawer__panel--compact .year-chips {
+  gap: 0.4rem !important;
+}
+
+.brother-card__company-eyebrow {
+  position: relative;
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+  padding-top: 0.55rem;
+  margin-bottom: 0.3rem;
+}
+.brother-card__company-eyebrow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 1.5rem;
+  background: var(--color-accent-500);
+  border-radius: 2px;
+}
+.brother-card__company-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #ffffff;
+  text-wrap: balance;
+  /* Allow long school names like "Samueli School of Engineering" or
+     "Donald Bren School of ICS" to wrap to up to 3 lines. No ellipsis —
+     the whole name reads. */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* LinkedIn link inside the expanded detail card (shown only when a brother
+   card is opened — not on the grid cards). */
+.brother-detail__socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.brother-detail__linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+  padding: 0.35rem 0.75rem;
+  width: fit-content;
+  border-radius: 9999px;
+  background: rgba(10, 102, 194, 0.14);
+  border: 1px solid rgba(10, 102, 194, 0.4);
+  color: #4ea3f5;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.18s ease,
+    transform 0.15s ease;
+}
+.brother-detail__linkedin:hover {
+  background: rgba(10, 102, 194, 0.26);
+  transform: translateY(-1px);
+}
+html:not(.dark) .brother-detail__linkedin {
+  color: #0a66c2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brother-detail__linkedin:hover {
+    transform: none;
+  }
+}
+
+/* Ensure the GlowCard wrapper around each card stretches to fill the grid
+   cell and matches the card border radius for clean glow geometry. */
+.brother-card-wrap {
+  position: relative;
+  height: 100%;
+}
+.brother-card-wrap .glow-card,
+.brother-card-glow {
+  display: block;
+  height: 100%;
+  border-radius: 1rem;
+  /* Align the GlowCard's internal --radius with the card's actual border
+     radius (1rem = 16px) so the spotlight rule traces the same rounded
+     rect as the card edge. Default --radius: 18 produced a glow with
+     smaller corners than the card, leaving visible card corners poking
+     past the glow border at all four corners. */
+  --radius: 16;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+/* Brother detail card uses border-radius: 1.5rem (24px) — match the
+   glow's --radius so the spotlight traces the larger corner. */
+.brother-detail__card-glow {
+  --radius: 24;
+  border-radius: 1.5rem;
+}
+/* Peek cards on either side of the center use a smaller radius too. */
+.brother-detail__peek-glow {
+  --radius: 18;
+}
+/* Lift the WRAPPER (which holds the glow border) instead of the inner
+   button — otherwise the glow stays anchored and the card visibly detaches
+   from its own halo on hover. */
+.brother-card-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.brother-card {
+  border-width: 2px;
+  transition: border-color 0.2s ease;
+}
+.brother-card-glow:hover .brother-card {
+  border-color: var(--color-gold-muted);
+}
+.member-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+.brother-card[aria-expanded='true'] .member-detail {
+  grid-template-rows: 1fr;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brother-card,
+  .member-detail {
+    transition: none;
+  }
+}
+
+/* Nav: transparent at top, glass backdrop after scroll (AKPsi pattern). */
+header.nav-scrolled {
+  /* Frosted surface lives ONLY on the rounded pill (.site-nav-shell::before);
+     the header stays transparent so no rectangle shows behind the bubble. */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* When ScrollExpandHero is mounted on the home page, --hero-progress is
+   written to <html> in real time. Both the sticky navbar and the
+   announcement banner fade out AND collapse their layout height as the
+   video expands, so the fullscreen video is genuinely edge-to-edge — the
+   space the chrome was taking up is reclaimed too. */
+html {
+  --hero-progress: 0;
+}
+[data-page-chrome] {
+  opacity: clamp(0, calc(1 - (var(--hero-progress) - 0.4) * 2.85), 1);
+  max-height: calc(5rem * clamp(0, 1 - (var(--hero-progress) - 0.6) * 3.3, 1));
+  overflow: hidden;
+  pointer-events: auto;
+  transition:
+    opacity 0.15s linear,
+    max-height 0.15s linear;
+  transform-origin: top center;
+}
+/* The collapse above clips the navbar with overflow:hidden + max-height so it
+   can shrink to nothing as the hero video expands. But the mobile dropdown is
+   an absolutely-positioned panel that hangs BELOW the header box, so that clip
+   also hides the entire open menu (tapping the burger appeared to do nothing on
+   phones). The collapse only matters while the hero is mid-expansion, which
+   never coincides with an open menu — so when the menu is open, let the chrome
+   overflow freely again. */
+header[data-page-chrome]:has(#nav-menu[data-open='true']) {
+  overflow: visible;
+  max-height: none;
+}
+/* Interpolate the banner's outer spacing along with its max-height so by the
+   time --hero-progress reaches 1 ALL of its layout contribution is already
+   zero. Without this, the banner's mt-3/mx-3 utilities still take 12px of
+   layout space at progress=1, and when `html.hero-expanded` later flips it
+   to `display: none` the body shifts up by exactly that amount — which is
+   the "after lock the page slides down to reveal the marquee" symptom. */
+[data-page-chrome='banner'] {
+  margin-top: calc(0.75rem * clamp(0, 1 - (var(--hero-progress) - 0.6) * 3.3, 1));
+  margin-left: calc(0.75rem * clamp(0, 1 - (var(--hero-progress) - 0.6) * 3.3, 1));
+  margin-right: calc(0.75rem * clamp(0, 1 - (var(--hero-progress) - 0.6) * 3.3, 1));
+  transition: margin 0.15s linear;
+}
+/* Once the React component flips `hero-expanded` on <html>, take page chrome
+   completely out of layout: zero height AND zero outer spacing (the banner
+   has mt-3/mx-3 utilities that would otherwise leave a strip of body bg
+   showing above the fullscreen video) AND make the hero section start
+   flush at the top of the viewport so the video reaches every edge. */
+html.hero-expanded [data-page-chrome] {
+  display: none;
+}
+html.hero-expanded main {
+  margin: 0;
+  padding: 0;
+}
+html.hero-expanded body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Alternating left-right history timeline (AKPsi pattern). Stacks on mobile,
+   zig-zags on md+. Gold center line + glowing node dots. */
+.history {
+  position: relative;
+  /* The pre-reveal slide-right offset pushes items ~24px past the gutter and
+     gives the whole document a few px of horizontal scroll under 400px.
+     Items settle at transform: none once revealed, so clipping costs nothing.
+     The clip margin keeps the node dots' 10px gold glow from being shaved. */
+  overflow: clip;
+  overflow-clip-margin: 14px;
+}
+.history::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0.25rem;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-gold);
+}
+.history-item {
+  position: relative;
+  padding: 0 0 2rem 2.5rem;
+}
+.history-item::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+}
+@media (min-width: 768px) {
+  .history::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .history-item {
+    width: 50%;
+    padding: 0 0 2.75rem 0;
+  }
+  .history-item:nth-child(odd) {
+    margin-left: 0;
+    text-align: right;
+    padding-right: 2.5rem;
+  }
+  .history-item:nth-child(even) {
+    margin-left: 50%;
+    text-align: left;
+    padding-left: 2.5rem;
+  }
+  .history-item:nth-child(odd)::before {
+    left: auto;
+    right: -6px;
+  }
+  .history-item:nth-child(even)::before {
+    left: -6px;
+  }
+}
+
+/* Borderless info strip (v3 Task 5). */
+.info-col {
+  transition: background 0.2s ease;
+}
+.info-col:hover {
+  background: var(--color-surface);
+}
+.info-col:hover svg {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* Recruitment vertical timeline (Task 9). */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-gold);
+}
+.timeline-item {
+  position: relative;
+  padding: 1.25rem 0 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 0.25s ease;
+}
+.timeline-item:last-child {
+  border-bottom: 0;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.8rem;
+  top: 1.6rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.5);
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.25s ease;
+}
+.timeline-item:hover {
+  transform: translateX(0.25rem);
+}
+.timeline-item:hover::before {
+  transform: scale(1.35);
+  box-shadow: 0 0 14px rgba(201, 168, 76, 0.7);
+}
+.timeline-item:hover .image-placeholder__watermark {
+  color: rgba(74, 4, 4, 0.16);
+  transition: color 0.25s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .timeline-item,
+  .timeline-item::before,
+  .timeline-item:hover,
+  .timeline-item:hover::before {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Animated FAQ accordion (Task 9). Smooth height via grid-template-rows 0fr→1fr. */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s ease;
+}
+.faq-item.is-open .faq-panel {
+  grid-template-rows: 1fr;
+}
+.faq-chevron {
+  transition: transform 0.3s ease;
+}
+.faq-item.is-open .faq-chevron {
+  transform: rotate(180deg);
+}
+.faq-item.is-open .faq-answer {
+  border-left: 2px solid var(--color-gold);
+  padding-left: 1rem;
+}
+
+/* Editorial Q-numbering on FAQ. A small gold serif "Q01" sits left of the
+   question text; on hover the index gains weight and the question text
+   shifts a hair to the right — quiet but clearly clickable. */
+.faq-question {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  text-align: left;
+}
+.faq-question__index {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-600);
+  flex-shrink: 0;
+  min-width: 2.5rem;
+  transition: color 0.2s ease;
+}
+html.dark .faq-question__index {
+  color: var(--color-accent-400);
+}
+.faq-question__text {
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.faq-trigger:hover .faq-question__text {
+  transform: translateX(2px);
+}
+.faq-item.is-open .faq-question__index {
+  color: var(--color-gold);
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-question__text,
+  .faq-trigger:hover .faq-question__text {
+    transition: none;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-panel,
+  .faq-chevron {
+    transition: none;
+  }
+}
+
+/* Hero conic glow pulse. */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+.glow-pulse {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+/* Marquee strip. */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x 32s linear infinite;
+}
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Employer marquee — two stacked rows (alumni / interns) with logo tiles. */
+.employer-marquee {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.employer-marquee__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.employer-marquee-empty {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  max-width: 38rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.employer-marquee-empty code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85em;
+  padding: 0.05rem 0.35rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.3rem;
+  color: var(--color-text);
+}
+.employer-marquee__label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0;
+  padding-left: var(--spacing-page);
+}
+.employer-marquee__strip {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 1.25rem 0;
+}
+.employer-marquee__strip::before,
+.employer-marquee__strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5rem;
+  pointer-events: none;
+  z-index: 2;
+}
+.employer-marquee__strip::before {
+  left: 0;
+  background: var(--color-bg);
+}
+.employer-marquee__strip::after {
+  right: 0;
+  background: var(--color-bg);
+}
+.employer-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  align-items: center;
+  animation: marquee-x 38s linear infinite;
+}
+.employer-marquee__strip:hover .employer-marquee__track {
+  animation-play-state: paused;
+}
+.employer-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  white-space: nowrap;
+}
+.employer-marquee__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.55rem;
+  background: var(--color-brand-700);
+  color: var(--color-accent-400);
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+.employer-marquee__name {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.employer-marquee__dot {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 9999px;
+  background: var(--color-accent-500);
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-pulse,
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Visible focus styles for keyboard users (do not remove). */
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Theme toggle: show the sun in dark mode (click → light), moon in light mode. */
+[data-theme-icon='sun'] {
+  display: none;
+}
+html.dark [data-theme-icon='sun'] {
+  display: inline;
+}
+html.dark [data-theme-icon='moon'] {
+  display: none;
+}
+/* Mobile-only text labels in the menu row (Tailwind's md:hidden hides on >=md;
+   these rules swap which label shows when below md). */
+@media (max-width: 767px) {
+  [data-theme-label='sun'] {
+    display: none;
+  }
+  html.dark [data-theme-label='sun'] {
+    display: inline;
+  }
+  html.dark [data-theme-label='moon'] {
+    display: none;
+  }
+}
+
+/* Utility: visually hide while keeping content available to screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Southwestern Region stat band — three card-style tiles above the chapter mosaic.
+   Values come from real derived counts in src/data/chapter.ts; the "1 of 7"
+   tile reflects Theta Tau's public organization into seven geographical regions. */
+.region-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+.region-stat {
+  position: relative;
+  padding: 1.5rem 1.5rem 1.35rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.region-stat::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--color-maroon);
+  opacity: 0.75;
+}
+html.dark .region-stat::before {
+  background: var(--color-accent-500);
+  opacity: 0.6;
+}
+.region-stat__value {
+  display: block;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--color-accent-600);
+}
+html.dark .region-stat__value {
+  color: var(--color-accent-400);
+}
+.region-stat__label {
+  display: block;
+  margin-top: 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+/* =============================================================================
+   Majors donut — animated SVG donut chart of the major breakdown
+   ============================================================================= */
+.majors-donut {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+.majors-donut__caption {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-600);
+  margin: 0;
+}
+html.dark .majors-donut__caption {
+  color: var(--color-accent-400);
+}
+.majors-donut__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+@media (min-width: 560px) {
+  .majors-donut__layout {
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    gap: 2rem;
+  }
+}
+.majors-donut__chart-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  justify-self: center;
+}
+.majors-donut__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.majors-donut__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.majors-donut__center-value {
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-maroon);
+  font-feature-settings: 'lnum' 1;
+}
+html.dark .majors-donut__center-value {
+  color: var(--color-gold);
+}
+.majors-donut__center-label {
+  margin-top: 0.4rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  /* Constrain the focused-slice label so it never overlaps the ring. The
+     inner clear diameter is ~158px at the bigger geometry; 9rem ≈ 144px
+     keeps a ~7px buffer before the stroke. */
+  max-width: 9rem;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.majors-donut__legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.15rem 0.5rem;
+}
+@media (min-width: 480px) {
+  .majors-donut__legend {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.majors-donut__legend-item {
+  min-width: 0;
+  transition: opacity 0.18s ease;
+}
+.majors-donut__legend-item.is-dimmed {
+  opacity: 0.45;
+}
+.majors-donut__legend-btn {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0.5rem;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+.majors-donut__legend-btn:hover,
+.majors-donut__legend-btn:focus-visible {
+  background: rgba(212, 181, 106, 0.1);
+  transform: translateX(2px);
+}
+.majors-donut__legend-btn:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+.majors-donut__legend-item.is-focused .majors-donut__legend-btn {
+  background: rgba(212, 181, 106, 0.18);
+}
+.majors-donut__legend-btn[aria-pressed='true'] {
+  background: rgba(212, 181, 106, 0.22);
+  box-shadow: inset 2px 0 0 var(--color-gold);
+}
+@media (prefers-reduced-motion: reduce) {
+  .majors-donut__legend-item,
+  .majors-donut__legend-btn,
+  .majors-donut__legend-btn:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Center label transitions smoothly when the focused slice changes. */
+.majors-donut__center {
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.majors-donut[data-has-focus='true'] .majors-donut__center {
+  transform: scale(0.94);
+}
+@media (prefers-reduced-motion: reduce) {
+  .majors-donut__center,
+  .majors-donut[data-has-focus='true'] .majors-donut__center {
+    transition: none;
+    transform: none;
+  }
+}
+.majors-donut__swatch {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 2px;
+  margin-top: 0.35rem;
+  align-self: flex-start;
+}
+.majors-donut__legend-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.majors-donut__legend-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+html.dark .majors-donut__legend-label {
+  color: #ffffff;
+}
+.majors-donut__legend-count {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  letter-spacing: -0.005em;
+}
+.majors-donut__legend-pct {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.majors-donut--empty {
+  border: 1px dashed var(--color-border);
+  border-radius: 0.85rem;
+  padding: 1.5rem;
+}
+.majors-donut__empty {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.majors-donut__empty code {
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  font-size: 0.85em;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.05rem 0.3rem;
+}
+
+/* =============================================================================
+   Rush schedule — clickable timeline rows + per-event popout modal
+   ============================================================================= */
+.rush-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: stretch;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.rush-row__date {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  padding: 0.45rem 0.6rem 0.55rem;
+  border-radius: 0.75rem;
+  background: var(--color-brand-700);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(212, 181, 106, 0.22);
+  line-height: 1;
+}
+.rush-row__date-month {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+}
+.rush-row__date-day {
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-top: 0.1rem;
+}
+.rush-row__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+.rush-row__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.rush-row__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+}
+html.dark .rush-row__name {
+  color: #ffffff;
+}
+.rush-row__status {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.5rem;
+  border-radius: 9999px;
+}
+.rush-row__status--open {
+  color: var(--color-gold);
+  background: rgba(212, 181, 106, 0.16);
+  border: 1px solid var(--color-gold-muted);
+}
+.rush-row__status--invite {
+  color: var(--color-gold-muted);
+  background: transparent;
+  border: 1px solid var(--color-gold-muted);
+}
+.rush-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+.rush-row__dress {
+  font-weight: 600;
+  color: var(--color-accent-600);
+  letter-spacing: 0.01em;
+}
+html.dark .rush-row__dress {
+  color: var(--color-accent-400);
+}
+.rush-row__desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+}
+.rush-row:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Modal --------------------------------------------------------------- */
+.rush-detail {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  animation: rush-fade-in 0.22s ease both;
+}
+@keyframes rush-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.rush-detail__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(74, 4, 4, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.rush-detail__card {
+  position: relative;
+  z-index: 1;
+  width: min(46rem, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid rgba(212, 181, 106, 0.4);
+  border-radius: 1.25rem;
+  padding: 1.5rem clamp(1.25rem, 3vw, 2rem) 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow:
+    0 0 0 1px rgba(212, 181, 106, 0.18),
+    0 30px 80px rgba(0, 0, 0, 0.45);
+  animation: rush-card-in 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+html.dark .rush-detail__card {
+  background: #2a0e08;
+  color: #ffffff;
+}
+@keyframes rush-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rush-detail,
+  .rush-detail__card {
+    animation: none;
+  }
+}
+
+.rush-detail__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.rush-detail__stepper {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  color: var(--color-text-muted);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.rush-detail__stepper-now {
+  font-size: 1.55rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-gold);
+}
+.rush-detail__stepper-total {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+html.dark .rush-detail__stepper-total {
+  color: #ffffff;
+}
+.rush-detail__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+html.dark .rush-detail__close {
+  background: rgba(212, 181, 106, 0.12);
+  border-color: rgba(212, 181, 106, 0.3);
+  color: var(--color-accent-400);
+}
+.rush-detail__close:hover {
+  background: var(--color-accent-500);
+  color: var(--color-brand-900);
+  border-color: var(--color-accent-500);
+}
+.rush-detail__close:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+
+/* Hero --------------------------------------------------------------- */
+.rush-detail__hero {
+  display: flex;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+.rush-detail__date-chip {
+  flex-shrink: 0;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  margin: 0;
+  background: var(--color-brand-700);
+  border: 1px solid rgba(212, 181, 106, 0.32);
+  border-radius: 1rem;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: inset 0 1px 0 rgba(212, 181, 106, 0.15);
+}
+.rush-detail__date-month {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+}
+.rush-detail__date-day {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  line-height: 0.9;
+  margin-top: 0.2rem;
+}
+
+.rush-detail__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+  justify-content: center;
+}
+.rush-detail__eyebrow {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-600);
+  margin: 0;
+}
+html.dark .rush-detail__eyebrow {
+  color: var(--color-accent-400);
+}
+.rush-detail__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  margin: 0;
+}
+html.dark .rush-detail__title {
+  color: #ffffff;
+}
+.rush-detail__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+}
+.rush-detail__status {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+}
+.rush-detail__status--open {
+  color: var(--color-gold);
+  background: rgba(212, 181, 106, 0.16);
+  border: 1px solid var(--color-gold-muted);
+}
+.rush-detail__status--invite {
+  color: var(--color-gold-muted);
+  background: transparent;
+  border: 1px solid var(--color-gold-muted);
+}
+.rush-detail__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  padding: 0.22rem 0.6rem;
+  border-radius: 9999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+html.dark .rush-detail__chip {
+  background: rgba(212, 181, 106, 0.08);
+  border-color: rgba(212, 181, 106, 0.2);
+  color: var(--color-accent-400);
+}
+
+/* Practical strip ---------------------------------------------------- */
+.rush-detail__strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+}
+@media (min-width: 520px) {
+  .rush-detail__strip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+html.dark .rush-detail__strip {
+  background: rgba(212, 181, 106, 0.06);
+  border-color: rgba(212, 181, 106, 0.18);
+}
+.rush-detail__strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-text);
+}
+html.dark .rush-detail__strip-item {
+  color: #ffffff;
+}
+.rush-detail__strip-item svg {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+.rush-detail__strip-label {
+  display: block;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.rush-detail__strip-value {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+/* Body --------------------------------------------------------------- */
+.rush-detail__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.rush-detail__description {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  margin: 0;
+}
+html.dark .rush-detail__description {
+  color: rgba(247, 236, 217, 0.92);
+}
+
+/* Add-to-Google-Calendar buttons — shared gold pill for the per-event button
+   (inside the modal) and the whole-week button (above the timeline). Mirrors
+   the nav Rush CTA so calendar actions read as "the next thing to do". */
+.rush-cal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0 1.1rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-decoration: none;
+  color: var(--color-brand-900);
+  background: #d4b56a;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 4px 12px rgba(184, 147, 47, 0.32);
+  transition:
+    transform 0.18s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+.rush-cal-btn:hover {
+  background: #e1c376;
+  transform: translateY(-1px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 8px 18px rgba(184, 147, 47, 0.45);
+}
+.rush-cal-btn:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rush-cal-btn,
+  .rush-cal-btn:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Per-event button sits just under the description, left-aligned. */
+.rush-detail__cal {
+  align-self: flex-start;
+  margin-top: 0.85rem;
+}
+
+/* Whole-week button block above the schedule timeline. */
+.rush-cal-week {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.rush-cal-week__note {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Prev/Next ---------------------------------------------------------- */
+.rush-detail__nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-border);
+}
+html.dark .rush-detail__nav {
+  border-top-color: rgba(212, 181, 106, 0.2);
+}
+.rush-detail__nav-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  min-width: 0;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+html.dark .rush-detail__nav-chip {
+  background: rgba(212, 181, 106, 0.06);
+  border-color: rgba(212, 181, 106, 0.18);
+}
+.rush-detail__nav-chip:hover {
+  border-color: var(--color-accent-500);
+  transform: translateY(-1px);
+}
+.rush-detail__nav-chip:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+.rush-detail__nav-chip svg {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+.rush-detail__nav-chip--prev {
+  justify-content: flex-start;
+}
+.rush-detail__nav-chip--next {
+  justify-content: flex-end;
+  text-align: right;
+}
+.rush-detail__nav-chip--placeholder {
+  cursor: default;
+  opacity: 0.55;
+}
+.rush-detail__nav-chip--placeholder:hover {
+  transform: none;
+  border-color: var(--color-border);
+}
+.rush-detail__nav-chip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  min-width: 0;
+}
+.rush-detail__nav-chip-label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.rush-detail__nav-chip-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+html.dark .rush-detail__nav-chip-name {
+  color: #ffffff;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rush-detail__nav-chip,
+  .rush-detail__nav-chip:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* =============================================================================
+   How rush works — three editorial cards (When / Where / Contact)
+   ============================================================================= */
+.how-rush {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  /* Space below the Rise heading so the cards do not collide with it. */
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+@media (min-width: 720px) {
+  .how-rush {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+.how-rush__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+html.dark .how-rush__card {
+  background: rgba(74, 4, 4, 0.32);
+}
+.how-rush__card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-gold-muted);
+  box-shadow: 0 12px 28px rgba(74, 4, 4, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .how-rush__card {
+    transition: none;
+  }
+  .how-rush__card:hover {
+    transform: none;
+  }
+}
+.how-rush__number {
+  position: absolute;
+  top: -0.35em;
+  right: -0.05em;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(3.2rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: rgba(212, 181, 106, 0.18);
+  pointer-events: none;
+  user-select: none;
+}
+html.dark .how-rush__number {
+  color: rgba(212, 181, 106, 0.22);
+}
+.how-rush__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.65rem;
+  background: var(--color-surface);
+  color: var(--color-gold);
+  flex-shrink: 0;
+  z-index: 1;
+}
+html.dark .how-rush__icon {
+  background: rgba(212, 181, 106, 0.1);
+  color: var(--color-accent-400);
+}
+.how-rush__icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.how-rush__title {
+  position: relative;
+  margin: 0.25rem 0 0;
+  padding-top: 0.65rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  z-index: 1;
+}
+html.dark .how-rush__title {
+  color: #ffffff;
+}
+.how-rush__title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 1.75rem;
+  background: var(--color-accent-500);
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.how-rush__card:hover .how-rush__title::before {
+  width: 3.25rem;
+}
+.how-rush__body {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0;
+  z-index: 1;
+}
+.how-rush__body a {
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--color-gold-muted);
+  text-underline-offset: 3px;
+}
+.how-rush__body a:hover {
+  color: var(--color-gold);
+}
+html.dark .how-rush__body a {
+  color: #ffffff;
+}
+html.dark .how-rush__body a:hover {
+  color: var(--color-accent-400);
+}
+
+/* =============================================================================
+   Lightbox — global photo-popout viewer
+   -----------------------------------------------------------------------------
+   Mounted once at the page level. The component fades in the backdrop, then
+   the figure zooms from the click origin (via CSS custom properties set on
+   the wrapper) toward the viewport center. Reduced-motion users get a fade
+   only — no zoom. The X close + nav buttons use the same gold-on-maroon
+   treatment as the rest of the site.
+   ============================================================================= */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: clamp(0.75rem, 3vw, 2rem);
+  animation: lb-fade-in 0.3s ease both;
+}
+@keyframes lb-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(74, 4, 4, 0.4);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  cursor: zoom-out;
+  animation: lb-backdrop-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes lb-backdrop-in {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0) saturate(1);
+    -webkit-backdrop-filter: blur(0) saturate(1);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(14px) saturate(1.1);
+    -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  }
+}
+
+.lightbox__close,
+.lightbox__nav {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  background: rgba(15, 4, 4, 0.55);
+  border: 1px solid rgba(212, 181, 106, 0.32);
+  color: var(--color-accent-400);
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+  z-index: 2;
+}
+.lightbox__close svg,
+.lightbox__nav svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.lightbox__close:hover,
+.lightbox__nav:hover {
+  background: rgba(212, 181, 106, 0.18);
+  border-color: var(--color-accent-500);
+  color: var(--color-gold);
+}
+.lightbox__close:focus-visible,
+.lightbox__nav:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+.lightbox__close {
+  top: clamp(1rem, 3vh, 1.75rem);
+  right: clamp(1rem, 3vw, 1.75rem);
+}
+.lightbox__nav--prev {
+  left: clamp(0.75rem, 3vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lightbox__nav--next {
+  right: clamp(0.75rem, 3vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lightbox__close,
+  .lightbox__nav {
+    transition: none;
+  }
+}
+
+/* The figure renders centered. Spring-style zoom with a subtle overshoot
+   inspired by Aceternity / Magic UI image-popout patterns. Reduced-motion
+   users get a flat fade. */
+.lightbox__figure {
+  position: relative;
+  z-index: 1;
+  /* Larger by default — eat almost the full viewport so the popout actually
+     feels like a popout. Caps prevent absurd blowouts on ultrawides. */
+  max-width: min(98vw, 2400px);
+  max-height: 97vh;
+  width: min(98vw, 2400px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0;
+  animation: lb-zoom-in 0.55s cubic-bezier(0.22, 1.18, 0.32, 1) both;
+  will-change: transform, opacity, filter;
+}
+@keyframes lb-zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.78) translateY(18px);
+    filter: blur(10px);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.015) translateY(0);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+.lightbox--reduced .lightbox__figure {
+  animation: lb-fade-only 0.18s ease both;
+}
+@keyframes lb-fade-only {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightbox__img {
+  display: block;
+  /* Force the image to actually fill the popout — small source images get
+     scaled up so the popped image always commands at least ~60% of the
+     viewport. object-fit: contain keeps aspect ratio. */
+  width: min(80vw, 1800px);
+  max-width: 100%;
+  height: auto;
+  min-height: 60vh;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 1rem;
+  background: #0a0202;
+  box-shadow:
+    0 0 0 1px rgba(212, 181, 106, 0.22),
+    0 60px 140px rgba(0, 0, 0, 0.75);
+}
+/* If there is no caption beneath the image, let the image itself eat all the
+   figure's vertical space. */
+.lightbox__figure:not(:has(.lightbox__caption)) .lightbox__img {
+  max-height: 95vh;
+}
+
+.lightbox__caption {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  color: rgba(247, 236, 217, 0.85);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: -0.005em;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+.lightbox__caption-text {
+  flex: 1;
+}
+.lightbox__counter {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-400);
+}
+
+/* Placeholder mode — when a tile without a real image is clicked, the
+   lightbox renders a styled monogram card instead of an <img>. Same overlay
+   + close + Escape behavior; alternate inner content. */
+.lightbox__figure--placeholder {
+  /* Wider placeholder card so it matches the new generous popout scale. */
+  max-width: min(38rem, 94vw);
+  width: min(38rem, 94vw);
+  padding: 0 1rem;
+}
+.lightbox__placeholder-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.65rem;
+  padding: 2.5rem 1.75rem 2.25rem;
+  background: var(--color-brand-700);
+  border: 1px solid rgba(212, 181, 106, 0.32);
+  border-radius: 1.1rem;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(212, 181, 106, 0.12),
+    0 30px 70px rgba(0, 0, 0, 0.45);
+}
+.lightbox__placeholder-monogram {
+  position: absolute;
+  top: -1rem;
+  right: -0.5rem;
+  font-size: clamp(7rem, 20vw, 11rem);
+  line-height: 0.85;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: rgba(212, 181, 106, 0.14);
+  pointer-events: none;
+  user-select: none;
+}
+.lightbox__placeholder-eyebrow {
+  position: relative;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+}
+.lightbox__placeholder-headline {
+  position: relative;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+.lightbox__placeholder-body {
+  position: relative;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(247, 236, 217, 0.82);
+  max-width: 32ch;
+}
+
+/* Hint cursor on any element flagged as openable. */
+[data-lightbox] {
+  cursor: zoom-in;
+}
+[data-lightbox]:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+
+/* =============================================================================
+   Bento — asymmetric chapter overview on About page
+   -----------------------------------------------------------------------------
+   Desktop grid (md+):
+     ┌───────────────────────┬─────────────┐
+     │  Lede paragraph (col span 2)       │ Photo (col 3,  │
+     │                                    │  spans 2 rows) │
+     ├──────────┬──────────┬─────────────┤                │
+     │ Founded  │ Installed│ Members+   │                │
+     ├──────────┴──────────┴─────────────┴────────────────┤
+     │  Majors chart (full width, bottom)                 │
+     └─────────────────────────────────────────────────────┘
+   Mobile stacks every tile to 1fr.
+   ============================================================================= */
+.bento-chapter {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  /* Breathing room under the "Our chapter" heading, esp. on mobile. */
+  margin-top: clamp(1.75rem, 5vw, 2.75rem);
+}
+@media (min-width: 768px) {
+  .bento-chapter {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto auto auto auto auto;
+    /* Photo now spans the top row as a landscape band (3:2 source) — it
+       was previously a tall right column at 3:4 which cropped ~60% of
+       the chapter group photo's width. */
+    grid-template-areas:
+      'photo photo photo'
+      'lede lede founded'
+      'lede lede installed'
+      'accent actives classes'
+      'majors majors majors'
+      'chart chart chart';
+    gap: 1rem;
+  }
+  .bento-tile--lede {
+    grid-area: lede;
+  }
+  .bento-tile--photo {
+    grid-area: photo;
+  }
+  .bento-tile--chart {
+    grid-area: chart;
+  }
+  .bento-tile--stat-founded {
+    grid-area: founded;
+  }
+  .bento-tile--stat-installed {
+    grid-area: installed;
+  }
+  .bento-tile--stat-accent {
+    grid-area: accent;
+  }
+  .bento-tile--stat-actives {
+    grid-area: actives;
+  }
+  .bento-tile--stat-classes {
+    grid-area: classes;
+  }
+  .bento-tile--stat-majors {
+    grid-area: majors;
+    /* Compact row — single tile spans 3 cols, content sits inline. */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    min-height: auto;
+    padding: 1.25rem 1.5rem;
+  }
+  .bento-tile--stat-majors .bento-tile__label {
+    order: 1;
+  }
+  .bento-tile--stat-majors .bento-tile__value {
+    order: 2;
+  }
+}
+
+.bento-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 1.15rem;
+  padding: 1.5rem;
+  overflow: hidden;
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+html.dark .bento-tile {
+  background: rgba(74, 4, 4, 0.32);
+}
+.bento-tile:hover {
+  border-color: var(--color-gold-muted);
+  box-shadow: 0 10px 26px rgba(74, 4, 4, 0.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  .bento-tile,
+  .bento-tile:hover {
+    transition: none;
+  }
+}
+
+.bento-tile--lede {
+  background: #ffffff;
+}
+html.dark .bento-tile--lede {
+  background: rgba(74, 4, 4, 0.4);
+}
+.bento-tile__lede-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+html.dark .bento-tile__lede-text {
+  color: rgba(247, 236, 217, 0.92);
+}
+
+/* Photo tile bleeds — let the placeholder/image fill the bento corner. */
+.bento-tile--photo {
+  padding: 0;
+}
+.bento-tile--photo .image-placeholder {
+  height: 100%;
+  border: 0;
+  border-radius: inherit;
+}
+
+/* Stat tiles — number on top, label below. */
+.bento-tile--stat {
+  gap: 0.4rem;
+  justify-content: space-between;
+  min-height: 7rem;
+}
+.bento-tile__label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.bento-tile__value {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  /* Maroon in light mode — gold (--color-accent-600 = #a9842f) was only
+     ~3.5:1 on the white tile background, which read as washed. Maroon is
+     ~14:1 and still on-brand. Dark mode keeps the bright gold accent. */
+  color: var(--color-maroon);
+  margin: 0;
+  font-feature-settings: 'lnum' 1;
+}
+html.dark .bento-tile__value {
+  color: var(--color-accent-400);
+}
+
+/* Accent stat — the count-up tile picks up a maroon gradient + gold text. */
+.bento-tile--stat-accent {
+  background: var(--color-brand-700);
+  border-color: var(--color-accent-500);
+}
+.bento-tile--stat-accent .bento-tile__label {
+  color: rgba(255, 245, 220, 0.65);
+}
+.bento-tile--stat-accent .bento-tile__value {
+  color: #d4b56a;
+  text-shadow: 0 0 14px rgba(212, 181, 106, 0.3);
+}
+
+/* Chart tile keeps a subtle gold accent at top so it reads as a tile. */
+.bento-tile--chart {
+  padding: 0;
+}
+.bento-tile--chart > figure {
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  box-shadow: none;
+}
+/* Donut variant — keep the tile padding so the chart + legend breathe. */
+.bento-tile--donut {
+  padding: 1.75rem;
+  align-items: stretch;
+  justify-content: center;
+}
+/* Donut-pair variant — majors donut + gender donut stacked vertically with a
+   hairline rule between them. The previous side-by-side layout cramped the
+   majors legend (13 entries) into a too-narrow column and left the gender
+   donut (2 entries) swimming in empty space. Stacking gives each donut the
+   full bento width, so chart + legend can split horizontally inside each
+   one without fighting for space. */
+.bento-tile--donut-pair {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.bento-donut {
+  min-width: 0;
+  width: 100%;
+}
+.bento-donut + .bento-donut {
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+html.dark .bento-donut + .bento-donut {
+  border-color: rgba(212, 181, 106, 0.18);
+}
+
+/* =============================================================================
+   Pillars — three-up card grid for "What we stand on"
+   -----------------------------------------------------------------------------
+   Fits comfortably on one viewport on desktop, stacks on mobile. Editorial
+   movement comes from staggered vertical offsets (middle card sits lower),
+   an oversized gold serif numeral that bleeds off the top-left of the photo,
+   a hover lift + photo zoom, and a thin gold rule between numeral and title
+   that grows on hover.
+   ============================================================================= */
+.pillars-intro {
+  max-width: 48rem;
+  margin: 0 0 2.5rem;
+}
+.pillars-intro__label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-600);
+  margin: 0 0 0.5rem;
+}
+html.dark .pillars-intro__label {
+  color: var(--color-accent-400);
+}
+.pillars-intro__statement {
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin: 0 0 0.75rem;
+  font-weight: 500;
+}
+.pillars-intro__body {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 42rem;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    align-items: start;
+  }
+  /* Editorial offset — the middle card sits lower so the row reads as a
+     considered composition instead of a tidy 3-up. The outer cards stay
+     aligned to the top edge. */
+  .pillars-grid > .pillar-card:nth-child(2) {
+    transform: translateY(2.5rem);
+  }
+  .pillars-grid > .pillar-card:nth-child(3) {
+    transform: translateY(1rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pillars-grid > .pillar-card {
+    transform: none !important;
+  }
+}
+
+.pillar-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 0;
+  background: transparent;
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.35s ease;
+  will-change: transform;
+}
+
+/* Doric column SVG drawn behind each pillar card. Positioned absolute so it
+   breaks out of the card's flex flow; extends above the photo and below the
+   body text. Gold linework on the cream parchment; in dark mode it lifts to
+   the accent gold. A vertical mask fades the top edge and makes the column
+   most opaque behind the title + body text (the existing text boxes under
+   the photo). z-index sits behind every other element on the card. */
+.pillar-card__column {
+  position: absolute;
+  /* Slot the column behind the card. Capital pops above the photo top so
+     the pillar is recognizable; base ends exactly at the card bottom so
+     nothing bleeds into the motto divider below. */
+  left: 50%;
+  top: -1.25rem;
+  bottom: 0;
+  width: 82%;
+  transform: translateX(-50%);
+  height: auto;
+  z-index: -1;
+  /* Warm sepia-brown instead of bright gold — recedes behind the text
+     instead of fighting it. Architectural rather than decorative. */
+  color: rgba(124, 64, 26, 0.9);
+  /* Mask shapes a "capital strong → text-band whispered → base strong"
+     visibility curve, so the pillar reads as flanking the text boxes
+     instead of slicing through them. */
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 4%,
+    rgba(0, 0, 0, 1) 12%,
+    rgba(0, 0, 0, 0.05) 42%,
+    rgba(0, 0, 0, 0.05) 90%,
+    rgba(0, 0, 0, 0.85) 95%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 4%,
+    rgba(0, 0, 0, 1) 12%,
+    rgba(0, 0, 0, 0.05) 42%,
+    rgba(0, 0, 0, 0.05) 90%,
+    rgba(0, 0, 0, 0.85) 95%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+html.dark .pillar-card__column {
+  color: rgba(212, 181, 106, 0.85);
+  opacity: 0.65;
+}
+/* On hover the column quietly intensifies — feels like the pillar is being
+   "examined" along with the card. */
+.pillar-card:hover .pillar-card__column {
+  opacity: 0.9;
+}
+html.dark .pillar-card:hover .pillar-card__column {
+  opacity: 0.85;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pillar-card__column {
+    transition: none;
+  }
+}
+/* On mobile the cards go full-width and the body text wraps tall, so a
+   full-height column's shaft flutes drift out of the masked "whisper" band and
+   read as stray vertical lines cutting through the title + body. Rather than
+   drop the column entirely (it's the section's whole visual identity), we
+   confine it to the PHOTO region on mobile: the capital pokes above the photo
+   and the shaft runs behind it, then a hard mask fades the column to nothing
+   before it reaches the number/title/body. The photo has no text, so nothing is
+   ever crossed. Height is tied to the photo's height (photo is ~full card width
+   at 4/3, so ≈ 0.75 × card-width ≈ 66vw) plus a little capital overhang. */
+@media (max-width: 767px) {
+  .pillar-card__column {
+    display: block;
+    /* Full card height like desktop, but the shaft is only *visible* where the
+       card background is transparent — i.e. behind the copy below the photo
+       (the opaque photo hides the part behind it). So the reader sees a strong
+       capital + Roman numeral cresting above the photo, and a faint fluted
+       watermark behind the title/body. The mask keeps the capital crisp, then
+       holds a low, even whisper all the way down — crucially with NO opaque
+       base (that opaque band is what used to read as hard lines slicing the
+       body text on tall mobile cards). */
+    top: -1.1rem;
+    bottom: 0;
+    height: auto;
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 1) 4%,
+      rgba(0, 0, 0, 1) 12%,
+      rgba(0, 0, 0, 0.14) 30%,
+      rgba(0, 0, 0, 0.14) 100%
+    );
+    mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 1) 4%,
+      rgba(0, 0, 0, 1) 12%,
+      rgba(0, 0, 0, 0.14) 30%,
+      rgba(0, 0, 0, 0.14) 100%
+    );
+    opacity: 0.55;
+  }
+  html.dark .pillar-card__column {
+    opacity: 0.5;
+  }
+}
+.pillar-card:hover {
+  transform: translateY(-6px);
+}
+@media (min-width: 768px) {
+  /* On desktop, preserve the editorial offset while adding the hover lift. */
+  .pillars-grid > .pillar-card:nth-child(2):hover {
+    transform: translateY(calc(2.5rem - 6px));
+  }
+  .pillars-grid > .pillar-card:nth-child(3):hover {
+    transform: translateY(calc(1rem - 6px));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pillar-card,
+  .pillar-card:hover {
+    transition: none;
+    transform: none !important;
+  }
+}
+
+/* Photo placeholder wrapper — overflow hidden so the inner img can scale on
+   hover. Image-placeholder already sets the aspect ratio + soft tint. */
+.pillar-card__photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.9rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.pillar-card__photo .image-placeholder__img {
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.pillar-card:hover .pillar-card__photo .image-placeholder__img {
+  transform: scale(1.04);
+}
+
+/* Oversized gold serif numeral that overlaps the top-left of the photo.
+   Decorative — sits in front of the image but behind interactive content. */
+.pillar-card__number {
+  position: absolute;
+  top: -0.35em;
+  left: -0.05em;
+  z-index: 2;
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-accent-500);
+  /* Outline the numeral in deep maroon so the gold reads cleanly over any
+     photo — light stone walls, bright skin tones, or dark rooms. paint-order
+     draws the stroke behind the fill so the gold face stays full-weight while
+     the maroon edge separates it from the image underneath. A soft dark halo
+     backs it up on busy backgrounds. */
+  -webkit-text-stroke: 2px var(--color-maroon);
+  paint-order: stroke fill;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 2px 18px rgba(74, 4, 4, 0.25);
+  pointer-events: none;
+  font-feature-settings: 'lnum' 1;
+}
+html.dark .pillar-card__number {
+  color: var(--color-accent-400);
+  -webkit-text-stroke-color: var(--color-brand-900);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.6),
+    0 2px 18px rgba(0, 0, 0, 0.5);
+}
+
+/* Title and body sit below the photo. A thin gold rule appears between the
+   numeral row and the title and grows on hover — a quiet micro-interaction. */
+.pillar-card__title {
+  position: relative;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  margin: 0.25rem 0 0;
+  padding-top: 0.85rem;
+}
+.pillar-card__title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 2rem;
+  background: var(--color-accent-500);
+  border-radius: 2px;
+  transition: width 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.pillar-card:hover .pillar-card__title::before {
+  width: 4.5rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pillar-card__title::before,
+  .pillar-card:hover .pillar-card__title::before {
+    transition: none;
+  }
+}
+
+.pillar-card__body {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 32ch;
+}
+
+/* =============================================================================
+   EDITORIAL ARCHIVAL FOUNDATIONS — opt-in utilities (sub-project 1/3)
+   Pages opt in; nothing here changes existing markup automatically.
+   ============================================================================= */
+
+/* Type */
+.ed-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--ed-eyebrow-size);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+}
+.ed-display {
+  font-family: var(--font-display);
+  font-size: var(--ed-display);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+}
+.ed-display-sm {
+  font-family: var(--font-display);
+  font-size: var(--ed-display-sm);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+/* Italic gold accent word inside a display heading */
+.ed-accent {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+/* Layout rhythm */
+.ed-measure {
+  max-width: var(--ed-measure);
+}
+.ed-section {
+  padding-block: var(--ed-space-section);
+}
+.ed-block + .ed-block {
+  margin-top: var(--ed-space-block);
+}
+
+/* Paper grain — a single fixed layer BEHIND content (z-index -1). It tints
+   only the background, never overlaps text, so it cannot reduce text
+   contrast. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--ed-grain-opacity);
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  contain: paint;
+}
+/* On dark backgrounds, multiply hides noise — switch to soft-light so the
+   grain reads as a faint lighter speckle instead. */
+html.dark body::after {
+  mix-blend-mode: soft-light;
+}
+
+/* Stamp / wax-seal primitive (see components/ui/Stamp.astro) */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-stamp);
+  transform: rotate(var(--stamp-rotate, -6deg));
+  user-select: none;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+/* Interactive "press": hover straightens + lifts the stamp and deepens the ink;
+   active presses it down like an actual stamp. */
+.stamp:hover {
+  transform: rotate(0deg) scale(1.07);
+  color: var(--color-maroon);
+  border-color: var(--color-maroon);
+}
+.stamp:active {
+  transform: rotate(0deg) scale(0.96);
+}
+.stamp--mark {
+  padding: 0.3rem 0.7rem;
+  border: 2px solid var(--color-stamp);
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.stamp--mark:hover {
+  background: rgba(124, 3, 3, 0.05);
+  box-shadow: 0 6px 16px rgba(74, 4, 4, 0.16);
+}
+html.dark .stamp--mark:hover {
+  background: rgba(221, 192, 122, 0.08);
+}
+.stamp--seal {
+  width: 5.25rem;
+  height: 5.25rem;
+  border-radius: 50%;
+  border: 2px dashed var(--color-stamp);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.stamp--seal:hover {
+  box-shadow: 0 6px 18px rgba(74, 4, 4, 0.16);
+}
+@media (prefers-reduced-motion: reduce) {
+  .stamp {
+    transition: none;
+  }
+  .stamp:hover,
+  .stamp:active {
+    transform: rotate(var(--stamp-rotate, -6deg));
+  }
+}
+
+/* Torn / deckle paper edge — a divider strip whose bottom is ripped. Uses the
+   surface color so it reads as a sheet of paper. clip-path with a clean-edge
+   fallback for browsers that don't support it. */
+.section-divider--torn {
+  height: 2rem;
+  /* The torn edge belongs to the (cream/surface) section above — it's that
+     block tearing away. Pull it up so it butts against that section instead of
+     floating in a dead band, and keep only a modest gap below before the next
+     section's own padding. (Was `var(--ed-space-block) 0` = ~56px both sides,
+     which stacked with the next section's top padding into ~250px of empty
+     cream.) */
+  margin: calc(-1 * var(--ed-space-block) * 0.55) 0 var(--ed-space-2, 1.5rem);
+  background: var(--color-surface);
+  box-shadow: 0 8px 18px rgba(74, 4, 4, 0.08);
+}
+@supports (clip-path: polygon(0 0, 1px 1px, 0 1px)) {
+  .section-divider--torn {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 70%,
+      96% 80%,
+      92% 70%,
+      88% 82%,
+      84% 70%,
+      80% 82%,
+      76% 70%,
+      72% 82%,
+      68% 70%,
+      64% 82%,
+      60% 70%,
+      56% 82%,
+      52% 70%,
+      48% 82%,
+      44% 70%,
+      40% 82%,
+      36% 70%,
+      32% 82%,
+      28% 70%,
+      24% 82%,
+      20% 70%,
+      16% 82%,
+      12% 70%,
+      8% 82%,
+      4% 71%,
+      0 80%
+    );
+  }
+}
+
+/* =============================================================================
+   LABEL-SWIPE PAGE TRANSITION (sub-project 3/3) — see scripts/page-transition.ts
+   A theme-aware curtain sweeps up from the bottom carrying the destination page
+   name as an editorial title card (eyebrow + gold rule + italic name), then lifts
+   off the top to reveal the new page. Light = deep maroon; dark = near-black ink.
+   Both carry a gold leading seam + faint paper grain (Editorial Archival).
+   ============================================================================= */
+:root {
+  --pd-curtain-bg: #2b1410; /* deep warm brown-ink (light) — not bright red */
+}
+html.dark {
+  --pd-curtain-bg: #160a0c; /* near-black warm ink (dark) */
+}
+.pd-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 1000; /* above navbar + sticky CTA */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  background: var(--pd-curtain-bg);
+  border-top: 2px solid var(--color-accent-400); /* gold seam leads the sweep */
+  transform: translateY(100%); /* parked below the viewport */
+  transition: transform 0.38s cubic-bezier(0.65, 0, 0.35, 1); /* faster sweep */
+  pointer-events: none;
+  will-change: transform;
+  overflow: hidden;
+}
+/* Reveal focus-pull: the destination page loads blurred under the curtain
+   (html.pd-blur, set pre-paint in PageLayout); once the curtain lifts off, the
+   module removes the class and the page comes into focus. No colored overlay
+   bleeds onto the page. */
+#main {
+  transition: filter 0.24s ease;
+}
+html.pd-blur #main {
+  filter: blur(5px);
+}
+/* Faint paper grain — ties the curtain to the Editorial Archival identity. */
+.pd-curtain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23c)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.pd-curtain.is-covering {
+  transform: translateY(0);
+}
+.pd-curtain.is-revealing {
+  transform: translateY(-100%);
+  transition-duration: 0.66s;
+}
+/* Used to snap the curtain back to its parked position without animating. */
+.pd-curtain--instant {
+  transition: none !important;
+}
+.pd-curtain__eyebrow {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--color-accent-400);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.45s ease 0.12s,
+    transform 0.45s ease 0.12s;
+}
+.pd-curtain__eyebrow::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  margin: 0.7rem auto 0;
+  background: var(--color-accent-400);
+  opacity: 0.55;
+  transition: width 0.5s ease 0.24s;
+}
+.pd-curtain__label {
+  position: relative;
+  color: var(--color-accent-400);
+  font-style: italic;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s ease 0.18s,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+}
+.pd-curtain.is-covering .pd-curtain__eyebrow,
+.pd-curtain.is-covering .pd-curtain__label {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pd-curtain.is-covering .pd-curtain__eyebrow::after {
+  width: 3rem;
+}
+/* Reduced motion: no curtain and no blur — navigation is instant/normal. */
+@media (prefers-reduced-motion: reduce) {
+  .pd-curtain {
+    display: none;
+  }
+  #main {
+    transition: none;
+  }
+  html.pd-blur #main {
+    filter: none;
+  }
+}

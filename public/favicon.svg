@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Theta Tau, Pi Delta Chapter">
+  <rect width="32" height="32" rx="7" fill="#7C0303" />
+  <!-- Theta and Tau drawn as geometry so the mark needs no font at 16px. -->
+  <ellipse cx="10.25" cy="16" rx="5.5" ry="7" fill="none" stroke="#D4B56A" stroke-width="2.2" />
+  <rect x="5.85" y="14.9" width="8.8" height="2.2" fill="#D4B56A" />
+  <rect x="17.25" y="9" width="10" height="2.4" fill="#D4B56A" />
+  <rect x="21.05" y="9" width="2.4" height="14" fill="#D4B56A" />
+</svg>

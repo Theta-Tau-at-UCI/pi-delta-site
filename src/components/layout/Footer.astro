@@ -1,0 +1,516 @@
+---
+// Site footer. Restructured for readability + conversion:
+//   • Brand block (left): crest + name + tagline + a prominent Rush CTA so
+//     the footer always offers a next action.
+//   • Link columns (middle/right): About / Chapter life / Recruitment, each
+//     with a chapter-gold marker dot. Wider line-height + larger hit
+//     targets than the previous version.
+//   • Contact card (right): visually distinct with the email rendered as a
+//     pill and socials as small chips.
+//   • Motto strip + tiny copyright line at the very bottom.
+import { site } from '@data/site';
+import { contact } from '@data/chapter';
+import Stamp from '@components/ui/Stamp.astro';
+
+const year = new Date().getFullYear();
+
+const columns = [
+  {
+    heading: 'About',
+    links: [
+      { label: 'Our chapter', href: '/about#our-chapter' },
+      { label: 'Our story', href: '/about#our-story' },
+      { label: 'Our values', href: '/about#our-values' },
+      { label: 'Theta Tau (National)', href: 'https://thetatau.org/', external: true },
+    ],
+  },
+  {
+    heading: 'Chapter life',
+    links: [
+      { label: 'Brothers', href: '/brothers' },
+      { label: 'Events archive', href: '/events#archive' },
+      // Projects links hidden until the Projects page is ready (see site.ts nav).
+    ],
+  },
+  {
+    heading: 'Recruitment',
+    links: [
+      { label: 'How rush works', href: '/recruitment#rush-header' },
+      { label: 'Fall 2026 schedule', href: '/recruitment#events' },
+      { label: 'FAQ', href: '/recruitment#faq' },
+      { label: 'Get on the list', href: '/recruitment#interest' },
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    {/* Brand + tagline + Rush CTA. */}
+    <div class="site-footer__brand">
+      <a href="/" class="site-footer__lockup" aria-label={`${site.name} home`}>
+        <svg class="site-footer__crest" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+          <path
+            d="M16 2 4 6.5v11.7c0 7.8 5.1 12 12 15.8 6.9-3.8 12-8 12-15.8V6.5L16 2Z"
+            fill="var(--color-brand-700)"
+            stroke="var(--color-accent-500)"
+            stroke-width="1.5"
+            stroke-linejoin="round"></path>
+          <text
+            x="16"
+            y="22"
+            text-anchor="middle"
+            font-family="'Fraunces', Georgia, serif"
+            font-size="12"
+            font-weight="700"
+            fill="var(--color-accent-400)">ΘΤ</text
+          >
+        </svg>
+        <span class="site-footer__name-stack">
+          <span class="font-display site-footer__name">Theta Tau</span>
+          <span class="site-footer__sub">Pi Delta Chapter · UC Irvine</span>
+        </span>
+      </a>
+      <p class="site-footer__tag">
+        A co-ed professional engineering fraternity built on brotherhood, professionalism, and
+        service.
+      </p>
+      <a href="/recruitment" class="site-footer__rush-cta">
+        <span class="site-footer__rush-cta-text">
+          <span class="site-footer__rush-cta-eyebrow">Fall 2026 rush</span>
+          <span class="font-display site-footer__rush-cta-headline">Rush Theta Tau →</span>
+        </span>
+      </a>
+      <Stamp variant="stamp" text="Est. 2013" rotate={-4} />
+    </div>
+
+    {/* Link columns. */}
+    <nav class="site-footer__columns" aria-label="Site links">
+      {
+        columns.map((col) => (
+          <div class="site-footer__col">
+            <p class="site-footer__heading font-display">{col.heading}</p>
+            <ul class="site-footer__list">
+              {col.links.map((l) => (
+                <li>
+                  <a
+                    href={l.href}
+                    class="site-footer__link"
+                    {...(l.external ? { rel: 'noopener', target: '_blank' } : {})}
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+
+      {
+        /* Contact card, visually distinct: maroon-tinted surface, email as a
+          pill, socials as chips. */
+      }
+      <div class="site-footer__col site-footer__col--contact">
+        <p class="site-footer__heading font-display">Reach us</p>
+        <a class="site-footer__email" href={`mailto:${contact.email}`}>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          <span>{contact.email}</span>
+        </a>
+        <div class="site-footer__socials" aria-label="Social media">
+          {
+            site.social.map((s) => (
+              <a
+                href={s.href}
+                class="site-footer__social"
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label={`${s.label} (opens in a new tab)`}
+              >
+                {s.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="site-footer__motto">
+    <span class="font-display">Whatsoever Thy Hand Findeth To Do, Do It With Thy Might</span>
+    <span class="site-footer__motto-cite">Ecclesiastes 9:10</span>
+  </div>
+
+  <div class="site-footer__legal">
+    <span>&copy; {year} {site.name}.</span>
+    <span class="site-footer__legal-sep" aria-hidden="true">·</span>
+    <span>UC Irvine.</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 6rem;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+  :global(html.dark) .site-footer {
+    background: rgba(74, 4, 4, 0.32);
+    border-top-color: rgba(212, 181, 106, 0.2);
+  }
+
+  .site-footer__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 3.5rem var(--spacing-page, 1.25rem) 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  @media (min-width: 900px) {
+    .site-footer__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
+      gap: 4.5rem;
+    }
+  }
+
+  /* Brand block --------------------------------------------------------- */
+  .site-footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 26rem;
+  }
+  .site-footer__lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .site-footer__crest {
+    height: 2.65rem;
+    width: auto;
+    flex-shrink: 0;
+  }
+  .site-footer__name-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .site-footer__name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+  :global(html.dark) .site-footer__name {
+    color: #ffffff;
+  }
+  .site-footer__sub {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+  }
+  :global(html.dark) .site-footer__sub {
+    color: var(--color-accent-400);
+  }
+  .site-footer__tag {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* Prominent Rush CTA inside the brand block. */
+  .site-footer__rush-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.15rem;
+    border-radius: 0.9rem;
+    background: var(--color-brand-700);
+    border: 1px solid rgba(212, 181, 106, 0.4);
+    color: #ffffff;
+    text-decoration: none;
+    transition:
+      transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1),
+      border-color 0.22s ease,
+      box-shadow 0.22s ease;
+    align-self: flex-start;
+    box-shadow:
+      0 0 0 1px rgba(212, 181, 106, 0.12),
+      0 12px 28px rgba(74, 4, 4, 0.18);
+  }
+  .site-footer__rush-cta:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-accent-500);
+    box-shadow:
+      0 0 0 2px rgba(212, 181, 106, 0.22),
+      0 18px 38px rgba(74, 4, 4, 0.24);
+  }
+  .site-footer__rush-cta-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .site-footer__rush-cta-eyebrow {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent-400);
+  }
+  .site-footer__rush-cta-headline {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: #d4b56a;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-footer__rush-cta,
+    .site-footer__rush-cta:hover {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* Link columns -------------------------------------------------------- */
+  .site-footer__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.25rem 1.75rem;
+  }
+  @media (min-width: 1024px) {
+    .site-footer__columns {
+      /* The contact column sizes to its content rather than taking an equal
+        quarter: as a 1fr track it squeezed the email pill to 124px and
+        ellipsised the chapter's only contact address. The three link columns
+        still share the remaining space evenly. */
+      grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    }
+  }
+  .site-footer__heading {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    margin: 0 0 1.1rem;
+  }
+  :global(html.dark) .site-footer__heading {
+    color: #ffffff;
+  }
+  .site-footer__heading-mark {
+    display: inline-block;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 9999px;
+    background: var(--color-accent-500);
+  }
+  .site-footer__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .site-footer__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.6rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: var(--color-text);
+    text-decoration: none;
+    transition:
+      color 0.18s ease,
+      transform 0.18s ease;
+  }
+  :global(html.dark) .site-footer__link {
+    color: rgba(247, 236, 217, 0.85);
+  }
+  .site-footer__link:hover {
+    color: var(--color-gold);
+    transform: translateX(3px);
+  }
+  .site-footer__link:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-footer__link,
+    .site-footer__link:hover {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* Contact card -------------------------------------------------------- */
+  .site-footer__col--contact {
+    grid-column: 1 / -1;
+  }
+  @media (min-width: 1024px) {
+    .site-footer__col--contact {
+      grid-column: auto;
+    }
+  }
+  .site-footer__email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 9999px;
+    background: rgba(212, 181, 106, 0.1);
+    border: 1px solid var(--color-gold-muted);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      background 0.18s ease,
+      border-color 0.18s ease;
+    max-width: 100%;
+  }
+  :global(html.dark) .site-footer__email {
+    color: #ffffff;
+  }
+  .site-footer__email svg {
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-gold);
+    flex-shrink: 0;
+  }
+  .site-footer__email span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .site-footer__email:hover {
+    background: rgba(212, 181, 106, 0.18);
+    border-color: var(--color-accent-500);
+  }
+  .site-footer__email:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+  }
+
+  .site-footer__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.85rem;
+  }
+  .site-footer__social {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.7rem;
+    border-radius: 9999px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      border-color 0.18s ease,
+      background 0.18s ease,
+      transform 0.18s ease;
+  }
+  :global(html.dark) .site-footer__social {
+    background: rgba(212, 181, 106, 0.06);
+    border-color: rgba(212, 181, 106, 0.22);
+    color: #ffffff;
+  }
+  .site-footer__social:hover {
+    border-color: var(--color-accent-500);
+    transform: translateY(-1px);
+  }
+  .site-footer__social:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-footer__social,
+    .site-footer__social:hover {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* Motto strip --------------------------------------------------------- */
+  .site-footer__motto {
+    border-top: 1px solid var(--color-border);
+    padding: 1.5rem var(--spacing-page, 1.25rem);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.85rem;
+    text-align: center;
+    background: rgba(212, 181, 106, 0.06);
+  }
+  :global(html.dark) .site-footer__motto {
+    border-top-color: rgba(212, 181, 106, 0.2);
+    background: rgba(212, 181, 106, 0.05);
+  }
+  .site-footer__motto .font-display {
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--color-text);
+    letter-spacing: 0.005em;
+  }
+  :global(html.dark) .site-footer__motto .font-display {
+    color: rgba(247, 236, 217, 0.92);
+  }
+  .site-footer__motto-cite {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+  }
+  :global(html.dark) .site-footer__motto-cite {
+    color: var(--color-accent-400);
+  }
+
+  /* Legal line --------------------------------------------------------- */
+  .site-footer__legal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1rem 1.5rem;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+  }
+  .site-footer__legal-sep {
+    color: var(--color-gold-muted);
+  }
+</style>

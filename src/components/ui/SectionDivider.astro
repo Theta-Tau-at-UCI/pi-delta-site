@@ -1,0 +1,65 @@
+---
+// SectionDivider, non-gradient visual breaks between major page sections.
+// Four variants so the home page can vary its rhythm:
+//
+//   "crest"   , hairline gold rule with the ΘΤ monogram centered. Editorial,
+//                feels like a yearbook page break.
+//   "monogram", hairline gold rule with the ΠΔ chapter monogram centered.
+//                Like crest but speaks chapter identity instead of national.
+//   "ornament", small gold ◆ centered between two short horizontal rules.
+//                Lighter touch, good for breaks between related sections.
+//   "thick"   , a solid maroon strip with optional centered text. Use sparingly
+//                for the strongest break (e.g. before the rush CTA).
+import Crest from '@components/ui/Crest.astro';
+
+interface Props {
+  variant?: 'crest' | 'monogram' | 'ornament' | 'thick' | 'torn';
+  /** Optional caption, rendered for variant="thick" only. */
+  caption?: string;
+  /** Optional attribution / source rendered below the caption (thick only). */
+  cite?: string;
+}
+
+const { variant = 'ornament', caption, cite } = Astro.props;
+---
+
+{
+  variant === 'crest' && (
+    <div class="section-divider section-divider--crest" aria-hidden="true">
+      <span class="section-divider__line" />
+      <Crest size="sm" tone="default" inscription="theta-tau" />
+      <span class="section-divider__line" />
+    </div>
+  )
+}
+
+{
+  variant === 'monogram' && (
+    <div class="section-divider section-divider--monogram" aria-hidden="true">
+      <span class="section-divider__line" />
+      <span class="section-divider__monogram font-display">ΠΔ</span>
+      <span class="section-divider__line" />
+    </div>
+  )
+}
+
+{
+  variant === 'ornament' && (
+    <div class="section-divider section-divider--ornament" aria-hidden="true">
+      <span class="section-divider__line section-divider__line--short" />
+      <span class="section-divider__ornament">◆</span>
+      <span class="section-divider__line section-divider__line--short" />
+    </div>
+  )
+}
+
+{
+  variant === 'thick' && (
+    <blockquote class="section-divider section-divider--thick">
+      {caption && <span class="section-divider__caption font-display">{caption}</span>}
+      {cite && <cite class="section-divider__cite">{cite}</cite>}
+    </blockquote>
+  )
+}
+
+{variant === 'torn' && <div class="section-divider section-divider--torn" aria-hidden="true" />}

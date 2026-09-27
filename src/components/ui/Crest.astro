@@ -1,0 +1,71 @@
+---
+// Crest, shield-shaped chapter mark. Used as a logomark, as a watermark behind
+// big section headers, and as the placeholder graphic when no real photo has
+// been wired up. Tones: "default" (maroon + gold), "soft" (cream + gold for
+// light backgrounds), "ghost" (low-contrast watermark).
+interface Props {
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  tone?: 'default' | 'soft' | 'ghost';
+  /** ΘΤ for national, ΠΔ for chapter. */
+  inscription?: 'theta-tau' | 'pi-delta';
+  class?: string;
+}
+
+const {
+  size = 'md',
+  tone = 'default',
+  inscription = 'theta-tau',
+  class: className = '',
+} = Astro.props;
+
+const sizes: Record<string, string> = {
+  sm: 'h-9',
+  md: 'h-14',
+  lg: 'h-24',
+  xl: 'h-48',
+};
+
+const fills: Record<string, { body: string; stroke: string; text: string }> = {
+  default: {
+    body: 'var(--color-brand-700)',
+    stroke: 'var(--color-accent-500)',
+    text: 'var(--color-accent-400)',
+  },
+  soft: {
+    body: 'var(--color-surface-warm, var(--color-surface))',
+    stroke: 'var(--color-accent-500)',
+    text: 'var(--color-brand-700)',
+  },
+  ghost: {
+    body: 'transparent',
+    stroke: 'rgba(212, 181, 106, 0.35)',
+    text: 'rgba(212, 181, 106, 0.45)',
+  },
+};
+
+const palette = fills[tone] ?? fills.default!;
+const letters = inscription === 'pi-delta' ? 'ΠΔ' : 'ΘΤ';
+---
+
+<svg
+  class:list={['crest', sizes[size], `crest--${tone}`, className]}
+  viewBox="0 0 32 36"
+  fill="none"
+  aria-hidden="true"
+>
+  <path
+    d="M16 2 4 6.5v11.7c0 7.8 5.1 12 12 15.8 6.9-3.8 12-8 12-15.8V6.5L16 2Z"
+    fill={palette.body}
+    stroke={palette.stroke}
+    stroke-width="1.5"
+    stroke-linejoin="round"></path>
+  <text
+    x="16"
+    y="22"
+    text-anchor="middle"
+    font-family="'Fraunces', Georgia, serif"
+    font-size="11"
+    font-weight="700"
+    fill={palette.text}>{letters}</text
+  >
+</svg>

@@ -1,0 +1,180 @@
+---
+// Base page layout: <html> skeleton, global styles, SEO, skip link,
+// and the shared Navbar/Footer. Wrap every page in this.
+import '@styles/global.css';
+import '@styles/revamp.css';
+import SEO from '@components/SEO.astro';
+import Navbar from '@components/layout/Navbar.astro';
+import Footer from '@components/layout/Footer.astro';
+import Lightbox from '@components/react/Lightbox.tsx';
+import type { SeoProps } from '@/types/index';
+
+type Props = SeoProps;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      /* Browser UI colour. Not keyed to prefers-color-scheme: the site's dark
+        mode is an opt-in stored choice, so the theme script below keeps this in
+        sync with the class it applies. */
+    }
+    <meta name="theme-color" content="#FCF7EC" />
+    <meta name="generator" content={Astro.generator} />
+    {
+      /* Theme: read persisted choice and apply before paint to avoid FOUC.
+        Default is light when nothing is stored, only opt-in to dark. */
+    }
+    <script is:inline>
+      (function () {
+        try {
+          if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            const meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', '#160a08');
+          }
+        } catch {
+          // localStorage unavailable, stay on light default.
+        }
+      })();
+    </script>
+    {
+      /* Brand fonts: Fraunces (warm humanist display serif) + Plus Jakarta Sans
+        (friendly body sans). Both variable, both more "welcoming" than the
+        previous Playfair/Inter pair. */
+    }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    />
+    {/* Enable scroll-reveal only when JS is present (no-JS keeps content visible). */}
+    <script is:inline>
+      document.documentElement.classList.add('reveal-ready');
+    </script>
+    {/* Lenis smooth-scroll base styles (see the Lenis init at body end). */}
+    <style is:global>
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: clip;
+      }
+      .lenis.lenis-smooth iframe {
+        pointer-events: none;
+      }
+    </style>
+    <SEO {...Astro.props} />
+    {
+      /* Progressive enhancement: if JS never runs, the framer-motion islands keep
+        their pre-animation (hidden) state. Force them visible for no-JS users. */
+    }
+    <noscript>
+      <style>
+        /* ScaleMotion's Rise/Parallax wrappers carry [data-reveal] and are the
+          only pre-animation state that hides real content. Deeper nodes (e.g.
+          RotatingWord's queued words) are meant to stay hidden, so match the
+          wrapper only. The structural selector is a fallback for the common
+          case where the wrapper is the island's direct <div> child. */
+        [data-reveal],
+        astro-island > div[style*='opacity:0'] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body class="min-h-dvh antialiased">
+    {
+      /* Page-transition curtain (see scripts/page-transition.ts). The inline script
+       runs at parse time: if we arrived via a transition, it puts the curtain in the
+       covered state before first paint so the new page never flashes. */
+    }
+    <div id="pd-curtain" class="pd-curtain" aria-hidden="true">
+      <span class="pd-curtain__eyebrow">Pi Delta</span>
+      <span id="pd-curtain-label" class="pd-curtain__label font-display"></span>
+    </div>
+    <script is:inline>
+      (function () {
+        try {
+          const label = sessionStorage.getItem('pd:transition');
+          if (label !== null) {
+            const c = document.getElementById('pd-curtain');
+            const l = document.getElementById('pd-curtain-label');
+            if (c) c.classList.add('is-covering');
+            if (l) l.textContent = label;
+            // Page loads blurred under the curtain; the module unblurs it after the reveal.
+            document.documentElement.classList.add('pd-blur');
+          }
+        } catch {
+          /* sessionStorage unavailable, no pre-cover */
+        }
+      })();
+    </script>
+
+    {/* Accessibility: keyboard skip link to main content. */}
+    <a
+      href="#main"
+      class="focus:bg-brand-600 sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:px-4 focus:py-2 focus:text-white"
+    >
+      Skip to content
+    </a>
+
+    <Navbar />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+
+    {
+      /* Photo lightbox, mounted once globally; listens for clicks on any
+        element with [data-lightbox]. Lazy-hydrated so the bundle only loads
+        if/when the user actually opens it. */
+    }
+    <Lightbox client:idle />
+
+    {
+      /* Global smooth scroll (Lenis). Exposed as window.lenis so islands (e.g. the
+       brothers modal) can pause it while a scroll-locked overlay is open. Gated by
+       prefers-reduced-motion. */
+    }
+    <script>
+      import Lenis from 'lenis';
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const lenis = new Lenis({ lerp: 0.1 });
+        (window as unknown as { lenis?: unknown }).lenis = lenis;
+        const raf = (time: number) => {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        };
+        requestAnimationFrame(raf);
+      }
+    </script>
+
+    {/* Scroll-reveal: reveal sections as they enter the viewport (see scripts/motion.ts). */}
+    <script>
+      import { initScrollAnimations } from '@/scripts/motion';
+      initScrollAnimations();
+    </script>
+
+    {/* Label-swipe page transition (see scripts/page-transition.ts). */}
+    <script>
+      import { initPageTransition } from '@/scripts/page-transition';
+      initPageTransition();
+    </script>
+  </body>
+</html>

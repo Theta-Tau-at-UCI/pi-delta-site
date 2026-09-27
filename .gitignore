@@ -1,45 +1,58 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+node_modules/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Build output
+dist/
+.output/
 
-# testing
-/coverage
+# Astro generated types & cache
+.astro/
 
-# production
-/build
+# Environment variables (NEVER commit real secrets or personal data)
+.env
+.env.*
+!.env.example
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
+# Logs
+*.log
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#amplify-do-not-edit-begin
-amplify/\#current-cloud-backend
-amplify/.config/local-*
-amplify/logs
-amplify/mock-data
-amplify/mock-api-resources
-amplify/backend/amplify-meta.json
-amplify/backend/.temp
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Local AI-assistant tooling (Claude Code config + locally-installed skills).
+# Kept out of the website repo to stay focused; reinstall the UI/UX Pro Max
+# skill with `npx uipro-cli init -a claude` (see CONTRIBUTING.md).
+.claude/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Sensitive / member data staging (see CLAUDE.md and BRAND_GUIDE.md)
+# Personal data, member photos, and rosters must NOT be committed without explicit confirmation.
+/private/
+*.local
+.audit-shots/
+.tmp/
+.audit/
+.scrape-cache/
+
+# brainstorming visual companion
+.superpowers/
+.vercel
+.env*
+
+# Route 53 zone dump + rollback batch written by scripts/dns-cutover.sh
+.dns-backup/
+
+# Amplify publishes a copy of dist/ under build/ (see amplify.yml)
 build/
-dist/
-node_modules/
-aws-exports.js
-awsconfiguration.json
-amplifyconfiguration.json
-amplifyconfiguration.dart
-amplify-build-config.json
-amplify-gradle-config.json
-amplifytools.xcconfig
-.secret-*
-**.sample
-#amplify-do-not-edit-end

@@ -1,0 +1,324 @@
+---
+// Events, chapter event archive. Revamped into the shared .rv-* system to match
+// the home page: restrained photo hero + clean .rv-section blocks with Rise
+// scroll-in intros. The page renders the archive grouped by category, newest
+// first within each category.
+import PageLayout from '@layouts/PageLayout.astro';
+import { Rise } from '@components/react/ScaleMotion';
+import ImagePlaceholder from '@components/ui/ImagePlaceholder.astro';
+import NextPath from '@components/sections/NextPath.astro';
+import { events, EVENT_CATEGORIES, type EventCategory } from '@data/events';
+
+const realEvents = events.filter((e) => !e.placeholder);
+const placeholderEvents = events.filter((e) => e.placeholder);
+
+// Group events by category for the archive grid.
+const byCategory = new Map<EventCategory, typeof events>();
+for (const e of events) {
+  const arr = byCategory.get(e.category) ?? [];
+  arr.push(e);
+  byCategory.set(e.category, arr);
+}
+// isoDate is the archive's ordering key (see src/data/events.ts), so each
+// bucket renders newest first rather than in source order.
+for (const arr of byCategory.values()) {
+  arr.sort((a, b) => (b.isoDate ?? '').localeCompare(a.isoDate ?? ''));
+}
+---
+
+<PageLayout
+  title="Events"
+  description="Theta Tau, Pi Delta Chapter event archive. Past brotherhood, professional development, service, mixers, formals, and regionals, plus what's coming up."
+>
+  {/* HERO, restrained photo hero with a flat legibility scrim. */}
+  <section
+    class="rv-page-hero rv-page-hero--photo"
+    style="background-image: url('/images/chapter/events-hero.jpg')"
+  >
+    <Rise client:visible>
+      <p class="rv-eyebrow">Chapter event archive</p>
+      <h1 class="font-display rv-page-hero__title">Chapter <em>events.</em></h1>
+      <p class="rv-lead">
+        Brotherhood retreats, prodev nights, service days, mixers, formals, and regionals: a running
+        archive of what the chapter has done together. Use it for inspiration, or to remember what
+        you missed.
+      </p>
+    </Rise>
+  </section>
+
+  {/* ARCHIVE, past events grouped by category. */}
+  <section id="archive" class="rv-section">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">The archive</p>
+      <h2 class="font-display rv-h2">What we've done together.</h2>
+    </Rise>
+    {
+      placeholderEvents.length > 0 && realEvents.length === 0 && (
+        <div class="events-empty" role="status">
+          <p class="events-empty__title font-display">The archive is filling in.</p>
+          <p class="events-empty__body">
+            While we add the real photos and recaps, every category below shows what kind of night
+            the chapter puts on. Want to be at the next one?
+            <a href="/recruitment" class="events-empty__link">
+              Rush Theta Tau this fall →
+            </a>
+          </p>
+          <p class="events-empty__hint">
+            <span>For editors:</span> replace the entries in
+            <code>src/data/events.ts</code> with real chapter events to populate the archive.
+          </p>
+        </div>
+      )
+    }
+    {
+      EVENT_CATEGORIES.map((cat) => {
+        const catEvents = byCategory.get(cat.key) ?? [];
+        if (catEvents.length === 0) return null;
+        return (
+          <section id={`cat-${cat.key}`} class="event-cat-section">
+            <header class="event-cat-section__header">
+              <p class="event-cat-section__eyebrow font-display">{cat.label}</p>
+              <p class="event-cat-section__blurb">{cat.blurb}</p>
+            </header>
+            <div class="event-grid" data-stagger>
+              {catEvents.map((e) => (
+                <article class:list={['event-card', e.placeholder && 'is-placeholder']}>
+                  <ImagePlaceholder
+                    src={e.photo}
+                    alt={`${e.name} photo`}
+                    aspect="3 / 2"
+                    label={`${e.name} photo`}
+                    class="event-card__photo"
+                  />
+                  <div class="event-card__body">
+                    <p class="event-card__date">{e.date}</p>
+                    <h3 class="font-display event-card__title">{e.name}</h3>
+                    {e.location && <p class="event-card__location">{e.location}</p>}
+                    <p class="event-card__description">{e.description}</p>
+                    {e.placeholder && (
+                      <p class="event-card__placeholder-tag">
+                        Placeholder: replace in src/data/events.ts
+                      </p>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        );
+      })
+    }
+  </section>
+
+  <NextPath
+    eyebrow="What's next"
+    heading="Want to be in the next archive?"
+    primary={{
+      eyebrow: 'Fall 2026 rush',
+      title: 'Rush this fall.',
+      accent: 'fall',
+      blurb:
+        'Every event on this page started with a brother walking up to an Engineering Quad booth during rush. Yours can too.',
+      href: '/recruitment',
+      cta: 'See the schedule',
+    }}
+    secondary={{
+      eyebrow: 'Who we are',
+      title: 'Meet the brothers first.',
+      accent: 'brothers',
+      blurb:
+        'Browse the full active roster and filter by major, class, or role to find your people before you show up to anything.',
+      href: '/brothers',
+      cta: 'Open the roster',
+    }}
+  />
+</PageLayout>
+
+<style>
+  /* ----------------------------------------------------------------------- */
+  /*   Archive sections + cards                                                */
+  /* ----------------------------------------------------------------------- */
+  .event-cat-section {
+    margin-top: 3rem;
+  }
+  .event-cat-section:first-of-type {
+    margin-top: 3rem;
+  }
+  .event-cat-section__header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .event-cat-section__eyebrow {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--color-text);
+    margin: 0;
+  }
+  :global(html.dark) .event-cat-section__eyebrow {
+    color: #ffffff;
+  }
+  .event-cat-section__blurb {
+    margin: 0.25rem 0 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .event-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .event-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 1024px) {
+    .event-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  .event-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    border-radius: 1rem;
+    background: transparent;
+  }
+  .event-card.is-placeholder {
+    opacity: 0.78;
+  }
+  .event-card__photo {
+    border-radius: 0.85rem;
+    overflow: hidden;
+  }
+  .event-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .event-card__date {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin: 0;
+  }
+  :global(html.dark) .event-card__date {
+    color: var(--color-accent-400);
+  }
+  .event-card__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.2;
+  }
+  :global(html.dark) .event-card__title {
+    color: #ffffff;
+  }
+  .event-card__location {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  .event-card__description {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    margin: 0.25rem 0 0;
+  }
+  .event-card__placeholder-tag {
+    margin-top: 0.45rem;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold-muted);
+  }
+
+  /* Empty state ---------------------------------------------------------- */
+  .events-empty {
+    padding: 1.5rem;
+    border: 1px dashed var(--color-border);
+    border-radius: 0.85rem;
+    background: var(--color-surface);
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+  }
+  :global(html.dark) .events-empty {
+    background: rgba(212, 181, 106, 0.06);
+    border-color: rgba(212, 181, 106, 0.2);
+  }
+  .events-empty__title {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  :global(html.dark) .events-empty__title {
+    color: #ffffff;
+  }
+  .events-empty__body {
+    margin: 0 0 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--color-text);
+  }
+  :global(html.dark) .events-empty__body {
+    color: rgba(247, 236, 217, 0.9);
+  }
+  .events-empty__link {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-weight: 700;
+    color: var(--color-accent-600);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold-muted);
+    text-underline-offset: 3px;
+  }
+  .events-empty__link:hover {
+    color: var(--color-gold);
+  }
+  :global(html.dark) .events-empty__link {
+    color: var(--color-accent-400);
+  }
+  :global(html.dark) .events-empty__link:hover {
+    color: #d4b56a;
+  }
+  .events-empty__hint {
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+    opacity: 0.75;
+  }
+  .events-empty__hint span {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin-right: 0.35rem;
+  }
+  :global(html.dark) .events-empty__hint span {
+    color: var(--color-accent-400);
+  }
+  .events-empty__body code {
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+      monospace;
+    font-size: 0.85em;
+    padding: 0.05rem 0.3rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+  }
+</style>

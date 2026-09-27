@@ -1,3 +1,7 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Internal foundations preview — not part of the public site.
+Disallow: /styleguide
+
+Sitemap: https://www.thetatauuci.com/sitemap-index.xml

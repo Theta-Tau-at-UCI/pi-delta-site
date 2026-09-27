@@ -1,0 +1,35 @@
+---
+// Testimonials, real officer quotes from the Pi Delta site. Static, accessible
+// blockquotes (no JS needed). Quotes are verbatim as published by the chapter.
+import { testimonials } from '@data/chapter';
+---
+
+<ul role="list" class="grid gap-6 md:grid-cols-2" data-stagger>
+  {
+    testimonials.map((t) => (
+      <li>
+        <figure class="dark:bg-brand-800/50 flex h-full flex-col rounded-3xl border border-(--color-border) bg-white p-6 shadow-sm sm:p-8">
+          <svg
+            class="dark:text-accent-500 size-8 text-(--color-gold)"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M7.17 6A5.17 5.17 0 0 0 2 11.17V18h6.83v-6.83H5.5A1.67 1.67 0 0 1 7.17 9.5V6Zm9 0A5.17 5.17 0 0 0 11 11.17V18h6.83v-6.83H14.5a1.67 1.67 0 0 1 1.67-1.67V6Z" />
+          </svg>
+          <blockquote class="text-brand-800 dark:text-brand-100 mt-4 flex-1 text-pretty">
+            {t.quote}
+          </blockquote>
+          <figcaption class="mt-6">
+            <span class="font-display text-brand-900 block font-semibold dark:text-white">
+              {t.name}
+            </span>
+            <span class="text-brand-600 dark:text-accent-400 text-sm">
+              {t.role} · {t.memberClass}
+            </span>
+          </figcaption>
+        </figure>
+      </li>
+    ))
+  }
+</ul>

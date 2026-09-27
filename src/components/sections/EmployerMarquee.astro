@@ -1,0 +1,49 @@
+---
+import { alumniEmployers, internEmployers } from '@data/chapter';
+
+interface Strip {
+  label: string;
+  items: string[];
+}
+
+// Drop unfilled "Add employer" placeholders so they never roll across a live
+// page; a strip only renders once it has at least one real, verified name. When
+// nothing is filled in yet, all strips fall away and the empty state below
+// prompts the editor (per chapter.ts) instead of showing placeholder text.
+const isReal = (name: string) => name.trim().toLowerCase() !== 'add employer';
+const strips: Strip[] = [
+  { label: 'Alumni have worked at', items: alumniEmployers.filter(isReal) },
+  { label: 'Actives are interning at', items: internEmployers.filter(isReal) },
+].filter((s) => s.items.length > 0);
+---
+
+{
+  strips.length === 0 ? (
+    <p class="employer-marquee-empty">
+      Employer names are still being collected. Drop real company names into
+      <code>alumniEmployers</code> and <code>internEmployers</code> in
+      <code>src/data/chapter.ts</code> to populate this section.
+    </p>
+  ) : (
+    <div class="employer-marquee">
+      {strips.map((s) => (
+        <div class="employer-marquee__row">
+          <p class="employer-marquee__label">{s.label}</p>
+          <div class="employer-marquee__strip">
+            <div class="employer-marquee__track">
+              {[...s.items, ...s.items].map((name) => (
+                <span class="employer-marquee__item">
+                  <span class="employer-marquee__logo" aria-hidden="true">
+                    {name.slice(0, 2).toUpperCase()}
+                  </span>
+                  <span class="employer-marquee__name">{name}</span>
+                  <span class="employer-marquee__dot" aria-hidden="true" />
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}

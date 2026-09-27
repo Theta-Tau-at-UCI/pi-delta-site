@@ -1,0 +1,111 @@
+---
+// StickyRushCTA, a small floating bar that appears after the hero showing
+// the next rush event and a one-click Rush button. Dismissible (the X stores
+// a dismiss flag in sessionStorage so it doesn't show again that session).
+// Hidden on the recruitment page itself (would be redundant).
+import { rushSchedule } from '@data/chapter';
+
+// Find the next open (non-invite-only) event. Falls back to the first event.
+const nextOpen = rushSchedule.find((e) => !e.inviteOnly) ?? rushSchedule[0];
+const nextLabel = nextOpen
+  ? `Next: ${nextOpen.name} · ${nextOpen.date}`
+  : 'Rush every fall and spring';
+---
+
+<div
+  id="sticky-rush-cta"
+  class="sticky-rush-cta"
+  data-visible="false"
+  aria-hidden="true"
+  role="region"
+  aria-label="Upcoming rush event"
+>
+  <div class="sticky-rush-cta__inner">
+    <div class="sticky-rush-cta__copy">
+      <span class="sticky-rush-cta__label">Rushing this fall?</span>
+      <span class="sticky-rush-cta__detail">{nextLabel}</span>
+    </div>
+    <a href="/recruitment" class="sticky-rush-cta__btn">See schedule →</a>
+    <button
+      type="button"
+      class="sticky-rush-cta__close"
+      aria-label="Dismiss"
+      data-sticky-rush-close
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-3.5"
+        aria-hidden="true"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  const KEY = 'sticky-rush-cta-dismissed';
+  const el = document.getElementById('sticky-rush-cta');
+  // Storage access throws when the visitor blocks site data; an unguarded read
+  // would abort this module and the bar would never appear at all.
+  let dismissed = false;
+  try {
+    dismissed = sessionStorage.getItem(KEY) === '1';
+  } catch {
+    /* storage unavailable, treat as not dismissed */
+  }
+  if (el && !dismissed) {
+    let shown = false;
+    // Hide whenever the actual #join Rush CTA section is on screen so the
+    // float never competes with the page's own CTA.
+    let joinVisible = false;
+    const join = document.getElementById('join');
+    if (join) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          joinVisible = !!entries[0]?.isIntersecting;
+          update();
+        },
+        { rootMargin: '0px', threshold: 0.1 },
+      );
+      io.observe(join);
+    }
+
+    const update = () => {
+      // Once dismissed, stay dismissed: the scroll listener keeps firing and
+      // would otherwise re-show the bar on the very next scroll.
+      if (dismissed) return;
+      const past = window.scrollY > window.innerHeight * 0.6;
+      const next = past && !joinVisible;
+      if (next !== shown) {
+        shown = next;
+        el.dataset.visible = next ? 'true' : 'false';
+        el.setAttribute('aria-hidden', next ? 'false' : 'true');
+      }
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+
+    const close = el.querySelector('[data-sticky-rush-close]');
+    close?.addEventListener('click', () => {
+      dismissed = true;
+      try {
+        sessionStorage.setItem(KEY, '1');
+      } catch {
+        /* storage unavailable, the in-page flag still holds for this page */
+      }
+      el.dataset.visible = 'false';
+      el.setAttribute('aria-hidden', 'true');
+      shown = false;
+      window.removeEventListener('scroll', update);
+    });
+  } else if (el) {
+    el.remove();
+  }
+</script>

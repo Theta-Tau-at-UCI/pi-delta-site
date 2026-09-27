@@ -1,0 +1,61 @@
+---
+// Minimal, standalone layout for the revamp prototype (docs/REVAMP-BRIEF.md).
+// Deliberately does NOT use PageLayout, no navbar/curtain/reveal-ready system,
+// so the new scale.com-style direction can be judged in isolation. Lenis
+// smooth-scroll is initialized here and gated behind prefers-reduced-motion.
+interface Props {
+  title?: string;
+}
+const { title = 'Prototype · Theta Tau' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    />
+    <style is:global>
+      /* Lenis smooth-scroll base styles (from the library's docs). */
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      .lenis.lenis-smooth iframe {
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+    <script>
+      import Lenis from 'lenis';
+      // Smooth scroll only when motion is welcome; native scroll otherwise.
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) {
+        const lenis = new Lenis({ lerp: 0.1 });
+        const raf = (time: number) => {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        };
+        requestAnimationFrame(raf);
+      }
+    </script>
+  </body>
+</html>

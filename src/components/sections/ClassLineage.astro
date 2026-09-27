@@ -1,0 +1,333 @@
+---
+// ClassLineage, Pi Delta's class history rendered as a chronological
+// numbered grid of monogram cards. Each class is one tile; the founding class
+// gets a star, the current class is highlighted with gold + maroon background.
+import { memberClasses, currentClass, allBrothersWithAlumni } from '@data/chapter';
+
+const GREEK: Record<string, string> = {
+  alpha: 'Α',
+  beta: 'Β',
+  gamma: 'Γ',
+  delta: 'Δ',
+  epsilon: 'Ε',
+  zeta: 'Ζ',
+  eta: 'Η',
+  theta: 'Θ',
+  iota: 'Ι',
+  kappa: 'Κ',
+  lambda: 'Λ',
+  mu: 'Μ',
+  nu: 'Ν',
+  xi: 'Ξ',
+  omicron: 'Ο',
+  pi: 'Π',
+  rho: 'Ρ',
+  sigma: 'Σ',
+  tau: 'Τ',
+  upsilon: 'Υ',
+  phi: 'Φ',
+  chi: 'Χ',
+  psi: 'Ψ',
+  omega: 'Ω',
+};
+
+function monogram(className: string): string {
+  const lower = className.toLowerCase();
+  // Founding class predates the Greek-letter naming, so use the chapter's
+  // own Π Δ monogram instead of leaving it blank.
+  if (lower.includes('founding')) return 'ΠΔ';
+  return className
+    .split(/\s+/)
+    .map((w) => GREEK[w.toLowerCase()] ?? '')
+    .join('');
+}
+
+const total = memberClasses.length;
+
+// Count each class off the unified roster (actives + alumni), which is the
+// exact set the Brothers explorer filters when a tile is clicked. Counting the
+// class rosters instead let the tile number and the filtered result drift
+// apart whenever an active was listed in no roster, or in a different one.
+const classCounts = new Map<string, number>();
+for (const b of allBrothersWithAlumni) {
+  if (b.memberClass) classCounts.set(b.memberClass, (classCounts.get(b.memberClass) ?? 0) + 1);
+}
+---
+
+<div class="class-lineage" data-stagger>
+  <ol class="lineage-grid" role="list">
+    {
+      memberClasses.map((cls, i) => {
+        const isCurrent = cls === currentClass;
+        const isFounding = i === 0;
+        return (
+          <li class:list={['lineage-card', isCurrent && 'is-current', isFounding && 'is-founding']}>
+            <button
+              type="button"
+              class="lineage-card__btn"
+              data-filter-type="memberClass"
+              data-filter-value={cls}
+              aria-label={`Filter roster by ${cls}${isCurrent ? ' (current class)' : ''}`}
+            >
+              <span class="lineage-index" aria-hidden="true">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              {monogram(cls) && (
+                <span class="lineage-monogram font-display" aria-hidden="true">
+                  {monogram(cls)}
+                </span>
+              )}
+              <span class="lineage-name">{cls}</span>
+              {classCounts.get(cls) ? (
+                <span class="lineage-count" aria-hidden="true">
+                  {classCounts.get(cls)} brothers
+                </span>
+              ) : null}
+              {isCurrent && <span class="lineage-tag">Current</span>}
+              {isFounding && <span class="lineage-tag is-founding-tag">Founding</span>}
+            </button>
+          </li>
+        );
+      })
+    }
+  </ol>
+  <p class="lineage-footnote">
+    {total} classes from the Founding Class through {currentClass}, our most recent class.
+  </p>
+</div>
+
+<style>
+  .class-lineage {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .lineage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .lineage-card {
+    position: relative;
+    border-radius: 0.9rem;
+    list-style: none;
+  }
+  .lineage-card__btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.25rem;
+    width: 100%;
+    /* Extra bottom padding reserves a uniform slot for the (absolute) tag on
+       every card, so tagged cards are not taller than the rest. */
+    padding: 0.85rem 0.6rem 2rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: inherit;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      border-color 0.18s ease,
+      background 0.18s ease;
+  }
+  .lineage-card__btn:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+  }
+  /* Selected state, this class is part of the active filter set. */
+  .lineage-card__btn.is-active {
+    border-color: var(--color-accent-500);
+    box-shadow: inset 0 0 0 2px var(--color-accent-500);
+  }
+  html.dark .lineage-card__btn {
+    background: rgba(74, 4, 4, 0.32);
+  }
+  .lineage-card__btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-gold-muted);
+    box-shadow: 0 10px 22px rgba(74, 4, 4, 0.08);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lineage-card__btn {
+      transition: none;
+    }
+    .lineage-card__btn:hover {
+      transform: none;
+    }
+  }
+
+  .lineage-index {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .lineage-monogram {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.9rem;
+    line-height: 1;
+    color: var(--color-maroon);
+  }
+  html.dark .lineage-monogram {
+    color: var(--color-gold);
+  }
+  .lineage-name {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: -0.005em;
+    /* Reserve two lines so one- and two-word class names take the same height. */
+    min-height: 2.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.02;
+  }
+  .lineage-count {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+    margin-top: 0.1rem;
+  }
+  .lineage-card.is-current .lineage-count {
+    color: rgba(255, 245, 220, 0.55);
+  }
+
+  /* Founding class, first tile, star monogram, subtle gold accent. */
+  .lineage-card.is-founding .lineage-card__btn {
+    border-color: var(--color-gold-muted);
+    background: #ffffff;
+  }
+  html.dark .lineage-card.is-founding .lineage-card__btn {
+    background: rgba(74, 4, 4, 0.45);
+  }
+  .lineage-card.is-founding .lineage-monogram {
+    color: var(--color-gold);
+    font-size: 1.7rem;
+  }
+  html.dark .lineage-card.is-founding .lineage-monogram {
+    color: #d4b56a;
+  }
+
+  /* Current class, maroon background, gold ring, "Current" tag. */
+  .lineage-card.is-current .lineage-card__btn {
+    background: var(--color-brand-700);
+    border-color: var(--color-accent-500);
+    box-shadow:
+      0 0 0 2px rgba(212, 181, 106, 0.18),
+      0 14px 32px rgba(74, 4, 4, 0.28);
+  }
+  .lineage-card.is-current .lineage-index {
+    color: rgba(255, 245, 220, 0.6);
+  }
+  .lineage-card.is-current .lineage-monogram {
+    color: #d4b56a;
+    text-shadow: 0 0 18px rgba(212, 181, 106, 0.35);
+  }
+  .lineage-card.is-current .lineage-name {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .lineage-tag {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #d4b56a;
+    background: rgba(212, 181, 106, 0.18);
+    border: 1px solid rgba(212, 181, 106, 0.45);
+    padding: 0.18rem 0.45rem;
+    border-radius: 9999px;
+  }
+  .lineage-tag.is-founding-tag {
+    color: var(--color-gold-muted);
+    background: transparent;
+    border-color: var(--color-gold-muted);
+  }
+  html.dark .lineage-tag.is-founding-tag {
+    color: #d4b56a;
+    border-color: rgba(212, 181, 106, 0.5);
+  }
+
+  .lineage-footnote {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    max-width: 36rem;
+    line-height: 1.55;
+  }
+  .lineage-footnote strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  // Each lineage tile dispatches a `brothers:filter` event with its class
+  // name. The BrothersExplorer React island listens for this event and sets
+  // a Class filter on the roster, then smooth-scrolls the roster into view.
+  document.querySelectorAll('.lineage-card__btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const type = btn.getAttribute('data-filter-type');
+      const value = btn.getAttribute('data-filter-value');
+      if (!type || !value) return;
+      document.dispatchEvent(new CustomEvent('brothers:filter', { detail: { type, value } }));
+    });
+  });
+
+  // Refresh the "N brothers" line under each class tile when the active
+  // filters change, show how many brothers in each class would remain
+  // visible under the current filter composition. Includes alumni since
+  // class filters bring them into the dataset.
+  document.addEventListener('brothers:filtered', (e) => {
+    const detail = (e as CustomEvent<{ brothers: Array<{ memberClass?: string }> }>).detail;
+    if (!detail?.brothers) return;
+    const counts: Record<string, number> = {};
+    for (const b of detail.brothers) {
+      if (b.memberClass) counts[b.memberClass] = (counts[b.memberClass] ?? 0) + 1;
+    }
+    document.querySelectorAll<HTMLElement>('.lineage-card__btn').forEach((btn) => {
+      const cls = btn.getAttribute('data-filter-value') ?? '';
+      const count = counts[cls] ?? 0;
+      const countEl = btn.querySelector<HTMLElement>('.lineage-count');
+      if (countEl) countEl.textContent = `${count} brothers`;
+    });
+  });
+
+  // Highlight tiles whose class is currently in the active filter set, so
+  // multi-select composition is visible while the drawer stays open.
+  document.addEventListener('brothers:active-filters', (e) => {
+    const detail = (e as CustomEvent<{ active: Array<{ type: string; values: string[] }> }>).detail;
+    const active = detail?.active ?? [];
+    document.querySelectorAll<HTMLElement>('.lineage-card__btn').forEach((btn) => {
+      const type = btn.getAttribute('data-filter-type');
+      const value = btn.getAttribute('data-filter-value') ?? '';
+      const on = active.some((f) => f.type === type && f.values.includes(value));
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  });
+</script>

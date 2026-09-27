@@ -1,0 +1,109 @@
+---
+// ImagePlaceholder, drops a real <img> when a `src` is provided, otherwise
+// renders a styled cream tile with the chapter monogram and a serif caption.
+// Designed so the absence of a photo reads as a deliberate aesthetic, not as
+// a TODO. Editors just need to drop a file under /public/ and set the `src`
+// prop to upgrade any tile to a real photograph.
+//
+// Every tile, real or placeholder, is clickable. Real images pop into the
+// global Lightbox at full size. Placeholders pop into a friendly "Photo
+// coming soon" view (same lightbox infrastructure, alternate render). Pass
+// `gallery="<name>"` on multiple tiles to chain real images as a navigable
+// group (arrow keys cycle through them).
+interface Props {
+  /** Optional public path (e.g. "/images/pillars/brotherhood.jpg"). */
+  src?: string;
+  /** Required alt text for the real image (or descriptive label when empty). */
+  alt: string;
+  /** Aspect ratio, e.g. "3 / 2", "16 / 9", "1 / 1", "3 / 4". */
+  aspect?: string;
+  /** CSS object-position for the cover crop, e.g. "center bottom", "center 35%". */
+  objectPosition?: string;
+  /** Caption shown inside the placeholder. */
+  label?: string;
+  /** Visual treatment, "soft" = cream-tinted, "dark" = maroon. */
+  tone?: 'soft' | 'dark';
+  /** Extra class on the wrapper. */
+  class?: string;
+  /** Opt OUT of click-to-enlarge (defaults to enabled when src is set). */
+  noLightbox?: boolean;
+  /** Group key, images sharing the same gallery become navigable as a set. */
+  gallery?: string;
+  /** Caption shown inside the lightbox (defaults to `label`). */
+  lightboxCaption?: string;
+}
+
+const {
+  src,
+  alt,
+  aspect = '3 / 2',
+  objectPosition,
+  label = 'Chapter photo',
+  tone = 'soft',
+  class: className = '',
+  noLightbox = false,
+  gallery,
+  lightboxCaption,
+} = Astro.props;
+
+const lightboxAttrs =
+  src && !noLightbox
+    ? {
+        'data-lightbox': src,
+        'data-lightbox-alt': alt,
+        ...(lightboxCaption || label ? { 'data-lightbox-caption': lightboxCaption ?? label } : {}),
+        ...(gallery ? { 'data-lightbox-gallery': gallery } : {}),
+      }
+    : {};
+
+// Placeholder pop attributes, when there's no src, the tile is still
+// clickable. Triggers the Lightbox's placeholder-mode render.
+const placeholderAttrs =
+  !src && !noLightbox
+    ? {
+        'data-lightbox-placeholder': label,
+      }
+    : {};
+---
+
+<figure
+  class:list={['image-placeholder', `image-placeholder--${tone}`, className]}
+  style={`aspect-ratio: ${aspect};`}
+  data-has-image={src ? 'true' : 'false'}
+>
+  {
+    src ? (
+      <button
+        type="button"
+        class="image-placeholder__trigger"
+        aria-label={`Enlarge ${alt || 'photo'}`}
+        {...lightboxAttrs}
+      >
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          class="image-placeholder__img"
+          style={objectPosition ? `object-position: ${objectPosition};` : undefined}
+        />
+      </button>
+    ) : (
+      <button
+        type="button"
+        class="image-placeholder__trigger image-placeholder__trigger--empty"
+        aria-label={`${label}, photo coming soon`}
+        {...placeholderAttrs}
+      >
+        {/* Watermark monogram, bleeds off the top-right corner as a quiet
+            backdrop. Decorative, so aria-hidden. */}
+        <span class="image-placeholder__watermark font-display" aria-hidden="true">
+          ΠΔ
+        </span>
+        <span class="image-placeholder__caption">
+          <span class="image-placeholder__caption-mark" aria-hidden="true" />
+          <span class="image-placeholder__caption-text font-display">{label}</span>
+        </span>
+      </button>
+    )
+  }
+</figure>

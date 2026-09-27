@@ -1,0 +1,591 @@
+---
+// Site navigation. Accessible <nav> with active-tab state. On mobile the links
+// collapse behind a toggle button (progressive enhancement: a tiny inline script
+// wires aria-expanded; with no JS the menu stays open and usable).
+//
+// The header sits as a floating pill at the top of every page: rounded gold-
+// edged shell, a frosted parchment backdrop, and a subtle gold rule that
+// reveals once the user scrolls past the hero. Active links get a small gold
+// background pill (not just an underline) so the current page is obvious at
+// a glance. The Rush CTA is the visual anchor, gold gradient + a small
+// translate on hover so it always reads as "the next action."
+import { site } from '@data/site';
+
+const path = Astro.url.pathname;
+const normalize = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
+const here = normalize(path);
+const isActive = (href: string) =>
+  href === '/' ? here === '/' : here === href || here.startsWith(href + '/');
+---
+
+<header
+  data-page-chrome="nav"
+  class="site-nav-header sticky top-0 z-30 transition-all duration-300"
+>
+  <div class="site-nav-shell mx-auto max-w-6xl px-(--spacing-page) pt-3 pb-2">
+    <nav aria-label="Primary" class="site-nav flex items-center justify-between gap-4">
+      <a href="/" class="site-nav__lockup group inline-flex min-h-11 items-center gap-2.5">
+        {/* Shield crest logomark. */}
+        <svg class="site-nav__crest h-9 w-auto" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+          <path
+            d="M16 2 4 6.5v11.7c0 7.8 5.1 12 12 15.8 6.9-3.8 12-8 12-15.8V6.5L16 2Z"
+            fill="var(--color-brand-700)"
+            stroke="var(--color-accent-500)"
+            stroke-width="1.5"
+            stroke-linejoin="round"></path>
+          <text
+            x="16"
+            y="22"
+            text-anchor="middle"
+            font-family="'Fraunces', Georgia, serif"
+            font-size="12"
+            font-weight="700"
+            fill="var(--color-accent-400)">ΘΤ</text
+          >
+        </svg>
+        <span class="site-nav__lockup-stack">
+          <span
+            class="font-display text-brand-900 site-nav__name text-lg font-bold tracking-tight dark:text-white"
+            >{site.shortName}</span
+          >
+          <span class="site-nav__sub">Pi Delta · UCI</span>
+        </span>
+        <span class="sr-only">{site.name} home</span>
+      </a>
+
+      {/* Mobile toggle. */}
+      <button
+        type="button"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Toggle navigation menu"
+        class="site-nav__mobile-toggle inline-flex size-11 items-center justify-center rounded-full md:hidden"
+      >
+        <svg
+          class="size-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+      </button>
+
+      {/* Links: row on desktop, collapsible column on mobile. */}
+      <ul
+        id="nav-menu"
+        data-open="false"
+        class="site-nav__menu absolute inset-x-0 top-full hidden flex-col gap-1 px-(--spacing-page) py-3 data-[open=true]:flex md:static md:flex md:w-auto md:flex-row md:items-center md:gap-1 md:px-0 md:py-0"
+      >
+        {
+          site.nav.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                aria-current={isActive(link.href) ? 'page' : undefined}
+                class="site-nav__link relative inline-flex min-h-11 w-full items-center rounded-full px-3.5 text-sm font-medium md:w-auto"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+        <li class="md:ml-2">
+          <a
+            href="/recruitment"
+            class="site-nav__rush focus-visible:outline-accent-400 inline-flex min-h-10 w-full items-center justify-center gap-1.5 rounded-full px-4 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 md:w-auto"
+          >
+            <span>Rush</span>
+            <svg
+              class="site-nav__rush-arrow size-3.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </li>
+        <li class="md:ml-1">
+          <button
+            type="button"
+            data-theme-toggle
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+            class="site-nav__themepill"
+          >
+            <span class="site-nav__themepill-track" aria-hidden="true">
+              <span class="site-nav__themepill-knob">
+                {/* Sun shows in light mode; moon shows in dark mode (CSS-driven). */}
+                <svg
+                  data-theme-icon="sun"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m4.93 19.07 1.41-1.41"></path>
+                  <path d="m17.66 6.34 1.41-1.41"></path>
+                </svg>
+                <svg
+                  data-theme-icon="moon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </span>
+            </span>
+            <span class="sr-only">Toggle dark mode</span>
+          </button>
+        </li>
+      </ul>
+
+      {
+        /* With scripting off the toggle can never open the menu, so reveal the
+          links outright at mobile widths. */
+      }
+      <noscript>
+        <style is:inline>
+          @media (max-width: 767px) {
+            #nav-menu {
+              display: flex !important;
+            }
+          }
+        </style>
+      </noscript>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* ----------------------------------------------------------------------- */
+  /*   Header shell, sits as a floating pill above the page chrome           */
+  /* ----------------------------------------------------------------------- */
+  .site-nav-header {
+    background: transparent;
+  }
+  .site-nav-shell {
+    position: relative;
+  }
+  /* The pill itself, a layer behind the nav content with a soft border,
+     barely-there shadow, and a frosted parchment surface. The surface
+     intensifies once the page is scrolled. */
+  .site-nav-shell::before {
+    content: '';
+    position: absolute;
+    inset: 0.5rem 0.5rem 0;
+    border-radius: 9999px;
+    background: rgba(252, 247, 236, 0.55);
+    border: 1px solid transparent;
+    /* Deliberately no backdrop-filter and no blurred drop shadow. Both read as
+      a gradient at the pill's edge against the cream page: blur(12px) smeared
+      the boundary, and a 24px-blur shadow faded the page from #FBFAF6 down to
+      #F9F7EF over the 24px approaching the pill. Neither was a declared
+      gradient, which is why it was hard to find. The surface is flat and the
+      only shadow left is a zero-blur inset highlight, so the edge is crisp. */
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    pointer-events: none;
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+    z-index: 0;
+  }
+  :global(html.dark) .site-nav-shell::before {
+    background: rgba(20, 6, 6, 0.55);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  }
+
+  /* Once scrolled, deepen the surface + add a gold hairline border. */
+  :global(.nav-scrolled) .site-nav-shell::before {
+    background: rgba(252, 247, 236, 0.82);
+    border-color: rgba(212, 181, 106, 0.32);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  }
+  /* .nav-scrolled lands on the <header>, never on <html>, so the dark scrolled
+     surface has to be written as html.dark > ... > .nav-scrolled. It also has
+     to out-specify the unscrolled dark rule above. */
+  :global(html.dark) :global(.nav-scrolled) .site-nav-shell::before {
+    background: rgba(20, 6, 6, 0.78);
+    border-color: rgba(212, 181, 106, 0.28);
+  }
+
+  .site-nav {
+    position: relative;
+    z-index: 1;
+    padding: 0.25rem 0.85rem;
+  }
+
+  /* ----------------------------------------------------------------------- */
+  /*   Brand lockup, crest + name + chapter subtitle stack                    */
+  /* ----------------------------------------------------------------------- */
+  .site-nav__lockup {
+    text-decoration: none;
+    color: inherit;
+  }
+  .site-nav__crest {
+    flex-shrink: 0;
+    transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .site-nav__lockup:hover .site-nav__crest {
+    transform: translateY(-2px) rotate(-3deg);
+  }
+  .site-nav__lockup-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    line-height: 1;
+  }
+  .site-nav__name {
+    line-height: 1;
+  }
+  .site-nav__sub {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin-top: 0.18rem;
+  }
+  :global(html.dark) .site-nav__sub {
+    color: var(--color-accent-400);
+  }
+  @media (max-width: 480px) {
+    .site-nav__sub {
+      display: none;
+    }
+  }
+
+  /* ----------------------------------------------------------------------- */
+  /*   Mobile menu surface                                                     */
+  /* ----------------------------------------------------------------------- */
+  @media (max-width: 767px) {
+    .site-nav__menu {
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+      box-shadow: 0 16px 30px rgba(74, 4, 4, 0.08);
+      padding-top: 0.75rem;
+      padding-bottom: 0.9rem;
+      gap: 0.15rem;
+    }
+    :global(html.dark) .site-nav__menu {
+      background: rgba(20, 6, 6, 0.96);
+      border-top-color: rgba(212, 181, 106, 0.22);
+    }
+    /* The active-tab "tubelight" bar is drawn above each link, centered, it's
+       designed for the horizontal desktop nav. In the vertical mobile menu it
+       floats orphaned in the gap above the active item and reads as a stray
+       mark. The full-width active pill already signals the current page, so
+       drop the lamp on mobile. */
+    .site-nav__link[aria-current='page']::before {
+      display: none;
+    }
+    /* Each link fills the menu width so the active pill and tap targets line up
+       evenly instead of hugging their text. */
+    .site-nav__link {
+      width: 100%;
+    }
+    /* Center the theme toggle under the Rush button (was left-hugging the edge,
+       which looked off-balance below the full-width items above it). Centering
+       the parent <li> is order- and display-independent, targeting the button
+       alone failed because the base .site-nav__themepill rule (defined later in
+       this sheet) resets it to inline-flex, which ignores auto margins. */
+    .site-nav__menu li:has(> .site-nav__themepill) {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.15rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .site-nav__menu {
+      background: transparent;
+    }
+  }
+
+  /* ----------------------------------------------------------------------- */
+  /*   Links, soft gold pill on hover; richer pill when active                */
+  /* ----------------------------------------------------------------------- */
+  .site-nav__link {
+    color: var(--color-text);
+    transition:
+      background 0.18s ease,
+      color 0.18s ease;
+    text-decoration: none;
+  }
+  :global(html.dark) .site-nav__link {
+    color: rgba(247, 236, 217, 0.85);
+  }
+  .site-nav__link:hover {
+    background: rgba(212, 181, 106, 0.16);
+    color: var(--color-accent-600);
+  }
+  :global(html.dark) .site-nav__link:hover {
+    background: rgba(212, 181, 106, 0.18);
+    color: var(--color-accent-400);
+  }
+  .site-nav__link[aria-current='page'] {
+    background: rgba(212, 181, 106, 0.28);
+    color: var(--color-brand-900);
+    font-weight: 600;
+    box-shadow: inset 0 0 0 1px rgba(212, 181, 106, 0.4);
+  }
+  :global(html.dark) .site-nav__link[aria-current='page'] {
+    background: rgba(212, 181, 106, 0.2);
+    color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(212, 181, 106, 0.45);
+  }
+  .site-nav__link:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+  }
+
+  /* ----------------------------------------------------------------------- */
+  /*   Rush CTA, gold gradient pill, the visual anchor                        */
+  /* ----------------------------------------------------------------------- */
+  .site-nav__rush {
+    background: #d4b56a;
+    color: var(--color-brand-900);
+    text-decoration: none;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.4) inset,
+      0 4px 12px rgba(184, 147, 47, 0.32);
+    transition:
+      transform 0.18s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.18s ease,
+      background 0.18s ease;
+  }
+  .site-nav__rush:hover {
+    background: #e1c376;
+    transform: translateY(-1px);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 8px 18px rgba(184, 147, 47, 0.45);
+  }
+  .site-nav__rush-arrow {
+    transition: transform 0.18s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .site-nav__rush:hover .site-nav__rush-arrow {
+    transform: translateX(2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-nav__rush,
+    .site-nav__rush:hover,
+    .site-nav__rush-arrow,
+    .site-nav__rush:hover .site-nav__rush-arrow,
+    .site-nav__crest,
+    .site-nav__lockup:hover .site-nav__crest {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* ----------------------------------------------------------------------- */
+  /*   Theme toggle + mobile burger, same soft pill chrome                    */
+  /* ----------------------------------------------------------------------- */
+  .site-nav__mobile-toggle {
+    color: var(--color-text);
+    background: transparent;
+    border: 1px solid rgba(212, 181, 106, 0.28);
+    transition:
+      background 0.18s ease,
+      border-color 0.18s ease;
+  }
+  :global(html.dark) .site-nav__mobile-toggle {
+    color: rgba(247, 236, 217, 0.9);
+    border-color: rgba(212, 181, 106, 0.3);
+  }
+  .site-nav__mobile-toggle:hover {
+    background: rgba(212, 181, 106, 0.14);
+    border-color: rgba(212, 181, 106, 0.5);
+  }
+  .site-nav__mobile-toggle:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+  }
+
+  /* Pill sun/moon theme switch, knob slides; sun (light) <-> moon (dark). */
+  .site-nav__themepill {
+    background: transparent;
+    border: 0;
+    padding: 0.4rem 0.25rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .site-nav__themepill-track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 3.4rem;
+    height: 1.7rem;
+    padding: 0.2rem;
+    border-radius: 9999px;
+    background: var(--color-surface);
+    border: 1px solid rgba(212, 181, 106, 0.4);
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease;
+  }
+  :global(html.dark) .site-nav__themepill-track {
+    background: var(--rv-dark);
+    border-color: rgba(212, 181, 106, 0.3);
+  }
+  .site-nav__themepill-knob {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background: #d4b56a;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    transform: translateX(0);
+    transition:
+      transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+      background 0.3s ease;
+  }
+  :global(html.dark) .site-nav__themepill-knob {
+    transform: translateX(1.7rem);
+    background: #321b15;
+  }
+  .site-nav__themepill-knob svg {
+    width: 0.82rem;
+    height: 0.82rem;
+  }
+  .site-nav__themepill [data-theme-icon='sun'] {
+    display: block;
+    color: var(--color-brand-900);
+  }
+  .site-nav__themepill [data-theme-icon='moon'] {
+    display: none;
+    color: var(--color-accent-400);
+  }
+  :global(html.dark) .site-nav__themepill [data-theme-icon='sun'] {
+    display: none;
+  }
+  :global(html.dark) .site-nav__themepill [data-theme-icon='moon'] {
+    display: block;
+  }
+  .site-nav__themepill:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+    border-radius: 9999px;
+  }
+
+  /* Tubelight lamp, glowing bar above the active tab. */
+  .site-nav__link[aria-current='page']::before {
+    content: '';
+    position: absolute;
+    top: -0.55rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.6rem;
+    height: 3px;
+    border-radius: 0 0 6px 6px;
+    background: var(--color-accent-500);
+    box-shadow:
+      0 0 10px 1px rgba(212, 181, 106, 0.7),
+      0 0 20px 4px rgba(212, 181, 106, 0.35);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-nav__themepill-knob {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Nav gains a deeper frosted backdrop after scrolling past the hero.
+  const header = document.querySelector('header[data-page-chrome="nav"]');
+  if (header) {
+    const onScroll = () => header.classList.toggle('nav-scrolled', window.scrollY > 60);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+</script>
+
+<script>
+  import { initThemeToggle } from '@/scripts/theme';
+  initThemeToggle();
+</script>
+
+<script>
+  // Progressive enhancement for the mobile menu. Closed by default once JS runs.
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    menu.dataset.open = 'false';
+
+    // The menu is an overlay pinned under the sticky header, so the page
+    // behind it must not scroll while it is open. Lenis drives the window
+    // scroll, so it needs stopping too (same pattern as the roster modal).
+    const lenis = () =>
+      (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
+
+    const setOpen = (open: boolean) => {
+      menu.dataset.open = String(open);
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) lenis()?.stop();
+      else lenis()?.start();
+    };
+    const close = () => {
+      if (menu.dataset.open !== 'true') return;
+      setOpen(false);
+    };
+
+    toggle.addEventListener('click', () => setOpen(menu.dataset.open !== 'true'));
+
+    // Close after navigating on mobile.
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+
+    // Escape closes and hands focus back to the toggle.
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape' || menu.dataset.open !== 'true') return;
+      close();
+      toggle.focus();
+    });
+
+    // A click anywhere outside the menu or its toggle closes it.
+    document.addEventListener('click', (e) => {
+      if (menu.dataset.open !== 'true') return;
+      const target = e.target as Node | null;
+      if (!target || menu.contains(target) || toggle.contains(target)) return;
+      close();
+    });
+
+    // Above the md breakpoint the menu is a static row again; drop any lock
+    // left over from a narrow viewport.
+    const desktop = window.matchMedia('(min-width: 768px)');
+    desktop.addEventListener('change', (e) => {
+      if (e.matches) close();
+    });
+  }
+</script>

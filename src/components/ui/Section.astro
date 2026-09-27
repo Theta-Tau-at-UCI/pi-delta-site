@@ -1,0 +1,117 @@
+---
+// Section wrapper. Each section header is treated as a mini-hero, big
+// serif title, optional italic-gold accent word (matching the page-hero
+// pattern across the site), and a numbered eyebrow with a thin gold rule
+// underneath. Used throughout every inner page so the rhythm "page hero →
+// chapter heroes → content" is consistent.
+interface Props {
+  /** Optional id for in-page anchor links. */
+  id?: string;
+  /** Optional section title rendered as an <h2>. */
+  title?: string;
+  /** Optional editorial number eyebrow (e.g., "01"). */
+  number?: string;
+  /** Optional word inside the title to render as an italic gold accent
+   *  (matches the page hero treatment). Example: title="Why Theta Tau"
+   *  accent="Theta" → renders with "Theta" italic-gold. */
+  accent?: string;
+  /** Optional short eyebrow line above the number, e.g. "Chapter" or "Now". */
+  eyebrow?: string;
+  /** When true, render the crossed hammer-&-tongs emblem in the eyebrow row,
+   *  Theta Tau's engineering-craft mark. Opt-in so it stays a deliberate accent
+   *  on select headers rather than repeating on every section. */
+  emblem?: boolean;
+  /** When true, the section gets a slightly lifted white surface so it sits
+   *  above the cream page bg. Use to alternate visual rhythm. */
+  surface?: boolean;
+  /** Extra classes for the inner container. */
+  class?: string;
+}
+
+const {
+  id,
+  title,
+  number,
+  accent,
+  eyebrow,
+  emblem = false,
+  surface = false,
+  class: className = '',
+} = Astro.props;
+
+// Split the title around the accent word (case-insensitive) so the inner
+// element can be styled separately. Falls back to a single string when no
+// accent is requested or the word isn't found.
+function splitAccent(t: string, a?: string) {
+  if (!a) return { before: t, mid: '', after: '' };
+  const idx = t.toLowerCase().indexOf(a.toLowerCase());
+  if (idx === -1) return { before: t, mid: '', after: '' };
+  return {
+    before: t.slice(0, idx),
+    mid: t.slice(idx, idx + a.length),
+    after: t.slice(idx + a.length),
+  };
+}
+
+const split = title ? splitAccent(title, accent) : null;
+---
+
+<section
+  id={id}
+  aria-labelledby={title ? `${id ?? title}-heading` : undefined}
+  class:list={['section-block', surface && 'section-block--surface']}
+>
+  <div class={`mx-auto max-w-5xl px-(--spacing-page) ${className}`}>
+    {
+      title && split && (
+        <header class="section-block__header" data-animate="fade-up">
+          {(number || eyebrow || emblem) && (
+            <p class="section-block__eyebrow-row font-display" aria-hidden="true">
+              {number && <span class="section-block__number">{number}</span>}
+              {eyebrow && <span class="section-block__eyebrow-text">{eyebrow}</span>}
+              {emblem && (
+                <span class="section-block__emblem" aria-hidden="true">
+                  {/* Crossed hammer & tongs, Theta Tau's engineering-craft mark.
+                      Hammer: diagonal handle + head block (top-right). Tongs:
+                      two curved jaws pivoting on a rivet, handles splaying
+                      bottom-right. */}
+                  <svg
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    focusable="false"
+                  >
+                    <path d="M8 12 C 12 8, 16 9, 24 26 L 39 40" />
+                    <path d="M15 7 C 19 7, 21 10, 24 26 L 33 44" />
+                    <circle cx="24" cy="26" r="1.8" fill="currentColor" stroke="none" />
+                    <path d="M12 41 L31 18" />
+                    <rect
+                      x="26.5"
+                      y="10"
+                      width="13"
+                      height="7"
+                      rx="1.7"
+                      transform="rotate(42 33 13.5)"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                  </svg>
+                </span>
+              )}
+              <span class="section-block__eyebrow-rule" />
+            </p>
+          )}
+          <h2 id={`${id ?? title}-heading`} class="section-block__title font-display text-balance">
+            {split.before}
+            {split.mid && <em class="section-block__title-accent">{split.mid}</em>}
+            {split.after}
+          </h2>
+        </header>
+      )
+    }
+    <slot />
+  </div>
+</section>

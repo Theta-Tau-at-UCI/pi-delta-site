@@ -1,0 +1,276 @@
+---
+// NextPath, page-ending hand-off strip. Two cards: a "primary" gold-accent
+// card that pushes toward the chapter's conversion goal (Rush), and a
+// "secondary" neutral card that hands the visitor to the next informational
+// page so they keep moving through the site instead of bouncing to the
+// global footer.
+//
+// Used at the bottom of every inner page (Brothers / Events / Projects /
+// About). Each page passes its own copy + targets, see usage in
+// src/pages/*.astro.
+interface CardSpec {
+  eyebrow: string;
+  /** Word inside the title that should pick up the italic gold accent.
+   *  Example: title="Come meet us at rush." accent="rush" → "Come meet us at
+   *  <em>rush</em>." */
+  title: string;
+  accent?: string;
+  blurb: string;
+  href: string;
+  cta: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  primary: CardSpec;
+  secondary: CardSpec;
+}
+
+const { eyebrow = "What's next", heading = 'Keep going.', primary, secondary } = Astro.props;
+
+// Render the title with the accent word optionally wrapped in <em>.
+function splitTitle(
+  title: string,
+  accent?: string,
+): { before: string; mid?: string; after: string } {
+  if (!accent) return { before: title, after: '' };
+  const idx = title.toLowerCase().indexOf(accent.toLowerCase());
+  if (idx === -1) return { before: title, after: '' };
+  return {
+    before: title.slice(0, idx),
+    mid: title.slice(idx, idx + accent.length),
+    after: title.slice(idx + accent.length),
+  };
+}
+
+const p = splitTitle(primary.title, primary.accent);
+const s = splitTitle(secondary.title, secondary.accent);
+---
+
+<section class="next-path" aria-labelledby="next-path-heading">
+  <div class="next-path__inner">
+    <header class="next-path__header" data-animate="fade-up">
+      <p class="rv-eyebrow rv-eyebrow--gold">{eyebrow}</p>
+      <h2 id="next-path-heading" class="font-display rv-h2">{heading}</h2>
+    </header>
+
+    <div class="next-path__grid" data-stagger>
+      <a href={primary.href} class="next-path__card next-path__card--primary">
+        <span class="next-path__card-eyebrow">{primary.eyebrow}</span>
+        <span class="font-display next-path__card-title">
+          {p.before}{p.mid && <em class="next-path__accent">{p.mid}</em>}{p.after}
+        </span>
+        <span class="next-path__card-blurb">{primary.blurb}</span>
+        <span class="next-path__card-cta">
+          {primary.cta}
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </a>
+
+      <a href={secondary.href} class="next-path__card next-path__card--secondary">
+        <span class="next-path__card-eyebrow">{secondary.eyebrow}</span>
+        <span class="font-display next-path__card-title">
+          {s.before}{s.mid && <em class="next-path__accent">{s.mid}</em>}{s.after}
+        </span>
+        <span class="next-path__card-blurb">{secondary.blurb}</span>
+        <span class="next-path__card-cta">
+          {secondary.cta}
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .next-path {
+    margin-top: 4rem;
+    padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3.5rem);
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+  }
+  :global(html.dark) .next-path {
+    background: #0f0404;
+    border-top-color: rgba(212, 181, 106, 0.18);
+  }
+  .next-path__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 var(--spacing-page, 1.25rem);
+  }
+  .next-path__header {
+    margin-bottom: 1.75rem;
+  }
+  /* Eyebrow + heading come from the shared .rv-* system (revamp.css), so this
+     closing band matches every other section header: on-palette gold, the
+     hammer-and-tongs mark, and the same Fraunces scale. */
+  .next-path__header :global(.rv-h2) {
+    text-wrap: balance;
+  }
+
+  .next-path__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  @media (min-width: 720px) {
+    .next-path__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .next-path__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem 1.5rem 1.65rem;
+    border-radius: 1.1rem;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition:
+      transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .next-path__card:hover {
+    transform: translateY(-3px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .next-path__card,
+    .next-path__card:hover {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* Primary card, gold-accent, maroon gradient surface, white type. */
+  .next-path__card--primary {
+    background: var(--color-brand-700);
+    border: 1px solid rgba(212, 181, 106, 0.45);
+    color: #ffffff;
+    box-shadow:
+      0 0 0 1px rgba(212, 181, 106, 0.18),
+      0 18px 36px rgba(74, 4, 4, 0.16);
+  }
+  .next-path__card--primary:hover {
+    border-color: var(--color-accent-500);
+    box-shadow:
+      0 0 0 2px rgba(212, 181, 106, 0.32),
+      0 24px 44px rgba(74, 4, 4, 0.22);
+  }
+  .next-path__card--primary .next-path__card-eyebrow {
+    color: var(--color-accent-400);
+  }
+  .next-path__card--primary .next-path__card-title {
+    color: #ffffff;
+  }
+  .next-path__card--primary .next-path__card-blurb {
+    color: rgba(247, 236, 217, 0.85);
+  }
+  .next-path__card--primary .next-path__card-cta {
+    color: #d4b56a;
+  }
+
+  /* Secondary card, neutral cream surface, dark type. */
+  .next-path__card--secondary {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+  :global(html.dark) .next-path__card--secondary {
+    background: rgba(74, 4, 4, 0.32);
+    color: #ffffff;
+  }
+  .next-path__card--secondary:hover {
+    border-color: var(--color-gold-muted);
+    box-shadow: 0 14px 30px rgba(74, 4, 4, 0.08);
+  }
+  .next-path__card--secondary .next-path__card-blurb {
+    color: var(--color-text-muted);
+  }
+
+  .next-path__card-eyebrow {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+  }
+  :global(html.dark) .next-path__card--secondary .next-path__card-eyebrow {
+    color: var(--color-accent-400);
+  }
+  .next-path__card-title {
+    font-size: clamp(1.45rem, 3vw, 1.85rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+  }
+  .next-path__accent {
+    font-style: italic;
+    color: var(--color-accent-500);
+  }
+  .next-path__card--primary .next-path__accent {
+    color: #d4b56a;
+  }
+  .next-path__card-blurb {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    max-width: 38ch;
+  }
+  .next-path__card-cta {
+    margin-top: 0.65rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  .next-path__card-cta svg {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .next-path__card:hover .next-path__card-cta svg {
+    transform: translateX(4px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .next-path__card-cta svg,
+    .next-path__card:hover .next-path__card-cta svg {
+      transition: none;
+      transform: none;
+    }
+  }
+  .next-path__card:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 3px;
+  }
+</style>

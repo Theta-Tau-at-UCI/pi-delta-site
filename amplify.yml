@@ -3,13 +3,25 @@ frontend:
   phases:
     preBuild:
       commands:
+        # Astro 6 needs a modern Node; Amplify's default image can be older.
+        # .nvmrc pins the version the site is developed and built against.
+        - nvm install $(cat .nvmrc) && nvm use $(cat .nvmrc)
+        - node --version && npm --version
         - npm ci
-        - amplify pull --yes --amplify "{\"envName\":\"staging\"}" --frontend "{\"framework\":\"react\",\"config\":{\"SourceDir\":\"src\",\"DistributionDir\":\"build\",\"BuildCommand\":\"npm run build\",\"StartCommand\":\"npm start\"}}" --providers "{\"awscloudformation\":{\"region\":\"us-east-2\"}}"
+        # NOTE: the previous spec ran `amplify pull` here to fetch the CRA
+        # backend. This site is fully static with no Amplify backend, and that
+        # command needs backend credentials the build does not have, so it is
+        # deliberately gone.
     build:
       commands:
         - npm run build
+        # Astro writes to dist/. The console build settings for this app may
+        # still say baseDirectory: build (the CRA default), and console
+        # settings win over this file when they are set. Publishing the output
+        # under both names means the deploy works either way.
+        - cp -r dist build
   artifacts:
-    baseDirectory: build
+    baseDirectory: dist
     files:
       - '**/*'
   cache:

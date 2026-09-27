@@ -1,0 +1,72 @@
+---
+// Internal style guide (noindex, unlinked). Renders the Editorial Archival
+// foundations in isolation for review before they're applied to real pages.
+import PageLayout from '@layouts/PageLayout.astro';
+import Stamp from '@components/ui/Stamp.astro';
+import SectionDivider from '@components/ui/SectionDivider.astro';
+
+const swatches = [
+  ['--color-bg', 'bg'],
+  ['--color-surface', 'surface'],
+  ['--color-text', 'text'],
+  ['--color-gold', 'gold'],
+  ['--color-stamp', 'stamp'],
+] as const;
+---
+
+<PageLayout
+  title="Style Guide"
+  description="Internal Editorial Archival foundations preview."
+  noindex
+>
+  <main class="ed-section" style="max-width:72rem;margin:0 auto;padding-inline:var(--spacing-page)">
+    <p class="ed-eyebrow">Internal · not linked</p>
+    <h1 class="ed-display">Editorial <span class="ed-accent">Archival.</span></h1>
+    <p class="ed-measure" style="margin-top:1rem">
+      Foundations preview, typography, rhythm, and the three archival primitives. Toggle dark mode
+      (navbar) to check both themes.
+    </p>
+
+    <SectionDivider variant="torn" />
+
+    <h2 class="ed-display-sm">Type scale</h2>
+    <div class="ed-block">
+      <p class="ed-eyebrow">Eyebrow / label</p>
+      <p class="ed-display">Display</p>
+      <p class="ed-display-sm">Display small</p>
+      <h3 class="font-display" style="font-size:1.5rem">Heading (Fraunces 1.5rem)</h3>
+      <p class="ed-measure">
+        Body copy in Plus Jakarta Sans set to a 64ch reading measure so lines stay comfortable. The
+        quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+
+    <SectionDivider variant="torn" />
+
+    <h2 class="ed-display-sm">Color</h2>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem">
+      {
+        swatches.map(([token, label]) => (
+          <div style="text-align:center">
+            <div
+              style={`width:88px;height:64px;border-radius:8px;border:1px solid var(--color-border);background:var(${token})`}
+            />
+            <small class="ed-eyebrow">{label}</small>
+          </div>
+        ))
+      }
+    </div>
+
+    <SectionDivider variant="torn" />
+
+    <h2 class="ed-display-sm">Archival primitives</h2>
+    <div style="display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap;margin-top:1.5rem">
+      <Stamp variant="stamp" text="EST. 2013" />
+      <Stamp variant="seal" />
+      <Stamp variant="stamp" text="Pi Delta · UCI" rotate={3} />
+    </div>
+    <p class="ed-measure" style="margin-top:1.5rem">
+      Paper grain is applied globally to the page background (visible behind this content).
+    </p>
+  </main>
+</PageLayout>

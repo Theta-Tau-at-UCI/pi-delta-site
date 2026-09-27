@@ -1,0 +1,172 @@
+---
+// Pillars, three cards side-by-side. Each pillar gets a photo placeholder, a
+// gold numeral, a title, and a short body. Cards fit comfortably on a single
+// viewport on desktop; on mobile they stack one-per-row.
+//
+// Each card sits in front of a faint hand-drafted Doric column SVG, capital
+// with abacus + echinus + neck rings, fluted shaft with subtle entasis, base,
+// and a Roman numeral on the abacus (I / II / III). The column extends above
+// and below the card so the capital and base read as architectural elements
+// flanking the content. Drawn in thin gold linework at low opacity so the
+// composition reads as "blueprint behind editorial cards", not decoration on
+// top of decoration.
+import { pillars } from '@data/chapter';
+import ImagePlaceholder from '@components/ui/ImagePlaceholder.astro';
+
+const pillarPhotos: Record<string, { src?: string; label: string }> = {
+  Brotherhood: { src: '/images/pillars/brotherhood.jpg', label: 'Brotherhood, winter retreat' },
+  Professionalism: {
+    src: '/images/pillars/professionalism.jpg',
+    label: 'Professionalism, professional development',
+  },
+  Service: { src: '/images/pillars/service.jpg', label: 'Service, community service' },
+};
+
+interface Props {
+  /** Optional intro text shown above the three cards. */
+  label?: string;
+  statement?: string;
+  body?: string;
+  /** Kept for backwards-compat; no longer used. */
+  alternate?: boolean;
+}
+
+const { label, statement, body } = Astro.props;
+
+// Roman numerals stamped on each column's abacus. Three pillars → three.
+const numerals = ['I', 'II', 'III'];
+---
+
+{
+  (label || statement || body) && (
+    <div class="pillars-intro" data-animate="fade-up">
+      {label && <p class="pillars-intro__label">{label}</p>}
+      {statement && <p class="font-display pillars-intro__statement">{statement}</p>}
+      {body && <p class="pillars-intro__body">{body}</p>}
+    </div>
+  )
+}
+
+<div class="pillars-grid" data-stagger>
+  {
+    pillars.map((p, i) => (
+      <article class="pillar-card">
+        {/* Doric column drawn in fine gold linework. Sits absolutely behind
+           the card; extends above the photo (capital visible) and below the
+           body text (base + dimension line visible). z-index: -1 keeps it
+           under every other card element. */}
+        <svg
+          class="pillar-card__column"
+          viewBox="0 0 100 360"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <g
+            stroke="currentColor"
+            stroke-width="0.7"
+            fill="none"
+            stroke-linecap="square"
+            stroke-linejoin="miter"
+            vector-effect="non-scaling-stroke"
+          >
+            {/* ---------- CAPITAL (top 14% of viewBox) ---------- */}
+            {/* Roman numeral above the abacus, the pillar's identifier. */}
+            <text
+              x="50"
+              y="18"
+              text-anchor="middle"
+              font-family="Fraunces, Georgia, serif"
+              font-size="14"
+              font-style="italic"
+              font-weight="600"
+              fill="currentColor"
+              stroke="none"
+              opacity="0.85"
+            >
+              {numerals[i]}
+            </text>
+            {/* Thin gold rule above the abacus, like a dimension line. */}
+            <line x1="28" y1="28" x2="72" y2="28" opacity="0.55" />
+            {/* Tick marks at the ends of the rule, drafting detail. */}
+            <line x1="28" y1="26" x2="28" y2="30" opacity="0.55" />
+            <line x1="72" y1="26" x2="72" y2="30" opacity="0.55" />
+
+            {/* Abacus, flat slab at the top of the capital. */}
+            <rect x="20" y="36" width="60" height="6" />
+            {/* Echinus, curved profile under the abacus. Drawn as a
+               trapezoidal taper since Doric echinus is a flared profile. */}
+            <line x1="20" y1="42" x2="26" y2="50" />
+            <line x1="80" y1="42" x2="74" y2="50" />
+            <line x1="26" y1="50" x2="74" y2="50" />
+            {/* Three neck rings, the annulets where capital meets shaft. */}
+            <line x1="28" y1="53" x2="72" y2="53" opacity="0.7" />
+            <line x1="28" y1="55.5" x2="72" y2="55.5" opacity="0.7" />
+            <line x1="28" y1="58" x2="72" y2="58" opacity="0.7" />
+
+            {/* ---------- SHAFT (60% of viewBox, with subtle entasis) ---------- */}
+            {/* Outer edges of the shaft. Slight bow outward (entasis) at the
+               midpoint, the column appears swollen so it doesn't look
+               concave at distance, just like real Doric columns. */}
+            <path d="M 28 60 Q 26 170 28 280" />
+            <path d="M 72 60 Q 74 170 72 280" />
+
+            {/* Six vertical flutes, Doric originally had 20, six reads
+               cleanly at small sizes. */}
+            <line x1="34" y1="61" x2="34" y2="279" opacity="0.45" />
+            <line x1="40" y1="61" x2="40" y2="279" opacity="0.5" />
+            <line x1="46" y1="61" x2="46.2" y2="279" opacity="0.55" />
+            <line x1="53.8" y1="61" x2="54" y2="279" opacity="0.55" />
+            <line x1="60" y1="61" x2="60" y2="279" opacity="0.5" />
+            <line x1="66" y1="61" x2="66" y2="279" opacity="0.45" />
+
+            {/* Tiny dimension tick on the left edge at midshaft,
+               architect's-plate detail. */}
+            <line x1="22" y1="168" x2="26" y2="168" opacity="0.6" />
+            <line x1="22" y1="172" x2="26" y2="172" opacity="0.6" />
+
+            {/* ---------- BASE (bottom 22% of viewBox) ---------- */}
+            {/* Torus, curved swell. */}
+            <line x1="28" y1="280" x2="22" y2="288" />
+            <line x1="72" y1="280" x2="78" y2="288" />
+            <line x1="22" y1="288" x2="78" y2="288" />
+            {/* Plinth, flat slab below the torus. */}
+            <rect x="18" y="290" width="64" height="8" />
+            {/* Foundation line under the plinth + numbered label, mimicking
+               a dimension line with the pillar number stamped underneath. */}
+            <line x1="14" y1="310" x2="86" y2="310" opacity="0.5" />
+            <line x1="14" y1="308" x2="14" y2="312" opacity="0.5" />
+            <line x1="86" y1="308" x2="86" y2="312" opacity="0.5" />
+            <text
+              x="50"
+              y="332"
+              text-anchor="middle"
+              font-family="'Plus Jakarta Sans', system-ui, sans-serif"
+              font-size="9"
+              font-weight="600"
+              letter-spacing="2"
+              fill="currentColor"
+              stroke="none"
+              opacity="0.7"
+            >
+              {`PILLAR ${numerals[i]}`}
+            </text>
+          </g>
+        </svg>
+
+        <ImagePlaceholder
+          src={pillarPhotos[p.title]?.src}
+          alt={`${p.title}, Pi Delta chapter photo`}
+          aspect="4 / 3"
+          label={pillarPhotos[p.title]?.label ?? p.title}
+          class="pillar-card__photo"
+        />
+        <span class="pillar-card__number font-display" aria-hidden="true">
+          {String(i + 1).padStart(2, '0')}
+        </span>
+        <h3 class="pillar-card__title font-display">{p.title}</h3>
+        <p class="pillar-card__body">{p.body}</p>
+      </article>
+    ))
+  }
+</div>

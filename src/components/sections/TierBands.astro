@@ -1,0 +1,258 @@
+---
+// TierBands, three wide clickable bands (Executive Board, Officers, Active
+// members) that filter the BrothersExplorer above. Same pattern as the
+// ClassLineage and MajorMosaic tiles: clicking dispatches a
+// `brothers:filter` CustomEvent that the React island consumes.
+import { allActives } from '@data/chapter';
+
+const counts = allActives.reduce(
+  (acc, b) => {
+    acc[b.tier] = (acc[b.tier] ?? 0) + 1;
+    return acc;
+  },
+  {} as Record<'exec' | 'officer' | 'active' | 'alumni', number>,
+);
+
+const bands: Array<{
+  tier: 'exec' | 'officer' | 'active';
+  label: string;
+  blurb: string;
+  count: number;
+}> = [
+  {
+    tier: 'exec',
+    label: 'Executive Board',
+    blurb: 'Regent, Vice-Regent, Marshal, Treasurer, Scribe, and Corresponding Secretary.',
+    count: counts.exec ?? 0,
+  },
+  {
+    tier: 'officer',
+    label: 'Cabinet',
+    blurb:
+      'Directors and co-directors leading professional development, recruitment, service, brotherhood, media, and more.',
+    count: counts.officer ?? 0,
+  },
+  {
+    tier: 'active',
+    label: 'General members',
+    blurb: 'Members across the current classes, outside the executive board and cabinet.',
+    count: counts.active ?? 0,
+  },
+];
+---
+
+<div class="tier-bands" data-stagger>
+  {
+    bands.map(({ tier, label, blurb, count }) => (
+      <button
+        type="button"
+        class:list={['tier-band', `tier-band--${tier}`]}
+        data-filter-type="tier"
+        data-filter-value={tier}
+        aria-label={`Filter roster by ${label} (${count})`}
+      >
+        <span class="tier-band__count font-display" aria-hidden="true">
+          {count}
+        </span>
+        <span class="tier-band__body">
+          <span class="font-display tier-band__label">{label}</span>
+          <span class="tier-band__blurb">{blurb}</span>
+        </span>
+        <span class="tier-band__arrow" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </span>
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  document.querySelectorAll('.tier-band').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const type = btn.getAttribute('data-filter-type');
+      const value = btn.getAttribute('data-filter-value');
+      if (!type || !value) return;
+      document.dispatchEvent(new CustomEvent('brothers:filter', { detail: { type, value } }));
+    });
+  });
+
+  // Refresh tier counts when filters change, show how many brothers in
+  // each tier would remain visible under the current filter composition.
+  document.addEventListener('brothers:filtered', (e) => {
+    const detail = (e as CustomEvent<{ brothers: Array<{ tier: string }> }>).detail;
+    if (!detail?.brothers) return;
+    const counts: Record<string, number> = {};
+    for (const b of detail.brothers) counts[b.tier] = (counts[b.tier] ?? 0) + 1;
+    document.querySelectorAll<HTMLElement>('.tier-band').forEach((band) => {
+      const tier = band.getAttribute('data-filter-value') ?? '';
+      const countEl = band.querySelector<HTMLElement>('.tier-band__count');
+      if (countEl) countEl.textContent = String(counts[tier] ?? 0);
+    });
+  });
+
+  // Highlight bands whose tier is currently in the active filter set, so
+  // multi-select composition is visible while the drawer stays open.
+  document.addEventListener('brothers:active-filters', (e) => {
+    const detail = (e as CustomEvent<{ active: Array<{ type: string; values: string[] }> }>).detail;
+    const active = detail?.active ?? [];
+    document.querySelectorAll<HTMLElement>('.tier-band').forEach((band) => {
+      const type = band.getAttribute('data-filter-type');
+      const value = band.getAttribute('data-filter-value') ?? '';
+      const on = active.some((f) => f.type === type && f.values.includes(value));
+      band.classList.toggle('is-active', on);
+      band.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  });
+</script>
+
+<style>
+  .tier-bands {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .tier-band {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.1rem 1.25rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    cursor: pointer;
+    text-align: left;
+    color: inherit;
+    font: inherit;
+    overflow: hidden;
+    transition:
+      transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+  :global(html.dark) .tier-band {
+    background: rgba(74, 4, 4, 0.32);
+  }
+
+  .tier-band:hover {
+    transform: translateX(4px);
+    border-color: var(--color-gold-muted);
+    box-shadow: 0 12px 26px rgba(74, 4, 4, 0.08);
+  }
+  .tier-band:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+  }
+  /* Selected state, this tier is part of the active filter set. */
+  .tier-band.is-active {
+    border-color: var(--color-accent-500);
+    box-shadow:
+      inset 0 0 0 2px var(--color-accent-500),
+      0 12px 26px rgba(74, 4, 4, 0.12);
+    background: rgba(201, 168, 76, 0.1);
+  }
+  :global(html.dark) .tier-band.is-active {
+    background: rgba(201, 168, 76, 0.16);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tier-band {
+      transition: none;
+    }
+    .tier-band:hover {
+      transform: none;
+    }
+  }
+
+  /* Left rail: a thick gold/maroon stripe that signals tier prominence.
+     Exec gets the warmest treatment; active members the lightest. */
+  .tier-band::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6px;
+  }
+  .tier-band--exec::before {
+    background: var(--color-gold);
+  }
+  .tier-band--officer::before {
+    background: var(--color-accent-500);
+  }
+  .tier-band--active::before {
+    background: var(--color-gold-muted);
+    opacity: 0.65;
+  }
+
+  .tier-band__count {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-maroon);
+    min-width: 3.5rem;
+    text-align: right;
+  }
+  :global(html.dark) .tier-band__count {
+    color: var(--color-accent-400);
+  }
+  .tier-band--exec .tier-band__count {
+    color: var(--color-gold);
+  }
+
+  .tier-band__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+  .tier-band__label {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+  :global(html.dark) .tier-band__label {
+    color: #ffffff;
+  }
+  .tier-band__blurb {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+    max-width: 56ch;
+  }
+
+  .tier-band__arrow {
+    color: var(--color-gold);
+    flex-shrink: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .tier-band__arrow svg {
+    width: 100%;
+    height: 100%;
+  }
+  .tier-band:hover .tier-band__arrow {
+    transform: translateX(4px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tier-band__arrow,
+    .tier-band:hover .tier-band__arrow {
+      transition: none;
+      transform: none;
+    }
+  }
+</style>

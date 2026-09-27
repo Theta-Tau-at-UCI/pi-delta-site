@@ -1,0 +1,622 @@
+---
+// Home, revamped to the scale.com-style motion system (see docs/REVAMP-BRIEF.md)
+// while keeping the chapter brand: Fraunces + Plus Jakarta, maroon/gold/cream.
+// Restraint over ornament; one scroll-linked motion language (ScaleMotion) on top
+// of Lenis smooth scroll (initialized globally in PageLayout).
+import PageLayout from '@layouts/PageLayout.astro';
+import BentoExplore from '@components/sections/BentoExplore.astro';
+import StickyRushCTA from '@components/sections/StickyRushCTA.astro';
+import { Rise, Parallax, PinnedRow } from '@components/react/ScaleMotion';
+import ScrollEnterHero from '@components/react/ScrollEnterHero.tsx';
+import { testimonials, pillars } from '@data/chapter';
+
+const pillarPhotos: Record<string, string> = {
+  Brotherhood: '/images/pillars/brotherhood.jpg',
+  Professionalism: '/images/pillars/professionalism.jpg',
+  Service: '/images/pillars/service.jpg',
+};
+const numerals = ['I', 'II', 'III'];
+
+// Where brothers work / have interned, pulled from the chapter's internships
+// wall. Each logo is a transparent PNG in /images/logos; they sit in a bordered
+// logo matrix (scale.ai-style) of three rows that scroll opposite directions.
+type Logo = { file: string; name: string };
+const logoRows: Logo[][] = [
+  [
+    { file: 'apple', name: 'Apple' },
+    { file: 'tesla', name: 'Tesla' },
+    { file: 'spacex', name: 'SpaceX' },
+    { file: 'qualcomm', name: 'Qualcomm' },
+    { file: 'google', name: 'Google' },
+    { file: 'amazon', name: 'Amazon' },
+    { file: 'microsoft', name: 'Microsoft' },
+    { file: 'adobe', name: 'Adobe' },
+    { file: 'nvidia', name: 'NVIDIA' },
+    { file: 'salesforce', name: 'Salesforce' },
+    { file: 'ibm', name: 'IBM' },
+    { file: 'hp', name: 'HP' },
+    { file: 'siemens', name: 'Siemens' },
+  ],
+  [
+    { file: 'boeing', name: 'Boeing' },
+    { file: 'nasa', name: 'NASA' },
+    { file: 'jpl', name: 'NASA JPL' },
+    { file: 'anduril', name: 'Anduril' },
+    { file: 'rivian', name: 'Rivian' },
+    { file: 'playstation', name: 'PlayStation' },
+    { file: 'northropgrumman', name: 'Northrop Grumman' },
+    { file: 'generalatomics', name: 'General Atomics' },
+    { file: 'capitalone', name: 'Capital One' },
+    { file: 'jpmorganchase', name: 'JPMorgan Chase' },
+    { file: 'walmart', name: 'Walmart' },
+    { file: 'kaiserpermanente', name: 'Kaiser Permanente' },
+    { file: 'appliedmedical', name: 'Applied Medical' },
+  ],
+  [
+    { file: 'glaukos', name: 'Glaukos' },
+    { file: 'masimo', name: 'Masimo' },
+    { file: 'intel', name: 'Intel' },
+    { file: 'twilio', name: 'Twilio' },
+    { file: 'unisys', name: 'Unisys' },
+    { file: 'beyondlimits', name: 'Beyond Limits' },
+    { file: 'edyza', name: 'Edyza' },
+    { file: 'orbee', name: 'Orbee' },
+    { file: 'dictumhealth', name: 'Dictum Health' },
+    { file: 'railpros', name: 'RailPros' },
+    { file: 'ducommun', name: 'Ducommun' },
+    { file: 'inari', name: 'Inari Medical' },
+  ],
+];
+---
+
+<PageLayout
+  title="Home"
+  description="Theta Tau, Pi Delta Chapter at UC Irvine. The professional engineering fraternity, built on brotherhood, professionalism, and service."
+>
+  {
+    /* The hero's photo ground is a CSS background (.se-hero__bg), so the browser
+       can't find it until the stylesheet parses. Preload makes it discoverable in
+       the initial HTML: it is the LCP element. */
+  }
+  <link rel="preload" as="image" href="/images/chapter/home-hero.jpg" fetchpriority="high" />
+
+  {/* ---- HERO: scroll-to-enter — video tile scales to fullscreen on scroll. ---- */}
+  <ScrollEnterHero
+    client:load
+    videoSrc="/videos/rush-teaser.mp4"
+    posterSrc="/images/hero-poster.jpg"
+    kicker="Theta Tau · Pi Delta · UC Irvine"
+    title="The professional engineering fraternity."
+    cue="Scroll to enter"
+  />
+
+  {
+    /* ---- PILLARS: signature horizontal pinned sequence, in brand. ----
+       Hydrated on approach, not on load: this island carries the framer-motion
+       chunk and sits two viewports down, so client:load made every visit pay for
+       it up front. The rootMargin starts hydration before the section scrolls in
+       so the pinned track is live by the time it matters. */
+  }
+  <PinnedRow client:visible={{ rootMargin: '600px' }} className="rv-pinned">
+    <div class="rv-pinned__intro">
+      <p class="rv-eyebrow rv-eyebrow--gold">What we&rsquo;re built on</p>
+      <p class="font-display rv-pinned__lead">Three pillars, one chapter.</p>
+    </div>
+    {
+      pillars.map((p, i) => (
+        <article class="rv-panel">
+          <div class="rv-panel__media">
+            <img src={pillarPhotos[p.title]} alt={`${p.title}, Pi Delta`} loading="lazy" />
+            <span class="font-display rv-panel__num" aria-hidden="true">
+              {numerals[i]}
+            </span>
+          </div>
+          <h2 class="font-display rv-panel__title">{p.title}</h2>
+          <p class="rv-panel__body">{p.body}</p>
+        </article>
+      ))
+    }
+  </PinnedRow>
+
+  {/* ---- WHERE WE WORK: scrolling logo wall from the internships slide. ---- */}
+  <section class="rv-section rv-section--airy rv-companies">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">Where we work &amp; have interned</p>
+      <h2 class="font-display rv-h2">Brothers across industry.</h2>
+    </Rise>
+    <div class="logo-wall" aria-label="Companies where Pi Delta brothers have worked and interned">
+      {
+        logoRows.map((row, r) => (
+          <div class="logo-wall__row">
+            <div class:list={['logo-wall__track', { 'logo-wall__track--rev': r % 2 === 1 }]}>
+              {[...row, ...row].map((l, i) => (
+                <div class="logo-wall__cell">
+                  <img
+                    src={`/images/logos/${l.file}.png`}
+                    alt={i < row.length ? l.name : ''}
+                    aria-hidden={i >= row.length ? 'true' : undefined}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  {
+    /* ---- VOICES (static two-up; the auto-scroll marquee returns once there are
+       more testimonials, see TestimonialsScroller.tsx, kept for later). ---- */
+  }
+  <section class="rv-section rv-section--airy rv-voices">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">Brotherhood voices</p>
+      <h2 class="font-display rv-h2">What brothers say.</h2>
+      <div class="rv-quotes">
+        {
+          testimonials.map((t) => (
+            <figure class="rv-quote">
+              <blockquote class="rv-quote__text">&ldquo;{t.quote}&rdquo;</blockquote>
+              <figcaption class="rv-quote__by">
+                {t.photo && (
+                  <img
+                    class="rv-quote__avatar"
+                    src={t.photo}
+                    alt={t.name}
+                    loading="lazy"
+                    width="56"
+                    height="56"
+                  />
+                )}
+                <span class="rv-quote__byline">
+                  <span class="font-display rv-quote__name">{t.name}</span>
+                  <span class="rv-quote__role">
+                    {t.role} · {t.memberClass}
+                  </span>
+                </span>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </Rise>
+  </section>
+
+  {/* ---- EXPLORE (keeps the functional bento links) ---- */}
+  <section class="rv-section rv-section--airy rv-explore">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">Explore</p>
+      <h2 class="font-display rv-h2">Find your way in.</h2>
+    </Rise>
+    <BentoExplore />
+  </section>
+
+  {/* ---- RUSH CTA ---- */}
+  <section id="join" class="rv-cta" aria-labelledby="join-heading">
+    <Parallax client:visible speed={0.25} className="rv-cta__bg">
+      <img
+        src="/images/chapter/winter-retreat-2024.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
+    </Parallax>
+    <div class="rv-cta__inner">
+      <Rise client:visible>
+        <p class="rv-eyebrow rv-eyebrow--gold">Fall &amp; spring rush</p>
+        <h2 id="join-heading" class="font-display rv-cta__title">Considering Theta Tau?</h2>
+        <p class="rv-cta__body">
+          Come meet the brothers at the Engineering Quad booth and see if it&rsquo;s the right fit.
+        </p>
+        <a class="rv-cta__btn" href="/recruitment">Rush Theta Tau →</a>
+      </Rise>
+    </div>
+  </section>
+
+  <StickyRushCTA />
+</PageLayout>
+
+<style is:global>
+  /* ==== Revamped home (.rv-*), scale.com motion, Pi Delta brand ==========
+     Palette + type reuse the chapter brand: Fraunces display (.font-display),
+     Plus Jakarta body, maroon/gold/cream. Light editorial base with two dark
+     maroon moments (hero + pillars) for rhythm. The --rv-* tokens and the
+     shared .rv-eyebrow / .rv-h2 / .rv-section rules live in src/styles/revamp.css
+     (imported globally in PageLayout); this sheet only adds home-only pieces. */
+
+  /* ---- Scroll-to-enter hero (scale.ai-style): tile scales to fullscreen ---- */
+  .se-hero {
+    position: relative;
+    height: 200vh;
+    background: var(--rv-maroon-deep);
+  }
+  .se-hero__sticky {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  /* Chapter photo washed back into the maroon: a real image, not a flat color. */
+  .se-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('/images/chapter/home-hero.jpg');
+    background-size: cover;
+    background-position: center 35%;
+  }
+  .se-hero__bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Flat maroon scrim (no gradient) so the photo fades back behind the tile. */
+    background-color: rgba(61, 8, 8, 0.72);
+  }
+  .se-hero__tile {
+    position: relative;
+    z-index: 1;
+    width: 42vw;
+    height: 42dvh;
+    overflow: hidden;
+    border-radius: calc(1.4rem * (1 - var(--enter, 0)));
+    transform: scale(calc(1 + var(--enter, 0) * 1.5));
+    transform-origin: center center;
+    will-change: transform;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  }
+  .se-hero__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .se-hero__tint {
+    position: absolute;
+    inset: 0;
+    /* Darker at the start so the overlaid title reads over the light poster;
+       eases lighter as it fills the screen and the title fades out. */
+    background: rgba(18, 4, 4, calc(0.72 - var(--enter, 0) * 0.34));
+  }
+  .se-hero__stage {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.1rem;
+    text-align: center;
+    padding: 0 6vw;
+    opacity: calc(1 - var(--enter, 0) * 1.35);
+    pointer-events: none;
+  }
+  /* Compound selector so it beats .rv-eyebrow (from revamp.css). */
+  .se-hero .se-hero__kicker {
+    color: var(--rv-gold-bright);
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+  }
+  .se-hero__title {
+    margin: 0;
+    max-width: 18ch;
+    font-size: clamp(2.4rem, 7vw, 6rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--rv-cream);
+    /* Soft shadow keeps the cream readable wherever a bright video frame
+       shows through the tile behind it. */
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.55);
+  }
+  .se-hero__word {
+    display: inline-block;
+    margin-right: 0.28em;
+    /* Each word settles up from the centre, one after the next, on load. */
+    animation: se-word-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(0.2s + var(--w, 0) * 0.11s);
+  }
+  @keyframes se-word-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.6em) scale(0.94);
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: blur(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .se-hero__word {
+      animation: none;
+    }
+  }
+  .se-hero__cue {
+    margin: 0.5rem 0 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(252, 247, 236, 0.6);
+  }
+
+  /* ---- Pillars (dark, horizontal pinned) ---- */
+  .rv-pinned {
+    background: var(--rv-maroon-deep);
+    color: var(--rv-cream);
+  }
+  .rv-pinned__intro {
+    flex: 0 0 auto;
+    width: min(42vw, 24rem);
+    align-self: center;
+  }
+  .rv-pinned__lead {
+    margin: 1rem 0 0;
+    font-size: clamp(1.6rem, 3.4vw, 3rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--rv-cream);
+  }
+  .rv-panel {
+    flex: 0 0 auto;
+    width: min(80vw, 30rem);
+  }
+  .rv-panel__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #1a0505;
+  }
+  .rv-panel__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+  }
+  .rv-panel__num {
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    font-size: 3rem;
+    font-style: italic;
+    color: var(--rv-gold-bright);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+  .rv-panel__title {
+    margin: 1.25rem 0 0;
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .rv-panel__body {
+    margin: 0.6rem 0 0;
+    max-width: 34ch;
+    line-height: 1.55;
+    color: rgba(252, 247, 236, 0.66);
+  }
+
+  /* ---- Voices + Explore intros ---- */
+  .rv-voices__scroller,
+  .rv-explore .bento-explore {
+    margin-top: 3rem;
+  }
+
+  /* ---- Rush CTA ---- */
+  .rv-cta {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(7rem, 16vh, 12rem) 6vw;
+    text-align: center;
+    background: var(--rv-maroon-deep);
+    color: var(--rv-cream);
+    isolation: isolate;
+  }
+  .rv-cta__bg {
+    position: absolute;
+    inset: -12% 0;
+    z-index: -1;
+  }
+  .rv-cta__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.22;
+    filter: saturate(0.9);
+  }
+  .rv-cta__inner {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  .rv-cta__title {
+    margin: 0.75rem 0 0;
+    font-size: clamp(2rem, 5.5vw, 4.25rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .rv-cta__body {
+    margin: 1.25rem auto 0;
+    max-width: 32rem;
+    line-height: 1.5;
+    color: rgba(252, 247, 236, 0.72);
+  }
+  .rv-cta__btn {
+    display: inline-block;
+    margin-top: 2.25rem;
+    padding: 0.95rem 1.9rem;
+    border-radius: 999px;
+    background: var(--rv-gold-bright);
+    color: #221606;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+      background 0.25s ease;
+  }
+  .rv-cta__btn:hover {
+    transform: translateY(-2px);
+    background: #e0c079;
+  }
+
+  /* ---- Where we work: monochrome drifting logo rows (scale.ai-style) ----
+     No panel and no cell borders: the marks are knocked back to a single ink
+     tone and sit straight on the page ground, so the wall reads as texture
+     rather than one big white block. Inverts to cream in dark mode. */
+  .logo-wall {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.75rem, 3.5vw, 3rem);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+  .logo-wall__row {
+    overflow: hidden;
+  }
+  .logo-wall__track {
+    display: flex;
+    align-items: center;
+    gap: clamp(3rem, 6vw, 6rem);
+    width: max-content;
+    animation: logo-scroll 64s linear infinite;
+    will-change: transform;
+  }
+  .logo-wall__track--rev {
+    animation-duration: 78s;
+    animation-direction: reverse;
+  }
+  .logo-wall:hover .logo-wall__track {
+    animation-play-state: paused;
+  }
+  @keyframes logo-scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  /* Each mark is fitted into the same box (bounded on BOTH axes) so a wide
+     wordmark like SpaceX and a compact mark like Adobe read at a similar
+     size. Absolute units, since a percentage can't resolve against an
+     auto-sized track. */
+  .logo-wall__cell {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: clamp(6rem, 9vw, 8.5rem);
+  }
+  .logo-wall__cell img {
+    max-width: clamp(7rem, 11vw, 10rem);
+    max-height: clamp(1.9rem, 2.9vw, 2.5rem);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    /* Full brand colour, straight on the page ground. */
+    opacity: 0.92;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+  .logo-wall__cell:hover img {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+  /* On the dark ground, dark marks (Apple, IBM, Boeing) would vanish, so each
+     logo gets its own soft light chip instead of one big panel. */
+  html.dark .logo-wall__cell {
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.6rem;
+    background-color: rgba(252, 247, 236, 0.92);
+  }
+  html.dark .logo-wall__cell img {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-wall__cell:hover img {
+      transform: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-wall__track {
+      animation: none;
+    }
+    /* Let people scan the wall by hand when motion is off. */
+    .logo-wall__row {
+      overflow-x: auto;
+    }
+  }
+
+  /* ---- Voices (static two-up) ---- */
+  .rv-quotes {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  @media (max-width: 720px) {
+    .rv-quotes {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+  .rv-quote {
+    margin: 0;
+    padding: 2rem;
+    border: 1px solid rgba(42, 14, 8, 0.14);
+    border-radius: 1rem;
+    background: rgba(42, 14, 8, 0.02);
+  }
+  html.dark .rv-quote {
+    border-color: rgba(244, 238, 226, 0.14);
+    background: rgba(244, 238, 226, 0.03);
+  }
+  .rv-quote__text {
+    margin: 0;
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    line-height: 1.55;
+    color: var(--rv-ink);
+  }
+  html.dark .rv-quote__text {
+    color: rgba(244, 238, 226, 0.9);
+  }
+  .rv-quote__by {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+  }
+  .rv-quote__avatar {
+    flex: 0 0 auto;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 2px solid var(--rv-gold);
+  }
+  .rv-quote__byline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+  .rv-quote__name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--rv-ink);
+  }
+  html.dark .rv-quote__name {
+    color: var(--rv-cream);
+  }
+  .rv-quote__role {
+    font-size: 0.85rem;
+    color: var(--rv-muted);
+  }
+  html.dark .rv-quote__role {
+    color: rgba(244, 238, 226, 0.55);
+  }
+</style>

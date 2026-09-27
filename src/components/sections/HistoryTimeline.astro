@@ -1,0 +1,52 @@
+---
+// HistoryTimeline, alternating left-right chapter history (AKPsi "Our Story"
+// pattern), maroon/gold. Real, verified milestones only; reveals on scroll.
+import {
+  chapterFacts,
+  memberClasses,
+  currentClass,
+  nationalFacts,
+  foundingFathers,
+} from '@data/chapter';
+
+const events = [
+  {
+    year: String(nationalFacts.yearFounded),
+    title: 'Theta Tau is founded',
+    body: `Four engineering students at the ${nationalFacts.birthplace} start what they call the ${nationalFacts.originalName}, the seed of Theta Tau.`,
+  },
+  {
+    year: chapterFacts.foundedAtUci,
+    title: 'Pi Delta begins at UC Irvine',
+    body: `${foundingFathers.length} students lead the push to bring Theta Tau to UCI: ${foundingFathers.join(', ')}.`,
+  },
+  {
+    year: chapterFacts.installed,
+    title: 'Installed as the Pi Delta chapter',
+    body: 'The colony is officially installed as the Pi Delta Chapter of Theta Tau, after which the Alpha Class and every class since have carried the chapter forward.',
+  },
+  {
+    year: 'Today',
+    title: `${chapterFacts.membersAndAlumni}+ strong`,
+    body: `Over ${chapterFacts.membersAndAlumni} active members and alumni across ${memberClasses.length} classes, from the Founding Class to ${currentClass}.`,
+  },
+];
+---
+
+<ol class="history mx-auto max-w-3xl">
+  {
+    events.map((e, i) => (
+      <li class="history-item" data-animate={i % 2 === 0 ? 'slide-right' : 'slide-left'}>
+        <span class="text-accent-600 dark:text-accent-400 text-xs font-semibold tracking-[0.12em] uppercase">
+          {e.year}
+        </span>
+        <h3 class="font-display text-brand-900 mt-1 text-xl font-semibold dark:text-white">
+          {e.title}
+        </h3>
+        <p class="text-brand-700/80 dark:text-brand-100/70 mt-1.5 text-sm leading-relaxed">
+          {e.body}
+        </p>
+      </li>
+    ))
+  }
+</ol>

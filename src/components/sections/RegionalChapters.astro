@@ -1,0 +1,250 @@
+---
+// RegionalChapters, Southwestern Region mosaic. Each chapter rendered as an
+// editorial card with a large Greek-letter monogram in the Fraunces display serif.
+// Pi Delta is visually emphasized as "this chapter".
+import { regionalChapters, colonies } from '@data/chapter';
+
+const GREEK: Record<string, string> = {
+  alpha: 'Α',
+  beta: 'Β',
+  gamma: 'Γ',
+  delta: 'Δ',
+  epsilon: 'Ε',
+  zeta: 'Ζ',
+  eta: 'Η',
+  theta: 'Θ',
+  iota: 'Ι',
+  kappa: 'Κ',
+  lambda: 'Λ',
+  mu: 'Μ',
+  nu: 'Ν',
+  xi: 'Ξ',
+  omicron: 'Ο',
+  pi: 'Π',
+  rho: 'Ρ',
+  sigma: 'Σ',
+  tau: 'Τ',
+  upsilon: 'Υ',
+  phi: 'Φ',
+  chi: 'Χ',
+  psi: 'Ψ',
+  omega: 'Ω',
+};
+
+function monogram(chapterName: string): string {
+  return chapterName
+    .replace(/Chapter/gi, '')
+    .trim()
+    .split(/\s+/)
+    .map((w) => GREEK[w.toLowerCase()] ?? '')
+    .join('');
+}
+
+// Strip "Chapter" suffix for the display name (the monogram already conveys it).
+function displayName(chapterName: string): string {
+  return chapterName.replace(/\s*Chapter\s*$/i, '').trim();
+}
+---
+
+<ol class="chapter-mosaic">
+  {
+    regionalChapters.map((c) => (
+      <li class:list={['chapter-tile', c.isThisChapter && 'is-home']}>
+        {c.isThisChapter && <span class="home-badge">Our chapter</span>}
+        <span class="monogram" aria-hidden="true">
+          {monogram(c.chapter)}
+        </span>
+        <span class="chapter-name font-display">{displayName(c.chapter)}</span>
+        <span class="university">{c.university}</span>
+      </li>
+    ))
+  }
+</ol>
+
+{
+  colonies.length > 0 && (
+    <div class="colonies-block">
+      <h3 class="font-display colony-heading">Colonies in the region</h3>
+      <p class="colony-note">Colonies are emerging chapters working toward installation.</p>
+      <ul class="colony-row">
+        {colonies.map((c) => (
+          <li class="colony-chip">
+            <span class="colony-marker" aria-hidden="true">
+              ⊕
+            </span>
+            <span>{c.replace(/\s+Colony\s+of\s+Theta\s+Tau/i, '').replace(/\s+Colony$/i, '')}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+<style>
+  .chapter-mosaic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .chapter-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 1.5rem 1.25rem 1.25rem;
+    background: var(--color-bg-tile, var(--color-bg, #ffffff));
+    border: 1px solid var(--color-border);
+    border-radius: 1.25rem;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      border-color 0.18s ease;
+    overflow: hidden;
+  }
+
+  /* Use the surface token in light mode (cards lift via shadow);
+     in dark mode the brand-800/40 token reads better. */
+  :root:not(.dark) .chapter-tile {
+    background: #ffffff;
+  }
+  html.dark .chapter-tile {
+    background: rgba(74, 4, 4, 0.4);
+  }
+
+  .chapter-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(201, 168, 76, 0.06);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .chapter-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(74, 4, 4, 0.1);
+    border-color: var(--color-gold-muted);
+  }
+  .chapter-tile:hover::after {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chapter-tile {
+      transition: none;
+    }
+    .chapter-tile:hover {
+      transform: none;
+    }
+  }
+
+  .monogram {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 3.8vw, 3.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--color-maroon);
+    margin-bottom: 0.25rem;
+  }
+  html.dark .monogram {
+    color: var(--color-gold);
+  }
+
+  .chapter-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.005em;
+  }
+
+  .university {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.35;
+  }
+
+  /* Home chapter, Pi Delta. */
+  .chapter-tile.is-home {
+    border-color: var(--color-gold);
+    background: var(--color-maroon);
+    box-shadow: 0 18px 42px rgba(74, 4, 4, 0.28);
+  }
+  /* The Pi Delta card always has a dark maroon background, so its text must
+     use the BRIGHT gold (not the light-mode AA-darkened gold which would
+     vanish on maroon). */
+  .chapter-tile.is-home .monogram {
+    color: #d4b56a;
+    text-shadow: 0 0 24px rgba(212, 181, 106, 0.35);
+  }
+  .chapter-tile.is-home .chapter-name {
+    color: #fff;
+  }
+  .chapter-tile.is-home .university {
+    color: rgba(248, 224, 224, 0.85);
+  }
+  .home-badge {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #d4b56a;
+    background: rgba(212, 181, 106, 0.18);
+    border: 1px solid rgba(212, 181, 106, 0.5);
+    padding: 0.3rem 0.55rem;
+    border-radius: 9999px;
+  }
+
+  /* Colonies, distinct, smaller treatment. */
+  .colonies-block {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px dashed var(--color-border);
+  }
+  .colony-heading {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+  .colony-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0.3rem 0 0.85rem;
+    max-width: 32rem;
+  }
+  .colony-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .colony-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.85rem;
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    font-size: 0.85rem;
+  }
+  .colony-marker {
+    color: var(--color-gold);
+    font-weight: 700;
+  }
+</style>

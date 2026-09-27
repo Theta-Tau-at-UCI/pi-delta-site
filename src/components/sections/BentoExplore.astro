@@ -1,0 +1,515 @@
+---
+// BentoExplore, explore grid on the home page. Brothers gets the large tile
+// with a live drifting field of every active brother as a circle portrait.
+// The four smaller tiles each get their own visual identity tied to the page
+// they link to:
+//   - Recruitment: gold wax-stamp medallion in the upper right
+//   - About: oversized ΠΔ chapter monogram watermark
+//   - Projects: blueprint dotted-grid background (engineering paper)
+//   - Events: faint calendar grid background
+// Each treatment is subtle so the typography still reads, but the tiles
+// stop being interchangeable text blocks.
+import BrothersFloat from '@components/sections/BrothersFloat.astro';
+
+interface BentoItem {
+  name: string;
+  href: string;
+  description: string;
+  cta: string;
+  variant: 'brothers' | 'recruitment' | 'about' | 'projects' | 'events';
+  /** A single, tab-relevant photo that follows the cursor on hover. The
+   *  Brothers tile has its own drifting-portraits field instead. */
+  preview?: string;
+}
+
+const items: BentoItem[] = [
+  {
+    name: 'Brothers',
+    href: '/brothers',
+    description: 'Meet the actives and the lineage of classes that make up the Pi Delta chapter.',
+    cta: 'Meet the chapter',
+    variant: 'brothers',
+    preview: '/images/chapter/winter-2024-photoshoot.jpg',
+  },
+  {
+    name: 'Recruitment',
+    href: '/recruitment',
+    description: 'Fall 2026 rush: schedule, FAQ, and how to reach us.',
+    cta: 'See rush',
+    variant: 'recruitment',
+    preview: '/images/events/tabling.jpg',
+  },
+  {
+    name: 'About',
+    href: '/about',
+    description: 'Our chapter, our values, and the Southwestern Region.',
+    cta: 'Learn more',
+    variant: 'about',
+    preview: '/images/chapter/spring-2025-group.jpg',
+  },
+  // Projects tile hidden until the /projects page has real content (see site.ts).
+  // Recruitment spans 2 columns below to keep the bento grid balanced without it.
+  {
+    name: 'Events',
+    href: '/events',
+    description: 'Prodev, service, and brotherhood: the running event archive.',
+    cta: 'Browse events',
+    variant: 'events',
+    preview: '/images/events/big-bear-retreat.jpg',
+  },
+];
+---
+
+<ul role="list" class="bento-explore" data-stagger>
+  {
+    items.map((it) => (
+      <li class:list={['bento-explore__cell', `bento-explore__cell--${it.variant}`]}>
+        <a
+          href={it.href}
+          class:list={[
+            'bento-card group dark:bg-brand-800/40 focus-visible:outline-brand-500 relative flex h-full flex-col justify-end overflow-hidden rounded-3xl border border-(--color-border) bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 dark:shadow-none',
+          ]}
+        >
+          {/* Gold rail that slides in on hover. */}
+          <span aria-hidden="true" class="bento-card__rail" />
+
+          {/* Per-variant decorative background, behind everything else. */}
+          {it.variant === 'brothers' && (
+            <span class="bento-card__float" aria-hidden="true">
+              <BrothersFloat variant="tile" rows={2} />
+            </span>
+          )}
+
+          {it.variant === 'recruitment' && (
+            <span class="bento-card__stamp" aria-hidden="true">
+              <span class="bento-card__stamp-ring">
+                <span class="bento-card__stamp-eyebrow">Open for</span>
+                <span class="font-display bento-card__stamp-big">Fall '26</span>
+                <span class="bento-card__stamp-foot">Rush ahead</span>
+              </span>
+            </span>
+          )}
+
+          {it.variant === 'about' && (
+            <span class="font-display bento-card__monogram" aria-hidden="true">
+              ΠΔ
+            </span>
+          )}
+
+          {it.variant === 'projects' && (
+            <svg
+              class="bento-card__blueprint"
+              aria-hidden="true"
+              focusable="false"
+              viewBox="0 0 200 140"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <defs>
+                <pattern id="bp-grid" width="14" height="14" patternUnits="userSpaceOnUse">
+                  <path
+                    d="M 14 0 L 0 0 0 14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="0.4"
+                    opacity="0.55"
+                  />
+                </pattern>
+                <pattern id="bp-dots" width="14" height="14" patternUnits="userSpaceOnUse">
+                  <circle cx="0" cy="0" r="0.9" fill="currentColor" opacity="0.6" />
+                </pattern>
+              </defs>
+              <rect width="200" height="140" fill="url(#bp-grid)" />
+              <rect width="200" height="140" fill="url(#bp-dots)" />
+              {/* A few drafting strokes, a circle, a corner bracket, dimension ticks. */}
+              <g fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.55">
+                <circle cx="40" cy="40" r="14" />
+                <circle cx="40" cy="40" r="2.2" fill="currentColor" />
+                <line x1="120" y1="20" x2="160" y2="20" />
+                <line x1="120" y1="20" x2="120" y2="32" />
+                <line x1="160" y1="20" x2="160" y2="32" />
+                <line x1="115" y1="20" x2="125" y2="20" stroke-width="1" />
+                <line x1="155" y1="20" x2="165" y2="20" stroke-width="1" />
+                <path d="M 150 95 L 150 110 L 175 110" />
+                <line x1="60" y1="100" x2="100" y2="100" />
+                <line x1="80" y1="92" x2="80" y2="108" />
+              </g>
+            </svg>
+          )}
+
+          {it.variant === 'events' && (
+            <span class="bento-card__calendar" aria-hidden="true">
+              <span class="bento-card__calendar-cell" />
+              <span class="bento-card__calendar-cell" />
+              <span class="bento-card__calendar-cell bento-card__calendar-cell--active" />
+              <span class="bento-card__calendar-cell" />
+              <span class="bento-card__calendar-cell" />
+              <span class="bento-card__calendar-cell" />
+              <span class="bento-card__calendar-cell" />
+              <span class="bento-card__calendar-cell bento-card__calendar-cell--active" />
+              <span class="bento-card__calendar-cell" />
+              <span class="bento-card__calendar-cell" />
+              <span class="bento-card__calendar-cell" />
+              <span class="bento-card__calendar-cell" />
+            </span>
+          )}
+
+          <span class="bento-card__copy">
+            <span class="font-display text-brand-900 block text-xl font-semibold dark:text-white">
+              {it.name}
+            </span>
+            <span class="text-brand-800 dark:text-brand-100/80 mt-1 block text-sm">
+              {it.description}
+            </span>
+            <span class="bento-card__cta text-accent-600 dark:text-accent-400 relative mt-3 inline-flex items-center gap-1 text-sm font-semibold">
+              {it.cta}
+              <svg
+                class="size-4 transition-transform duration-300 group-hover:translate-x-0.5 motion-reduce:transition-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </span>
+
+          {/* A single, tab-relevant photo that follows the cursor on hover. */}
+          {it.preview && (
+            <span class="bento-card__preview" aria-hidden="true">
+              <img src={it.preview} alt="" loading="lazy" />
+            </span>
+          )}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<script>
+  // Make the bento preview image trail the cursor. Pointer-only; touch devices
+  // never fire these, so the tiles stay clean, tappable links.
+  (() => {
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!fine) return;
+    document.querySelectorAll<HTMLElement>('.bento-card').forEach((card) => {
+      const preview = card.querySelector<HTMLElement>('.bento-card__preview');
+      if (!preview) return;
+      let raf = 0;
+      let x = 0;
+      let y = 0;
+      const apply = () => {
+        raf = 0;
+        // The card clips overflow, so an unclamped cursor offset would slice
+        // the preview in half (worst case ~80% of it sat above a 208px tile).
+        // Clamp to the offsets that keep the whole box inside the card: the
+        // CSS transform is translate(-50% + px, py - 120%).
+        const w = preview.offsetWidth;
+        const h = preview.offsetHeight;
+        const minX = w / 2;
+        const minY = h * 1.2;
+        const px = Math.min(Math.max(x, minX), Math.max(minX, card.clientWidth - w / 2));
+        const py = Math.min(Math.max(y, minY), Math.max(minY, card.clientHeight + h * 0.2));
+        preview.style.setProperty('--px', `${px}px`);
+        preview.style.setProperty('--py', `${py}px`);
+      };
+      card.addEventListener('pointermove', (e) => {
+        const rect = card.getBoundingClientRect();
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+        if (!raf) raf = requestAnimationFrame(apply);
+      });
+      card.addEventListener('pointerenter', (e) => {
+        const rect = card.getBoundingClientRect();
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+        apply();
+        card.classList.add('is-hovering');
+      });
+      card.addEventListener('pointerleave', () => {
+        card.classList.remove('is-hovering');
+      });
+    });
+  })();
+</script>
+
+<style>
+  /* Grid layout, 1 col on mobile, 4 cols on sm+. Brothers spans 2x2; the
+     other four tiles each take 1x1 to fill the remaining 2x2 block. */
+  .bento-explore {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 13rem;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  @media (min-width: 640px) {
+    .bento-explore {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .bento-explore__cell--brothers {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    /* With the Projects tile hidden, Recruitment goes double-wide so Brothers
+       (2x2) + Recruitment (2x1) + About + Events (1x1 each) fill the 4x2 grid
+       with no empty cell. Restore to 1x1 if the Projects tile comes back. */
+    .bento-explore__cell--recruitment {
+      grid-column: span 2;
+    }
+  }
+
+  /* Brothers tile float, same as before. */
+  .bento-card__float {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    container-type: inline-size;
+    border-radius: inherit;
+    overflow: hidden;
+  }
+  /* On mobile every bento cell is a single short (13rem) row, which left the
+     Brothers tile as an empty text box while the other tiles kept their own
+     decoration. Instead of hiding the portrait field, give the Brothers tile
+     two rows of height on mobile too, so the drifting portraits have room up
+     top and the heading + description sit in the scrimmed lower band, the
+     same composition that works in the 2x2 desktop tile. */
+  @media (max-width: 639px) {
+    .bento-explore__cell--brothers {
+      grid-row: span 2;
+    }
+  }
+  /* ----------------------------------------------------------------- */
+  /*   Recruitment wax stamp                                              */
+  /* ----------------------------------------------------------------- */
+  .bento-card__stamp {
+    position: absolute;
+    top: 1.1rem;
+    right: 1rem;
+    width: 5.25rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 9999px;
+    background: #c9a84c;
+    border: 2px solid #f6eacf;
+    box-shadow:
+      0 6px 14px rgba(74, 4, 4, 0.18),
+      inset 0 0 0 1px rgba(74, 4, 4, 0.18);
+    transform: rotate(-8deg);
+    color: #4a0404;
+    pointer-events: none;
+    z-index: 0;
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .group:hover .bento-card__stamp {
+    transform: rotate(-3deg) scale(1.04);
+  }
+  .bento-card__stamp-ring {
+    position: absolute;
+    inset: 6%;
+    border: 1px solid rgba(74, 4, 4, 0.4);
+    border-radius: 9999px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.25rem;
+  }
+  .bento-card__stamp-eyebrow {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.42rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.78;
+  }
+  .bento-card__stamp-big {
+    font-size: 0.88rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0.18rem 0 0.12rem;
+  }
+  .bento-card__stamp-foot {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.38rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bento-card__stamp,
+    .group:hover .bento-card__stamp {
+      transition: none;
+      transform: rotate(-8deg);
+    }
+  }
+
+  /* ----------------------------------------------------------------- */
+  /*   About monogram watermark                                            */
+  /* ----------------------------------------------------------------- */
+  .bento-card__monogram {
+    position: absolute;
+    top: -1.5rem;
+    right: -0.75rem;
+    font-size: 8.5rem;
+    line-height: 0.85;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--color-accent-500);
+    opacity: 0.14;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    transition:
+      transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+      opacity 0.35s ease;
+  }
+  :global(html.dark) .bento-card__monogram {
+    color: var(--color-accent-400);
+    opacity: 0.18;
+  }
+  .group:hover .bento-card__monogram {
+    transform: translate(-0.3rem, 0.3rem);
+    opacity: 0.2;
+  }
+  :global(html.dark) .group:hover .bento-card__monogram {
+    opacity: 0.26;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bento-card__monogram {
+      transition: none;
+    }
+  }
+
+  /* ----------------------------------------------------------------- */
+  /*   Projects blueprint                                                  */
+  /* ----------------------------------------------------------------- */
+  .bento-card__blueprint {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--color-accent-500);
+    opacity: 0.32;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+    transition: opacity 0.35s ease;
+  }
+  :global(html.dark) .bento-card__blueprint {
+    color: var(--color-accent-400);
+    opacity: 0.38;
+  }
+  .group:hover .bento-card__blueprint {
+    opacity: 0.5;
+  }
+  :global(html.dark) .group:hover .bento-card__blueprint {
+    opacity: 0.55;
+  }
+
+  /* ----------------------------------------------------------------- */
+  /*   Events calendar grid                                                */
+  /* ----------------------------------------------------------------- */
+  .bento-card__calendar {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(4, 0.85rem);
+    grid-auto-rows: 0.85rem;
+    gap: 0.3rem;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .bento-card__calendar-cell {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.18rem;
+    background: var(--color-accent-500);
+    opacity: 0.18;
+  }
+  :global(html.dark) .bento-card__calendar-cell {
+    background: var(--color-accent-400);
+    opacity: 0.22;
+  }
+  .bento-card__calendar-cell--active {
+    background: var(--color-accent-500);
+    opacity: 0.85;
+    box-shadow: 0 4px 10px rgba(212, 181, 106, 0.35);
+  }
+  :global(html.dark) .bento-card__calendar-cell--active {
+    background: var(--color-accent-400);
+    opacity: 0.95;
+  }
+  .group:hover .bento-card__calendar {
+    transform: scale(1.06) rotate(-2deg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bento-card__calendar,
+    .group:hover .bento-card__calendar {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* ----------------------------------------------------------------- */
+  /*   Cursor-following preview: one tab-relevant photo that trails the */
+  /*   pointer while hovering the tile. Positioned by the inline script */
+  /*   via --px/--py (cursor position within the card).                 */
+  /* ----------------------------------------------------------------- */
+  .bento-card__preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 9rem;
+    height: 6.5rem;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    z-index: 6;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.6),
+      0 18px 36px rgba(74, 4, 4, 0.3);
+    /* Sit above and to the right of the cursor, hidden until hovering. */
+    transform: translate(calc(-50% + var(--px, 0px)), calc(var(--py, 0px) - 120%)) scale(0.85);
+    transition:
+      opacity 0.18s ease,
+      transform 0.18s cubic-bezier(0.2, 0.7, 0.2, 1);
+    will-change: transform;
+  }
+  .bento-card__preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .bento-card.is-hovering .bento-card__preview {
+      opacity: 1;
+      transform: translate(calc(-50% + var(--px, 0px)), calc(var(--py, 0px) - 120%)) scale(1);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bento-card__preview {
+      transition: opacity 0.18s ease;
+    }
+  }
+
+  /* Copy sits above any decorative background. */
+  .bento-card__copy {
+    position: relative;
+    z-index: 1;
+  }
+</style>

@@ -1,0 +1,41 @@
+# Response headers for the Amplify-hosted build.
+#
+# vercel.json carries the same rules for the Vercel deployment, but Amplify
+# does not read it, so they are restated here. Keep the two in step if either
+# changes.
+customHeaders:
+  - pattern: '**'
+    headers:
+      - key: X-Content-Type-Options
+        value: nosniff
+      - key: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - key: X-Frame-Options
+        value: DENY
+      - key: Permissions-Policy
+        value: geolocation=(), camera=(), microphone=()
+
+  # Hand-managed asset filenames with no content hash, so cache for a week and
+  # revalidate in the background rather than marking them immutable.
+  - pattern: '/images/**'
+    headers:
+      - key: Cache-Control
+        value: public, max-age=604800, stale-while-revalidate=86400
+  - pattern: '/videos/**'
+    headers:
+      - key: Cache-Control
+        value: public, max-age=604800, stale-while-revalidate=86400
+  - pattern: '/logos/**'
+    headers:
+      - key: Cache-Control
+        value: public, max-age=604800, stale-while-revalidate=86400
+  - pattern: '/icons/**'
+    headers:
+      - key: Cache-Control
+        value: public, max-age=604800, stale-while-revalidate=86400
+
+  # Astro fingerprints everything under /_astro/, so it is safe to pin hard.
+  - pattern: '/_astro/**'
+    headers:
+      - key: Cache-Control
+        value: public, max-age=31536000, immutable

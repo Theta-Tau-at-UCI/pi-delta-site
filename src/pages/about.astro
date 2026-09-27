@@ -1,0 +1,230 @@
+---
+// About, our chapter, our values, and the Southwestern Region. Revamped into the
+// shared .rv-* motion + restraint system (see src/styles/revamp.css) to match
+// the home page: restrained photo hero, clean .rv-section blocks with Rise
+// scroll-in intros. All functional pieces (HistoryTimeline, RegionalChapters,
+// MajorsDonut, NumberTicker stats, Pillars) are preserved. Pillars are accurate
+// to Theta Tau; demographics charts read from provided chapter data.
+import PageLayout from '@layouts/PageLayout.astro';
+import { Rise } from '@components/react/ScaleMotion';
+import Pillars from '@components/sections/Pillars.astro';
+import HistoryTimeline from '@components/sections/HistoryTimeline.astro';
+import MajorsDonut from '@components/react/MajorsDonut.tsx';
+import RegionalChapters from '@components/sections/RegionalChapters.astro';
+import NextPath from '@components/sections/NextPath.astro';
+import ImagePlaceholder from '@components/ui/ImagePlaceholder.astro';
+import NumberTicker from '@components/react/NumberTicker.tsx';
+import {
+  chapterFacts,
+  regionalChapters,
+  colonies,
+  majorBreakdown,
+  genderBreakdown,
+  allActives,
+  memberClasses,
+  rushSchedule,
+} from '@data/chapter';
+
+// Derived region stats, counts come straight from the data so they stay in sync.
+// "1 of 7 regions" reflects Theta Tau's public organization into seven geographical
+// regions nationally.
+const regionStats = [
+  { value: String(regionalChapters.length), label: 'Chapters' },
+  { value: String(colonies.length), label: 'Colonies' },
+  { value: '1 of 7', label: 'Regions nationally' },
+];
+
+// Rush night counts come from the schedule itself so this blurb can't drift out
+// of sync with /recruitment the way the old hard-coded "Five open nights" did.
+const countWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
+const countWord = (n: number) => countWords[n] ?? String(n);
+const openRushNights = rushSchedule.filter((e) => !e.inviteOnly).length;
+const inviteOnlyRushNights = rushSchedule.length - openRushNights;
+const rushNightsSentence = `${countWord(openRushNights).replace(/^./, (c) => c.toUpperCase())} open nights every fall plus ${countWord(inviteOnlyRushNights)} invite-only nights.`;
+---
+
+<PageLayout
+  title="About"
+  description="About Theta Tau, Pi Delta Chapter at UC Irvine. Our chapter, our values, and the Southwestern Region of Theta Tau."
+>
+  {/* HERO, restrained photo hero with a flat cream/dark legibility scrim. */}
+  <section
+    class="rv-page-hero rv-page-hero--photo"
+    style="background-image: url('/images/chapter/spring-2025-group.jpg')"
+  >
+    <Rise client:visible>
+      <p class="rv-eyebrow">Theta Tau · Pi Delta Chapter</p>
+      <h1 class="font-display rv-page-hero__title">About our <em>chapter.</em></h1>
+      <p class="rv-lead">
+        Theta Tau is the nation's oldest and largest professional engineering fraternity. A group of
+        UCI students brought it to the Anteater community as the Pi Delta chapter at UC Irvine, and
+        it has been growing ever since.
+      </p>
+    </Rise>
+  </section>
+
+  {/* OUR CHAPTER, bento mosaic: lede copy + photo, numeric facts, majors chart. */}
+  <section id="our-chapter" class="rv-section">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">Our chapter</p>
+      <h2 class="font-display rv-h2">The engineering brotherhood at UCI.</h2>
+    </Rise>
+    <div class="bento-chapter" data-stagger>
+      <article class="bento-tile bento-tile--lede">
+        <p class="bento-tile__lede-text">
+          The Pi Delta chapter is Theta Tau's engineering brotherhood at UC Irvine, a working
+          community of students who want to be better engineers and better people at the same time.
+          We're the chapter that shows up to office hours together, fills the front rows at design
+          reviews, and ends up at the same recruiting events whether we planned it or not. The stat
+          tiles have the facts; the part the numbers can't show is how often we end up back at
+          somebody's apartment for boba and a chaotic group project at 1 AM.
+        </p>
+      </article>
+
+      <article class="bento-tile bento-tile--photo">
+        {
+          /* Deliberately not the hero photo: a casual chapter outing, so the
+            two images on this page read as different moments. */
+        }
+        <ImagePlaceholder
+          src="/images/events/great-park.jpg"
+          alt="Brothers of the Pi Delta chapter out together at Great Park Ice"
+          aspect="3 / 2"
+          label="The chapter out together"
+        />
+      </article>
+
+      <article class="bento-tile bento-tile--stat bento-tile--stat-founded">
+        <dt class="bento-tile__label">Founded at UCI</dt>
+        <dd class="font-display bento-tile__value">{chapterFacts.foundedAtUci}</dd>
+      </article>
+
+      <article class="bento-tile bento-tile--stat bento-tile--stat-installed">
+        <dt class="bento-tile__label">Installed</dt>
+        <dd class="font-display bento-tile__value">{chapterFacts.installed}</dd>
+      </article>
+
+      <article class="bento-tile bento-tile--stat bento-tile--stat-accent">
+        <dt class="bento-tile__label">Members and alumni</dt>
+        <dd class="font-display bento-tile__value bento-tile__value--ticker">
+          <NumberTicker
+            client:visible
+            value={chapterFacts.membersAndAlumni}
+            suffix="+"
+            duration={1600}
+          />
+        </dd>
+      </article>
+
+      <article class="bento-tile bento-tile--stat bento-tile--stat-actives">
+        <dt class="bento-tile__label">Active brothers today</dt>
+        <dd class="font-display bento-tile__value bento-tile__value--ticker">
+          <NumberTicker client:visible value={allActives.length} duration={1400} />
+        </dd>
+      </article>
+
+      <article class="bento-tile bento-tile--stat bento-tile--stat-classes">
+        <dt class="bento-tile__label">Classes</dt>
+        <dd class="font-display bento-tile__value bento-tile__value--ticker">
+          <NumberTicker client:visible value={memberClasses.length} duration={1400} />
+        </dd>
+      </article>
+
+      <article class="bento-tile bento-tile--stat bento-tile--stat-majors">
+        <dt class="bento-tile__label">Majors represented</dt>
+        <dd class="font-display bento-tile__value bento-tile__value--ticker">
+          <NumberTicker client:visible value={majorBreakdown.length} duration={1400} />
+        </dd>
+      </article>
+
+      <article class="bento-tile bento-tile--chart bento-tile--donut-pair">
+        <div class="bento-donut">
+          <MajorsDonut
+            client:visible
+            data={majorBreakdown.map((m) => ({ label: m.major, count: m.count }))}
+            caption="Major breakdown"
+            totalLabel="active brothers"
+          />
+        </div>
+        <div class="bento-donut bento-donut--gender">
+          {/* Two slices only, so the palette is the brand pair: maroon vs gold. */}
+          <MajorsDonut
+            client:visible
+            data={genderBreakdown}
+            caption="Gender breakdown"
+            totalLabel="active brothers"
+            palette={['#7c0303', '#b8902f']}
+          />
+        </div>
+      </article>
+    </div>
+  </section>
+
+  {/* OUR STORY, chapter timeline. */}
+  <section id="our-story" class="rv-section">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">Our story</p>
+      <h2 class="font-display rv-h2">How the chapter began.</h2>
+    </Rise>
+    <HistoryTimeline />
+  </section>
+
+  {/* OUR VALUES, the three pillars (grid only; heading comes from the Rise intro). */}
+  <section id="our-values" class="rv-section">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">Our values</p>
+      <h2 class="font-display rv-h2">Brotherhood, professionalism, service.</h2>
+      <p class="rv-lead">Three pillars guide everything the chapter does, on campus and beyond.</p>
+    </Rise>
+    <Pillars />
+  </section>
+
+  {/* SOUTHWESTERN REGION, region stats + regional chapters. */}
+  <section id="region" class="rv-section">
+    <Rise client:visible>
+      <p class="rv-eyebrow rv-eyebrow--gold">Southwestern Region</p>
+      <h2 class="font-display rv-h2">Southwestern Region of Theta Tau.</h2>
+      <p class="rv-prose">
+        The Southwestern Region is where the Pi Delta chapter finds its closest siblings: the
+        California and Arizona chapters we share traditions, rituals, and lineage with. Brothers
+        meet across schools at the Regional Leadership Academy and other regional gatherings,
+        swapping ideas and building friendships beyond UCI.
+      </p>
+    </Rise>
+
+    <dl class="region-stats" data-stagger>
+      {
+        regionStats.map((s) => (
+          <div class="region-stat">
+            <dd class="region-stat__value font-display">{s.value}</dd>
+            <dt class="region-stat__label">{s.label}</dt>
+          </div>
+        ))
+      }
+    </dl>
+
+    <RegionalChapters />
+  </section>
+
+  <NextPath
+    eyebrow="What's next"
+    heading="Now you know us. Come meet us."
+    primary={{
+      eyebrow: 'Fall 2026 rush',
+      title: 'Rush this fall.',
+      accent: 'Rush',
+      blurb: `The history is on the page; the chapter happens in person. ${rushNightsSentence} No commitment to show up.`,
+      href: '/recruitment',
+      cta: 'See the schedule',
+    }}
+    secondary={{
+      eyebrow: 'Who carries it now',
+      title: 'Meet the brothers.',
+      accent: 'brothers',
+      blurb:
+        "Forty-nine current actives across thirty classes. Filter by role, major, class, or year to find the people you'd want to know.",
+      href: '/brothers',
+      cta: 'Open the roster',
+    }}
+  />
+</PageLayout>

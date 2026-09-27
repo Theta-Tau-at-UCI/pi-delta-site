@@ -1,0 +1,598 @@
+---
+// Brothers, a filterable card grid of every active; clicking a card opens a
+// per-brother orbital. The roster section now leads with a collapsed
+// "Browse by …" filter panel that opens on click, so the visual filter
+// graphics (Tier + Major) sit ABOVE the roster and stay out of the way
+// until requested. Real names from the public chapter site.
+import PageLayout from '@layouts/PageLayout.astro';
+import Stamp from '@components/ui/Stamp.astro';
+import RotatingWord from '@components/react/RotatingWord.tsx';
+import Section from '@components/ui/Section.astro';
+import Testimonials from '@components/sections/Testimonials.astro';
+import BrothersExplorer from '@components/react/BrothersExplorer.tsx';
+import TierBands from '@components/sections/TierBands.astro';
+import ClassLineage from '@components/sections/ClassLineage.astro';
+import MajorMosaic from '@components/sections/MajorMosaic.astro';
+import SectionDivider from '@components/ui/SectionDivider.astro';
+import NextPath from '@components/sections/NextPath.astro';
+import {
+  allBrothersWithAlumni,
+  allActives,
+  execBoard,
+  directors,
+  memberClasses,
+  rushSchedule,
+} from '@data/chapter';
+
+// Counted from the schedule rather than written out, so this page can't drift
+// from /recruitment the way the old hard-coded "five open nights" did. Spelled
+// out because /about, /projects, and /recruitment all word the count in prose.
+const countWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
+const openNightCount = rushSchedule.filter((e) => !e.inviteOnly).length;
+const openRushNights = countWords[openNightCount] ?? String(openNightCount);
+---
+
+<PageLayout
+  title="Brothers"
+  description="The active roster, officers, and class lineage of Theta Tau, Pi Delta Chapter at UC Irvine."
+>
+  {/* HERO, constellation network background + "active brothers" corner stat. */}
+  <section class="brothers-hero">
+    <svg
+      class="brothers-hero__constellation"
+      viewBox="0 0 1200 600"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
+      {/* Faint connecting lines */}
+      <g stroke="currentColor" stroke-width="1" opacity="0.18">
+        <line x1="150" y1="180" x2="320" y2="120"></line>
+        <line x1="320" y1="120" x2="480" y2="220"></line>
+        <line x1="480" y1="220" x2="640" y2="140"></line>
+        <line x1="640" y1="140" x2="820" y2="200"></line>
+        <line x1="820" y1="200" x2="980" y2="120"></line>
+        <line x1="980" y1="120" x2="1110" y2="200"></line>
+        <line x1="320" y1="120" x2="280" y2="320"></line>
+        <line x1="480" y1="220" x2="540" y2="380"></line>
+        <line x1="640" y1="140" x2="700" y2="380"></line>
+        <line x1="820" y1="200" x2="780" y2="380"></line>
+        <line x1="280" y1="320" x2="540" y2="380"></line>
+        <line x1="540" y1="380" x2="700" y2="380"></line>
+        <line x1="700" y1="380" x2="780" y2="380"></line>
+        <line x1="780" y1="380" x2="950" y2="450"></line>
+        <line x1="280" y1="320" x2="180" y2="480"></line>
+        <line x1="180" y1="480" x2="380" y2="500"></line>
+        <line x1="380" y1="500" x2="540" y2="380"></line>
+        <line x1="700" y1="380" x2="850" y2="500"></line>
+        <line x1="850" y1="500" x2="1050" y2="450"></line>
+      </g>
+      {/* Nodes, small circles, a few highlighted with a gold glow. */}
+      <g fill="currentColor">
+        <circle cx="150" cy="180" r="3" opacity="0.45"></circle>
+        <circle cx="320" cy="120" r="4" opacity="0.7"></circle>
+        <circle cx="480" cy="220" r="3.5" opacity="0.6"></circle>
+        <circle cx="640" cy="140" r="5" opacity="0.9"></circle>
+        <circle cx="820" cy="200" r="3.5" opacity="0.6"></circle>
+        <circle cx="980" cy="120" r="3" opacity="0.5"></circle>
+        <circle cx="1110" cy="200" r="3" opacity="0.4"></circle>
+        <circle cx="280" cy="320" r="4" opacity="0.7"></circle>
+        <circle cx="540" cy="380" r="3.5" opacity="0.55"></circle>
+        <circle cx="700" cy="380" r="5" opacity="0.85"></circle>
+        <circle cx="780" cy="380" r="3.5" opacity="0.6"></circle>
+        <circle cx="180" cy="480" r="3" opacity="0.5"></circle>
+        <circle cx="380" cy="500" r="3.5" opacity="0.55"></circle>
+        <circle cx="850" cy="500" r="4" opacity="0.65"></circle>
+        <circle cx="950" cy="450" r="3" opacity="0.5"></circle>
+        <circle cx="1050" cy="450" r="3.5" opacity="0.55"></circle>
+      </g>
+      {/* A few glow halos on the brightest nodes. */}
+      <g fill="currentColor" opacity="0.18">
+        <circle cx="640" cy="140" r="14"></circle>
+        <circle cx="700" cy="380" r="14"></circle>
+        <circle cx="320" cy="120" r="10"></circle>
+      </g>
+    </svg>
+
+    <div class="brothers-hero__stat" aria-hidden="true">
+      <span class="brothers-hero__stat-label">Active brothers</span>
+      <span class="font-display brothers-hero__stat-value">{allActives.length}</span>
+      <span class="brothers-hero__stat-rule"></span>
+      <span class="brothers-hero__stat-foot">Across {memberClasses.length} classes</span>
+    </div>
+
+    <div class="brothers-hero__inner">
+      <p class="brothers-hero__eyebrow">Theta Tau · Pi Delta</p>
+      <Stamp variant="stamp" text={`${allActives.length} Active`} rotate={3} />
+      <h1 class="font-display brothers-hero__title">
+        Our <RotatingWord
+          client:visible
+          className="brothers-hero__title-accent"
+          words={['brothers.', 'engineers.', 'friends.', 'family.']}
+        />
+      </h1>
+      <p class="brothers-hero__intro">
+        {allActives.length} current brothers across {memberClasses.length} classes, led by {
+          execBoard.length
+        } executive officers and {directors.length} directors. Browse the roster, jump to a class, or
+        tap any brother to open their orbit.
+      </p>
+      <div class="brothers-hero__ctas">
+        <a href="#roster" class="brothers-hero__cta brothers-hero__cta--primary">
+          Browse the roster →
+        </a>
+        <a href="#classes" class="brothers-hero__cta brothers-hero__cta--secondary"> Classes </a>
+      </div>
+    </div>
+  </section>
+
+  {
+    /* ROSTER, chapter 01. Filter panel collapses by default; the BrothersExplorer
+      below it owns the search box, filter pills, and card grid. */
+  }
+  <Section id="roster" number="01" title="The roster">
+    {
+      /* Browse-by filters live in a collapsed drawer, kept deliberately compact
+        (two columns, smaller tiles) so it doesn't overwhelm a first-time
+        visitor. The explorer below owns search + active-filter pills. */
+    }
+    <details class="filter-drawer" id="classes">
+      <summary class="filter-drawer__summary">
+        <span class="filter-drawer__summary-left">
+          <svg
+            class="filter-drawer__icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="7" y1="12" x2="17" y2="12"></line>
+            <line x1="10" y1="18" x2="14" y2="18"></line>
+          </svg>
+          <span class="font-display filter-drawer__title">Browse by role, class, or major</span>
+        </span>
+        <span class="filter-drawer__summary-right">
+          <span class="filter-drawer__hint filter-drawer__hint--open">Tap to open</span>
+          <span class="filter-drawer__hint filter-drawer__hint--close">Tap to close</span>
+          <svg
+            class="filter-drawer__chev"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
+      </summary>
+
+      <div class="filter-drawer__panel filter-drawer__panel--compact">
+        <div class="filter-drawer__group filter-drawer__group--wide">
+          <p class="filter-drawer__group-label font-display">By role</p>
+          <TierBands />
+        </div>
+        <div class="filter-drawer__group">
+          <p class="filter-drawer__group-label font-display">By class</p>
+          <ClassLineage />
+        </div>
+        <div class="filter-drawer__group">
+          <p class="filter-drawer__group-label font-display">By major</p>
+          <MajorMosaic />
+        </div>
+      </div>
+    </details>
+
+    <BrothersExplorer client:load brothers={allBrothersWithAlumni} />
+  </Section>
+
+  <SectionDivider variant="crest" />
+
+  {/* TESTIMONIALS, chapter 02. */}
+  <Section id="testimonials" number="02" title="In their words" surface>
+    <Testimonials />
+  </Section>
+
+  <NextPath
+    eyebrow="What's next"
+    heading="Meet them in person."
+    primary={{
+      eyebrow: 'Fall 2026 rush',
+      title: 'Come meet us at rush.',
+      accent: 'rush',
+      blurb: `You can read the roster all day, but the real chapter is the people. Every fall brings ${openRushNights} open nights anyone can come to, plus invite-only events to get to know each other.`,
+      href: '/recruitment',
+      cta: 'See the schedule',
+    }}
+    secondary={{
+      eyebrow: 'Who we are',
+      title: 'Get to know the chapter.',
+      accent: 'chapter',
+      blurb:
+        'The people, the values, and the Southwestern Region story behind Pi Delta, how brotherhood, professionalism, and service actually show up here.',
+      href: '/about',
+      cta: 'About the chapter',
+    }}
+  />
+</PageLayout>
+
+<script>
+  // The hero's "Classes" CTA targets #classes, which is the collapsed filter
+  // drawer holding the class lineage. The browser scrolls there on its own;
+  // this just opens the drawer so the lineage is actually visible on arrival.
+  const openClassesDrawer = () => {
+    if (location.hash !== '#classes') return;
+    const drawer = document.getElementById('classes');
+    if (drawer instanceof HTMLDetailsElement) drawer.open = true;
+  };
+
+  openClassesDrawer();
+  window.addEventListener('hashchange', openClassesDrawer);
+  // A click while the hash is already #classes fires no hashchange.
+  document.querySelector('a[href="#classes"]')?.addEventListener('click', () => {
+    requestAnimationFrame(openClassesDrawer);
+  });
+</script>
+
+<style>
+  /* ----------------------------------------------------------------------- */
+  /*   Brothers hero, constellation network background + active-brothers     */
+  /*   corner stat block. Matches the Events + Projects hero treatment.       */
+  /* ----------------------------------------------------------------------- */
+  .brothers-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-border);
+    /* background-color (not the shorthand) so the photo's size/position below
+       survive the dark-mode override. */
+    background-color: var(--color-surface);
+    background-image: url('/images/chapter/winter-2024-photoshoot.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    padding: clamp(3rem, 9vw, 8rem) 0 clamp(3rem, 7vw, 6rem);
+  }
+  /* Flat legibility scrim over the photo (no gradients). Sits under the
+     constellation, which paints after it at the same level. */
+  .brothers-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba(252, 247, 236, 0.82);
+  }
+  :global(html.dark) .brothers-hero {
+    background-color: #1a0505;
+    border-bottom-color: rgba(212, 181, 106, 0.18);
+  }
+  :global(html.dark) .brothers-hero::before {
+    background-color: rgba(22, 8, 8, 0.82);
+  }
+  .brothers-hero__constellation {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    color: var(--color-accent-500);
+    opacity: 0.55;
+    mask-image: linear-gradient(180deg, #000 0%, #000 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 70%, transparent 100%);
+  }
+  :global(html.dark) .brothers-hero__constellation {
+    color: var(--color-accent-400);
+    opacity: 0.75;
+  }
+
+  /* Active-brothers stat, sits top-right like an officer's seal. */
+  .brothers-hero__stat {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.95rem 1.25rem;
+    background: var(--color-brand-700);
+    border: 1px solid var(--color-gold-muted);
+    border-radius: 0.85rem;
+    color: #ffffff;
+    box-shadow: 0 18px 36px rgba(74, 4, 4, 0.18);
+    z-index: 0;
+  }
+  .brothers-hero__stat-label {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent-400);
+  }
+  .brothers-hero__stat-value {
+    font-size: 2.4rem;
+    line-height: 0.95;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-gold);
+  }
+  .brothers-hero__stat-rule {
+    width: 60%;
+    height: 1px;
+    background: rgba(212, 181, 106, 0.45);
+  }
+  .brothers-hero__stat-foot {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(247, 236, 217, 0.7);
+  }
+  @media (max-width: 720px) {
+    .brothers-hero__stat {
+      display: none;
+    }
+  }
+  /* Mobile header: tighter rhythm, title that fits, full-width tap targets. */
+  @media (max-width: 640px) {
+    .brothers-hero {
+      background-position: center 28%;
+      padding: 2.5rem 0 2.25rem;
+    }
+    .brothers-hero__eyebrow {
+      margin-bottom: 0.65rem;
+    }
+    /* The rotated "49 Active" wax stamp collides with the rotating headline at
+       this width, and the intro line already states the count. */
+    .brothers-hero__inner :global(.stamp) {
+      display: none;
+    }
+    .brothers-hero__title {
+      font-size: clamp(2rem, 10.5vw, 2.9rem);
+      margin-bottom: 0.9rem;
+    }
+    .brothers-hero__intro {
+      font-size: 0.97rem;
+      line-height: 1.5;
+      margin-bottom: 1.35rem;
+    }
+    .brothers-hero__ctas {
+      gap: 0.5rem;
+    }
+    .brothers-hero__cta {
+      flex: 1 1 10rem;
+      justify-content: center;
+    }
+  }
+
+  .brothers-hero__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 var(--spacing-page, 1.25rem);
+    position: relative;
+    z-index: 1;
+  }
+  .brothers-hero__eyebrow {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin: 0 0 1rem;
+  }
+  :global(html.dark) .brothers-hero__eyebrow {
+    color: var(--color-accent-400);
+  }
+  .brothers-hero__title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    /* 600 matches .rv-page-hero__title and .rv-h2, so every Fraunces page
+       title renders at one weight. */
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+  }
+  :global(html.dark) .brothers-hero__title {
+    color: #ffffff;
+  }
+  .brothers-hero__title-accent {
+    color: var(--color-accent-500);
+    font-style: italic;
+  }
+  .brothers-hero__intro {
+    max-width: 38rem;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    margin: 0 0 1.75rem;
+  }
+  .brothers-hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .brothers-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0 1.1rem;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition:
+      transform 0.18s ease,
+      background 0.18s ease,
+      border-color 0.18s ease;
+  }
+  .brothers-hero__cta:hover {
+    transform: translateY(-1px);
+  }
+  .brothers-hero__cta--primary {
+    background: var(--color-accent-500);
+    color: var(--color-brand-900);
+  }
+  .brothers-hero__cta--primary:hover {
+    background: var(--color-accent-400);
+  }
+  .brothers-hero__cta--secondary {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+  :global(html.dark) .brothers-hero__cta--secondary {
+    color: #ffffff;
+    border-color: rgba(212, 181, 106, 0.4);
+  }
+  .brothers-hero__cta--secondary:hover {
+    border-color: var(--color-gold-muted);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .brothers-hero__cta,
+    .brothers-hero__cta:hover {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* Filter drawer, a wide native <details> that opens to reveal the visual
+     filter grids (tier bands + major mosaic). Sits ABOVE the search box and
+     filter pills so the explorer's own UI stays close to the cards. */
+  .filter-drawer {
+    margin-bottom: 1.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-surface);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  :global(html.dark) .filter-drawer {
+    background: rgba(74, 4, 4, 0.28);
+  }
+  .filter-drawer[open] {
+    border-color: var(--color-gold-muted);
+  }
+
+  .filter-drawer__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  .filter-drawer__summary::-webkit-details-marker {
+    display: none;
+  }
+  .filter-drawer__summary:hover {
+    background: rgba(212, 181, 106, 0.08);
+  }
+  .filter-drawer__summary-left,
+  .filter-drawer__summary-right {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 0;
+  }
+  .filter-drawer__icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--color-gold);
+    flex-shrink: 0;
+  }
+  .filter-drawer__title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: var(--color-text);
+  }
+  :global(html.dark) .filter-drawer__title {
+    color: #ffffff;
+  }
+  .filter-drawer__hint {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+  }
+  /* Only one hint is in the DOM flow at a time, so the summary never reads
+     "Tap to open" to a screen reader while the drawer is open. */
+  .filter-drawer__hint--close,
+  .filter-drawer[open] .filter-drawer__hint--open {
+    display: none;
+  }
+  .filter-drawer[open] .filter-drawer__hint--close {
+    display: inline;
+  }
+  .filter-drawer__chev {
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--color-gold);
+    transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .filter-drawer[open] .filter-drawer__chev {
+    transform: rotate(180deg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .filter-drawer__chev {
+      transition: none;
+    }
+  }
+
+  .filter-drawer__panel {
+    padding: 0.5rem 1.25rem 1.5rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .filter-drawer__group-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin: 0 0 0.45rem;
+  }
+  :global(html.dark) .filter-drawer__group-label {
+    color: var(--color-accent-400);
+  }
+  /* Compact variant, tighter padding everywhere plus a two-column layout on
+     wide screens so the whole panel stays small and unintimidating to a
+     first-time visitor. */
+  .filter-drawer__panel--compact {
+    padding: 0.65rem 1rem 1rem;
+    gap: 0.85rem;
+  }
+  @media (min-width: 820px) {
+    /* Shrink the dense filter grids (zoom reflows, unlike transform). Only
+       from 820px up: on a phone this scaled labels down to 6-9px. */
+    .filter-drawer__panel--compact {
+      zoom: 0.68;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem 1.5rem;
+    }
+    /* The role tier-bands are full-width rows, so let that group span both
+       columns; class + major sit side-by-side beneath it. */
+    .filter-drawer__panel--compact .filter-drawer__group--wide {
+      grid-column: 1 / -1;
+    }
+  }
+  .filter-drawer__panel--compact .filter-drawer__group-label {
+    margin-bottom: 0.3rem;
+  }
+</style>

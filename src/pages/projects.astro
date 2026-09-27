@@ -1,0 +1,825 @@
+---
+// Projects, chapter engineering project archive. The yearly project gets
+// the hero feature; past projects sit in a year-stamped archive below.
+// Distinctive blueprint hero: faint engineering-paper grid with corner
+// stamps and "drafting" annotations sets this page apart from the
+// warm-parchment treatment used elsewhere.
+import PageLayout from '@layouts/PageLayout.astro';
+import Stamp from '@components/ui/Stamp.astro';
+import RotatingWord from '@components/react/RotatingWord.tsx';
+import Section from '@components/ui/Section.astro';
+import ImagePlaceholder from '@components/ui/ImagePlaceholder.astro';
+import SectionDivider from '@components/ui/SectionDivider.astro';
+import NextPath from '@components/sections/NextPath.astro';
+import { currentProject, pastProjects } from '@data/projects';
+
+const sortedPast = [...pastProjects].sort((a, b) =>
+  (b.isoYear ?? b.year).localeCompare(a.isoYear ?? a.year),
+);
+---
+
+<PageLayout
+  title="Projects"
+  description="Theta Tau, Pi Delta Chapter engineering project archive. The yearly chapter project plus the rest of what we build."
+>
+  {/* HERO, blueprint paper background with corner stamp + drafting marks. */}
+  <section class="projects-hero">
+    <div class="projects-hero__grid" aria-hidden="true"></div>
+    <div class="projects-hero__stamp" aria-hidden="true">
+      <span class="projects-hero__stamp-eyebrow">Project</span>
+      <span class="font-display projects-hero__stamp-year">{currentProject.year}</span>
+      <span class="projects-hero__stamp-rule"></span>
+      <span class="projects-hero__stamp-foot">Theta Tau · Pi Delta</span>
+    </div>
+    <div class="projects-hero__marks" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <line x1="0" y1="20" x2="100" y2="20" stroke="currentColor" stroke-width="0.15"></line>
+        <line x1="0" y1="50" x2="100" y2="50" stroke="currentColor" stroke-width="0.15"></line>
+        <line x1="0" y1="80" x2="100" y2="80" stroke="currentColor" stroke-width="0.15"></line>
+        <text
+          x="2"
+          y="19"
+          font-family="'Plus Jakarta Sans', system-ui, sans-serif"
+          font-size="2"
+          fill="currentColor"
+        >
+          A
+        </text>
+        <text
+          x="2"
+          y="49"
+          font-family="'Plus Jakarta Sans', system-ui, sans-serif"
+          font-size="2"
+          fill="currentColor"
+        >
+          B
+        </text>
+        <text
+          x="2"
+          y="79"
+          font-family="'Plus Jakarta Sans', system-ui, sans-serif"
+          font-size="2"
+          fill="currentColor"
+        >
+          C
+        </text>
+      </svg>
+    </div>
+    <div class="projects-hero__inner">
+      <p class="projects-hero__eyebrow">Built by the chapter</p>
+      <Stamp variant="stamp" text="Built by ΠΔ" rotate={-3} />
+      <h1 class="font-display projects-hero__title">
+        Our <RotatingWord
+          client:visible
+          className="projects-hero__title-accent"
+          words={['projects.', 'builds.', 'work.']}
+        />
+      </h1>
+      <p class="projects-hero__intro">
+        Every year the chapter picks one engineering project to build together, a hands-on
+        complement to professional development and service. This page is the running record: what we
+        built, who led it, what we learned.
+      </p>
+      <div class="projects-hero__ctas">
+        <a href="#featured" class="projects-hero__cta projects-hero__cta--primary">
+          This year's project →
+        </a>
+        <a href="#archive" class="projects-hero__cta projects-hero__cta--secondary">
+          See the archive
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* FEATURED, current yearly chapter engineering project. */}
+  <Section id="featured" number="01" title="This year's chapter project">
+    <article
+      class:list={['featured-project', currentProject.placeholder && 'is-placeholder']}
+      data-animate="fade-up"
+    >
+      <div class="featured-project__media">
+        <ImagePlaceholder
+          src={currentProject.photo}
+          alt={`${currentProject.name} photo`}
+          aspect="3 / 2"
+          label={`${currentProject.name} photo`}
+        />
+      </div>
+      <div class="featured-project__body">
+        <p class="featured-project__year font-display">{currentProject.year}</p>
+        <h2 class="font-display featured-project__title">{currentProject.name}</h2>
+        <p class="featured-project__tagline">{currentProject.tagline}</p>
+        <p class="featured-project__description">{currentProject.description}</p>
+        {
+          currentProject.tags && currentProject.tags.length > 0 && (
+            <ul class="featured-project__tags">
+              {currentProject.tags.map((t) => (
+                <li class="featured-project__tag">{t}</li>
+              ))}
+            </ul>
+          )
+        }
+        {
+          currentProject.outcomes && currentProject.outcomes.length > 0 && (
+            <div class="featured-project__outcomes">
+              <p class="featured-project__outcomes-label font-display">Outcomes</p>
+              <ul class="featured-project__outcomes-list">
+                {currentProject.outcomes.map((o) => (
+                  <li>{o}</li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+        {
+          currentProject.link && (
+            <a
+              href={currentProject.link}
+              class="featured-project__link"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Read the write-up →
+            </a>
+          )
+        }
+        {
+          currentProject.placeholder && (
+            <p class="featured-project__placeholder-tag">
+              Placeholder: update <code>currentProject</code> in
+              <code>src/data/projects.ts</code>.
+            </p>
+          )
+        }
+      </div>
+    </article>
+  </Section>
+
+  <SectionDivider variant="monogram" />
+
+  {/* ARCHIVE, past projects, newest first. */}
+  <Section id="archive" number="02" title="Past projects" surface>
+    {
+      sortedPast.length === 0 ? (
+        <div class="projects-empty" role="status">
+          <p class="projects-empty__title font-display">Archive is loading.</p>
+          <p class="projects-empty__body">
+            Past projects come back as the chapter writes them up. The fastest way to find out what
+            we've built is to come ask the brothers in person, or
+            <a href="/recruitment" class="projects-empty__link">
+              rush this fall →
+            </a>
+          </p>
+          <p class="projects-empty__hint">
+            <span>For editors:</span> add entries to <code>pastProjects</code> in
+            <code>src/data/projects.ts</code>.
+          </p>
+        </div>
+      ) : (
+        <ol class="project-timeline" data-stream-in>
+          {sortedPast.map((p) => (
+            <li class:list={['project-timeline__item', p.placeholder && 'is-placeholder']}>
+              <span class="project-timeline__year font-display" aria-hidden="true">
+                {p.year}
+              </span>
+              <article class="project-timeline__card">
+                <ImagePlaceholder
+                  src={p.photo}
+                  alt={`${p.name} photo`}
+                  aspect="4 / 3"
+                  label={`${p.name} photo`}
+                  class="project-timeline__photo"
+                />
+                <div class="project-timeline__body">
+                  <h3 class="font-display project-timeline__title">{p.name}</h3>
+                  <p class="project-timeline__tagline">{p.tagline}</p>
+                  <p class="project-timeline__description">{p.description}</p>
+                  {p.tags && p.tags.length > 0 && (
+                    <ul class="featured-project__tags">
+                      {p.tags.map((t) => (
+                        <li class="featured-project__tag">{t}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {p.link && (
+                    <a
+                      href={p.link}
+                      class="featured-project__link"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Write-up →
+                    </a>
+                  )}
+                  {p.placeholder && (
+                    <p class="featured-project__placeholder-tag">
+                      Placeholder: replace in src/data/projects.ts
+                    </p>
+                  )}
+                </div>
+              </article>
+            </li>
+          ))}
+        </ol>
+      )
+    }
+  </Section>
+
+  <NextPath
+    eyebrow="What's next"
+    heading="Want to build the next one?"
+    primary={{
+      eyebrow: 'Fall 2026 rush',
+      title: 'Bring your hands.',
+      accent: 'hands',
+      blurb:
+        'Every project on this page started with a brother showing up. Rush is the way in, with three open nights every fall plus invite-only events.',
+      href: '/recruitment',
+      cta: 'See the schedule',
+    }}
+    secondary={{
+      eyebrow: 'Who builds them',
+      title: 'Meet the brotherhood.',
+      accent: 'brotherhood',
+      blurb:
+        "The roster behind every project: exec board, officers, actives, and alumni. Filter by major or class to find the people you'd want to build with.",
+      href: '/brothers',
+      cta: 'Open the roster',
+    }}
+  />
+</PageLayout>
+
+<style>
+  /* ----------------------------------------------------------------------- */
+  /*   Hero, blueprint paper + corner stamp + drafting marks                  */
+  /* ----------------------------------------------------------------------- */
+  .projects-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface);
+    padding: clamp(4rem, 9vw, 8rem) 0 clamp(4rem, 7vw, 6rem);
+    color: var(--color-text);
+  }
+  :global(html.dark) .projects-hero {
+    background: #1a0505;
+    color: #ffffff;
+    border-bottom-color: rgba(212, 181, 106, 0.18);
+  }
+
+  /* Blueprint grid: finer + denser than the events hero, with thin major
+     gridlines every 4 cells like a real engineering paper. */
+  .projects-hero__grid {
+    position: absolute;
+    inset: 0;
+    /* Ruled as SVG tiles, not gradients: a colour is not a valid
+       background-image, so the previous rgba() value was dropped at parse
+       time and the grid never painted. */
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M23.5 0V24M0 23.5H24' fill='none' stroke='rgba(74,4,4,0.08)' stroke-width='1'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cpath d='M95.5 0V96M0 95.5H96' fill='none' stroke='rgba(74,4,4,0.16)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size:
+      24px 24px,
+      96px 96px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 40%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 40%, transparent 95%);
+    z-index: -1;
+  }
+  :global(html.dark) .projects-hero__grid {
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M23.5 0V24M0 23.5H24' fill='none' stroke='rgba(212,181,106,0.08)' stroke-width='1'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cpath d='M95.5 0V96M0 95.5H96' fill='none' stroke='rgba(212,181,106,0.16)' stroke-width='1'/%3E%3C/svg%3E");
+  }
+
+  /* Corner stamp, looks like an engineering drawing's title block. */
+  .projects-hero__stamp {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--color-gold-muted);
+    border-radius: 0.45rem;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: -1;
+    color: var(--color-maroon);
+  }
+  :global(html.dark) .projects-hero__stamp {
+    background: rgba(212, 181, 106, 0.06);
+    color: var(--color-accent-400);
+  }
+  .projects-hero__stamp-eyebrow {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .projects-hero__stamp-year {
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .projects-hero__stamp-rule {
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
+  }
+  .projects-hero__stamp-foot {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  @media (max-width: 640px) {
+    .projects-hero__stamp {
+      display: none;
+    }
+  }
+
+  /* Drafting marks SVG, three faint horizontal rules with A/B/C labels on
+     the far left, like reference axes on a schematic. */
+  .projects-hero__marks {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    color: rgba(74, 4, 4, 0.18);
+    pointer-events: none;
+  }
+  :global(html.dark) .projects-hero__marks {
+    color: rgba(212, 181, 106, 0.18);
+  }
+  .projects-hero__marks svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .projects-hero__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 var(--spacing-page, 1.25rem);
+    position: relative;
+    z-index: 1;
+  }
+  .projects-hero__eyebrow {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin: 0 0 1rem;
+  }
+  :global(html.dark) .projects-hero__eyebrow {
+    color: var(--color-accent-400);
+  }
+  .projects-hero__title {
+    font-size: clamp(2.6rem, 6vw, 4.75rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    color: inherit;
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+  }
+  .projects-hero__title-accent {
+    color: var(--color-accent-500);
+    /* Underline simulates an "annotation" on the schematic. */
+    text-decoration: underline wavy var(--color-gold-muted) 2px;
+    text-underline-offset: 8px;
+  }
+  .projects-hero__intro {
+    max-width: 38rem;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    margin: 0 0 1.75rem;
+  }
+  :global(html.dark) .projects-hero__intro {
+    color: rgba(247, 236, 217, 0.78);
+  }
+  .projects-hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .projects-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0 1.1rem;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition:
+      transform 0.18s ease,
+      background 0.18s ease,
+      border-color 0.18s ease;
+  }
+  .projects-hero__cta:hover {
+    transform: translateY(-1px);
+  }
+  .projects-hero__cta--primary {
+    background: var(--color-accent-500);
+    color: var(--color-brand-900);
+  }
+  .projects-hero__cta--primary:hover {
+    background: var(--color-accent-400);
+  }
+  .projects-hero__cta--secondary {
+    background: transparent;
+    color: inherit;
+    border: 1px solid var(--color-border);
+  }
+  :global(html.dark) .projects-hero__cta--secondary {
+    border-color: rgba(212, 181, 106, 0.4);
+  }
+  .projects-hero__cta--secondary:hover {
+    border-color: var(--color-gold-muted);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .projects-hero__cta,
+    .projects-hero__cta:hover {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* ----------------------------------------------------------------------- */
+  /*   Featured project (current year)                                          */
+  /* ----------------------------------------------------------------------- */
+  .featured-project {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  @media (min-width: 768px) {
+    .featured-project {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.5rem;
+    }
+  }
+  .featured-project.is-placeholder {
+    opacity: 0.86;
+  }
+  .featured-project__year {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin: 0 0 0.45rem;
+  }
+  :global(html.dark) .featured-project__year {
+    color: var(--color-accent-400);
+  }
+  .featured-project__title {
+    font-size: clamp(1.7rem, 3.3vw, 2.4rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+  }
+  :global(html.dark) .featured-project__title {
+    color: #ffffff;
+  }
+  .featured-project__tagline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+    margin: 0 0 0.85rem;
+  }
+  .featured-project__description {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--color-text);
+    margin: 0 0 1.25rem;
+  }
+  :global(html.dark) .featured-project__description {
+    color: rgba(247, 236, 217, 0.9);
+  }
+
+  .featured-project__tags {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .featured-project__tag {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    background: rgba(212, 181, 106, 0.16);
+    border: 1px solid var(--color-gold-muted);
+    color: var(--color-accent-600);
+  }
+  :global(html.dark) .featured-project__tag {
+    color: var(--color-accent-400);
+  }
+
+  .featured-project__outcomes {
+    margin-bottom: 1.25rem;
+  }
+  .featured-project__outcomes-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin: 0 0 0.45rem;
+  }
+  :global(html.dark) .featured-project__outcomes-label {
+    color: var(--color-accent-400);
+  }
+  .featured-project__outcomes-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .featured-project__outcomes-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+  .featured-project__outcomes-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    top: 0.05rem;
+    color: var(--color-accent-500);
+    font-size: 0.75rem;
+  }
+
+  .featured-project__link {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold-muted);
+    text-underline-offset: 3px;
+  }
+  .featured-project__link:hover {
+    color: var(--color-gold);
+  }
+  :global(html.dark) .featured-project__link {
+    color: #ffffff;
+  }
+
+  .featured-project__placeholder-tag {
+    margin-top: 0.85rem;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold-muted);
+  }
+  .featured-project__placeholder-tag code {
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+      monospace;
+    font-size: 0.95em;
+    background: var(--color-surface);
+    padding: 0.05rem 0.3rem;
+    border-radius: 4px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--color-text);
+  }
+
+  /* ----------------------------------------------------------------------- */
+  /*   Archive timeline                                                        */
+  /* ----------------------------------------------------------------------- */
+  .project-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .project-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 1rem;
+    width: 2px;
+    background: var(--color-gold);
+    opacity: 0.4;
+  }
+  @media (min-width: 768px) {
+    .project-timeline::before {
+      left: 5rem;
+    }
+  }
+  .project-timeline__item {
+    position: relative;
+    padding-left: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .project-timeline__item {
+      padding-left: 6.5rem;
+    }
+  }
+  .project-timeline__item.is-placeholder {
+    opacity: 0.78;
+  }
+  .project-timeline__item::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.4rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: var(--color-gold);
+    box-shadow: 0 0 0 4px var(--color-bg);
+  }
+  @media (min-width: 768px) {
+    .project-timeline__item::before {
+      left: 4.55rem;
+    }
+  }
+  :global(html.dark) .project-timeline__item::before {
+    box-shadow: 0 0 0 4px #1a0505;
+  }
+  .project-timeline__year {
+    position: absolute;
+    top: 0.05rem;
+    left: 2.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--color-accent-600);
+  }
+  @media (min-width: 768px) {
+    .project-timeline__year {
+      left: 0;
+      width: 4rem;
+      text-align: right;
+    }
+  }
+  :global(html.dark) .project-timeline__year {
+    color: var(--color-accent-400);
+  }
+  .project-timeline__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .project-timeline__card {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      margin-top: 0;
+    }
+  }
+  :global(html.dark) .project-timeline__card {
+    background: rgba(74, 4, 4, 0.3);
+  }
+  .project-timeline__photo {
+    border-radius: 0.85rem;
+    overflow: hidden;
+  }
+  .project-timeline__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .project-timeline__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--color-text);
+    margin: 0;
+  }
+  :global(html.dark) .project-timeline__title {
+    color: #ffffff;
+  }
+  .project-timeline__tagline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  .project-timeline__description {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* Empty state ---------------------------------------------------------- */
+  .projects-empty {
+    padding: 1.5rem;
+    border: 1px dashed var(--color-border);
+    border-radius: 0.85rem;
+    background: var(--color-surface);
+  }
+  :global(html.dark) .projects-empty {
+    background: rgba(212, 181, 106, 0.06);
+    border-color: rgba(212, 181, 106, 0.2);
+  }
+  .projects-empty__title {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  :global(html.dark) .projects-empty__title {
+    color: #ffffff;
+  }
+  .projects-empty__body {
+    margin: 0 0 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--color-text);
+  }
+  :global(html.dark) .projects-empty__body {
+    color: rgba(247, 236, 217, 0.9);
+  }
+  .projects-empty__link {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-weight: 700;
+    color: var(--color-accent-600);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold-muted);
+    text-underline-offset: 3px;
+  }
+  .projects-empty__link:hover {
+    color: var(--color-gold);
+  }
+  :global(html.dark) .projects-empty__link {
+    color: var(--color-accent-400);
+  }
+  :global(html.dark) .projects-empty__link:hover {
+    color: #d4b56a;
+  }
+  .projects-empty__hint {
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+    opacity: 0.75;
+  }
+  .projects-empty__hint span {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent-600);
+    margin-right: 0.35rem;
+  }
+  :global(html.dark) .projects-empty__hint span {
+    color: var(--color-accent-400);
+  }
+  .projects-empty__body code {
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+      monospace;
+    font-size: 0.85em;
+    padding: 0.05rem 0.3rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+  }
+</style>
